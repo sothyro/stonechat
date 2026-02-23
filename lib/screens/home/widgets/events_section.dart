@@ -10,8 +10,6 @@ import '../../../utils/breakpoints.dart';
 
 /// Green bullet for "Coming Up Next".
 const Color _bulletGreen = Color(0xFF2E7D32);
-/// Red "Limited seats" tag.
-const Color _limitedSeatsRed = Color(0xFFC62828);
 
 class EventsSection extends StatelessWidget {
   const EventsSection({super.key});
@@ -252,7 +250,7 @@ class EventsSection extends StatelessWidget {
 }
 
 /// Large featured event card for "Coming Up Next".
-class _FeaturedEventCard extends StatelessWidget {
+class _FeaturedEventCard extends StatefulWidget {
   const _FeaturedEventCard({
     required this.title,
     required this.date,
@@ -270,161 +268,223 @@ class _FeaturedEventCard extends StatelessWidget {
   final VoidCallback onViewEvent;
 
   @override
+  State<_FeaturedEventCard> createState() => _FeaturedEventCardState();
+}
+
+class _FeaturedEventCardState extends State<_FeaturedEventCard> {
+  bool _hovered = false;
+
+  @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final borderColor = _hovered
+        ? AppColors.borderLight.withValues(alpha: 0.6)
+        : AppColors.borderDark;
+    final shadow = _hovered ? AppShadows.eventCardHover : AppShadows.eventCard;
 
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: onViewEvent,
-        borderRadius: BorderRadius.circular(12),
-        child: Container(
-          decoration: BoxDecoration(
-            color: AppColors.surfaceElevatedDark,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: AppColors.borderDark, width: 1),
-            boxShadow: AppShadows.card,
-          ),
-          clipBehavior: Clip.antiAlias,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              AspectRatio(
-                aspectRatio: 16 / 9,
-                child: Stack(
-                  fit: StackFit.expand,
-                  children: [
-                    RepaintBoundary(
-                      child: Image.asset(
-                        AppContent.assetEventCard,
-                        fit: BoxFit.cover,
-                        cacheWidth: 800,
-                        cacheHeight: 450,
-                        errorBuilder: (_, __, ___) => Container(
-                          color: AppColors.primary.withValues(alpha: 0.2),
+    return MouseRegion(
+      onEnter: (_) => setState(() => _hovered = true),
+      onExit: (_) => setState(() => _hovered = false),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: widget.onViewEvent,
+          borderRadius: BorderRadius.circular(16),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.easeOut,
+            decoration: BoxDecoration(
+              color: AppColors.surfaceElevatedDark,
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: borderColor, width: _hovered ? 1.5 : 1),
+              boxShadow: shadow,
+            ),
+            clipBehavior: Clip.antiAlias,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                AspectRatio(
+                  aspectRatio: 16 / 9,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      RepaintBoundary(
+                        child: Image.asset(
+                          AppContent.assetEventMain,
+                          fit: BoxFit.cover,
+                          alignment: Alignment.center,
+                          cacheWidth: 800,
+                          cacheHeight: 450,
+                          errorBuilder: (_, __, ___) => Container(
+                            color: AppColors.primary.withValues(alpha: 0.2),
+                          ),
                         ),
                       ),
-                    ),
-                    if (limitedSeats)
-                      Positioned(
-                        top: 12,
-                        right: 12,
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 5,
+                      DecoratedBox(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Colors.transparent,
+                              Colors.black.withValues(alpha: 0.15),
+                              Colors.black.withValues(alpha: 0.4),
+                            ],
                           ),
-                          decoration: BoxDecoration(
-                            color: _limitedSeatsRed,
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          child: Text(
-                            l10n.limitedSeats,
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
+                        ),
+                        child: const SizedBox.expand(),
+                      ),
+                      if (widget.limitedSeats)
+                        Positioned(
+                          top: 12,
+                          right: 12,
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 6,
+                            ),
+                            decoration: BoxDecoration(
+                              color: AppColors.accent.withValues(alpha: 0.95),
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: AppColors.accentGlow.withValues(alpha: 0.35),
+                                  blurRadius: 8,
+                                  offset: const Offset(0, 2),
+                                ),
+                              ],
+                            ),
+                            child: Text(
+                              l10n.limitedSeats,
+                              style: const TextStyle(
+                                color: AppColors.onAccent,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.onPrimary,
-                        height: 1.25,
-                      ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    const SizedBox(height: 12),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.calendar_today_outlined,
-                          size: 16,
-                          color: AppColors.onPrimary.withValues(alpha: 0.7),
-                        ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: Text(
-                            date,
-                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              color: AppColors.onPrimary.withValues(alpha: 0.85),
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 6),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.location_on_outlined,
-                          size: 16,
-                          color: AppColors.onPrimary.withValues(alpha: 0.7),
-                        ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: Text(
-                            location,
-                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              color: AppColors.onPrimary.withValues(alpha: 0.85),
-                              fontSize: 14,
-                            ),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 12),
-                    Text(
-                      description,
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: AppColors.onPrimary.withValues(alpha: 0.9),
-                        height: 1.4,
-                        fontSize: 14,
-                      ),
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    const SizedBox(height: 16),
-                    Row(
-                      children: [
-                        Text(
-                          l10n.viewEvent,
-                          style: const TextStyle(
-                            color: AppColors.onPrimary,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14,
-                          ),
-                        ),
-                        const SizedBox(width: 4),
-                        const Icon(
-                          Icons.arrow_forward,
-                          size: 16,
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        widget.title,
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.w600,
                           color: AppColors.onPrimary,
+                          height: 1.25,
                         ),
-                      ],
-                    ),
-                  ],
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      const SizedBox(height: 12),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(
+                            Icons.calendar_today_outlined,
+                            size: 16,
+                            color: AppColors.onPrimary.withValues(alpha: 0.7),
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Text(
+                              widget.date,
+                              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                color: AppColors.onPrimary.withValues(alpha: 0.85),
+                                fontSize: 14,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 6),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(
+                            Icons.location_on_outlined,
+                            size: 16,
+                            color: AppColors.onPrimary.withValues(alpha: 0.7),
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Text(
+                              widget.location,
+                              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                color: AppColors.onPrimary.withValues(alpha: 0.85),
+                                fontSize: 14,
+                              ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 12),
+                      Text(
+                        widget.description,
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: AppColors.onPrimary.withValues(alpha: 0.9),
+                          height: 1.4,
+                          fontSize: 14,
+                        ),
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      const SizedBox(height: 20),
+                      Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: widget.onViewEvent,
+                          borderRadius: BorderRadius.circular(24),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20,
+                              vertical: 12,
+                            ),
+                            decoration: BoxDecoration(
+                              color: AppColors.accent,
+                              borderRadius: BorderRadius.circular(24),
+                              boxShadow: AppShadows.accentButton,
+                              border: Border.all(
+                                color: AppColors.accentLight.withValues(alpha: 0.4),
+                                width: 1,
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  l10n.viewEvent,
+                                  style: const TextStyle(
+                                    color: AppColors.onAccent,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                                const SizedBox(width: 8),
+                                const Icon(
+                                  Icons.arrow_forward_rounded,
+                                  size: 18,
+                                  color: AppColors.onAccent,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -433,7 +493,7 @@ class _FeaturedEventCard extends StatelessWidget {
 }
 
 /// Compact event card for "All Upcoming Events" list.
-class _CompactEventCard extends StatelessWidget {
+class _CompactEventCard extends StatefulWidget {
   const _CompactEventCard({
     required this.title,
     required this.date,
@@ -451,318 +511,311 @@ class _CompactEventCard extends StatelessWidget {
   final VoidCallback onViewEvent;
 
   @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
-    final isMobile = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
+  State<_CompactEventCard> createState() => _CompactEventCardState();
+}
 
+class _CompactEventCardState extends State<_CompactEventCard> {
+  bool _hovered = false;
+
+  Widget _buildViewEventChip(BuildContext context, AppLocalizations l10n) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: onViewEvent,
-        borderRadius: BorderRadius.circular(10),
+        onTap: widget.onViewEvent,
+        borderRadius: BorderRadius.circular(20),
         child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
           decoration: BoxDecoration(
-            color: AppColors.surfaceElevatedDark,
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: AppColors.borderDark, width: 1),
-            boxShadow: AppShadows.card,
+            color: AppColors.accent,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: AppShadows.accentButton,
+            border: Border.all(
+              color: AppColors.accentLight.withValues(alpha: 0.35),
+              width: 1,
+            ),
           ),
-          clipBehavior: Clip.antiAlias,
-          child: isMobile
-              ? Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    ClipRRect(
-                      borderRadius: const BorderRadius.vertical(top: Radius.circular(10)),
-                      child: AspectRatio(
-                        aspectRatio: 16 / 9,
-                        child: Stack(
-                          fit: StackFit.expand,
-                          children: [
-                            RepaintBoundary(
-                              child: Image.asset(
-                                AppContent.assetEventCard,
-                                fit: BoxFit.cover,
-                                cacheWidth: 640,
-                                cacheHeight: 360,
-                                errorBuilder: (_, __, ___) => Container(
-                                  color: AppColors.primary.withValues(alpha: 0.2),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                l10n.viewEvent,
+                style: const TextStyle(
+                  color: AppColors.onAccent,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 12,
+                ),
+              ),
+              const SizedBox(width: 6),
+              const Icon(Icons.arrow_forward_rounded, size: 14, color: AppColors.onAccent),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildLimitedSeatsChip(AppLocalizations l10n) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: AppColors.accent.withValues(alpha: 0.95),
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.accentGlow.withValues(alpha: 0.3),
+            blurRadius: 6,
+            offset: const Offset(0, 1),
+          ),
+        ],
+      ),
+      child: Text(
+        l10n.limitedSeats,
+        style: const TextStyle(
+          color: AppColors.onAccent,
+          fontSize: 10,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final isMobile = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
+    final borderColor = _hovered
+        ? AppColors.borderLight.withValues(alpha: 0.5)
+        : AppColors.borderDark;
+    final shadow = _hovered ? AppShadows.eventCardHover : AppShadows.eventCard;
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _hovered = true),
+      onExit: (_) => setState(() => _hovered = false),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: widget.onViewEvent,
+          borderRadius: BorderRadius.circular(14),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.easeOut,
+            decoration: BoxDecoration(
+              color: AppColors.surfaceElevatedDark,
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(color: borderColor, width: _hovered ? 1.5 : 1),
+              boxShadow: shadow,
+            ),
+            clipBehavior: Clip.antiAlias,
+            child: isMobile
+                ? Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ClipRRect(
+                        borderRadius: const BorderRadius.vertical(top: Radius.circular(14)),
+                        child: AspectRatio(
+                          aspectRatio: 16 / 9,
+                          child: Stack(
+                            fit: StackFit.expand,
+                            children: [
+                              RepaintBoundary(
+                                child: Image.asset(
+                                  AppContent.assetEventCard,
+                                  fit: BoxFit.cover,
+                                  alignment: Alignment.center,
+                                  cacheWidth: 640,
+                                  cacheHeight: 360,
+                                  errorBuilder: (_, __, ___) => Container(
+                                    color: AppColors.primary.withValues(alpha: 0.2),
+                                  ),
                                 ),
                               ),
+                              if (widget.limitedSeats)
+                                Positioned(top: 8, right: 8, child: _buildLimitedSeatsChip(l10n)),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(14),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              widget.title,
+                              style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                                fontWeight: FontWeight.w600,
+                                color: AppColors.onPrimary,
+                                height: 1.25,
+                              ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                            if (limitedSeats)
-                              Positioned(
-                                top: 6,
-                                right: 6,
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 6,
-                                    vertical: 3,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: _limitedSeatsRed,
-                                    borderRadius: BorderRadius.circular(4),
-                                  ),
+                            const SizedBox(height: 6),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Icon(Icons.calendar_today_outlined, size: 12,
+                                    color: AppColors.onPrimary.withValues(alpha: 0.7)),
+                                const SizedBox(width: 4),
+                                Expanded(
                                   child: Text(
-                                    l10n.limitedSeats,
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w600,
+                                    widget.date,
+                                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                      color: AppColors.onPrimary.withValues(alpha: 0.85),
+                                      fontSize: 12,
                                     ),
                                   ),
                                 ),
+                              ],
+                            ),
+                            const SizedBox(height: 2),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Icon(Icons.location_on_outlined, size: 12,
+                                    color: AppColors.onPrimary.withValues(alpha: 0.7)),
+                                const SizedBox(width: 4),
+                                Expanded(
+                                  child: Text(
+                                    widget.location,
+                                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                      color: AppColors.onPrimary.withValues(alpha: 0.85),
+                                      fontSize: 12,
+                                    ),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 6),
+                            Text(
+                              widget.description,
+                              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                color: AppColors.onPrimary.withValues(alpha: 0.9),
+                                height: 1.3,
+                                fontSize: 12,
                               ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            const SizedBox(height: 12),
+                            _buildViewEventChip(context, l10n),
                           ],
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(14),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            title,
-                            style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.onPrimary,
-                              height: 1.25,
-                            ),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          const SizedBox(height: 6),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.calendar_today_outlined,
-                                size: 12,
-                                color: AppColors.onPrimary.withValues(alpha: 0.7),
-                              ),
-                              const SizedBox(width: 4),
-                              Expanded(
-                                child: Text(
-                                  date,
-                                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                    color: AppColors.onPrimary.withValues(alpha: 0.85),
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 2),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.location_on_outlined,
-                                size: 12,
-                                color: AppColors.onPrimary.withValues(alpha: 0.7),
-                              ),
-                              const SizedBox(width: 4),
-                              Expanded(
-                                child: Text(
-                                  location,
-                                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                    color: AppColors.onPrimary.withValues(alpha: 0.85),
-                                    fontSize: 12,
-                                  ),
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 6),
-                          Text(
-                            description,
-                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: AppColors.onPrimary.withValues(alpha: 0.9),
-                              height: 1.3,
-                              fontSize: 12,
-                            ),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          const SizedBox(height: 8),
-                          Row(
-                            children: [
-                              Text(
-                                l10n.viewEvent,
-                                style: const TextStyle(
-                                  color: AppColors.onPrimary,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 13,
-                                ),
-                              ),
-                              const SizedBox(width: 4),
-                              const Icon(
-                                Icons.arrow_forward,
-                                size: 14,
-                                color: AppColors.onPrimary,
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                )
-              : Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ClipRRect(
-                borderRadius: const BorderRadius.horizontal(
-                  left: Radius.circular(10),
-                ),
-                child: SizedBox(
-                  height: 120,
-                    child: AspectRatio(
-                    aspectRatio: 16 / 9,
-                    child: Stack(
-                      fit: StackFit.expand,
-                      children: [
-                        RepaintBoundary(
-                          child: Image.asset(
-                            AppContent.assetEventCard,
-                            fit: BoxFit.cover,
-                            cacheWidth: 640,
-                            cacheHeight: 360,
-                            errorBuilder: (_, __, ___) => Container(
-                              color: AppColors.primary.withValues(alpha: 0.2),
-                            ),
-                          ),
-                        ),
-                      if (limitedSeats)
-                        Positioned(
-                          top: 6,
-                          right: 6,
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 6,
-                              vertical: 3,
-                            ),
-                            decoration: BoxDecoration(
-                              color: _limitedSeatsRed,
-                              borderRadius: BorderRadius.circular(4),
-                            ),
-                            child: Text(
-                              l10n.limitedSeats,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 10,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ),
-                        ),
                     ],
-                  ),
-                ),
-              ),
-            ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(14),
-                  child: Column(
+                  )
+                : Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        title,
-                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                          fontWeight: FontWeight.w600,
-                          color: AppColors.onPrimary,
-                          height: 1.25,
+                      ClipRRect(
+                        borderRadius: const BorderRadius.horizontal(left: Radius.circular(14)),
+                        child: SizedBox(
+                          width: 213,
+                          height: 120,
+                          child: Stack(
+                            fit: StackFit.expand,
+                            children: [
+                              RepaintBoundary(
+                                child: Image.asset(
+                                  AppContent.assetEventCard,
+                                  fit: BoxFit.cover,
+                                  alignment: Alignment.center,
+                                  cacheWidth: 640,
+                                  cacheHeight: 360,
+                                  errorBuilder: (_, __, ___) => Container(
+                                    color: AppColors.primary.withValues(alpha: 0.2),
+                                  ),
+                                ),
+                              ),
+                              if (widget.limitedSeats)
+                                Positioned(top: 6, right: 6, child: _buildLimitedSeatsChip(l10n)),
+                            ],
+                          ),
                         ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
                       ),
-                      const SizedBox(height: 6),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(
-                            Icons.calendar_today_outlined,
-                            size: 12,
-                            color: AppColors.onPrimary.withValues(alpha: 0.7),
-                          ),
-                          const SizedBox(width: 4),
-                          Expanded(
-                            child: Text(
-                              date,
-                              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                color: AppColors.onPrimary.withValues(alpha: 0.85),
-                                fontSize: 12,
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.all(14),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    widget.title,
+                                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColors.onPrimary,
+                                      height: 1.25,
+                                    ),
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  const SizedBox(height: 6),
+                                  Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Icon(Icons.calendar_today_outlined, size: 12,
+                                          color: AppColors.onPrimary.withValues(alpha: 0.7)),
+                                      const SizedBox(width: 4),
+                                      Expanded(
+                                        child: Text(
+                                          widget.date,
+                                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                            color: AppColors.onPrimary.withValues(alpha: 0.85),
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 2),
+                                  Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Icon(Icons.location_on_outlined, size: 12,
+                                          color: AppColors.onPrimary.withValues(alpha: 0.7)),
+                                      const SizedBox(width: 4),
+                                      Expanded(
+                                        child: Text(
+                                          widget.location,
+                                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                            color: AppColors.onPrimary.withValues(alpha: 0.85),
+                                            fontSize: 12,
+                                          ),
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 6),
+                                  Text(
+                                    widget.description,
+                                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                      color: AppColors.onPrimary.withValues(alpha: 0.9),
+                                      height: 1.3,
+                                      fontSize: 12,
+                                    ),
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ],
                               ),
-                            ),
+                              const SizedBox(height: 10),
+                              _buildViewEventChip(context, l10n),
+                            ],
                           ),
-                        ],
-                      ),
-                      const SizedBox(height: 2),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(
-                            Icons.location_on_outlined,
-                            size: 12,
-                            color: AppColors.onPrimary.withValues(alpha: 0.7),
-                          ),
-                          const SizedBox(width: 4),
-                          Expanded(
-                            child: Text(
-                              location,
-                              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                color: AppColors.onPrimary.withValues(alpha: 0.85),
-                                fontSize: 12,
-                              ),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 6),
-                      Text(
-                        description,
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: AppColors.onPrimary.withValues(alpha: 0.9),
-                          height: 1.3,
-                          fontSize: 12,
                         ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: [
-                          Flexible(
-                            child: Text(
-                              l10n.viewEvent,
-                              style: const TextStyle(
-                                color: AppColors.onPrimary,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 13,
-                              ),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                          const SizedBox(width: 4),
-                          const Icon(
-                            Icons.arrow_forward,
-                            size: 14,
-                            color: AppColors.onPrimary,
-                          ),
-                        ],
                       ),
                     ],
                   ),
-                ),
-              ),
-            ],
           ),
         ),
       ),

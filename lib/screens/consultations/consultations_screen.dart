@@ -1668,6 +1668,7 @@ class _SmartMoveCard extends StatelessWidget {
               child: Image.asset(
                 AppContent.assetConsultation,
                 fit: BoxFit.cover,
+                alignment: Alignment.center,
                 errorBuilder: (_, __, ___) => Container(
                   color: AppColors.borderDark,
                   child: Icon(icon, size: 40, color: AppColors.accent),

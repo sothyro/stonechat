@@ -155,6 +155,9 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
   static const Duration _pageDisplayDuration = Duration(seconds: 6);
   static const Duration _pageTransitionDuration = Duration(milliseconds: 500);
 
+  /// Shuffled copy of [_placeholders] so order is random on each load (desktop and mobile).
+  late final List<TestimonialItem> _shuffledItems;
+
   final PageController _pageController = PageController();
   int _currentPage = 0;
   int? _pageReadyForFlip;
@@ -163,6 +166,7 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
   @override
   void initState() {
     super.initState();
+    _shuffledItems = List<TestimonialItem>.from(_placeholders)..shuffle(math.Random());
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       final w = MediaQuery.sizeOf(context).width;
@@ -188,7 +192,7 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
   void _startAutoLoop(int cardsPerPage) {
     Future<void>.delayed(_pageDisplayDuration, () {
       if (!mounted) return;
-      final totalPages = (_placeholders.length / cardsPerPage).ceil();
+      final totalPages = (_shuffledItems.length / cardsPerPage).ceil();
       if (totalPages == 0) return;
       final nextPage = (_currentPage + 1) % totalPages;
       _flipScheduleId++;
@@ -210,7 +214,7 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
   }
 
   void _goToPage(int page, int cardsPerPage) {
-    final totalPages = (_placeholders.length / cardsPerPage).ceil();
+    final totalPages = (_shuffledItems.length / cardsPerPage).ceil();
     if (totalPages == 0) return;
     final target = ((page % totalPages) + totalPages) % totalPages;
     if (target == _currentPage) return;
@@ -376,10 +380,10 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
                     setState(() => _currentPage = p);
                     _scheduleFadeAfterTransition(p);
                   },
-                  itemCount: (_placeholders.length / cardsPerPage).ceil(),
+                  itemCount: (_shuffledItems.length / cardsPerPage).ceil(),
                   itemBuilder: (context, pageIndex) {
                     final start = pageIndex * cardsPerPage;
-                    final end = math.min(start + cardsPerPage, _placeholders.length);
+                    final end = math.min(start + cardsPerPage, _shuffledItems.length);
                     final isVisible = _pageReadyForFlip != null && pageIndex == _pageReadyForFlip;
                     return Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -398,12 +402,12 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
                                     delay: Duration(milliseconds: 50 * (i - start)),
                                     duration: _fadeDuration,
                                     child: _TestimonialCard(
-                                      quote: _placeholders[i].quote,
-                                      name: _placeholders[i].name,
-                                      location: _placeholders[i].location,
+                                      quote: _shuffledItems[i].quote,
+                                      name: _shuffledItems[i].name,
+                                      location: _shuffledItems[i].location,
                                       imageIndex: i,
-                                      imagePath: _placeholders[i].imagePath,
-                                      isBlank: _placeholders[i].isBlank,
+                                      imagePath: _shuffledItems[i].imagePath,
+                                      isBlank: _shuffledItems[i].isBlank,
                                     ),
                                   ),
                                 ),

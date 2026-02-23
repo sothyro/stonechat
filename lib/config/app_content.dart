@@ -59,7 +59,7 @@ class AppContent {
   /// Apps page: Master Elf System section video.
   static const String assetAppPageVideo = 'assets/videos/appads.mp4';
   static const String assetEventCard = 'assets/images/event.jpg';
-  static const String assetEventMain = 'assets/images/main event.jpg';
+  static const String assetEventMain = 'assets/images/event2026.jpg';
   static const String assetAboutHero = 'assets/images/sessions.jpg';
   /// Contact page hero background.
   static const String assetContactHero = 'assets/images/herobackground.jpg';

@@ -93,6 +93,7 @@ class _AcademyCardState extends State<AcademyCard> {
                     child: Image.asset(
                       imageAsset,
                       fit: BoxFit.cover,
+                      alignment: Alignment.center,
                       errorBuilder: (_, __, ___) => Container(
                         color: AppColors.accent.withValues(alpha: 0.15),
                         child: Icon(fallbackIcon, size: 56, color: AppColors.accent),

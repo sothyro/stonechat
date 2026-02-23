@@ -91,9 +91,13 @@ class _EventsScreenState extends State<EventsScreen> {
                       )
                     else if (isNarrow)
                       Column(
-                        children: filtered.map((e) => Padding(
+                        children: filtered.asMap().entries.map((entry) => Padding(
                           padding: const EdgeInsets.only(bottom: 20),
-                          child: _EventCard(event: e, onRegister: () => _openRegistration(e)),
+                          child: _EventCard(
+                            event: entry.value,
+                            onRegister: () => _openRegistration(entry.value),
+                            useMainImage: entry.key == 0,
+                          ),
                         )).toList(),
                       )
                     else
@@ -103,20 +107,32 @@ class _EventsScreenState extends State<EventsScreen> {
                           final list = filtered;
                           if (crossCount == 1) {
                             return Column(
-                              children: list.map((e) => Padding(
+                              children: list.asMap().entries.map((entry) => Padding(
                                 padding: const EdgeInsets.only(bottom: 20),
-                                child: _EventCard(event: e, onRegister: () => _openRegistration(e)),
+                                child: _EventCard(
+                                  event: entry.value,
+                                  onRegister: () => _openRegistration(entry.value),
+                                  useMainImage: entry.key == 0,
+                                ),
                               )).toList(),
                             );
                           }
                           final rows = <Widget>[];
                           for (var i = 0; i < list.length; i += 2) {
                             final rowChildren = <Widget>[
-                              Expanded(child: _EventCard(event: list[i], onRegister: () => _openRegistration(list[i]))),
+                              Expanded(child: _EventCard(
+                                event: list[i],
+                                onRegister: () => _openRegistration(list[i]),
+                                useMainImage: i == 0,
+                              )),
                             ];
                             if (i + 1 < list.length) {
                               rowChildren.add(const SizedBox(width: 20));
-                              rowChildren.add(Expanded(child: _EventCard(event: list[i + 1], onRegister: () => _openRegistration(list[i + 1]))));
+                              rowChildren.add(Expanded(child: _EventCard(
+                                event: list[i + 1],
+                                onRegister: () => _openRegistration(list[i + 1]),
+                                useMainImage: i + 1 == 0,
+                              )));
                             } else {
                               rowChildren.add(const SizedBox(width: 20));
                               rowChildren.add(const Expanded(child: SizedBox()));
@@ -320,10 +336,16 @@ class _EventsHeroState extends State<_EventsHero> {
 }
 
 class _EventCard extends StatefulWidget {
-  const _EventCard({required this.event, required this.onRegister});
+  const _EventCard({
+    required this.event,
+    required this.onRegister,
+    this.useMainImage = false,
+  });
 
   final EventItem event;
   final VoidCallback onRegister;
+  /// When true, uses [AppContent.assetEventMain] (event2026.jpg) for the card image.
+  final bool useMainImage;
 
   @override
   State<_EventCard> createState() => _EventCardState();
@@ -335,37 +357,73 @@ class _EventCardState extends State<_EventCard> {
   @override
   Widget build(BuildContext context) {
     final e = widget.event;
-    final shadow = _hovered ? AppShadows.cardHover : AppShadows.card;
-    final borderColor = _hovered ? AppColors.borderLight.withValues(alpha: 0.5) : AppColors.borderDark;
+    final l10n = AppLocalizations.of(context)!;
+    final shadow = _hovered ? AppShadows.eventCardHover : AppShadows.eventCard;
+    final borderColor = _hovered
+        ? AppColors.borderLight.withValues(alpha: 0.6)
+        : AppColors.borderDark;
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
       onExit: (_) => setState(() => _hovered = false),
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 150),
+        duration: const Duration(milliseconds: 200),
         curve: Curves.easeOut,
         decoration: BoxDecoration(
           color: AppColors.surfaceElevatedDark,
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: borderColor, width: 1),
+          border: Border.all(color: borderColor, width: _hovered ? 1.5 : 1),
           boxShadow: shadow,
         ),
+        clipBehavior: Clip.antiAlias,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ClipRRect(
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
-              child: AspectRatio(
-                aspectRatio: 16 / 9,
-                child: Image.asset(
-                  AppContent.assetEventCard,
-                  fit: BoxFit.cover,
-                  errorBuilder: (_, __, ___) => Container(
-                    color: AppColors.accent.withValues(alpha: 0.15),
-                    child: Icon(LucideIcons.calendarDays, size: 48, color: AppColors.accent),
+            Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
+                  child: AspectRatio(
+                    aspectRatio: 16 / 9,
+                    child: Image.asset(
+                      widget.useMainImage ? AppContent.assetEventMain : AppContent.assetEventCard,
+                      fit: BoxFit.cover,
+                      alignment: Alignment.center,
+                      errorBuilder: (_, __, ___) => Container(
+                        color: AppColors.accent.withValues(alpha: 0.15),
+                        child: Icon(LucideIcons.calendarDays, size: 48, color: AppColors.accent),
+                      ),
+                    ),
                   ),
                 ),
-              ),
+                if (e.limitedSeats)
+                  Positioned(
+                    top: 12,
+                    right: 12,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                      decoration: BoxDecoration(
+                        color: AppColors.accent.withValues(alpha: 0.95),
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.accentGlow.withValues(alpha: 0.35),
+                            blurRadius: 8,
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: Text(
+                        l10n.limitedSeats,
+                        style: const TextStyle(
+                          color: AppColors.onAccent,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.all(24),
@@ -373,110 +431,95 @@ class _EventCardState extends State<_EventCard> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(
-                    height: 32,
-                    child: e.limitedSeats
-                        ? Align(
-                            alignment: Alignment.centerLeft,
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                              decoration: BoxDecoration(
-                                color: AppColors.accent.withValues(alpha: 0.2),
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(color: AppColors.accent.withValues(alpha: 0.5)),
-                              ),
-                              child: Text(
-                                'Limited seats',
-                                style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                                      color: AppColors.accent,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                              ),
-                            ),
-                          )
-                        : const SizedBox.shrink(),
-                  ),
-                  const SizedBox(height: 12),
-                  SizedBox(
-                    height: 48,
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        e.title,
-                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                              color: AppColors.onPrimary,
-                              fontWeight: FontWeight.w600,
-                            ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  SizedBox(
-                    height: 24,
-                    child: Row(
-                      children: [
-                        Icon(LucideIcons.calendar, size: 18, color: AppColors.onSurfaceVariantDark),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: Text(
-                            e.date,
-                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.onSurfaceVariantDark),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
+                  Text(
+                    e.title,
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          color: AppColors.onPrimary,
+                          fontWeight: FontWeight.w600,
+                          height: 1.25,
                         ),
-                      ],
-                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 14),
+                  Row(
+                    children: [
+                      Icon(LucideIcons.calendar, size: 18, color: AppColors.onSurfaceVariantDark),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          e.date,
+                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                color: AppColors.onSurfaceVariantDark,
+                              ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 8),
-                  SizedBox(
-                    height: 40,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Icon(LucideIcons.mapPin, size: 18, color: AppColors.onSurfaceVariantDark),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: Text(
-                            e.location,
-                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                  color: AppColors.onSurfaceVariantDark,
-                                  height: 1.35,
-                                ),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Icon(LucideIcons.mapPin, size: 18, color: AppColors.onSurfaceVariantDark),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          e.location,
+                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                color: AppColors.onSurfaceVariantDark,
+                                height: 1.35,
+                              ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 12),
-                  SizedBox(
-                    height: 63,
-                    child: Text(
-                      e.description.isNotEmpty ? e.description : ' ',
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: AppColors.onSurfaceVariantDark,
-                            height: 1.5,
-                          ),
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                  Text(
+                    e.description.isNotEmpty ? e.description : ' ',
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: AppColors.onSurfaceVariantDark,
+                          height: 1.5,
+                        ),
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 24),
-                  SizedBox(
-                    height: 48,
-                    width: double.infinity,
-                    child: FilledButton.icon(
-                      onPressed: widget.onRegister,
-                      icon: const Icon(LucideIcons.userPlus, size: 20),
-                      label: Text(AppLocalizations.of(context)!.registerForEvent),
-                      style: FilledButton.styleFrom(
-                        backgroundColor: AppColors.accent,
-                        foregroundColor: AppColors.onAccent,
-                        padding: const EdgeInsets.symmetric(vertical: 14),
+                  Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: widget.onRegister,
+                      borderRadius: BorderRadius.circular(24),
+                      child: Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
+                        decoration: BoxDecoration(
+                          color: AppColors.accent,
+                          borderRadius: BorderRadius.circular(24),
+                          boxShadow: AppShadows.accentButton,
+                          border: Border.all(
+                            color: AppColors.accentLight.withValues(alpha: 0.4),
+                            width: 1,
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(LucideIcons.userPlus, size: 20, color: AppColors.onAccent),
+                            const SizedBox(width: 10),
+                            Text(
+                              l10n.registerForEvent,
+                              style: const TextStyle(
+                                color: AppColors.onAccent,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

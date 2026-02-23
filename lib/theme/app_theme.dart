@@ -114,6 +114,35 @@ class AppShadows {
     ),
   ];
 
+  /// Event cards: depth + theme-colour highlight for emphasis.
+  static final List<BoxShadow> eventCard = [
+    BoxShadow(
+      color: Colors.black.withValues(alpha: 0.28),
+      blurRadius: 14,
+      offset: const Offset(0, 5),
+    ),
+    BoxShadow(
+      color: AppColors.accentGlow.withValues(alpha: 0.08),
+      blurRadius: 20,
+      spreadRadius: 0,
+      offset: const Offset(0, 2),
+    ),
+  ];
+
+  static final List<BoxShadow> eventCardHover = [
+    BoxShadow(
+      color: Colors.black.withValues(alpha: 0.35),
+      blurRadius: 22,
+      offset: const Offset(0, 8),
+    ),
+    BoxShadow(
+      color: AppColors.accentGlow.withValues(alpha: 0.22),
+      blurRadius: 24,
+      spreadRadius: -2,
+      offset: const Offset(0, 4),
+    ),
+  ];
+
   /// Logo: depth + subtle gold glow so it blends with the header/menu.
   static final List<BoxShadow> logo = [
     BoxShadow(
