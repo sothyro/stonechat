@@ -20,6 +20,7 @@ class _HeroSectionState extends State<HeroSection> {
   VideoPlayerController? _controller;
   bool _videoReady = false;
   bool _videoError = false;
+  void Function()? _loopListener;
 
   @override
   void initState() {
@@ -45,8 +46,22 @@ class _HeroSectionState extends State<HeroSection> {
       }
       c.setLooping(true);
       c.setVolume(0);
+      // Fallback loop: when position reaches end, seek to start and play (reliable on web where setLooping can fail).
+      void listener() {
+        final duration = c.value.duration;
+        if (!c.value.isPlaying || duration.inMilliseconds <= 0) return;
+        final pos = c.value.position.inMilliseconds;
+        final end = duration.inMilliseconds - 200;
+        if (pos >= end) {
+          c.seekTo(Duration.zero);
+          c.play();
+        }
+      }
+      _loopListener = listener;
+      c.addListener(_loopListener!);
       await c.play();
       if (!mounted) {
+        c.removeListener(_loopListener!);
         c.dispose();
         return;
       }
@@ -61,8 +76,81 @@ class _HeroSectionState extends State<HeroSection> {
 
   @override
   void dispose() {
+    final c = _controller;
+    if (c != null && _loopListener != null) {
+      c.removeListener(_loopListener!);
+    }
     _controller?.dispose();
     super.dispose();
+  }
+
+  List<Widget> _heroHeadlinesAndSubline(
+    BuildContext context,
+    AppLocalizations l10n,
+    TextAlign textAlign,
+    double width,
+  ) {
+    return [
+      Semantics(
+        header: true,
+        child: RichText(
+          textAlign: textAlign,
+          text: TextSpan(
+            style: (Theme.of(context).textTheme.headlineLarge ?? const TextStyle()).copyWith(
+              color: AppColors.onPrimary,
+              fontWeight: FontWeight.w600,
+              fontSize: width < 600 ? 20 : (width < 900 ? 26 : 32),
+              height: 0.88,
+            ),
+            children: [
+              TextSpan(text: l10n.heroHeadline1Prefix),
+              TextSpan(
+                text: l10n.heroHeadline1Highlight,
+                style: GoogleFonts.condiment(
+                  color: AppColors.accent,
+                  fontWeight: FontWeight.bold,
+                  fontSize: width < 600 ? 38 : (width < 900 ? 46 : 56),
+                ),
+              ),
+              TextSpan(text: l10n.heroHeadline1Suffix),
+            ],
+          ),
+        ),
+      ),
+      const SizedBox(height: 10),
+      RichText(
+        textAlign: textAlign,
+        text: TextSpan(
+          style: (Theme.of(context).textTheme.headlineLarge ?? const TextStyle()).copyWith(
+            color: AppColors.onPrimary,
+            fontWeight: FontWeight.w600,
+            fontSize: width < 600 ? 20 : (width < 900 ? 26 : 32),
+            height: 0.88,
+          ),
+          children: [
+            TextSpan(text: l10n.heroHeadline2Prefix),
+            TextSpan(
+              text: l10n.heroHeadline2Highlight,
+              style: GoogleFonts.condiment(
+                color: AppColors.accent,
+                fontWeight: FontWeight.bold,
+                fontSize: width < 600 ? 38 : (width < 900 ? 46 : 56),
+              ),
+            ),
+          ],
+        ),
+      ),
+      const SizedBox(height: 28),
+      Text(
+        l10n.heroSubline,
+        textAlign: textAlign,
+        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+          color: AppColors.onPrimary.withValues(alpha: 0.9),
+          height: 0.9,
+          fontSize: width < 600 ? 13 : (width < 900 ? 15 : 17),
+        ),
+      ),
+    ];
   }
 
   @override
@@ -77,7 +165,7 @@ class _HeroSectionState extends State<HeroSection> {
     final horizontalPadding = isMobile ? 16.0 : 32.0;
     final verticalPadding = isMobile ? 32.0 : 48.0;
     final topInset = isMobile ? (MediaQuery.paddingOf(context).top + 12 + 64) : 0.0;
-    final contentAlignment = isMobile ? const Alignment(0, 0.55) : const Alignment(-0.38, 0.42);
+    final contentAlignment = isMobile ? const Alignment(0, 0.92) : const Alignment(-0.38, 0.42);
     final crossAlign = isMobile ? CrossAxisAlignment.center : CrossAxisAlignment.start;
     final textAlign = isMobile ? TextAlign.center : TextAlign.left;
 
@@ -141,129 +229,133 @@ class _HeroSectionState extends State<HeroSection> {
                 left: horizontalPadding,
                 right: horizontalPadding,
                 top: topInset + verticalPadding,
-                bottom: verticalPadding,
+                bottom: isMobile ? 40.0 : verticalPadding,
               ),
               child: Align(
                 alignment: contentAlignment,
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 900),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: crossAlign,
-                    children: [
-                      Semantics(
-                        header: true,
-                        child: RichText(
-                          textAlign: textAlign,
-                          text: TextSpan(
-                            style: (Theme.of(context).textTheme.headlineLarge ?? const TextStyle()).copyWith(
-                              color: AppColors.onPrimary,
-                              fontWeight: FontWeight.w600,
-                              fontSize: width < 600 ? 20 : (width < 900 ? 26 : 32),
-                              height: 0.88,
-                            ),
-                            children: [
-                              TextSpan(text: l10n.heroHeadline1Prefix),
-                              TextSpan(
-                                text: l10n.heroHeadline1Highlight,
-                                style: GoogleFonts.condiment(
-                                  color: AppColors.accent,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: width < 600 ? 38 : (width < 900 ? 46 : 56),
-                                ),
-                              ),
-                              TextSpan(text: l10n.heroHeadline1Suffix),
-                            ],
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      RichText(
-                        textAlign: textAlign,
-                        text: TextSpan(
-                          style: (Theme.of(context).textTheme.headlineLarge ?? const TextStyle()).copyWith(
-                            color: AppColors.onPrimary,
-                            fontWeight: FontWeight.w600,
-                            fontSize: width < 600 ? 20 : (width < 900 ? 26 : 32),
-                            height: 0.88,
-                          ),
+                child: isMobile
+                    ? ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 900),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: crossAlign,
                           children: [
-                            TextSpan(text: l10n.heroHeadline2Prefix),
-                            TextSpan(
-                              text: l10n.heroHeadline2Highlight,
-                              style: GoogleFonts.condiment(
-                                color: AppColors.accent,
-                                fontWeight: FontWeight.bold,
-                                fontSize: width < 600 ? 38 : (width < 900 ? 46 : 56),
-                              ),
+                            Wrap(
+                              alignment: WrapAlignment.center,
+                              spacing: 20,
+                              runSpacing: 14,
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    boxShadow: AppShadows.accentButton,
+                                  ),
+                                  child: FilledButton(
+                                    onPressed: () => context.push('/consultations'),
+                                    style: FilledButton.styleFrom(
+                                      backgroundColor: AppColors.accent,
+                                      foregroundColor: AppColors.onAccent,
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: width < 600 ? 24 : 32,
+                                        vertical: width < 600 ? 14 : 18,
+                                      ),
+                                      elevation: 0,
+                                    ),
+                                    child: Text(
+                                      l10n.bookConsultation,
+                                      style: TextStyle(
+                                        fontSize: width < 600 ? 15 : 17,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                OutlinedButton(
+                                  onPressed: () => showProfileDialog(context),
+                                  style: OutlinedButton.styleFrom(
+                                    foregroundColor: AppColors.onPrimary,
+                                    side: const BorderSide(color: AppColors.onPrimary),
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: width < 600 ? 24 : 32,
+                                      vertical: width < 600 ? 14 : 18,
+                                    ),
+                                  ),
+                                  child: Text(
+                                    l10n.heroMasterElfCaption,
+                                    style: TextStyle(
+                                      fontSize: width < 600 ? 15 : 17,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 28),
+                            ..._heroHeadlinesAndSubline(context, l10n, textAlign, width),
+                          ],
+                        ),
+                      )
+                    : ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 900),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: crossAlign,
+                          children: [
+                            ..._heroHeadlinesAndSubline(context, l10n, textAlign, width),
+                            const SizedBox(height: 36),
+                            Wrap(
+                              alignment: WrapAlignment.start,
+                              spacing: 20,
+                              runSpacing: 14,
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    boxShadow: AppShadows.accentButton,
+                                  ),
+                                  child: FilledButton(
+                                    onPressed: () => context.push('/consultations'),
+                                    style: FilledButton.styleFrom(
+                                      backgroundColor: AppColors.accent,
+                                      foregroundColor: AppColors.onAccent,
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: width < 600 ? 24 : 32,
+                                        vertical: width < 600 ? 14 : 18,
+                                      ),
+                                      elevation: 0,
+                                    ),
+                                    child: Text(
+                                      l10n.bookConsultation,
+                                      style: TextStyle(
+                                        fontSize: width < 600 ? 15 : 17,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                OutlinedButton(
+                                  onPressed: () => showProfileDialog(context),
+                                  style: OutlinedButton.styleFrom(
+                                    foregroundColor: AppColors.onPrimary,
+                                    side: const BorderSide(color: AppColors.onPrimary),
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: width < 600 ? 24 : 32,
+                                      vertical: width < 600 ? 14 : 18,
+                                    ),
+                                  ),
+                                  child: Text(
+                                    l10n.heroMasterElfCaption,
+                                    style: TextStyle(
+                                      fontSize: width < 600 ? 15 : 17,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
                       ),
-                      const SizedBox(height: 28),
-                      Text(
-                        l10n.heroSubline,
-                        textAlign: textAlign,
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: AppColors.onPrimary.withValues(alpha: 0.9),
-                          height: 0.9,
-                          fontSize: width < 600 ? 13 : (width < 900 ? 15 : 17),
-                        ),
-                      ),
-                      const SizedBox(height: 36),
-                      Wrap(
-                        alignment: isMobile ? WrapAlignment.center : WrapAlignment.start,
-                        spacing: 20,
-                        runSpacing: 14,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              boxShadow: AppShadows.accentButton,
-                            ),
-                            child: FilledButton(
-                              onPressed: () => context.push('/consultations'),
-                              style: FilledButton.styleFrom(
-                                backgroundColor: AppColors.accent,
-                                foregroundColor: AppColors.onAccent,
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: width < 600 ? 24 : 32,
-                                  vertical: width < 600 ? 14 : 18,
-                                ),
-                                elevation: 0,
-                              ),
-                              child: Text(
-                                l10n.bookConsultation,
-                                style: TextStyle(
-                                  fontSize: width < 600 ? 15 : 17,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            ),
-                          ),
-                          OutlinedButton(
-                            onPressed: () => showProfileDialog(context),
-                            style: OutlinedButton.styleFrom(
-                              foregroundColor: AppColors.onPrimary,
-                              side: const BorderSide(color: AppColors.onPrimary),
-                              padding: EdgeInsets.symmetric(
-                                horizontal: width < 600 ? 24 : 32,
-                                vertical: width < 600 ? 14 : 18,
-                              ),
-                            ),
-                            child: Text(
-                              l10n.heroMasterElfCaption,
-                              style: TextStyle(
-                                fontSize: width < 600 ? 15 : 17,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
               ),
             ),
           ],

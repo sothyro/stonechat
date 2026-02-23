@@ -9,7 +9,7 @@ import '../../../theme/app_theme.dart';
 import '../../../utils/breakpoints.dart';
 import '../../../widgets/academy_card.dart';
 
-/// Dark section with split heading/body and academy cards (Joey Yap–style).
+/// Dark section with split heading/body and academy cards.
 class AcademiesSection extends StatelessWidget {
   const AcademiesSection({super.key});
 

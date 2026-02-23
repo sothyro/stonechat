@@ -1,6 +1,6 @@
 import '../l10n/app_localizations.dart';
 
-/// Shared event model and placeholder list (INFORMATION_NEEDED §10 / Joey Yap style).
+/// Shared event model and placeholder list for events.
 class EventItem {
   const EventItem({
     required this.title,

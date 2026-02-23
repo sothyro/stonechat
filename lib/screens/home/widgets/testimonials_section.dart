@@ -149,6 +149,8 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
   static const double _cardGap = 20;
   static const double _cardMaxWidth = 340;
   static const double _cardsHeight = 510;
+  /// Extra vertical space so hover scale (1.02) is not clipped.
+  static const double _cardsVerticalPadding = 24;
   static const Duration _fadeDuration = Duration(milliseconds: 400);
   static const Duration _pageDisplayDuration = Duration(seconds: 6);
   static const Duration _pageTransitionDuration = Duration(milliseconds: 500);
@@ -367,7 +369,7 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
               headerContent,
               const SizedBox(height: 40),
               SizedBox(
-                height: _cardsHeight,
+                height: _cardsHeight + 2 * _cardsVerticalPadding,
                 child: PageView.builder(
                   controller: _pageController,
                   onPageChanged: (p) {
@@ -539,31 +541,31 @@ class _TestimonialCardState extends State<_TestimonialCard> {
   static final List<BoxShadow> _cardShadow = [
     BoxShadow(
       color: Colors.black.withValues(alpha: 0.5),
-      blurRadius: 20,
-      offset: const Offset(0, 8),
+      blurRadius: 12,
+      offset: const Offset(0, 4),
     ),
     BoxShadow(
       color: Colors.black.withValues(alpha: 0.3),
-      blurRadius: 36,
-      offset: const Offset(0, 4),
+      blurRadius: 20,
+      offset: const Offset(0, 2),
     ),
   ];
 
   static final List<BoxShadow> _cardShadowHover = [
     BoxShadow(
       color: Colors.black.withValues(alpha: 0.55),
-      blurRadius: 28,
-      offset: const Offset(0, 14),
+      blurRadius: 10,
+      offset: const Offset(0, 4),
     ),
     BoxShadow(
       color: AppColors.accentGlow.withValues(alpha: 0.35),
-      blurRadius: 28,
-      offset: const Offset(0, 6),
+      blurRadius: 12,
+      offset: const Offset(0, 2),
     ),
     BoxShadow(
       color: Colors.black.withValues(alpha: 0.3),
-      blurRadius: 40,
-      offset: const Offset(0, 4),
+      blurRadius: 16,
+      offset: const Offset(0, 1),
     ),
   ];
 

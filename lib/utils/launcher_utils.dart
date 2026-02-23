@@ -18,6 +18,14 @@ Future<void> launchEmail() async {
   }
 }
 
+/// Opens Telegram with [AppContent.telegramUrl].
+Future<void> launchTelegram() async {
+  final uri = Uri.parse(AppContent.telegramUrl);
+  if (await canLaunchUrl(uri)) {
+    await launchUrl(uri, mode: LaunchMode.externalApplication);
+  }
+}
+
 /// Opens [url] in browser (e.g. social links).
 Future<void> launchUrlExternal(String url) async {
   final uri = Uri.parse(url);

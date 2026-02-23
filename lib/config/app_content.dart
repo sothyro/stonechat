@@ -50,9 +50,9 @@ class AppContent {
   static const String appointmentBookingApiUrl = '';
 
   // Asset paths (§1, §2, §8, §9 – use images from assets folder)
-  /// Logo for header; favicon can use same. Use assets/icons/logo.png when available.
-  static const String assetLogo = 'assets/icons/logo.png';
-  static const String assetFavicon = 'assets/icons/logo.png';
+  /// Logo for header; favicon can use same. Monochrome logo for tinting (e.g. accent).
+  static const String assetLogo = 'assets/icons/logomono.png';
+  static const String assetFavicon = 'assets/icons/logomono.png';
   static const String assetHeroBackground = 'assets/images/main.jpg';
   static const String assetBackgroundDirection = 'assets/images/backgrounddirection.jpg';
   static const String assetHeroVideo = 'assets/videos/videobackground720.mp4';

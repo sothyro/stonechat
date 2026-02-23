@@ -1,4 +1,4 @@
-/// Layout breakpoints (Joey Yap–style responsive plan).
+/// Layout breakpoints for responsive design.
 class Breakpoints {
   Breakpoints._();
 

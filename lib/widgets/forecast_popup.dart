@@ -28,7 +28,7 @@ String _zodiacDisplayName(AppLocalizations l10n, String id) {
 
 /// Returns 5 recent birth years for a zodiac sign.
 /// Chinese zodiac cycle repeats every 12 years.
-/// Reference: 2024 is Year of the Dragon
+/// 2024 is Year of the Dragon (zodiac cycle).
 List<int> _getZodiacBirthYears(String zodiacId) {
   // Base years for each zodiac sign (2024 = Dragon)
   final baseYears = {

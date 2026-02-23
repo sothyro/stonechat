@@ -190,7 +190,7 @@ class _ContactScreenState extends State<ContactScreen> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                  top: isNarrow ? 100 : 120,
+                  top: isNarrow ? 148 : 120,
                   bottom: (isNarrow ? 32 : 48) + MediaQuery.paddingOf(context).bottom,
                   left: isNarrow ? 16 : 24,
                   right: isNarrow ? 16 : 24,
@@ -274,6 +274,44 @@ class _ContactScreenState extends State<ContactScreen> {
   }
 
   Widget _buildLeftColumnContent(AppLocalizations l10n) {
+    final isMobile = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
+    final buttons = Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        IconButton.filled(
+          onPressed: () => launchWhatsApp(),
+          icon: const Icon(LucideIcons.messageCircle, size: 22),
+          tooltip: 'WhatsApp',
+          style: IconButton.styleFrom(
+            backgroundColor: AppColors.accent,
+            foregroundColor: AppColors.onAccent,
+          ),
+        ),
+        const SizedBox(width: 12),
+        IconButton.outlined(
+          onPressed: () => launchEmail(),
+          icon: const Icon(LucideIcons.mail, size: 22),
+          tooltip: 'Email',
+          style: IconButton.styleFrom(
+            foregroundColor: AppColors.onPrimary,
+            side: const BorderSide(color: AppColors.borderLight),
+          ),
+        ),
+        const SizedBox(width: 12),
+        IconButton.outlined(
+          onPressed: () => launchTelegram(),
+          icon: const Icon(LucideIcons.send, size: 22),
+          tooltip: 'Telegram',
+          style: IconButton.styleFrom(
+            foregroundColor: AppColors.onPrimary,
+            side: const BorderSide(color: AppColors.borderLight),
+          ),
+        ),
+      ],
+    );
+    if (isMobile) {
+      return Center(child: buttons);
+    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -286,29 +324,7 @@ class _ContactScreenState extends State<ContactScreen> {
           email: AppContent.email,
         ),
         const SizedBox(height: 32),
-        Row(
-          children: [
-            IconButton.filled(
-              onPressed: () => launchWhatsApp(),
-              icon: const Icon(LucideIcons.messageCircle, size: 22),
-              tooltip: 'WhatsApp',
-              style: IconButton.styleFrom(
-                backgroundColor: AppColors.accent,
-                foregroundColor: AppColors.onAccent,
-              ),
-            ),
-            const SizedBox(width: 12),
-            IconButton.outlined(
-              onPressed: () => launchEmail(),
-              icon: const Icon(LucideIcons.mail, size: 22),
-              tooltip: 'Email',
-              style: IconButton.styleFrom(
-                foregroundColor: AppColors.onPrimary,
-                side: const BorderSide(color: AppColors.borderLight),
-              ),
-            ),
-          ],
-        ),
+        buttons,
       ],
     );
   }

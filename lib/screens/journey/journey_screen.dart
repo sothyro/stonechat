@@ -67,27 +67,23 @@ class _JourneyHero extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+    // Mobile: height proportional to width so image fits the section without overflow; desktop: fixed 720.
+    final height = isNarrow ? (width * 9 / 16).clamp(320.0, 520.0) : 720.0;
     return SizedBox(
-      height: isNarrow ? 780 : 720,
+      height: height,
       width: double.infinity,
       child: Stack(
         fit: StackFit.expand,
         children: [
-          if (isNarrow)
-            // Mobile: match Our Method hero structure (Image as direct Stack child) for same background position
-            Image.asset(
+          Positioned.fill(
+            child: Image.asset(
               AppContent.assetJourneyHero,
               fit: BoxFit.cover,
+              alignment: Alignment.center,
               errorBuilder: (_, __, ___) => const SizedBox.expand(),
-            )
-          else
-            Positioned.fill(
-              child: Image.asset(
-                AppContent.assetJourneyHero,
-                fit: BoxFit.cover,
-                errorBuilder: (_, __, ___) => const SizedBox.expand(),
-              ),
             ),
+          ),
           Positioned.fill(
             child: DecoratedBox(
               decoration: BoxDecoration(

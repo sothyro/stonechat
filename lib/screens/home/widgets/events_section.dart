@@ -8,9 +8,9 @@ import '../../../l10n/app_localizations.dart';
 import '../../../theme/app_theme.dart';
 import '../../../utils/breakpoints.dart';
 
-/// Green bullet for "Coming Up Next" (reference design).
+/// Green bullet for "Coming Up Next".
 const Color _bulletGreen = Color(0xFF2E7D32);
-/// Red "Limited seats" tag (reference design).
+/// Red "Limited seats" tag.
 const Color _limitedSeatsRed = Color(0xFFC62828);
 
 class EventsSection extends StatelessWidget {

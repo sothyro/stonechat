@@ -9,6 +9,7 @@ import '../theme/app_theme.dart';
 import '../providers/locale_provider.dart';
 import '../utils/breakpoints.dart';
 import 'glass_container.dart';
+import 'logo_with_shape_shadow.dart';
 import 'media_posts_popup.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -152,26 +153,21 @@ class _DrawerHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 24, 20, 20),
+      padding: const EdgeInsets.fromLTRB(28, 24, 20, 20),
       child: Row(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: Image.asset(
-              AppContent.assetLogo,
-              width: 44,
-              height: 44,
-              fit: BoxFit.cover,
-              color: AppColors.accent,
-              errorBuilder: (_, __, ___) => Container(
-                width: 44,
-                height: 44,
-                decoration: BoxDecoration(
-                  color: AppColors.accent.withValues(alpha: 0.2),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: const Icon(LucideIcons.sparkles, color: AppColors.accent, size: 24),
+          LogoWithShapeShadow(
+            assetPath: AppContent.assetLogo,
+            width: 88,
+            height: 88,
+            errorBuilder: (_, __, ___) => Container(
+              width: 88,
+              height: 88,
+              decoration: BoxDecoration(
+                color: AppColors.accent.withValues(alpha: 0.2),
+                borderRadius: BorderRadius.circular(10),
               ),
+              child: const Icon(LucideIcons.sparkles, color: AppColors.accent, size: 24),
             ),
           ),
           const SizedBox(width: 14),

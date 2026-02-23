@@ -64,13 +64,14 @@ class _AppsScreenState extends State<AppsScreen> {
     String description,
     String highlightPhrase, {
     TextAlign textAlign = TextAlign.center,
+    Color? baseColor,
   }) {
-    final bodyStyle = Theme.of(context).textTheme.bodyLarge?.copyWith(
-      color: AppColors.onSurfaceVariantDark,
+    final bodyStyle = (Theme.of(context).textTheme.bodyLarge?.copyWith(
+      color: baseColor ?? AppColors.onSurfaceVariantDark,
       height: 1.5,
-    ) ?? const TextStyle(fontSize: 16, color: AppColors.onSurfaceVariantDark, height: 1.5);
+    ) ?? TextStyle(fontSize: 16, color: baseColor ?? AppColors.onSurfaceVariantDark, height: 1.5));
     final highlightStyle = GoogleFonts.condiment(
-      color: AppColors.accent,
+      color: baseColor != null ? AppColors.accentLight : AppColors.accent,
       fontWeight: FontWeight.bold,
       fontSize: (bodyStyle.fontSize ?? 16) * 1.45,
     );
@@ -207,6 +208,17 @@ class _AppsScreenState extends State<AppsScreen> {
                       heading: l10n.appsFeatureShowcaseHeading,
                       subline: l10n.appsPageSubline,
                     ),
+                    const SizedBox(height: 20),
+                    Center(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 680),
+                        child: _buildDescriptionWithHighlight(
+                          context,
+                          l10n.appsFeatureShowcaseMarketingDesc,
+                          l10n.appsFeatureShowcaseMarketingHighlight,
+                        ),
+                      ),
+                    ),
                     const SizedBox(height: 48),
                     _SectionAnchor(
                       key: _keyMasterElf,
@@ -216,16 +228,14 @@ class _AppsScreenState extends State<AppsScreen> {
                     _AppFeatureShowcase(
                       features: [
                         (AppContent.assetAppQiMen, l10n.appFeatureQiMen),
-                        (AppContent.assetAppBaziLife, l10n.appFeatureBaziLife),
+                        (AppContent.assetAppBaziKhmer, l10n.appFeatureBaziKhmer),
                         (AppContent.assetAppBaziReport, l10n.appFeatureBaziReport),
                         (AppContent.assetAppBaziAge, l10n.appFeatureBaziAge),
                         (AppContent.assetAppBaziStars, l10n.appFeatureBaziStars),
-                        (AppContent.assetAppBaziKhmer, l10n.appFeatureBaziKhmer),
-                        (AppContent.assetAppBaziPage2, l10n.appFeatureBaziChart),
+                        (AppContent.assetAppBaziLife, l10n.appFeatureBaziLife),
+                        (AppContent.assetAppAdvancedFeatures, l10n.appFeatureAdvancedFeatures),
                         (AppContent.assetAppDateSelection, l10n.appFeatureDateSelection),
                         (AppContent.assetAppMarriage, l10n.appFeatureMarriage),
-                        (AppContent.assetAppBusinessPartner, l10n.appFeatureBusinessPartner),
-                        (AppContent.assetAppAdvancedFeatures, l10n.appFeatureAdvancedFeatures),
                       ],
                     ),
                     const SizedBox(height: 56),
@@ -478,25 +488,38 @@ class _FeaturedMasterElfSectionState extends State<_FeaturedMasterElfSection> {
                     bottom: 28,
                     left: 28,
                     right: 28,
-                    child: Text(
-                      widget.l10n.masterElfSystemSpotlightTitle,
-                      style: GoogleFonts.condiment(
-                        fontSize: isNarrow ? 30 : 38,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.accentLight,
-                        shadows: [
-                          Shadow(
-                            color: Colors.black.withValues(alpha: 0.7),
-                            blurRadius: 12,
-                            offset: const Offset(0, 2),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.l10n.masterElfSystemSpotlightTitle,
+                          style: GoogleFonts.condiment(
+                            fontSize: isNarrow ? 30 : 38,
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.accentLight,
+                            shadows: [
+                              Shadow(
+                                color: Colors.black.withValues(alpha: 0.7),
+                                blurRadius: 12,
+                                offset: const Offset(0, 2),
+                              ),
+                              Shadow(
+                                color: Colors.black.withValues(alpha: 0.4),
+                                blurRadius: 4,
+                                offset: const Offset(0, 1),
+                              ),
+                            ],
                           ),
-                          Shadow(
-                            color: Colors.black.withValues(alpha: 0.4),
-                            blurRadius: 4,
-                            offset: const Offset(0, 1),
-                          ),
-                        ],
-                      ),
+                        ),
+                        const SizedBox(height: 8),
+                        _AppsScreenState._buildDescriptionWithHighlight(
+                          context,
+                          widget.l10n.masterElfSystemSpotlightTagline,
+                          widget.l10n.masterElfSystemSpotlightTaglineHighlight,
+                          baseColor: AppColors.onPrimary,
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -519,9 +542,10 @@ class _FeaturedPeriod9Section extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final isNarrow = Breakpoints.isMobile(width);
+    final padding = isNarrow ? 20.0 : 32.0;
 
     return Container(
-      padding: const EdgeInsets.all(32),
+      padding: EdgeInsets.all(padding),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
@@ -551,22 +575,30 @@ class _FeaturedPeriod9Section extends StatelessWidget {
                 Text(
                   l10n.period9SpotlightTitle,
                   style: GoogleFonts.condiment(
-                    fontSize: 26,
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: AppColors.accent,
                   ),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 6),
+                _AppsScreenState._buildDescriptionWithHighlight(
+                  context,
+                  l10n.period9SpotlightTagline,
+                  l10n.period9SpotlightTaglineHighlight,
+                  textAlign: TextAlign.left,
+                ),
+                const SizedBox(height: 10),
                 Text(
                   l10n.period9SpotlightDesc,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                         color: AppColors.onSurfaceVariantDark,
                         height: 1.5,
+                        fontSize: 15,
                       ),
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: 20),
                 _Period9Screenshots(),
-                const SizedBox(height: 28),
+                const SizedBox(height: 24),
                 _DownloadButtonsRow(l10n: l10n),
               ],
             )
@@ -591,6 +623,13 @@ class _FeaturedPeriod9Section extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: AppColors.accent,
                         ),
+                      ),
+                      const SizedBox(height: 6),
+                      _AppsScreenState._buildDescriptionWithHighlight(
+                        context,
+                        l10n.period9SpotlightTagline,
+                        l10n.period9SpotlightTaglineHighlight,
+                        textAlign: TextAlign.left,
                       ),
                       const SizedBox(height: 12),
                       Text(
@@ -732,6 +771,13 @@ class _TalismanStoreSection extends StatelessWidget {
             fontWeight: FontWeight.bold,
             color: AppColors.accent,
           ),
+        ),
+        const SizedBox(height: 6),
+        _AppsScreenState._buildDescriptionWithHighlight(
+          context,
+          l10n.talismanStoreSpotlightTagline,
+          l10n.talismanStoreSpotlightTaglineHighlight,
+          textAlign: TextAlign.left,
         ),
         const SizedBox(height: 8),
         Text(
@@ -875,7 +921,58 @@ class _SpotlightSection extends StatelessWidget {
   }
 }
 
-/// Two Period 9 app screenshots in two rows with a divider between. Fills card width.
+void _showPeriod9FullImage(BuildContext context, String asset) {
+  showDialog<void>(
+    context: context,
+    barrierColor: Colors.black87,
+    barrierDismissible: true,
+    builder: (context) => Dialog.fullscreen(
+      backgroundColor: Colors.black,
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          GestureDetector(
+            onTap: () => Navigator.of(context).pop(),
+            behavior: HitTestBehavior.opaque,
+            child: InteractiveViewer(
+              minScale: 0.5,
+              maxScale: 4.0,
+              child: Center(
+                child: Image.asset(
+                  asset,
+                  fit: BoxFit.contain,
+                  errorBuilder: (_, __, ___) => Icon(
+                    LucideIcons.imageOff,
+                    size: 48,
+                    color: AppColors.onSurfaceVariantDark.withValues(alpha: 0.5),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SafeArea(
+            child: Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: IconButton.filled(
+                  onPressed: () => Navigator.of(context).pop(),
+                  icon: const Icon(Icons.close, color: Colors.white),
+                  style: IconButton.styleFrom(
+                    backgroundColor: Colors.black54,
+                    foregroundColor: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+/// Two Period 9 app screenshots. Desktop: stacked with divider. Mobile: side-by-side, compact.
 class _Period9Screenshots extends StatelessWidget {
   const _Period9Screenshots();
 
@@ -884,8 +981,34 @@ class _Period9Screenshots extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final width = constraints.maxWidth;
-        final imageHeight = (width * 0.5).clamp(280.0, 420.0);
+        final isMobile = width < Breakpoints.mobile;
 
+        if (isMobile) {
+          final imageHeight = (width * 0.52).clamp(160.0, 220.0);
+          final gap = 12.0;
+          return Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: _Period9Screenshot(
+                  asset: AppContent.assetPeriod9_1,
+                  height: imageHeight,
+                  onTap: () => _showPeriod9FullImage(context, AppContent.assetPeriod9_1),
+                ),
+              ),
+              SizedBox(width: gap),
+              Expanded(
+                child: _Period9Screenshot(
+                  asset: AppContent.assetPeriod9_2,
+                  height: imageHeight,
+                  onTap: () => _showPeriod9FullImage(context, AppContent.assetPeriod9_2),
+                ),
+              ),
+            ],
+          );
+        }
+
+        final imageHeight = (width * 0.5).clamp(280.0, 420.0);
         return Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -906,14 +1029,16 @@ class _Period9Screenshot extends StatelessWidget {
   const _Period9Screenshot({
     required this.asset,
     required this.height,
+    this.onTap,
   });
 
   final String asset;
   final double height;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    final content = Container(
       width: double.infinity,
       height: height,
       decoration: BoxDecoration(
@@ -936,6 +1061,14 @@ class _Period9Screenshot extends StatelessWidget {
         ),
       ),
     );
+
+    if (onTap != null) {
+      return GestureDetector(
+        onTap: onTap,
+        child: content,
+      );
+    }
+    return content;
   }
 }
 

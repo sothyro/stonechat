@@ -247,8 +247,56 @@ abstract class AppLocalizations {
   /// No description provided for @appsFeatureShowcaseHeading.
   ///
   /// In en, this message translates to:
-  /// **'See the system in action'**
+  /// **'Tools that turn insight into action'**
   String get appsFeatureShowcaseHeading;
+
+  /// No description provided for @appsFeatureShowcaseMarketingDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'From daily readings to life-changing decisions—thousands use these tools to choose better dates, understand their chart, and move with confidence.'**
+  String get appsFeatureShowcaseMarketingDesc;
+
+  /// No description provided for @appsFeatureShowcaseMarketingHighlight.
+  ///
+  /// In en, this message translates to:
+  /// **'life-changing'**
+  String get appsFeatureShowcaseMarketingHighlight;
+
+  /// No description provided for @masterElfSystemSpotlightTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Your timing, clarified.'**
+  String get masterElfSystemSpotlightTagline;
+
+  /// No description provided for @masterElfSystemSpotlightTaglineHighlight.
+  ///
+  /// In en, this message translates to:
+  /// **'clarified'**
+  String get masterElfSystemSpotlightTaglineHighlight;
+
+  /// No description provided for @period9SpotlightTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Feng Shui in your pocket.'**
+  String get period9SpotlightTagline;
+
+  /// No description provided for @period9SpotlightTaglineHighlight.
+  ///
+  /// In en, this message translates to:
+  /// **'pocket'**
+  String get period9SpotlightTaglineHighlight;
+
+  /// No description provided for @talismanStoreSpotlightTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Wear your protection.'**
+  String get talismanStoreSpotlightTagline;
+
+  /// No description provided for @talismanStoreSpotlightTaglineHighlight.
+  ///
+  /// In en, this message translates to:
+  /// **'protection'**
+  String get talismanStoreSpotlightTaglineHighlight;
 
   /// No description provided for @appFeatureQiMen.
   ///
@@ -1425,6 +1473,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Confirm'**
   String get stepConfirm;
+
+  /// No description provided for @stepGuideChooseService.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick the consultation type and how you\'d like to meet.'**
+  String get stepGuideChooseService;
+
+  /// No description provided for @stepGuideDateAndTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a date and time that work for you.'**
+  String get stepGuideDateAndTime;
+
+  /// No description provided for @stepGuideYourDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Share your name and phone so we can confirm your booking.'**
+  String get stepGuideYourDetails;
+
+  /// No description provided for @stepGuideConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Review your booking and confirm to receive an SMS.'**
+  String get stepGuideConfirm;
 
   /// No description provided for @yourName.
   ///

@@ -250,7 +250,7 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                  top: Breakpoints.isMobile(MediaQuery.sizeOf(context).width) ? 100 : 120,
+                  top: Breakpoints.isMobile(MediaQuery.sizeOf(context).width) ? 148 : 120,
                   bottom: (Breakpoints.isMobile(MediaQuery.sizeOf(context).width) ? 32 : 48) +
                       MediaQuery.paddingOf(context).bottom,
                   left: Breakpoints.isMobile(MediaQuery.sizeOf(context).width) ? 16 : 24,
@@ -373,57 +373,70 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
 
   Widget _buildStepper(AppLocalizations l10n) {
     final steps = [l10n.stepChooseService, l10n.stepDateAndTime, l10n.stepYourDetails, l10n.stepConfirm];
+    final stepGuides = [
+      l10n.stepGuideChooseService,
+      l10n.stepGuideDateAndTime,
+      l10n.stepGuideYourDetails,
+      l10n.stepGuideConfirm,
+    ];
     final isMobile = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
     return isMobile
         ? Column(
-            children: steps.asMap().entries.map((entry) {
-              final index = entry.key;
-              final step = entry.value;
-              final active = _step == index;
-              final done = _step > index;
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 16),
-                child: Row(
-                  children: [
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Horizontal row: step numbers 1–4 only (fixed-size circles, connectors fill space)
+              Row(
+                children: [
+                  for (int index = 0; index < steps.length; index++) ...[
+                    if (index > 0)
+                      Expanded(
+                        child: Container(
+                          height: 2,
+                          margin: const EdgeInsets.symmetric(horizontal: 4),
+                          color: _step > index - 1 ? AppColors.accent : AppColors.borderDark,
+                        ),
+                      ),
                     Container(
-                      width: 32,
-                      height: 32,
+                      width: 36,
+                      height: 36,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: done ? AppColors.accent : (active ? AppColors.accent : AppColors.surfaceElevatedDark),
+                        color: _step > index ? AppColors.accent : (_step == index ? AppColors.accent : AppColors.surfaceElevatedDark),
                         border: Border.all(
-                          color: active || done ? AppColors.accent : AppColors.borderDark,
+                          color: _step >= index ? AppColors.accent : AppColors.borderDark,
                           width: 1.5,
                         ),
                       ),
-                      child: done
+                      child: _step > index
                           ? const Icon(Icons.check, size: 18, color: AppColors.onAccent)
                           : Text(
                               '${index + 1}',
                               style: TextStyle(
-                                fontSize: 13,
+                                fontSize: 14,
                                 fontWeight: FontWeight.w600,
                                 height: 1.0,
-                                color: active ? AppColors.onAccent : AppColors.onSurfaceVariantDark,
+                                color: _step == index ? AppColors.onAccent : AppColors.onSurfaceVariantDark,
                               ),
                               textAlign: TextAlign.center,
                             ),
                     ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Text(
-                        step,
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              color: active ? AppColors.accent : AppColors.onSurfaceVariantDark,
-                              fontWeight: active ? FontWeight.w600 : FontWeight.normal,
-                            ),
-                      ),
-                    ),
                   ],
+                ],
+              ),
+              const SizedBox(height: 12),
+              // One-line explanatory guide for current step (mobile only)
+              Text(
+                stepGuides[_step],
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: AppColors.accent,
+                  height: 1.35,
                 ),
-              );
-            }).toList(),
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
           )
         : Row(
             children: List.generate(steps.length * 2 - 1, (i) {

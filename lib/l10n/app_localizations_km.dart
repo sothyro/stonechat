@@ -85,7 +85,32 @@ class AppLocalizationsKm extends AppLocalizations {
       'វត្ថុមនោគម និងថ្នាំបន្ធូរបន្ថយដែលជ្រើសរើស។ មានវត្ថុបន្ថែមឆាប់ៗនេះ។';
 
   @override
-  String get appsFeatureShowcaseHeading => 'មើលប្រព័ន្ធក្នុងការអនុវត្ត';
+  String get appsFeatureShowcaseHeading => 'ឧបករណ៍ដែលប្រែការយល់ឃើញជាសកម្មភាព';
+
+  @override
+  String get appsFeatureShowcaseMarketingDesc =>
+      'ពីការអានប្រចាំថ្ងៃទៅការសម្រេចចិត្តដែលផ្លាស់ប្តូរជីវិត—រាប់ពាន់នាក់ប្រើឧបករណ៍ទាំងនេះដើម្បីជ្រើសរើសកាលបរិច្ឆេទល្អ យល់ក្រាហ្វ និងរសាត់ទៅមុខដោយជំនឿ។';
+
+  @override
+  String get appsFeatureShowcaseMarketingHighlight => 'ផ្លាស់ប្តូរជីវិត';
+
+  @override
+  String get masterElfSystemSpotlightTagline => 'ពេលវេលារបស់អ្នក ច្បាស់លាស់។';
+
+  @override
+  String get masterElfSystemSpotlightTaglineHighlight => 'ច្បាស់លាស់';
+
+  @override
+  String get period9SpotlightTagline => 'ហ្វងស៊ីនៅក្នុងហោប៉ៅអ្នក។';
+
+  @override
+  String get period9SpotlightTaglineHighlight => 'ហោប៉ៅ';
+
+  @override
+  String get talismanStoreSpotlightTagline => 'សៀតការការពាររបស់អ្នក។';
+
+  @override
+  String get talismanStoreSpotlightTaglineHighlight => 'ការពារ';
 
   @override
   String get appFeatureQiMen => 'ឈីមែន ឌុនចា';
@@ -732,6 +757,22 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get stepConfirm => 'បញ្ជាក់';
+
+  @override
+  String get stepGuideChooseService =>
+      'ជ្រើសរើសប្រភេទការពិគ្រោះ និងរបៀបជួបរបស់អ្នក។';
+
+  @override
+  String get stepGuideDateAndTime =>
+      'ជ្រើសរើសកាលបរិច្ឆេទ និងពេលវេលាដែលសមនឹងអ្នក។';
+
+  @override
+  String get stepGuideYourDetails =>
+      'ចែករំលែកឈ្មោះ និងលេខទូរស័ព្ទរបស់អ្នក ដើម្បីឱ្យយើងអាចបញ្ជាក់ការកក់របស់អ្នក។';
+
+  @override
+  String get stepGuideConfirm =>
+      'ពិនិត្យការកក់របស់អ្នក និងបញ្ជាក់ដើម្បីទទួល SMS។';
 
   @override
   String get yourName => 'ឈ្មោះរបស់អ្នក';

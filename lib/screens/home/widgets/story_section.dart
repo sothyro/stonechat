@@ -127,22 +127,60 @@ class StorySection extends StatelessWidget {
       ),
     );
 
-    // On mobile: position text lower (towards bottom of section); desktop: keep centered
+    // Desktop: centered story block. Mobile: image full height behind text (stacked), with light scrim for readability.
     final storyContent = isMobile
-        ? SizedBox(
-            height: 420,
-            child: Align(
-              alignment: Alignment.bottomCenter,
+        ? Padding(
+            padding: const EdgeInsets.fromLTRB(16, 24, 16, 24),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(minHeight: 820),
+              child: Stack(
+                children: [
+                  // Give Stack a size so positioned children have a layout (Stack with only positioned children otherwise has zero size).
+                  SizedBox(width: double.infinity, height: 820),
+                  Positioned.fill(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: Image.asset(
+                        AppContent.assetStoryBackground,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Positioned.fill(
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.black.withValues(alpha: 0.2),
+                            Colors.black.withValues(alpha: 0.55),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 24, 0, 24),
+                      child: storyBlock,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
+        : Padding(
+            padding: storyPadding,
+            child: Center(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 1100),
                 child: storyBlock,
               ),
-            ),
-          )
-        : Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 1100),
-              child: storyBlock,
             ),
           );
 
@@ -200,46 +238,45 @@ class StorySection extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
-              right: 0,
-              bottom: 0,
-              width: isMobile ? 380 : 800,
-              height: isMobile ? 440 : 850,
-              child: Opacity(
-                opacity: 0.77,
-                child: Image.asset(
-                  AppContent.assetStoryBackground,
-                  fit: BoxFit.contain,
+            // Desktop only: decorative image at bottom-right. On mobile we show image at top of content column instead.
+            if (!isMobile)
+              Positioned(
+                right: 0,
+                bottom: 0,
+                width: 800,
+                height: 850,
+                child: Opacity(
+                  opacity: 0.77,
+                  child: Image.asset(
+                    AppContent.assetStoryBackground,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
-            ),
             Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-              Padding(
-                padding: storyPadding,
-                child: storyContent,
-              ),
-              Container(
-            width: double.infinity,
-            padding: EdgeInsets.symmetric(vertical: 24, horizontal: isMobile ? 16 : 32),
-            decoration: BoxDecoration(
-              color: AppColors.backgroundDark,
-              border: Border(
-                top: BorderSide(color: AppColors.borderDark, width: 1),
-              ),
-            ),
-            child: Center(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 1100),
-                child: _FeaturedInCarousel(
-                  l10n: l10n,
-                  textTheme: textTheme,
+                storyContent,
+                Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.symmetric(vertical: 24, horizontal: isMobile ? 16 : 32),
+                  decoration: BoxDecoration(
+                    color: AppColors.backgroundDark,
+                    border: Border(
+                      top: BorderSide(color: AppColors.borderDark, width: 1),
+                    ),
+                  ),
+                  child: Center(
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 1100),
+                      child: _FeaturedInCarousel(
+                        l10n: l10n,
+                        textTheme: textTheme,
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          ),
               ],
             ),
           ],

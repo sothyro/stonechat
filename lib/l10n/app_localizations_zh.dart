@@ -83,7 +83,32 @@ class AppLocalizationsZh extends AppLocalizations {
   String get talismanStoreSpotlightDesc => '精选符咒与化解用品。更多商品即将上架。';
 
   @override
-  String get appsFeatureShowcaseHeading => '一览系统功能';
+  String get appsFeatureShowcaseHeading => '洞见化为行动的工具';
+
+  @override
+  String get appsFeatureShowcaseMarketingDesc =>
+      '从每日解读到改变人生的决策—数千用户借助这些工具择吉日、读命盘、从容前行。';
+
+  @override
+  String get appsFeatureShowcaseMarketingHighlight => '改变人生';
+
+  @override
+  String get masterElfSystemSpotlightTagline => '你的时机，一目了然。';
+
+  @override
+  String get masterElfSystemSpotlightTaglineHighlight => '一目了然';
+
+  @override
+  String get period9SpotlightTagline => '九运风水，随身随行。';
+
+  @override
+  String get period9SpotlightTaglineHighlight => '随身随行';
+
+  @override
+  String get talismanStoreSpotlightTagline => '把护佑戴在身上。';
+
+  @override
+  String get talismanStoreSpotlightTaglineHighlight => '护佑';
 
   @override
   String get appFeatureQiMen => '奇门遁甲';
@@ -688,6 +713,18 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get stepConfirm => '确认';
+
+  @override
+  String get stepGuideChooseService => '选择咨询类型与见面方式。';
+
+  @override
+  String get stepGuideDateAndTime => '选择适合您的日期与时间。';
+
+  @override
+  String get stepGuideYourDetails => '留下姓名与手机号，以便我们发送预约确认。';
+
+  @override
+  String get stepGuideConfirm => '核对预约信息并确认，即可收到短信。';
 
   @override
   String get yourName => '您的姓名';

@@ -86,7 +86,33 @@ class AppLocalizationsEn extends AppLocalizations {
       'Curated talismans and remedies. More items coming soon.';
 
   @override
-  String get appsFeatureShowcaseHeading => 'See the system in action';
+  String get appsFeatureShowcaseHeading =>
+      'Tools that turn insight into action';
+
+  @override
+  String get appsFeatureShowcaseMarketingDesc =>
+      'From daily readings to life-changing decisions—thousands use these tools to choose better dates, understand their chart, and move with confidence.';
+
+  @override
+  String get appsFeatureShowcaseMarketingHighlight => 'life-changing';
+
+  @override
+  String get masterElfSystemSpotlightTagline => 'Your timing, clarified.';
+
+  @override
+  String get masterElfSystemSpotlightTaglineHighlight => 'clarified';
+
+  @override
+  String get period9SpotlightTagline => 'Feng Shui in your pocket.';
+
+  @override
+  String get period9SpotlightTaglineHighlight => 'pocket';
+
+  @override
+  String get talismanStoreSpotlightTagline => 'Wear your protection.';
+
+  @override
+  String get talismanStoreSpotlightTaglineHighlight => 'protection';
 
   @override
   String get appFeatureQiMen => 'Qi Men Dunjia';
@@ -738,6 +764,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get stepConfirm => 'Confirm';
+
+  @override
+  String get stepGuideChooseService =>
+      'Pick the consultation type and how you\'d like to meet.';
+
+  @override
+  String get stepGuideDateAndTime =>
+      'Choose a date and time that work for you.';
+
+  @override
+  String get stepGuideYourDetails =>
+      'Share your name and phone so we can confirm your booking.';
+
+  @override
+  String get stepGuideConfirm =>
+      'Review your booking and confirm to receive an SMS.';
 
   @override
   String get yourName => 'Your name';

@@ -8,7 +8,7 @@ import 'app_footer.dart';
 import 'app_drawer.dart';
 import 'sticky_cta_bar.dart';
 
-/// Wraps each route with persistent header and footer (Joey Yap–style layout).
+/// Wraps each route with persistent header and footer.
 class AppShell extends StatefulWidget {
   const AppShell({super.key, required this.child});
 
@@ -111,6 +111,7 @@ class _AppShellState extends State<AppShell> {
             )
           : null,
       body: Stack(
+        clipBehavior: Clip.none,
         children: [
           Semantics(
             container: true,

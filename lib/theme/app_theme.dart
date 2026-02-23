@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-/// Master Elf brand colors (Joey Yap–style: dark, gold accent).
+/// Master Elf brand colors (dark theme, gold accent).
 class AppColors {
   AppColors._();
 
@@ -111,6 +111,21 @@ class AppShadows {
       color: Colors.black.withValues(alpha: 0.2),
       blurRadius: _blurAccent,
       offset: const Offset(0, 2),
+    ),
+  ];
+
+  /// Logo: depth + subtle gold glow so it blends with the header/menu.
+  static final List<BoxShadow> logo = [
+    BoxShadow(
+      color: Colors.black.withValues(alpha: 0.35),
+      blurRadius: 12,
+      offset: const Offset(0, 4),
+    ),
+    BoxShadow(
+      color: AppColors.accentGlow.withValues(alpha: 0.15),
+      blurRadius: 16,
+      spreadRadius: 0,
+      offset: Offset.zero,
     ),
   ];
 }

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 import 'app.dart';
 import 'firebase_options.dart';
@@ -12,13 +13,16 @@ import 'utils/app_asset_preloader.dart';
 import 'utils/hero_video_preloader.dart';
 
 void main() async {
+  // Use path-based URLs (e.g. /consultations) so direct links open the correct page.
+  usePathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
   // Initialize Firebase before app starts so AuthProvider and other Firebase services work.
   await _initFirebase();
   // Initialize services
   await ErrorLoggingService.initialize();
   ConnectivityService.initialize();
-  // Initialize Sentry for error tracking
+  // Initialize Sentry for error tracking.
+  // Prefer env: use --dart-define=SENTRY_DSN=... or String.fromEnvironment('SENTRY_DSN') for production.
   await SentryService.initialize(
     dsn: 'https://8d318591ce4505a474c7a5ec8f4a4c07@o4510913579843584.ingest.us.sentry.io/4510913582137344',
   );
