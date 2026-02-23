@@ -288,8 +288,12 @@ class _ConsultBlockState extends State<_ConsultBlock> {
                         decoration: BoxDecoration(
                           color: AppColors.accent.withValues(alpha: 0.2),
                           borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: AppColors.accent.withValues(alpha: 0.4),
+                            width: 1,
+                          ),
                         ),
-                        child: Icon(widget.icon, size: 32, color: AppColors.accent),
+                        child: Icon(widget.icon, size: 28, color: AppColors.accent),
                       ),
                       const SizedBox(width: 16),
                       Expanded(
@@ -301,70 +305,81 @@ class _ConsultBlockState extends State<_ConsultBlock> {
                               widget.category,
                               style: GoogleFonts.exo2(
                                 color: AppColors.accent,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 19,
-                                height: 1.3,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 18,
+                                height: 1.25,
+                                letterSpacing: 0.3,
                               ),
                             ),
-                            const SizedBox(height: 6),
-                            Text(
-                              widget.method,
-                              style: GoogleFonts.exo2(
-                                color: AppColors.onPrimary.withValues(alpha: 0.78),
-                                fontSize: 14,
-                                height: 1.35,
+                            if (widget.method != widget.category) ...[
+                              const SizedBox(height: 4),
+                              Text(
+                                widget.method,
+                                style: GoogleFonts.exo2(
+                                  color: AppColors.onPrimary.withValues(alpha: 0.7),
+                                  fontSize: 13,
+                                  height: 1.3,
+                                ),
                               ),
-                            ),
+                            ],
                           ],
                         ),
                       ),
                     ],
                   ),
                   const SizedBox(height: 20),
-                  SizedBox(
-                    height: 44,
-                    child: Text(
-                      widget.question,
-                      style: GoogleFonts.exo2(
-                        fontStyle: FontStyle.italic,
-                        color: AppColors.onPrimary,
-                        fontSize: 15,
-                        height: 1.4,
-                      ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
+                  Text(
+                    widget.question,
+                    style: GoogleFonts.exo2(
+                      fontStyle: FontStyle.italic,
+                      color: AppColors.onPrimary.withValues(alpha: 0.95),
+                      fontSize: 15,
+                      height: 1.45,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 10),
+                  Container(
+                    width: double.infinity,
+                    height: 1,
+                    margin: const EdgeInsets.only(left: 0),
+                    decoration: BoxDecoration(
+                      color: AppColors.onPrimary.withValues(alpha: 0.12),
                     ),
                   ),
-                  const SizedBox(height: 12),
-                  SizedBox(
-                    height: 46,
-                    child: Text(
-                      widget.description,
-                      style: GoogleFonts.exo2(
-                        color: AppColors.onPrimary.withValues(alpha: 0.88),
-                        fontSize: 15,
-                        height: 1.45,
-                      ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
+                  const SizedBox(height: 14),
+                  Text(
+                    widget.description,
+                    style: GoogleFonts.exo2(
+                      color: AppColors.onPrimary.withValues(alpha: 0.9),
+                      fontSize: 14,
+                      height: 1.55,
+                      fontWeight: FontWeight.w400,
                     ),
+                    maxLines: 4,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 24),
-                  OutlinedButton(
-                    onPressed: widget.onGetConsultation,
-                    style: OutlinedButton.styleFrom(
-                      foregroundColor: AppColors.onPrimary,
-                      side: const BorderSide(color: AppColors.accent, width: 1.5),
-                      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
+                  SizedBox(
+                    width: double.infinity,
+                    child: OutlinedButton(
+                      onPressed: widget.onGetConsultation,
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: AppColors.onPrimary,
+                        side: const BorderSide(color: AppColors.accent, width: 1.5),
+                        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
                       ),
-                    ),
-                    child: Text(
-                      l10n.getConsultation,
-                      style: GoogleFonts.exo2(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 15,
+                      child: Text(
+                        l10n.getConsultation,
+                        style: GoogleFonts.exo2(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15,
+                        ),
                       ),
                     ),
                   ),

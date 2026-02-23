@@ -482,7 +482,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get consult1Question => 'Become who you are born to be…';
 
   @override
-  String get consult1Desc => 'Reveal your true power within.';
+  String get consult1Desc =>
+      'Your birth chart holds the key to your strengths, challenges and timing. A BaZi reading reveals your true potential and helps you align your choices with the energies you were born with—so you can make decisions with clarity and confidence.';
 
   @override
   String get consult2Category => 'Feng Shui Services';
@@ -495,13 +496,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get consult2Desc =>
-      'Understand how to harness the positive energy of your environment.';
+      'Your environment shapes your wellbeing and success. Learn how to harness the positive energy of your space—at home or at work—so that your surroundings support your goals instead of working against them. A personalised assessment helps you apply these principles where they matter most.';
 
   @override
   String get consult3Category => 'Date Selection';
 
   @override
-  String get consult3Method => 'Date Selection';
+  String get consult3Method => 'Xuan Kong';
 
   @override
   String get consult3Question =>
@@ -509,7 +510,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get consult3Desc =>
-      'Select your time and date for the best possible outcome.';
+      'Choosing the right date and time can turn an ordinary step into a favourable one. We use traditional methods to help you schedule important events—from openings and signings to personal milestones—for the best possible outcome.';
 
   @override
   String get consult4Category => 'Qimen and Iching';
@@ -521,7 +522,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get consult4Question => 'Strategise your wise move...';
 
   @override
-  String get consult4Desc => 'Defeat your enemy and maximise your benefits.';
+  String get consult4Desc =>
+      'Face complex decisions with ancient wisdom. QiMen Dunjia and I Ching offer strategic insight and clarity—so you can see your options clearly, anticipate outcomes and choose the move that best serves your goals. Ideal for business, competition and pivotal life choices.';
 
   @override
   String get consult5Category => 'Mao San Rituals';
@@ -535,7 +537,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get consult5Desc =>
-      'Mao Shan methods and rituals within Chinese metaphysics.';
+      'Mao Shan brings together Taoist ritual and Chinese metaphysical practice. Whether for spiritual growth or life transitions, these methods offer a structured path to transformation and a deeper connection to tradition.';
 
   @override
   String get consult6Category => 'Master Elf Publications';
@@ -548,7 +550,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get consult6Desc =>
-      'Explore our published works on Feng Shui and Chinese metaphysics.';
+      'Dive deeper with Master Elf’s published works on Feng Shui, BaZi and Chinese metaphysics. Our books and resources are designed to support your learning and practice beyond the consultation room.';
 
   @override
   String get stickyCtaText => 'Free 12 Animal Forecast';

@@ -166,7 +166,7 @@ class StorySection extends StatelessWidget {
                     right: 0,
                     bottom: 0,
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 24, 0, 24),
+                      padding: const EdgeInsets.fromLTRB(12, 24, 12, 24),
                       child: storyBlock,
                     ),
                   ),

@@ -495,7 +495,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get consult3Category => 'ការជ្រើសរើសកាលបរិច្ឆេទ';
 
   @override
-  String get consult3Method => 'Date Selection';
+  String get consult3Method => 'Xuan Kong';
 
   @override
   String get consult3Question =>
@@ -1204,166 +1204,165 @@ class AppLocalizationsKm extends AppLocalizations {
   String get noteHint => 'កំណត់សម្គាល់ជម្រើសអំពីការកក់នេះ…';
 
   @override
-  String get retry => 'Retry';
+  String get retry => 'ព្យាយាមម្តងទៀត';
 
   @override
   String get errorNetwork =>
-      'Network connection failed. Please check your internet connection.';
+      'ការភ្ជាប់អ៊ីនធឺណិតមិនបាន។ សូមពិនិត្យការភ្ជាប់អ៊ីនធឺណិតរបស់អ្នក។';
 
   @override
-  String get errorNetworkTitle => 'Connection Error';
+  String get errorNetworkTitle => 'កំហុសការភ្ជាប់';
 
   @override
   String get errorTimeout =>
-      'Request timed out. Please check your connection and try again.';
+      'ការស្នើរយូរពេលវេលា។ សូមពិនិត្យការភ្ជាប់ និងព្យាយាមម្តងទៀត។';
 
   @override
   String get errorServerUnavailable =>
-      'Service temporarily unavailable. Please try again.';
+      'សេវាមិនអាចប្រើបានបណ្តោះអាសន្ន។ សូមព្យាយាមម្តងទៀត។';
 
   @override
-  String get errorServerError =>
-      'Server error occurred. Please try again later.';
+  String get errorServerError => 'មានកំហុសឆាករបស់សេវា។ សូមព្យាយាមម្តងទៀត។';
 
   @override
-  String get errorDatabaseError => 'Database error occurred. Please try again.';
+  String get errorDatabaseError =>
+      'មានកំហុសមូលដ្ឋានទិន្នន័យ។ សូមព្យាយាមម្តងទៀត។';
 
   @override
-  String get errorAuthFailed => 'Authentication failed. Please try again.';
+  String get errorAuthFailed =>
+      'ការផ្ទៀងផ្ទាត់អត្តសញ្ញាណមិនបាន។ សូមព្យាយាមម្តងទៀត។';
 
   @override
-  String get errorAuthTitle => 'Authentication Error';
+  String get errorAuthTitle => 'កំហុសផ្ទៀងផ្ទាត់អត្តសញ្ញាណ';
 
   @override
-  String get errorUserNotFound => 'No account found with this email.';
+  String get errorUserNotFound => 'រកមិនឃើញគណនីជាមួយអ៉ីមែលនេះទេ។';
 
   @override
-  String get errorWrongPassword => 'Incorrect password. Please try again.';
+  String get errorWrongPassword =>
+      'លេខសម្ងាត់មិនត្រឹមត្រូវ។ សូមព្យាយាមម្តងទៀត។';
 
   @override
-  String get errorEmailInUse => 'This email is already registered.';
+  String get errorEmailInUse => 'អ៉ីមែលនេះបានចុះឈ្មោះរួចហើយ។';
 
   @override
-  String get errorInvalidEmail => 'Invalid email address.';
+  String get errorInvalidEmail => 'អាសយដ្ឋានអ៉ីមែលមិនត្រឹមត្រូវ។';
 
   @override
   String get errorTooManyRequests =>
-      'Too many attempts. Please wait a moment and try again.';
+      'ការព្យាយាមច្រើនពេក។ សូមចាំមួយភ្លែតរួចព្យាយាមម្តងទៀត។';
 
   @override
-  String get errorPermissionDenied =>
-      'You do not have permission to perform this action.';
+  String get errorPermissionDenied => 'អ្នកមិនមានសិទ្ធិអនុវត្តសកម្មភាពនេះទេ។';
 
   @override
-  String get errorPermissionTitle => 'Permission Denied';
+  String get errorPermissionTitle => 'បដិសេធសិទ្ធិ';
 
   @override
-  String get errorNotFound => 'The requested resource was not found.';
+  String get errorNotFound => 'រកធនធានដែលស្នើមិនឃើញទេ។';
 
   @override
-  String get errorNotFoundTitle => 'Not Found';
+  String get errorNotFoundTitle => 'រកមិនឃើញ';
 
   @override
   String get errorInvalidInput =>
-      'Invalid input. Please check your information.';
+      'ការបញ្ចូលមិនត្រឹមត្រូវ។ សូមពិនិត្យព័ត៌មានរបស់អ្នក។';
 
   @override
-  String get errorValidationTitle => 'Validation Error';
+  String get errorValidationTitle => 'កំហុសផ្ទៀងផ្ទាត់';
 
   @override
-  String get errorUnknown => 'An unexpected error occurred. Please try again.';
+  String get errorUnknown => 'មានកំហុសដែលមិនបានរំពឹង។ សូមព្យាយាមម្តងទៀត។';
 
   @override
-  String get errorTitle => 'Error';
+  String get errorTitle => 'កំហុស';
 
   @override
-  String get errorRateLimitTitle => 'Too Many Requests';
+  String get errorRateLimitTitle => 'ការស្នើច្រើនពេក';
 
   @override
-  String get validationEmailRequired => 'Email is required';
+  String get validationEmailRequired => 'ត្រូវការអ៉ីមែល';
 
   @override
-  String get validationEmailInvalid => 'Please enter a valid email address';
+  String get validationEmailInvalid => 'សូមបញ្ចូលអាសយដ្ឋានអ៉ីមែលដែលត្រឹមត្រូវ';
 
   @override
-  String get validationPhoneRequired => 'Phone number is required';
+  String get validationPhoneRequired => 'ត្រូវការលេខទូរស័ព្ទ';
 
   @override
-  String get validationPhoneTooShort => 'Phone number is too short';
+  String get validationPhoneTooShort => 'លេខទូរស័ព្ទខ្លីពេក';
 
   @override
-  String get validationPhoneTooLong => 'Phone number is too long';
+  String get validationPhoneTooLong => 'លេខទូរស័ព្ទវែងពេក';
 
   @override
-  String get validationPhoneInvalid => 'Please enter a valid phone number';
+  String get validationPhoneInvalid => 'សូមបញ្ចូលលេខទូរស័ព្ទដែលត្រឹមត្រូវ';
 
   @override
-  String get validationNameRequired => 'Name is required';
+  String get validationNameRequired => 'ត្រូវការឈ្មោះ';
 
   @override
-  String get validationNameTooShort => 'Name must be at least 2 characters';
+  String get validationNameTooShort => 'ឈ្មោះត្រូវមានយ៉ាងហោចណាស់ ២ តួអក្សរ';
 
   @override
-  String get validationNameTooLong => 'Name is too long';
+  String get validationNameTooLong => 'ឈ្មោះវែងពេក';
 
   @override
-  String get validationMessageRequired => 'Message is required';
+  String get validationMessageRequired => 'ត្រូវការសារ';
 
   @override
-  String get validationMessageTooShort =>
-      'Message must be at least 10 characters';
+  String get validationMessageTooShort => 'សារត្រូវមានយ៉ាងហោចណាស់ ១០ តួអក្សរ';
 
   @override
-  String get validationMessageTooLong =>
-      'Message is too long (maximum 2000 characters)';
+  String get validationMessageTooLong => 'សារវែងពេក (អតិបរមា ២០០០ តួអក្សរ)';
 
   @override
   String validationRequired(String field) {
-    return '$field is required';
+    return '$field ត្រូវការ';
   }
 
   @override
-  String get validationDateRequired => 'Date is required';
+  String get validationDateRequired => 'ត្រូវការកាលបរិច្ឆេទ';
 
   @override
-  String get validationDateNotPast => 'Please select a date in the future';
+  String get validationDateNotPast => 'សូមជ្រើសរើសកាលបរិច្ឆេទនៅអនាគត';
 
   @override
-  String get validationTimeRequired => 'Time slot is required';
+  String get validationTimeRequired => 'ត្រូវការពេលវេលា';
 
   @override
-  String get validationTimeInvalid => 'Please select a valid time slot';
+  String get validationTimeInvalid => 'សូមជ្រើសរើសពេលវេលាដែលត្រឹមត្រូវ';
 
   @override
-  String get validationFormErrors => 'Please fix the errors below';
+  String get validationFormErrors => 'សូមកែកំហុសខាងក្រោម';
 
   @override
-  String get validationPasswordRequired => 'Password is required';
+  String get validationPasswordRequired => 'ត្រូវការលេខសម្ងាត់';
 
   @override
   String get validationPasswordTooShort =>
-      'Password must be at least 8 characters';
+      'លេខសម្ងាត់ត្រូវមានយ៉ាងហោចណាស់ ៨ តួអក្សរ';
 
   @override
   String get validationPasswordTooLong =>
-      'Password is too long (maximum 128 characters)';
+      'លេខសម្ងាត់វែងពេក (អតិបរមា ១២៨ តួអក្សរ)';
 
   @override
   String get validationPasswordNoUpperCase =>
-      'Password must contain at least one uppercase letter';
+      'លេខសម្ងាត់ត្រូវមានយ៉ាងហោចណាស់អក្សរធំមួយ';
 
   @override
   String get validationPasswordNoLowerCase =>
-      'Password must contain at least one lowercase letter';
+      'លេខសម្ងាត់ត្រូវមានយ៉ាងហោចណាស់អក្សរតូចមួយ';
 
   @override
   String get validationPasswordNoNumber =>
-      'Password must contain at least one number';
+      'លេខសម្ងាត់ត្រូវមានយ៉ាងហោចណាស់លេខមួយ';
 
   @override
-  String get validationUrlRequired => 'URL is required';
+  String get validationUrlRequired => 'ត្រូវការ URL';
 
   @override
   String get validationUrlInvalid =>
-      'Please enter a valid URL (must start with http:// or https://)';
+      'សូមបញ្ចូល URL ដែលត្រឹមត្រូវ (ត្រូវចាប់ផ្តើមដោយ http:// ឬ https://)';
 }

@@ -65,13 +65,37 @@ class EventsSection extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 48),
-              if (isNarrow) ...[
-                RepaintBoundary(child: _buildComingUpNextBlock(context, l10n, featuredEvent)),
-                if (otherEvents.isNotEmpty) ...[
-                  const SizedBox(height: 32),
-                  RepaintBoundary(child: _buildAllUpcomingBlock(context, l10n, otherEvents)),
-                ],
-              ] else
+              if (isNarrow)
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    RepaintBoundary(child: _buildComingUpNextBlock(context, l10n, featuredEvent)),
+                    const SizedBox(height: 24),
+                    SizedBox(
+                      width: double.infinity,
+                      child: FilledButton(
+                        onPressed: () => context.push('/events'),
+                        style: FilledButton.styleFrom(
+                          backgroundColor: AppColors.accent,
+                          foregroundColor: AppColors.onAccent,
+                          padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        child: Text(
+                          l10n.exploreAllEvents,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              else
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

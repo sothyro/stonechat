@@ -165,7 +165,7 @@ class _HeroSectionState extends State<HeroSection> {
     final horizontalPadding = isMobile ? 16.0 : 32.0;
     final verticalPadding = isMobile ? 32.0 : 48.0;
     final topInset = isMobile ? (MediaQuery.paddingOf(context).top + 12 + 64) : 0.0;
-    final contentAlignment = isMobile ? const Alignment(0, 0.92) : const Alignment(-0.38, 0.42);
+    final contentAlignment = isMobile ? const Alignment(0, 1.0) : const Alignment(-0.38, 0.42);
     final crossAlign = isMobile ? CrossAxisAlignment.center : CrossAxisAlignment.start;
     final textAlign = isMobile ? TextAlign.center : TextAlign.left;
 
@@ -229,7 +229,7 @@ class _HeroSectionState extends State<HeroSection> {
                 left: horizontalPadding,
                 right: horizontalPadding,
                 top: topInset + verticalPadding,
-                bottom: isMobile ? 40.0 : verticalPadding,
+                bottom: isMobile ? 16.0 : verticalPadding,
               ),
               child: Align(
                 alignment: contentAlignment,
@@ -240,6 +240,7 @@ class _HeroSectionState extends State<HeroSection> {
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: crossAlign,
                           children: [
+                            const SizedBox(height: 140),
                             Wrap(
                               alignment: WrapAlignment.center,
                               spacing: 20,

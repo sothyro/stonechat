@@ -462,7 +462,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get consult3Category => '择日';
 
   @override
-  String get consult3Method => '择日';
+  String get consult3Method => '玄空';
 
   @override
   String get consult3Question => '何时才是明智选择的最佳时机？';
@@ -1142,166 +1142,151 @@ class AppLocalizationsZh extends AppLocalizations {
   String get noteHint => '可选的预约备注…';
 
   @override
-  String get retry => 'Retry';
+  String get retry => '重试';
 
   @override
-  String get errorNetwork =>
-      'Network connection failed. Please check your internet connection.';
+  String get errorNetwork => '网络连接失败，请检查网络后重试。';
 
   @override
-  String get errorNetworkTitle => 'Connection Error';
+  String get errorNetworkTitle => '连接错误';
 
   @override
-  String get errorTimeout =>
-      'Request timed out. Please check your connection and try again.';
+  String get errorTimeout => '请求超时，请检查网络后重试。';
 
   @override
-  String get errorServerUnavailable =>
-      'Service temporarily unavailable. Please try again.';
+  String get errorServerUnavailable => '服务暂时不可用，请稍后重试。';
 
   @override
-  String get errorServerError =>
-      'Server error occurred. Please try again later.';
+  String get errorServerError => '服务器错误，请稍后重试。';
 
   @override
-  String get errorDatabaseError => 'Database error occurred. Please try again.';
+  String get errorDatabaseError => '数据库错误，请重试。';
 
   @override
-  String get errorAuthFailed => 'Authentication failed. Please try again.';
+  String get errorAuthFailed => '验证失败，请重试。';
 
   @override
-  String get errorAuthTitle => 'Authentication Error';
+  String get errorAuthTitle => '验证错误';
 
   @override
-  String get errorUserNotFound => 'No account found with this email.';
+  String get errorUserNotFound => '未找到该邮箱对应的账号。';
 
   @override
-  String get errorWrongPassword => 'Incorrect password. Please try again.';
+  String get errorWrongPassword => '密码错误，请重试。';
 
   @override
-  String get errorEmailInUse => 'This email is already registered.';
+  String get errorEmailInUse => '该邮箱已被注册。';
 
   @override
-  String get errorInvalidEmail => 'Invalid email address.';
+  String get errorInvalidEmail => '邮箱地址无效。';
 
   @override
-  String get errorTooManyRequests =>
-      'Too many attempts. Please wait a moment and try again.';
+  String get errorTooManyRequests => '请求次数过多，请稍后再试。';
 
   @override
-  String get errorPermissionDenied =>
-      'You do not have permission to perform this action.';
+  String get errorPermissionDenied => '您没有权限执行此操作。';
 
   @override
-  String get errorPermissionTitle => 'Permission Denied';
+  String get errorPermissionTitle => '权限被拒';
 
   @override
-  String get errorNotFound => 'The requested resource was not found.';
+  String get errorNotFound => '未找到所请求的资源。';
 
   @override
-  String get errorNotFoundTitle => 'Not Found';
+  String get errorNotFoundTitle => '未找到';
 
   @override
-  String get errorInvalidInput =>
-      'Invalid input. Please check your information.';
+  String get errorInvalidInput => '输入无效，请检查信息。';
 
   @override
-  String get errorValidationTitle => 'Validation Error';
+  String get errorValidationTitle => '验证错误';
 
   @override
-  String get errorUnknown => 'An unexpected error occurred. Please try again.';
+  String get errorUnknown => '发生意外错误，请重试。';
 
   @override
-  String get errorTitle => 'Error';
+  String get errorTitle => '错误';
 
   @override
-  String get errorRateLimitTitle => 'Too Many Requests';
+  String get errorRateLimitTitle => '请求过于频繁';
 
   @override
-  String get validationEmailRequired => 'Email is required';
+  String get validationEmailRequired => '请输入邮箱';
 
   @override
-  String get validationEmailInvalid => 'Please enter a valid email address';
+  String get validationEmailInvalid => '请输入有效的邮箱地址';
 
   @override
-  String get validationPhoneRequired => 'Phone number is required';
+  String get validationPhoneRequired => '请输入手机号码';
 
   @override
-  String get validationPhoneTooShort => 'Phone number is too short';
+  String get validationPhoneTooShort => '手机号码过短';
 
   @override
-  String get validationPhoneTooLong => 'Phone number is too long';
+  String get validationPhoneTooLong => '手机号码过长';
 
   @override
-  String get validationPhoneInvalid => 'Please enter a valid phone number';
+  String get validationPhoneInvalid => '请输入有效的手机号码';
 
   @override
-  String get validationNameRequired => 'Name is required';
+  String get validationNameRequired => '请输入姓名';
 
   @override
-  String get validationNameTooShort => 'Name must be at least 2 characters';
+  String get validationNameTooShort => '姓名至少需要 2 个字符';
 
   @override
-  String get validationNameTooLong => 'Name is too long';
+  String get validationNameTooLong => '姓名过长';
 
   @override
-  String get validationMessageRequired => 'Message is required';
+  String get validationMessageRequired => '请输入留言';
 
   @override
-  String get validationMessageTooShort =>
-      'Message must be at least 10 characters';
+  String get validationMessageTooShort => '留言至少需要 10 个字符';
 
   @override
-  String get validationMessageTooLong =>
-      'Message is too long (maximum 2000 characters)';
+  String get validationMessageTooLong => '留言过长（最多 2000 个字符）';
 
   @override
   String validationRequired(String field) {
-    return '$field is required';
+    return '$field 为必填项';
   }
 
   @override
-  String get validationDateRequired => 'Date is required';
+  String get validationDateRequired => '请选择日期';
 
   @override
-  String get validationDateNotPast => 'Please select a date in the future';
+  String get validationDateNotPast => '请选择未来的日期';
 
   @override
-  String get validationTimeRequired => 'Time slot is required';
+  String get validationTimeRequired => '请选择时段';
 
   @override
-  String get validationTimeInvalid => 'Please select a valid time slot';
+  String get validationTimeInvalid => '请选择有效的时段';
 
   @override
-  String get validationFormErrors => 'Please fix the errors below';
+  String get validationFormErrors => '请修正以下错误';
 
   @override
-  String get validationPasswordRequired => 'Password is required';
+  String get validationPasswordRequired => '请输入密码';
 
   @override
-  String get validationPasswordTooShort =>
-      'Password must be at least 8 characters';
+  String get validationPasswordTooShort => '密码至少需要 8 个字符';
 
   @override
-  String get validationPasswordTooLong =>
-      'Password is too long (maximum 128 characters)';
+  String get validationPasswordTooLong => '密码过长（最多 128 个字符）';
 
   @override
-  String get validationPasswordNoUpperCase =>
-      'Password must contain at least one uppercase letter';
+  String get validationPasswordNoUpperCase => '密码需包含至少一个大写字母';
 
   @override
-  String get validationPasswordNoLowerCase =>
-      'Password must contain at least one lowercase letter';
+  String get validationPasswordNoLowerCase => '密码需包含至少一个小写字母';
 
   @override
-  String get validationPasswordNoNumber =>
-      'Password must contain at least one number';
+  String get validationPasswordNoNumber => '密码需包含至少一个数字';
 
   @override
-  String get validationUrlRequired => 'URL is required';
+  String get validationUrlRequired => '请输入 URL';
 
   @override
-  String get validationUrlInvalid =>
-      'Please enter a valid URL (must start with http:// or https://)';
+  String get validationUrlInvalid => '请输入有效的 URL（需以 http:// 或 https:// 开头）';
 }

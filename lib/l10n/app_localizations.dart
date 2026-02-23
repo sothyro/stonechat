@@ -961,7 +961,7 @@ abstract class AppLocalizations {
   /// No description provided for @consult1Desc.
   ///
   /// In en, this message translates to:
-  /// **'Reveal your true power within.'**
+  /// **'Your birth chart holds the key to your strengths, challenges and timing. A BaZi reading reveals your true potential and helps you align your choices with the energies you were born with—so you can make decisions with clarity and confidence.'**
   String get consult1Desc;
 
   /// No description provided for @consult2Category.
@@ -985,7 +985,7 @@ abstract class AppLocalizations {
   /// No description provided for @consult2Desc.
   ///
   /// In en, this message translates to:
-  /// **'Understand how to harness the positive energy of your environment.'**
+  /// **'Your environment shapes your wellbeing and success. Learn how to harness the positive energy of your space—at home or at work—so that your surroundings support your goals instead of working against them. A personalised assessment helps you apply these principles where they matter most.'**
   String get consult2Desc;
 
   /// No description provided for @consult3Category.
@@ -997,7 +997,7 @@ abstract class AppLocalizations {
   /// No description provided for @consult3Method.
   ///
   /// In en, this message translates to:
-  /// **'Date Selection'**
+  /// **'Xuan Kong'**
   String get consult3Method;
 
   /// No description provided for @consult3Question.
@@ -1009,7 +1009,7 @@ abstract class AppLocalizations {
   /// No description provided for @consult3Desc.
   ///
   /// In en, this message translates to:
-  /// **'Select your time and date for the best possible outcome.'**
+  /// **'Choosing the right date and time can turn an ordinary step into a favourable one. We use traditional methods to help you schedule important events—from openings and signings to personal milestones—for the best possible outcome.'**
   String get consult3Desc;
 
   /// No description provided for @consult4Category.
@@ -1033,7 +1033,7 @@ abstract class AppLocalizations {
   /// No description provided for @consult4Desc.
   ///
   /// In en, this message translates to:
-  /// **'Defeat your enemy and maximise your benefits.'**
+  /// **'Face complex decisions with ancient wisdom. QiMen Dunjia and I Ching offer strategic insight and clarity—so you can see your options clearly, anticipate outcomes and choose the move that best serves your goals. Ideal for business, competition and pivotal life choices.'**
   String get consult4Desc;
 
   /// No description provided for @consult5Category.
@@ -1057,7 +1057,7 @@ abstract class AppLocalizations {
   /// No description provided for @consult5Desc.
   ///
   /// In en, this message translates to:
-  /// **'Mao Shan methods and rituals within Chinese metaphysics.'**
+  /// **'Mao Shan brings together Taoist ritual and Chinese metaphysical practice. Whether for spiritual growth or life transitions, these methods offer a structured path to transformation and a deeper connection to tradition.'**
   String get consult5Desc;
 
   /// No description provided for @consult6Category.
@@ -1081,7 +1081,7 @@ abstract class AppLocalizations {
   /// No description provided for @consult6Desc.
   ///
   /// In en, this message translates to:
-  /// **'Explore our published works on Feng Shui and Chinese metaphysics.'**
+  /// **'Dive deeper with Master Elf’s published works on Feng Shui, BaZi and Chinese metaphysics. Our books and resources are designed to support your learning and practice beyond the consultation room.'**
   String get consult6Desc;
 
   /// No description provided for @stickyCtaText.

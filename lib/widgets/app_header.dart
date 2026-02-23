@@ -26,6 +26,9 @@ class _MenuColors {
   static const Color linkText = Color(0xFFF0F0F0);
 }
 
+/// Menu bar corner radius (desktop and mobile).
+const double _kMenuBarRadius = 22.0;
+
 class AppHeader extends StatelessWidget implements PreferredSizeWidget {
   const AppHeader({super.key, this.onOpenDrawer});
 
@@ -40,18 +43,12 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
     final localeNotifier = context.watch<LocaleNotifier>();
     final width = MediaQuery.sizeOf(context).width;
     final isMobile = Breakpoints.isMobile(width);
-    final horizontalPadding = isMobile
-        ? (width < _MobileBreakpoints.narrow ? 12.0 : (width < _MobileBreakpoints.compact ? 16.0 : 20.0))
-        : 24.0;
     return Semantics(
       container: true,
       label: 'Navigation',
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(
-          vertical: isMobile ? 12 : 16,
-          horizontal: horizontalPadding,
-        ),
+        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
         color: Colors.transparent,
         child: isMobile
             ? _MobileHeader(l10n: l10n, onOpenDrawer: onOpenDrawer)
@@ -73,26 +70,19 @@ class _MobileHeader extends StatelessWidget {
   final AppLocalizations l10n;
   final VoidCallback? onOpenDrawer;
 
-  static void _mobileDimensions(double width, void Function(double barHeight, double logoHeight, double logoSlotWidth, double stackHeight, double logoTopOffset) fn) {
-    if (width < _MobileBreakpoints.narrow) {
-      fn(56, 116, 140, 180, -160);
-    } else if (width < _MobileBreakpoints.compact) {
-      fn(60, 132, 160, 200, -162);
-    } else {
-      fn(64, 152, 184, 240, -164);
-    }
+  /// Match desktop: bar 72, stack 240, logo 154×184.
+  static void _mobileDimensions(void Function(double barHeight, double logoHeight, double logoSlotWidth, double stackHeight) fn) {
+    fn(72, 154, 184, 240);
   }
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
-    late double barHeight, logoHeight, logoSlotWidth, stackHeight, logoTopOffset;
-    _mobileDimensions(width, (b, l, s, h, t) {
+    late double barHeight, logoHeight, logoSlotWidth, stackHeight;
+    _mobileDimensions((b, l, s, h) {
       barHeight = b;
       logoHeight = l;
       logoSlotWidth = s;
       stackHeight = h;
-      logoTopOffset = t;
     });
 
     return SizedBox(
@@ -104,58 +94,63 @@ class _MobileHeader extends StatelessWidget {
             left: 0,
             right: 0,
             top: 0,
+            height: barHeight,
             child: GlassContainer(
               blurSigma: 14,
               color: AppColors.overlayDark.withValues(alpha: 0.42),
-              borderRadius: BorderRadius.circular(24),
+              borderRadius: BorderRadius.circular(_kMenuBarRadius),
               border: Border.all(color: _MenuColors.barBorder, width: 1.5),
               boxShadow: AppShadows.header,
-              padding: EdgeInsets.zero,
-              child: SizedBox(
-                height: barHeight,
-                child: Row(
-                  children: [
-                    SizedBox(width: _kLogoLeftInsetMobile + logoSlotWidth),
-                    IconButton(
-                      icon: const Icon(LucideIcons.menu, color: _MenuColors.linkText, size: 24),
-                      onPressed: onOpenDrawer ?? () {},
-                      tooltip: 'Menu',
-                      style: IconButton.styleFrom(
-                        minimumSize: const Size(kMinTouchTargetSize, kMinTouchTargetSize),
-                        tapTargetSize: MaterialTapTargetSize.padded,
-                      ),
+              padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 10),
+              child: Row(
+                children: [
+                  SizedBox(width: logoSlotWidth),
+                  const SizedBox(width: 4),
+                  Text(
+                    'MENU',
+                    style: TextStyle(
+                      color: _MenuColors.linkText,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 1.2,
                     ),
-                    const Expanded(child: SizedBox.shrink()),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 8),
-                      child: _ContactUsButton(l10n: l10n),
+                  ),
+                  const SizedBox(width: 6),
+                  IconButton(
+                    icon: const Icon(LucideIcons.menu, color: _MenuColors.linkText, size: 24),
+                    onPressed: onOpenDrawer ?? () {},
+                    tooltip: 'Menu',
+                    style: IconButton.styleFrom(
+                      minimumSize: const Size(kMinTouchTargetSize, kMinTouchTargetSize),
+                      tapTargetSize: MaterialTapTargetSize.padded,
                     ),
-                  ],
-                ),
+                  ),
+                  const SizedBox(width: 8),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: _ContactUsButton(l10n: l10n),
+                  ),
+                ],
               ),
             ),
           ),
           Positioned(
-            left: _kLogoLeftInsetMobile,
-            top: logoTopOffset,
-            bottom: 0,
-            child: SizedBox(
-              width: logoSlotWidth,
-              child: Center(
-                child: GestureDetector(
-                  onTap: () => context.go('/'),
-                  behavior: HitTestBehavior.opaque,
-                  child: LogoWithShapeShadow(
-                    assetPath: AppContent.assetLogo,
-                    height: logoHeight,
-                    errorBuilder: (_, __, ___) => Text(
-                      AppContent.shortName,
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            color: AppColors.accent,
-                            fontWeight: FontWeight.bold,
-                          ),
-                    ),
-                  ),
+            left: _kLogoLeftInsetDesktop,
+            top: -36,
+            height: logoHeight,
+            width: logoSlotWidth,
+            child: GestureDetector(
+              onTap: () => context.go('/'),
+              behavior: HitTestBehavior.opaque,
+              child: LogoWithShapeShadow(
+                assetPath: AppContent.assetLogo,
+                height: logoHeight,
+                errorBuilder: (_, __, ___) => Text(
+                  AppContent.shortName,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: AppColors.accent,
+                        fontWeight: FontWeight.bold,
+                      ),
                 ),
               ),
             ),
@@ -195,7 +190,7 @@ class _DesktopHeader extends StatelessWidget {
     }
     final width = MediaQuery.sizeOf(context).width;
     final isTablet = width >= Breakpoints.mobile && width < Breakpoints.tablet;
-    const logoHeight = 152.0;
+    const logoHeight = 154.0;
     const logoSlotWidth = 184.0;
     const stackHeight = 240.0;
     const barHeight = 72.0;
@@ -268,7 +263,7 @@ class _DesktopHeader extends StatelessWidget {
               child: GlassContainer(
                 blurSigma: 14,
                 color: AppColors.overlayDark.withValues(alpha: 0.42),
-                borderRadius: BorderRadius.circular(34),
+                borderRadius: BorderRadius.circular(_kMenuBarRadius),
                 border: Border.all(color: _MenuColors.barBorder, width: 1.5),
                 boxShadow: AppShadows.header,
                 padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 10),
