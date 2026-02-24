@@ -112,6 +112,8 @@ When a new document is created in `appointments`, a Cloud Function sends an SMS 
 
 3. **Verify** by creating a test booking from the app (Consultations → book a slot and confirm), or call the `sendTestSms` Cloud Function (requires an authenticated user) with `{ "phone": "855XXXXXXXXX", "message": "Optional text" }` to send a test SMS.
 
+**If SMS is not sent:** In the Consultations dashboard, open an appointment and check **SMS status**. If it shows `failed` with reason `config`, set `PLASGATE_PRIVATE_KEY` and `PLASGATE_SECRET` and redeploy. If it shows `invalid_phone`, ensure the customer’s number has at least 8 digits (Cambodia E.164: 855 + 8–9 digits). Check function logs: `firebase functions:log` for `onAppointmentCreated` and `sendPlasGateSms`.
+
 Implementation details: on every new booking, 3 SMS are sent—(1) customer (confirmation), (2) admin (summary to `ADMIN_SMS_PHONE`), (3) Master Elf (+85512222211, summary). Phone numbers are normalized to E.164. Invalid or missing customer phone skips only the customer SMS and sets `smsStatus: "skipped"`. The function retries once on 5xx or network errors. Customer SMS status is written to the appointment document (`smsStatus`, `smsSentAt`, and on failure `smsErrorReason`, `smsErrorBody`, etc.).
 
 ## Resources

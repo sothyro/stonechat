@@ -806,6 +806,9 @@ class AppLocalizationsKm extends AppLocalizations {
   String get smsPoweredByPlasGate => 'ការបញ្ជាក់ SMS ផ្ញើតាម PlasGate។';
 
   @override
+  String get smsStatusLabel => 'ស្ថានភាព SMS';
+
+  @override
   String get sessionDurationNote => 'ជាវគ្គ ២ ម៉ោង ចន្លោះ ១ ម៉ោង។';
 
   @override

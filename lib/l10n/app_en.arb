@@ -249,6 +249,7 @@
   "bookingSuccessMessage": "Your consultation has been reserved.",
   "smsConfirmationNote": "An SMS confirmation has been sent to your phone.",
   "smsPoweredByPlasGate": "SMS confirmation sent via PlasGate.",
+  "smsStatusLabel": "SMS status",
   "sessionDurationNote": "Each session is 2 hours with a 1-hour break between sessions.",
   "sessionType": "Session type",
   "sessionTypeOnline": "Online",

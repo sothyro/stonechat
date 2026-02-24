@@ -815,6 +815,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get smsPoweredByPlasGate => 'SMS confirmation sent via PlasGate.';
 
   @override
+  String get smsStatusLabel => 'SMS status';
+
+  @override
   String get sessionDurationNote =>
       'Each session is 2 hours with a 1-hour break between sessions.';
 

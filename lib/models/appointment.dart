@@ -42,7 +42,7 @@ class AppointmentRecord {
   }
 }
 
-/// Admin view of an appointment (includes name, phone, etc.).
+/// Admin view of an appointment (includes name, phone, SMS status, etc.).
 class AdminAppointmentRecord extends AppointmentRecord {
   const AdminAppointmentRecord({
     required super.id,
@@ -57,12 +57,21 @@ class AdminAppointmentRecord extends AppointmentRecord {
     this.phone = '',
     this.createdAtIso,
     this.notes = '',
+    this.smsStatus,
+    this.smsErrorReason,
+    this.smsErrorBody,
   }) : super();
 
   final String name;
   final String phone;
   final String? createdAtIso;
   final String notes;
+  /// SMS status from Cloud Function: sent, failed, skipped, error.
+  final String? smsStatus;
+  /// Reason when SMS failed or skipped (e.g. invalid_phone, config, api_error).
+  final String? smsErrorReason;
+  /// Short error message from PlasGate or config (for debugging).
+  final String? smsErrorBody;
 
   factory AdminAppointmentRecord.fromMap(String id, Map<String, dynamic> map) {
     return AdminAppointmentRecord(
@@ -78,6 +87,9 @@ class AdminAppointmentRecord extends AppointmentRecord {
       phone: map['phone'] as String? ?? '',
       createdAtIso: map['createdAt'] as String?,
       notes: map['notes'] as String? ?? '',
+      smsStatus: map['smsStatus'] as String?,
+      smsErrorReason: map['smsErrorReason'] as String?,
+      smsErrorBody: map['smsErrorBody'] as String?,
     );
   }
 }

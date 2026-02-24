@@ -320,6 +320,18 @@ class _AppointmentsDashboardScreenState extends State<AppointmentsDashboardScree
               Text(l10n.note, style: TextStyle(color: AppColors.onSurfaceVariantDark, fontSize: 12)),
               Text(a.notes, style: const TextStyle(color: AppColors.onPrimary)),
             ],
+            if (a.smsStatus != null) ...[
+              const SizedBox(height: 8),
+              Text(
+                '${l10n.smsStatusLabel}: ${a.smsStatus}${a.smsErrorReason != null ? " (${a.smsErrorReason})" : ""}',
+                style: TextStyle(
+                  color: a.smsStatus == 'sent' ? const Color(0xFF1B5E20) : AppColors.onSurfaceVariantDark,
+                  fontSize: 12,
+                ),
+              ),
+              if (a.smsErrorBody != null && a.smsErrorBody!.isNotEmpty)
+                Text(a.smsErrorBody!, style: TextStyle(color: AppColors.error.withValues(alpha: 0.9), fontSize: 11)),
+            ],
             const SizedBox(height: 8),
             Text(
               a.status == 'confirmed' ? l10n.statusConfirmed : a.status == 'cancelled' ? l10n.statusCancelled : a.status == 'completed' ? l10n.statusCompleted : l10n.statusPending,

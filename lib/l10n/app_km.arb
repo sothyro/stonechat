@@ -249,6 +249,7 @@
   "bookingSuccessMessage": "ការពិគ្រោះរបស់អ្នកត្រូវបានកក់។",
   "smsConfirmationNote": "ការបញ្ជាក់ SMS ត្រូវបានផ្ញើទៅទូរស័ព្ទរបស់អ្នក។",
   "smsPoweredByPlasGate": "ការបញ្ជាក់ SMS ផ្ញើតាម PlasGate។",
+  "smsStatusLabel": "ស្ថានភាព SMS",
   "sessionDurationNote": "ជាវគ្គ ២ ម៉ោង ចន្លោះ ១ ម៉ោង។",
   "sessionType": "ប្រភេទសម័យ",
   "sessionTypeOnline": "អនឡាញ",

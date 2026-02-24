@@ -1558,6 +1558,12 @@ abstract class AppLocalizations {
   /// **'SMS confirmation sent via PlasGate.'**
   String get smsPoweredByPlasGate;
 
+  /// No description provided for @smsStatusLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'SMS status'**
+  String get smsStatusLabel;
+
   /// No description provided for @sessionDurationNote.
   ///
   /// In en, this message translates to:

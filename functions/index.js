@@ -37,12 +37,12 @@ function normalizePhone(phone) {
 }
 
 /**
- * Validate that normalized phone is suitable for PlasGate (e.g. 855 + 9 digits).
+ * Validate that normalized phone is suitable for PlasGate (Cambodia 855 + 8–9 digits).
  */
 function isValidE164Phone(normalized) {
   if (!normalized || typeof normalized !== "string") return false;
   const digits = normalized.replace(/\D/g, "");
-  return digits.startsWith("855") && digits.length >= 12 && digits.length <= 15;
+  return digits.startsWith("855") && digits.length >= 11 && digits.length <= 15;
 }
 
 /**
@@ -90,7 +90,8 @@ async function sendPlasGateSms(to, content) {
 
     const toE164 = normalizePhone(to);
     if (!isValidE164Phone(toE164)) {
-      console.warn(`sendPlasGateSms: Invalid or too short phone: ${String(to).substring(0, 6)}...`);
+      const masked = toE164 ? `${toE164.slice(0, 5)}***${toE164.slice(-2)}` : "(empty)";
+      console.warn(`sendPlasGateSms: Invalid phone (normalized=${masked}, length=${(toE164 || "").replace(/\D/g, "").length})`);
       return { ok: false, reason: "invalid_phone", toE164 };
     }
 
@@ -121,7 +122,11 @@ async function sendPlasGateSms(to, content) {
       };
     }
 
-    if (result.parsed?.error || result.parsed?.status === "error" || (result.parsed?.message && String(result.parsed.message).toLowerCase().includes("error"))) {
+    const errLike = result.parsed?.error
+      || result.parsed?.status === "error"
+      || result.parsed?.status === "failed"
+      || (result.parsed?.message && String(result.parsed.message).toLowerCase().includes("error"));
+    if (errLike) {
       console.error("PlasGate API error in response:", result.parsed);
       return {
         ok: false,
@@ -142,17 +147,19 @@ async function sendPlasGateSms(to, content) {
 
 /**
  * Firestore trigger: when an appointment is created, send SMS via PlasGate and update doc.
+ * Runs for both: (1) customer booking from the app, (2) admin booking from the dashboard (on behalf of client).
+ * Both flows write a new document to `appointments` via submitAppointmentBooking → same trigger.
  */
 export const onAppointmentCreated = onDocumentCreated(
   { document: `${APPOINTMENTS}/{docId}`, secrets: [plasgatePrivateKey, plasgateSecret, adminSmsPhone] },
   async (event) => {
+    const docId = event.params?.docId ?? "(unknown)";
+    console.log(`onAppointmentCreated: Triggered for document ${docId}`);
     const snap = event.data;
     if (!snap) {
       console.warn("onAppointmentCreated: No snapshot data");
       return;
     }
-    
-    const docId = event.params.docId;
     const data = snap.data();
     const ref = snap.ref;
     const name = data.name || "";
@@ -192,6 +199,9 @@ export const onAppointmentCreated = onDocumentCreated(
         if (!result.ok && result.reason) updateData.smsErrorReason = result.reason;
         if (!result.ok && result.status) updateData.smsErrorStatus = result.status;
         if (!result.ok && result.body) updateData.smsErrorBody = (result.body || "").substring(0, 200);
+        if (!result.ok && result.reason === "config") {
+          updateData.smsErrorBody = "PlasGate credentials not set. Set PLASGATE_PRIVATE_KEY and PLASGATE_SECRET in Firebase secrets.";
+        }
         if (!result.ok && result.parsed) updateData.smsErrorParsed = result.parsed;
         await ref.update(updateData);
         console.log(`onAppointmentCreated: Updated document ${docId} with SMS status: ${updateData.smsStatus}`);
@@ -376,6 +386,9 @@ export const getAllAppointments = onCall(async (request) => {
         sessionType: d.sessionType || "VISIT",
         notes: d.notes || "",
         createdAt: d.createdAt?.toDate?.()?.toISOString?.() || null,
+        smsStatus: d.smsStatus || null,
+        smsErrorReason: d.smsErrorReason || null,
+        smsErrorBody: d.smsErrorBody || null,
       };
     });
     // Sort by startTime desc in memory (handles unordered fetch)

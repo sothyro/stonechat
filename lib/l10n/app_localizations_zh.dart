@@ -757,6 +757,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get smsPoweredByPlasGate => '短信确认通过 PlasGate 发送。';
 
   @override
+  String get smsStatusLabel => '短信状态';
+
+  @override
   String get sessionDurationNote => '每次咨询为 2 小时，场次间隔 1 小时。';
 
   @override
