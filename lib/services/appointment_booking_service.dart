@@ -67,6 +67,7 @@ Future<BookingResult> submitAppointmentBooking({
   String sessionType = 'VISIT',
   String? notes,
   int durationMinutes = defaultSessionDurationMinutes,
+  bool createdByAdmin = false,
 }) async {
   final normalizedPhone = normalizePhone(phone);
   final startTime = _parseStartTime(date, time);
@@ -97,6 +98,9 @@ Future<BookingResult> submitAppointmentBooking({
       };
       if (notes != null && notes.trim().isNotEmpty) {
         data['notes'] = notes.trim();
+      }
+      if (createdByAdmin) {
+        data['createdByAdmin'] = true;
       }
       await ref.set(data);
       return BookingResult(

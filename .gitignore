@@ -46,3 +46,4 @@ app.*.map.json
 
 # Node.js / Cloud Functions
 functions/node_modules/
+functions/scripts/.plasgate-*

@@ -775,6 +775,7 @@ Future<void> showCreateBookingDialog(
                     sessionType: selectedSessionType,
                     notes: note.isEmpty ? null : note,
                     durationMinutes: defaultSessionDurationMinutes,
+                    createdByAdmin: true,
                   );
                   if (!context.mounted) return;
                   if (result.success) {

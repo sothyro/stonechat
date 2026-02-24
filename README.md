@@ -92,6 +92,28 @@ They do not share data or logic. Contact form submissions do not affect the book
    Each new submission will trigger an email to `CONTACT_NOTIFY_EMAIL` with the sender’s name, email, phone, subject, and message.  
    Resend’s free tier allows sending from `onboarding@resend.dev`; for a custom “From” address, verify your domain in Resend.
 
+### PlasGate SMS (appointment confirmations)
+
+When a new document is created in `appointments`, a Cloud Function sends an SMS confirmation via [PlasGate](https://support.plasgate.com/article/api-overview) (sender: **PlasGateUAT**).
+
+1. **Set Firebase secrets** (from project root). You need your PlasGate **private key** and **secret** from the PlasGate portal, and (optional) an admin phone for “create booking on behalf of client” SMS:
+   ```bash
+   firebase functions:secrets:set PLASGATE_PRIVATE_KEY
+   firebase functions:secrets:set PLASGATE_SECRET
+   firebase functions:secrets:set ADMIN_SMS_PHONE
+   ```
+   When prompted, paste your PlasGate keys. For `ADMIN_SMS_PHONE`, enter your E.164 number (e.g. `855XXXXXXXXX`) to receive an SMS when you create a booking on behalf of a client from the dashboard; enter `0` to disable. Do not commit these values to the repo.
+
+2. **Redeploy functions** so the new secrets are used:
+   ```powershell
+   cd functions; npm ci; cd ..
+   firebase deploy --only functions
+   ```
+
+3. **Verify** by creating a test booking from the app (Consultations → book a slot and confirm), or call the `sendTestSms` Cloud Function (requires an authenticated user) with `{ "phone": "855XXXXXXXXX", "message": "Optional text" }` to send a test SMS.
+
+Implementation details: on every new booking, 3 SMS are sent—(1) customer (confirmation), (2) admin (summary to `ADMIN_SMS_PHONE`), (3) Master Elf (+85512222211, summary). Phone numbers are normalized to E.164. Invalid or missing customer phone skips only the customer SMS and sets `smsStatus: "skipped"`. The function retries once on 5xx or network errors. Customer SMS status is written to the appointment document (`smsStatus`, `smsSentAt`, and on failure `smsErrorReason`, `smsErrorBody`, etc.).
+
 ## Resources
 
 - [Flutter documentation](https://docs.flutter.dev/)

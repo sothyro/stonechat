@@ -10,6 +10,7 @@ const db = getFirestore();
 // PlasGate credentials – set via firebase functions:secrets:set
 const plasgatePrivateKey = defineSecret("PLASGATE_PRIVATE_KEY");
 const plasgateSecret = defineSecret("PLASGATE_SECRET");
+const adminSmsPhone = defineSecret("ADMIN_SMS_PHONE");
 const SMS_SENDER = "PlasGateUAT";
 
 const APPOINTMENTS = "appointments";
@@ -18,96 +19,121 @@ const BREAK_AFTER_MINUTES = 60;  // 1 hour between sessions
 const BUSINESS_OPEN_HOUR = 9;
 const BUSINESS_CLOSE_HOUR = 22;  // Slots up to 21:00 (special: 1h or 2h to 23:00)
 
+const PLASGATE_API_URL = "https://cloudapi.plasgate.com/rest/send";
+const MIN_PHONE_DIGITS = 9; // Cambodia local number length without country code
+const SMS_RETRY_DELAY_MS = 2000;
+/** Master Elf business line – receives SMS on every new booking. */
+const MASTER_ELF_SMS_PHONE = "85512222211";
+
 /**
  * Normalize phone to E.164 (digits only, Cambodia 855).
  */
 function normalizePhone(phone) {
-  const digits = String(phone).replace(/\D/g, "");
+  const digits = String(phone || "").replace(/\D/g, "");
   if (digits.startsWith("855")) return digits;
   if (digits.startsWith("0")) return "855" + digits.slice(1);
-  if (digits.length >= 9) return "855" + digits;
+  if (digits.length >= MIN_PHONE_DIGITS) return "855" + digits;
   return digits;
 }
 
 /**
- * Send SMS via PlasGate REST API.
- * POST https://cloudapi.plasgate.com/rest/send?private_key=... 
+ * Validate that normalized phone is suitable for PlasGate (e.g. 855 + 9 digits).
+ */
+function isValidE164Phone(normalized) {
+  if (!normalized || typeof normalized !== "string") return false;
+  const digits = normalized.replace(/\D/g, "");
+  return digits.startsWith("855") && digits.length >= 12 && digits.length <= 15;
+}
+
+/**
+ * Send one request to PlasGate REST API.
+ * POST https://cloudapi.plasgate.com/rest/send?private_key=...
  * Header: X-Secret: ...
  * Body: { sender, to, content }
+ */
+async function sendPlasGateSmsRequest(privateKey, secret, toE164, content) {
+  const url = `${PLASGATE_API_URL}?private_key=${encodeURIComponent(privateKey)}`;
+  const res = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Secret": secret,
+    },
+    body: JSON.stringify({
+      sender: SMS_SENDER,
+      to: toE164,
+      content,
+    }),
+  });
+  const responseText = await res.text();
+  let parsed;
+  try {
+    parsed = JSON.parse(responseText);
+  } catch {
+    parsed = { message: responseText };
+  }
+  return { ok: res.ok, status: res.status, body: responseText, parsed };
+}
+
+/**
+ * Send SMS via PlasGate REST API with validation, normalization, and one retry on 5xx/network.
  */
 async function sendPlasGateSms(to, content) {
   try {
     const privateKey = plasgatePrivateKey.value();
     const secret = plasgateSecret.value();
-    
-    console.log(`sendPlasGateSms: Checking credentials - privateKey exists: ${!!privateKey}, secret exists: ${!!secret}`);
-    
+
     if (!privateKey || !secret) {
-      console.warn("PlasGate credentials not set; skipping SMS. Use 'firebase functions:secrets:set PLASGATE_PRIVATE_KEY' and 'firebase functions:secrets:set PLASGATE_SECRET'");
+      console.warn("PlasGate credentials not set; skipping SMS. Set PLASGATE_PRIVATE_KEY and PLASGATE_SECRET via Firebase secrets.");
       return { ok: false, reason: "config" };
     }
-    
-    const toDigits = to.replace(/\D/g, "");
-    console.log(`sendPlasGateSms: Normalized phone number: ${to} -> ${toDigits}`);
-    
-    const url = `https://cloudapi.plasgate.com/rest/send?private_key=${encodeURIComponent(privateKey)}`;
-    console.log(`sendPlasGateSms: Calling PlasGate API: ${url.substring(0, 50)}...`);
-    
-    const requestBody = {
-      sender: SMS_SENDER,
-      to: toDigits,
-      content,
-    };
-    console.log(`sendPlasGateSms: Request body:`, JSON.stringify({ ...requestBody, content: content.substring(0, 50) + "..." }));
-    
-    const res = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Secret": secret,
-      },
-      body: JSON.stringify(requestBody),
-    });
-    
-    console.log(`sendPlasGateSms: Response status: ${res.status}`);
-    
-    const responseText = await res.text();
-    console.log(`sendPlasGateSms: Response body: ${responseText}`);
-    
-    // Parse response to check for actual success/error
-    let responseData;
-    try {
-      responseData = JSON.parse(responseText);
-    } catch (e) {
-      // Not JSON, treat as plain text
-      responseData = { message: responseText };
+
+    const toE164 = normalizePhone(to);
+    if (!isValidE164Phone(toE164)) {
+      console.warn(`sendPlasGateSms: Invalid or too short phone: ${String(to).substring(0, 6)}...`);
+      return { ok: false, reason: "invalid_phone", toE164 };
     }
-    
-    // Check if response indicates an error even with 2xx status
-    if (!res.ok || (res.status === 203 && responseData.message && responseData.message.includes("Non-Authoritative"))) {
-      console.error("PlasGate error:", res.status, responseText);
-      return { 
-        ok: false, 
-        status: res.status, 
-        body: responseText,
-        parsed: responseData 
+
+    if (!content || typeof content !== "string" || content.trim().length === 0) {
+      return { ok: false, reason: "empty_content" };
+    }
+
+    const trimmedContent = content.trim();
+    console.log(`sendPlasGateSms: Sending to ${toE164}, content length: ${trimmedContent.length}`);
+
+    let result = await sendPlasGateSmsRequest(privateKey, secret, toE164, trimmedContent);
+
+    // Retry once on 5xx or network-related failure
+    if (!result.ok && (result.status >= 500 || result.status === 0)) {
+      console.log(`sendPlasGateSms: Retrying after ${SMS_RETRY_DELAY_MS}ms...`);
+      await new Promise((r) => setTimeout(r, SMS_RETRY_DELAY_MS));
+      result = await sendPlasGateSmsRequest(privateKey, secret, toE164, trimmedContent);
+    }
+
+    if (!result.ok) {
+      console.error("PlasGate error:", result.status, result.body);
+      return {
+        ok: false,
+        status: result.status,
+        body: result.body,
+        parsed: result.parsed,
+        reason: "api_error",
       };
     }
-    
-    // Check for error messages in response
-    if (responseData.error || responseData.status === "error" || (responseData.message && responseData.message.toLowerCase().includes("error"))) {
-      console.error("PlasGate API returned error in response:", responseData);
-      return { 
-        ok: false, 
-        status: res.status, 
-        body: responseText,
-        parsed: responseData,
-        reason: "api_error"
+
+    if (result.parsed?.error || result.parsed?.status === "error" || (result.parsed?.message && String(result.parsed.message).toLowerCase().includes("error"))) {
+      console.error("PlasGate API error in response:", result.parsed);
+      return {
+        ok: false,
+        status: result.status,
+        body: result.body,
+        parsed: result.parsed,
+        reason: "api_error",
       };
     }
-    
-    console.log(`sendPlasGateSms: Success! Response: ${JSON.stringify(responseData)}`);
-    return { ok: true, response: responseText, parsed: responseData };
+
+    console.log("sendPlasGateSms: Success.", result.parsed ? JSON.stringify(result.parsed) : result.body);
+    return { ok: true, response: result.body, parsed: result.parsed };
   } catch (error) {
     console.error("sendPlasGateSms: Exception:", error);
     return { ok: false, reason: "exception", error: error.message || String(error) };
@@ -118,7 +144,7 @@ async function sendPlasGateSms(to, content) {
  * Firestore trigger: when an appointment is created, send SMS via PlasGate and update doc.
  */
 export const onAppointmentCreated = onDocumentCreated(
-  { document: `${APPOINTMENTS}/{docId}`, secrets: [plasgatePrivateKey, plasgateSecret] },
+  { document: `${APPOINTMENTS}/{docId}`, secrets: [plasgatePrivateKey, plasgateSecret, adminSmsPhone] },
   async (event) => {
     const snap = event.data;
     if (!snap) {
@@ -130,44 +156,76 @@ export const onAppointmentCreated = onDocumentCreated(
     const data = snap.data();
     const ref = snap.ref;
     const name = data.name || "";
-    const phone = data.phone || "";
+    const rawPhone = data.phone || "";
+    const phone = normalizePhone(rawPhone);
     const serviceName = data.serviceName || "Consultation";
     const sessionType = data.sessionType || "VISIT";
     const date = data.date || "";
     const time = data.time || "";
     const bookingRef = data.bookingReference || docId.slice(-6).toUpperCase();
 
-    console.log(`onAppointmentCreated: Processing appointment ${docId} for phone ${phone}`);
+    console.log(`onAppointmentCreated: Processing appointment ${docId} for phone ${phone || "(empty)"}`);
+
+    const sessionLabel = sessionType === "ONLINE" ? "Online" : "In-person visit";
+    // Admin & Master Elf: Khmer notice + Ref (Master Hong Chhayheng: New appointment, confirm with client 1h before)
+    const adminMasterElfContent = `ម៉ាស្ទ័រ ហុង ឆាយហេង៖ ការណាត់ថ្មី ឈ្មោះ ${name}។ ដើម្បីមើល ${serviceName} នៅថ្ងៃ ${date} ម៉ោង ${time}។ សូមបញ្ជាក់ជាមួយភ្ញៀវមុនពេលជួប ១ម៉ោងមុន! Ref: ${bookingRef}.`;
 
     try {
-      const sessionLabel = sessionType === "ONLINE" ? "Online" : "In-person visit";
-      const content = `Master Elf: Your consultation (${serviceName}, ${sessionLabel}) is confirmed on ${date} at ${time}. Ref: ${bookingRef}.`;
-      console.log(`onAppointmentCreated: Sending SMS to ${phone} with content: ${content.substring(0, 50)}...`);
-      
-      const result = await sendPlasGateSms(phone, content);
-      
-      console.log(`onAppointmentCreated: SMS result:`, JSON.stringify(result));
+      // 1. Customer SMS (only if valid phone)
+      let updateData;
+      if (!isValidE164Phone(phone)) {
+        await ref.update({
+          smsStatus: "skipped",
+          smsErrorReason: "invalid_phone",
+        });
+        console.warn(`onAppointmentCreated: Skipped customer SMS for ${docId} - invalid or missing phone`);
+        updateData = { smsStatus: "skipped", smsErrorReason: "invalid_phone" };
+      } else {
+        const content = `ម៉ាស្ទ័រ ហុង ឆាយហេង៖ ការណាត់ជួបបានកក់ដោយជោគជ័យ  ដើម្បីមើល (${serviceName}, ${sessionLabel}) បងជួបលោកគ្រូនៅថ្ងៃ ${date} ម៉ោង ${time}។ សូមមានលាភមានជ័យ! Ref: ${bookingRef}.`;
+        console.log(`onAppointmentCreated: Sending customer SMS to ${phone}, content length: ${content.length}`);
+        const result = await sendPlasGateSms(phone, content);
+        console.log(`onAppointmentCreated: Customer SMS result:`, JSON.stringify(result));
+        updateData = {
+          smsSentAt: result.ok ? Timestamp.now() : null,
+          smsStatus: result.ok ? "sent" : "failed",
+        };
+        if (!result.ok && result.reason) updateData.smsErrorReason = result.reason;
+        if (!result.ok && result.status) updateData.smsErrorStatus = result.status;
+        if (!result.ok && result.body) updateData.smsErrorBody = (result.body || "").substring(0, 200);
+        if (!result.ok && result.parsed) updateData.smsErrorParsed = result.parsed;
+        await ref.update(updateData);
+        console.log(`onAppointmentCreated: Updated document ${docId} with SMS status: ${updateData.smsStatus}`);
+      }
 
-      const updateData = {
-        smsSentAt: result.ok ? Timestamp.now() : null,
-        smsStatus: result.ok ? "sent" : "failed",
-      };
-      
-      if (!result.ok && result.reason) {
-        updateData.smsErrorReason = result.reason;
-      }
-      if (!result.ok && result.status) {
-        updateData.smsErrorStatus = result.status;
-      }
-      if (!result.ok && result.body) {
-        updateData.smsErrorBody = result.body.substring(0, 200); // Limit error body length
-      }
-      if (!result.ok && result.parsed) {
-        updateData.smsErrorParsed = result.parsed;
+      // 2. Admin SMS – every booking (admin phone from secret).
+      try {
+        const adminPhoneRaw = adminSmsPhone.value();
+        const adminPhone = typeof adminPhoneRaw === "string" ? adminPhoneRaw.trim() : "";
+        if (adminPhone && isValidE164Phone(normalizePhone(adminPhone))) {
+          const adminResult = await sendPlasGateSms(adminPhone, adminMasterElfContent);
+          if (adminResult.ok) {
+            console.log(`onAppointmentCreated: Admin SMS sent for ${docId}`);
+          } else {
+            console.warn(`onAppointmentCreated: Admin SMS failed for ${docId}:`, adminResult.reason || adminResult.body);
+          }
+        } else {
+          console.log(`onAppointmentCreated: ADMIN_SMS_PHONE not set or invalid; skipping admin SMS`);
+        }
+      } catch (adminErr) {
+        console.warn(`onAppointmentCreated: Admin SMS error (non-fatal):`, adminErr);
       }
 
-      await ref.update(updateData);
-      console.log(`onAppointmentCreated: Updated document ${docId} with SMS status: ${updateData.smsStatus}`);
+      // 3. Master Elf SMS – every booking (fixed business number).
+      try {
+        const masterElfResult = await sendPlasGateSms(MASTER_ELF_SMS_PHONE, adminMasterElfContent);
+        if (masterElfResult.ok) {
+          console.log(`onAppointmentCreated: Master Elf SMS sent for ${docId}`);
+        } else {
+          console.warn(`onAppointmentCreated: Master Elf SMS failed for ${docId}:`, masterElfResult.reason || masterElfResult.body);
+        }
+      } catch (masterErr) {
+        console.warn(`onAppointmentCreated: Master Elf SMS error (non-fatal):`, masterErr);
+      }
     } catch (error) {
       console.error(`onAppointmentCreated: Error processing appointment ${docId}:`, error);
       try {
@@ -430,6 +488,40 @@ export const cancelBooking = onCall(async (request) => {
   await ref.update({ status: "cancelled" });
   return { ok: true };
 });
+
+/**
+ * Callable: send a test SMS via PlasGate (authenticated users only).
+ * Use to verify PlasGate credentials after setting secrets.
+ * Body: { phone: "855..." or "0...", message?: "Optional custom text" }
+ */
+export const sendTestSms = onCall(
+  { secrets: [plasgatePrivateKey, plasgateSecret] },
+  async (request) => {
+    if (!request.auth) {
+      throw new HttpsError("unauthenticated", "You must be logged in to send a test SMS.");
+    }
+    const phone = request.data?.phone;
+    const message = typeof request.data?.message === "string" ? request.data.message.trim() : null;
+    if (!phone || typeof phone !== "string") {
+      throw new HttpsError("invalid-argument", "phone is required");
+    }
+    const toE164 = normalizePhone(phone);
+    if (!isValidE164Phone(toE164)) {
+      throw new HttpsError("invalid-argument", "Invalid phone number. Use format 855XXXXXXXX or 0XXXXXXXX.");
+    }
+    const content = message && message.length > 0 ? message : `Master Elf: Test SMS at ${new Date().toISOString()}. PlasGate OK.`;
+    const result = await sendPlasGateSms(toE164, content);
+    if (!result.ok) {
+      throw new HttpsError(
+        "internal",
+        result.reason === "config"
+          ? "PlasGate credentials not set. Run: firebase functions:secrets:set PLASGATE_PRIVATE_KEY and PLASGATE_SECRET."
+          : result.body || result.error || "SMS send failed"
+      );
+    }
+    return { ok: true, message: "SMS sent successfully" };
+  }
+);
 
 // ---------------------------------------------------------------------------
 // Contact form submissions
