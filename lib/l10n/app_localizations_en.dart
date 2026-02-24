@@ -46,14 +46,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get appsPageSubline =>
-      'Your complete BaZi and Chinese metaphysics toolkit.';
+      'Shop digital tools, books, and talismans—all in one place.';
 
   @override
   String get appsPageDescription =>
-      'Access the full Master Elf system—BaZi charts, Period 9 mobile app, and the Talisman Store—all in one place.';
+      'Our marketplace brings together subscriptions, apps, books, and curated talismans. Subscribe, download, or add to cart—we\'ll help you complete your order.';
 
   @override
-  String get appsPageDescriptionHighlight => 'Master Elf system';
+  String get appsPageDescriptionHighlight => 'marketplace';
+
+  @override
+  String get appsFeatureShowcaseHeading => 'Shop by category';
+
+  @override
+  String get appsFeatureShowcaseMarketingDesc =>
+      'Browse digital subscriptions, one-time purchases, and curated products. Add to cart or subscribe and we\'ll get in touch to complete your order.';
+
+  @override
+  String get appsFeatureShowcaseMarketingHighlight =>
+      'Add to cart or subscribe';
+
+  @override
+  String get marketplaceCategoryDigital => 'Digital';
+
+  @override
+  String get marketplaceCategoryBooks => 'Books';
+
+  @override
+  String get marketplaceCategoryTalismans => 'Talismans';
 
   @override
   String get masterElfSystemSpotlightTitle => 'Master Elf System';
@@ -64,6 +84,21 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get openMasterElfSystem => 'Open Master Elf System';
+
+  @override
+  String get masterElfSubscribe => 'Subscribe';
+
+  @override
+  String get masterElfSubscriptionPrice => '9.99';
+
+  @override
+  String get masterElfPricePerMonth => '/ month';
+
+  @override
+  String get period9PriceFree => 'Free';
+
+  @override
+  String get period9PremiumLabel => 'Premium subscription available';
 
   @override
   String get period9SpotlightTitle => 'Period 9 Mobile App';
@@ -83,18 +118,41 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get talismanStoreSpotlightDesc =>
-      'Curated talismans and remedies. More items coming soon.';
+      'Curated talismans and remedies. Add to cart and we\'ll contact you to complete your order.';
 
   @override
-  String get appsFeatureShowcaseHeading =>
-      'Tools that turn insight into action';
+  String get marketplaceAddedToCart =>
+      'Added to cart. We\'ll contact you to complete your order.';
 
   @override
-  String get appsFeatureShowcaseMarketingDesc =>
-      'From daily readings to life-changing decisions—thousands use these tools to choose better dates, understand their chart, and move with confidence.';
+  String get talismanProductPrice => '29.99';
 
   @override
-  String get appsFeatureShowcaseMarketingHighlight => 'life-changing';
+  String get talismanProduct1Title => 'Protection Talisman';
+
+  @override
+  String get talismanProduct2Title => 'Wealth Charm';
+
+  @override
+  String get talismanProduct3Title => 'Health Amulet';
+
+  @override
+  String get talismanProduct4Title => 'Love & Harmony';
+
+  @override
+  String get talismanProduct5Title => 'Career Success';
+
+  @override
+  String get talismanProduct6Title => 'Peace & Calm';
+
+  @override
+  String get talismanProduct7Title => 'Travel Protection';
+
+  @override
+  String get talismanProduct8Title => 'Home Blessing';
+
+  @override
+  String get talismanProduct9Title => 'Wisdom Pendant';
 
   @override
   String get masterElfSystemSpotlightTagline => 'Your timing, clarified.';
@@ -113,6 +171,58 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get talismanStoreSpotlightTaglineHighlight => 'protection';
+
+  @override
+  String get bookStoreSectionHeading => 'Master Elf Book Store';
+
+  @override
+  String get bookStoreSectionTagline =>
+      'Wisdom you can hold. Knowledge that lasts.';
+
+  @override
+  String get bookStoreSectionTaglineHighlight => 'Wisdom';
+
+  @override
+  String get bookStoreSectionMarketing =>
+      'Dive deeper into Period 9 Feng Shui and Chinese metaphysics with our curated books. Perfect for practitioners and enthusiasts—order now and transform your understanding.';
+
+  @override
+  String get bookStoreSectionMarketingHighlight =>
+      'transform your understanding';
+
+  @override
+  String get bookStoreBook1Title => 'Period 9 Feng Shui — Volume 1';
+
+  @override
+  String get bookStoreBook1Subtitle => 'Foundations & Flying Stars';
+
+  @override
+  String get bookStoreBook1Price => '24.99';
+
+  @override
+  String get bookStoreBook2Title => 'Period 9 Feng Shui — Volume 2';
+
+  @override
+  String get bookStoreBook2Subtitle => 'Advanced Applications';
+
+  @override
+  String get bookStoreBook2Price => '24.99';
+
+  @override
+  String get bookStorePricePrefix => '\$';
+
+  @override
+  String get bookStoreAddToCart => 'Add to Cart';
+
+  @override
+  String get bookStoreAddedToCart =>
+      'Added to cart. We\'ll contact you to complete your order.';
+
+  @override
+  String get bookStoreBestsellerBadge => 'Bestseller';
+
+  @override
+  String get bookStoreNav => 'Book Store';
 
   @override
   String get appFeatureQiMen => 'Qi Men Dunjia';
@@ -184,7 +294,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get consultations => 'Consultations';
 
   @override
-  String get contactUs => 'Contact Us';
+  String get contactUs => 'Contact';
 
   @override
   String get bookConsultation => 'Book Consultation';

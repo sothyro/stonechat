@@ -175,20 +175,56 @@ abstract class AppLocalizations {
   /// No description provided for @appsPageSubline.
   ///
   /// In en, this message translates to:
-  /// **'Your complete BaZi and Chinese metaphysics toolkit.'**
+  /// **'Shop digital tools, books, and talismans—all in one place.'**
   String get appsPageSubline;
 
   /// No description provided for @appsPageDescription.
   ///
   /// In en, this message translates to:
-  /// **'Access the full Master Elf system—BaZi charts, Period 9 mobile app, and the Talisman Store—all in one place.'**
+  /// **'Our marketplace brings together subscriptions, apps, books, and curated talismans. Subscribe, download, or add to cart—we\'ll help you complete your order.'**
   String get appsPageDescription;
 
   /// No description provided for @appsPageDescriptionHighlight.
   ///
   /// In en, this message translates to:
-  /// **'Master Elf system'**
+  /// **'marketplace'**
   String get appsPageDescriptionHighlight;
+
+  /// No description provided for @appsFeatureShowcaseHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Shop by category'**
+  String get appsFeatureShowcaseHeading;
+
+  /// No description provided for @appsFeatureShowcaseMarketingDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse digital subscriptions, one-time purchases, and curated products. Add to cart or subscribe and we\'ll get in touch to complete your order.'**
+  String get appsFeatureShowcaseMarketingDesc;
+
+  /// No description provided for @appsFeatureShowcaseMarketingHighlight.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to cart or subscribe'**
+  String get appsFeatureShowcaseMarketingHighlight;
+
+  /// No description provided for @marketplaceCategoryDigital.
+  ///
+  /// In en, this message translates to:
+  /// **'Digital'**
+  String get marketplaceCategoryDigital;
+
+  /// No description provided for @marketplaceCategoryBooks.
+  ///
+  /// In en, this message translates to:
+  /// **'Books'**
+  String get marketplaceCategoryBooks;
+
+  /// No description provided for @marketplaceCategoryTalismans.
+  ///
+  /// In en, this message translates to:
+  /// **'Talismans'**
+  String get marketplaceCategoryTalismans;
 
   /// No description provided for @masterElfSystemSpotlightTitle.
   ///
@@ -207,6 +243,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Open Master Elf System'**
   String get openMasterElfSystem;
+
+  /// No description provided for @masterElfSubscribe.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscribe'**
+  String get masterElfSubscribe;
+
+  /// No description provided for @masterElfSubscriptionPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'9.99'**
+  String get masterElfSubscriptionPrice;
+
+  /// No description provided for @masterElfPricePerMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'/ month'**
+  String get masterElfPricePerMonth;
+
+  /// No description provided for @period9PriceFree.
+  ///
+  /// In en, this message translates to:
+  /// **'Free'**
+  String get period9PriceFree;
+
+  /// No description provided for @period9PremiumLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium subscription available'**
+  String get period9PremiumLabel;
 
   /// No description provided for @period9SpotlightTitle.
   ///
@@ -241,26 +307,74 @@ abstract class AppLocalizations {
   /// No description provided for @talismanStoreSpotlightDesc.
   ///
   /// In en, this message translates to:
-  /// **'Curated talismans and remedies. More items coming soon.'**
+  /// **'Curated talismans and remedies. Add to cart and we\'ll contact you to complete your order.'**
   String get talismanStoreSpotlightDesc;
 
-  /// No description provided for @appsFeatureShowcaseHeading.
+  /// No description provided for @marketplaceAddedToCart.
   ///
   /// In en, this message translates to:
-  /// **'Tools that turn insight into action'**
-  String get appsFeatureShowcaseHeading;
+  /// **'Added to cart. We\'ll contact you to complete your order.'**
+  String get marketplaceAddedToCart;
 
-  /// No description provided for @appsFeatureShowcaseMarketingDesc.
+  /// No description provided for @talismanProductPrice.
   ///
   /// In en, this message translates to:
-  /// **'From daily readings to life-changing decisions—thousands use these tools to choose better dates, understand their chart, and move with confidence.'**
-  String get appsFeatureShowcaseMarketingDesc;
+  /// **'29.99'**
+  String get talismanProductPrice;
 
-  /// No description provided for @appsFeatureShowcaseMarketingHighlight.
+  /// No description provided for @talismanProduct1Title.
   ///
   /// In en, this message translates to:
-  /// **'life-changing'**
-  String get appsFeatureShowcaseMarketingHighlight;
+  /// **'Protection Talisman'**
+  String get talismanProduct1Title;
+
+  /// No description provided for @talismanProduct2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Wealth Charm'**
+  String get talismanProduct2Title;
+
+  /// No description provided for @talismanProduct3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Health Amulet'**
+  String get talismanProduct3Title;
+
+  /// No description provided for @talismanProduct4Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Love & Harmony'**
+  String get talismanProduct4Title;
+
+  /// No description provided for @talismanProduct5Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Career Success'**
+  String get talismanProduct5Title;
+
+  /// No description provided for @talismanProduct6Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Peace & Calm'**
+  String get talismanProduct6Title;
+
+  /// No description provided for @talismanProduct7Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Travel Protection'**
+  String get talismanProduct7Title;
+
+  /// No description provided for @talismanProduct8Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Home Blessing'**
+  String get talismanProduct8Title;
+
+  /// No description provided for @talismanProduct9Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Wisdom Pendant'**
+  String get talismanProduct9Title;
 
   /// No description provided for @masterElfSystemSpotlightTagline.
   ///
@@ -297,6 +411,102 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'protection'**
   String get talismanStoreSpotlightTaglineHighlight;
+
+  /// No description provided for @bookStoreSectionHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Master Elf Book Store'**
+  String get bookStoreSectionHeading;
+
+  /// No description provided for @bookStoreSectionTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Wisdom you can hold. Knowledge that lasts.'**
+  String get bookStoreSectionTagline;
+
+  /// No description provided for @bookStoreSectionTaglineHighlight.
+  ///
+  /// In en, this message translates to:
+  /// **'Wisdom'**
+  String get bookStoreSectionTaglineHighlight;
+
+  /// No description provided for @bookStoreSectionMarketing.
+  ///
+  /// In en, this message translates to:
+  /// **'Dive deeper into Period 9 Feng Shui and Chinese metaphysics with our curated books. Perfect for practitioners and enthusiasts—order now and transform your understanding.'**
+  String get bookStoreSectionMarketing;
+
+  /// No description provided for @bookStoreSectionMarketingHighlight.
+  ///
+  /// In en, this message translates to:
+  /// **'transform your understanding'**
+  String get bookStoreSectionMarketingHighlight;
+
+  /// No description provided for @bookStoreBook1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Period 9 Feng Shui — Volume 1'**
+  String get bookStoreBook1Title;
+
+  /// No description provided for @bookStoreBook1Subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Foundations & Flying Stars'**
+  String get bookStoreBook1Subtitle;
+
+  /// No description provided for @bookStoreBook1Price.
+  ///
+  /// In en, this message translates to:
+  /// **'24.99'**
+  String get bookStoreBook1Price;
+
+  /// No description provided for @bookStoreBook2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Period 9 Feng Shui — Volume 2'**
+  String get bookStoreBook2Title;
+
+  /// No description provided for @bookStoreBook2Subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Advanced Applications'**
+  String get bookStoreBook2Subtitle;
+
+  /// No description provided for @bookStoreBook2Price.
+  ///
+  /// In en, this message translates to:
+  /// **'24.99'**
+  String get bookStoreBook2Price;
+
+  /// No description provided for @bookStorePricePrefix.
+  ///
+  /// In en, this message translates to:
+  /// **'\$'**
+  String get bookStorePricePrefix;
+
+  /// No description provided for @bookStoreAddToCart.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Cart'**
+  String get bookStoreAddToCart;
+
+  /// No description provided for @bookStoreAddedToCart.
+  ///
+  /// In en, this message translates to:
+  /// **'Added to cart. We\'ll contact you to complete your order.'**
+  String get bookStoreAddedToCart;
+
+  /// No description provided for @bookStoreBestsellerBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Bestseller'**
+  String get bookStoreBestsellerBadge;
+
+  /// No description provided for @bookStoreNav.
+  ///
+  /// In en, this message translates to:
+  /// **'Book Store'**
+  String get bookStoreNav;
 
   /// No description provided for @appFeatureQiMen.
   ///
@@ -433,7 +643,7 @@ abstract class AppLocalizations {
   /// No description provided for @contactUs.
   ///
   /// In en, this message translates to:
-  /// **'Contact Us'**
+  /// **'Contact'**
   String get contactUs;
 
   /// No description provided for @bookConsultation.

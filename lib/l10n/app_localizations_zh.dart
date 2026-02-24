@@ -55,6 +55,25 @@ class AppLocalizationsZh extends AppLocalizations {
   String get appsPageDescriptionHighlight => 'Master Elf 系统';
 
   @override
+  String get appsFeatureShowcaseHeading => '洞见化为行动的工具';
+
+  @override
+  String get appsFeatureShowcaseMarketingDesc =>
+      '从每日解读到改变人生的决策—数千用户借助这些工具择吉日、读命盘、从容前行。';
+
+  @override
+  String get appsFeatureShowcaseMarketingHighlight => '改变人生';
+
+  @override
+  String get marketplaceCategoryDigital => 'Digital';
+
+  @override
+  String get marketplaceCategoryBooks => 'Books';
+
+  @override
+  String get marketplaceCategoryTalismans => 'Talismans';
+
+  @override
   String get masterElfSystemSpotlightTitle => 'Master Elf 系统';
 
   @override
@@ -63,6 +82,21 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get openMasterElfSystem => '打开 Master Elf 系统';
+
+  @override
+  String get masterElfSubscribe => 'Subscribe';
+
+  @override
+  String get masterElfSubscriptionPrice => '9.99';
+
+  @override
+  String get masterElfPricePerMonth => '/ month';
+
+  @override
+  String get period9PriceFree => 'Free';
+
+  @override
+  String get period9PremiumLabel => 'Premium subscription available';
 
   @override
   String get period9SpotlightTitle => '九运手机应用';
@@ -83,14 +117,38 @@ class AppLocalizationsZh extends AppLocalizations {
   String get talismanStoreSpotlightDesc => '精选符咒与化解用品。更多商品即将上架。';
 
   @override
-  String get appsFeatureShowcaseHeading => '洞见化为行动的工具';
+  String get marketplaceAddedToCart =>
+      'Added to cart. We\'ll contact you to complete your order.';
 
   @override
-  String get appsFeatureShowcaseMarketingDesc =>
-      '从每日解读到改变人生的决策—数千用户借助这些工具择吉日、读命盘、从容前行。';
+  String get talismanProductPrice => '29.99';
 
   @override
-  String get appsFeatureShowcaseMarketingHighlight => '改变人生';
+  String get talismanProduct1Title => 'Protection Talisman';
+
+  @override
+  String get talismanProduct2Title => 'Wealth Charm';
+
+  @override
+  String get talismanProduct3Title => 'Health Amulet';
+
+  @override
+  String get talismanProduct4Title => 'Love & Harmony';
+
+  @override
+  String get talismanProduct5Title => 'Career Success';
+
+  @override
+  String get talismanProduct6Title => 'Peace & Calm';
+
+  @override
+  String get talismanProduct7Title => 'Travel Protection';
+
+  @override
+  String get talismanProduct8Title => 'Home Blessing';
+
+  @override
+  String get talismanProduct9Title => 'Wisdom Pendant';
 
   @override
   String get masterElfSystemSpotlightTagline => '你的时机，一目了然。';
@@ -109,6 +167,58 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get talismanStoreSpotlightTaglineHighlight => '护佑';
+
+  @override
+  String get bookStoreSectionHeading => 'Master Elf Book Store';
+
+  @override
+  String get bookStoreSectionTagline =>
+      'Wisdom you can hold. Knowledge that lasts.';
+
+  @override
+  String get bookStoreSectionTaglineHighlight => 'Wisdom';
+
+  @override
+  String get bookStoreSectionMarketing =>
+      'Dive deeper into Period 9 Feng Shui and Chinese metaphysics with our curated books. Perfect for practitioners and enthusiasts—order now and transform your understanding.';
+
+  @override
+  String get bookStoreSectionMarketingHighlight =>
+      'transform your understanding';
+
+  @override
+  String get bookStoreBook1Title => 'Period 9 Feng Shui — Volume 1';
+
+  @override
+  String get bookStoreBook1Subtitle => 'Foundations & Flying Stars';
+
+  @override
+  String get bookStoreBook1Price => '24.99';
+
+  @override
+  String get bookStoreBook2Title => 'Period 9 Feng Shui — Volume 2';
+
+  @override
+  String get bookStoreBook2Subtitle => 'Advanced Applications';
+
+  @override
+  String get bookStoreBook2Price => '24.99';
+
+  @override
+  String get bookStorePricePrefix => '\$';
+
+  @override
+  String get bookStoreAddToCart => 'Add to Cart';
+
+  @override
+  String get bookStoreAddedToCart =>
+      'Added to cart. We\'ll contact you to complete your order.';
+
+  @override
+  String get bookStoreBestsellerBadge => 'Bestseller';
+
+  @override
+  String get bookStoreNav => 'Book Store';
 
   @override
   String get appFeatureQiMen => '奇门遁甲';

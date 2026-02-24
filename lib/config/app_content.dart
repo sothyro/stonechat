@@ -114,4 +114,7 @@ class AppContent {
   /// Period 9 mobile app screenshots
   static const String assetPeriod9_1 = 'assets/images/apps/period9_1.JPG';
   static const String assetPeriod9_2 = 'assets/images/apps/period9_2.JPG';
+  /// Book store (Period 9 books)
+  static const String assetBook1 = 'assets/stores/books/period9book1.jpg';
+  static const String assetBook2 = 'assets/stores/books/period9book2.jpg';
 }

@@ -277,6 +277,7 @@ class _FeaturedEventCardState extends State<_FeaturedEventCard> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final isMobile = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
     final borderColor = _hovered
         ? AppColors.borderLight.withValues(alpha: 0.6)
         : AppColors.borderDark;
@@ -438,48 +439,50 @@ class _FeaturedEventCardState extends State<_FeaturedEventCard> {
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
                       ),
-                      const SizedBox(height: 20),
-                      Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: widget.onViewEvent,
-                          borderRadius: BorderRadius.circular(24),
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 20,
-                              vertical: 12,
-                            ),
-                            decoration: BoxDecoration(
-                              color: AppColors.accent,
-                              borderRadius: BorderRadius.circular(24),
-                              boxShadow: AppShadows.accentButton,
-                              border: Border.all(
-                                color: AppColors.accentLight.withValues(alpha: 0.4),
-                                width: 1,
+                      if (!isMobile) ...[
+                        const SizedBox(height: 20),
+                        Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            onTap: widget.onViewEvent,
+                            borderRadius: BorderRadius.circular(24),
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 20,
+                                vertical: 12,
                               ),
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Text(
-                                  l10n.viewEvent,
-                                  style: const TextStyle(
-                                    color: AppColors.onAccent,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 14,
+                              decoration: BoxDecoration(
+                                color: AppColors.accent,
+                                borderRadius: BorderRadius.circular(24),
+                                boxShadow: AppShadows.accentButton,
+                                border: Border.all(
+                                  color: AppColors.accentLight.withValues(alpha: 0.4),
+                                  width: 1,
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    l10n.viewEvent,
+                                    style: const TextStyle(
+                                      color: AppColors.onAccent,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 14,
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(width: 8),
-                                const Icon(
-                                  Icons.arrow_forward_rounded,
-                                  size: 18,
-                                  color: AppColors.onAccent,
-                                ),
-                              ],
+                                  const SizedBox(width: 8),
+                                  const Icon(
+                                    Icons.arrow_forward_rounded,
+                                    size: 18,
+                                    color: AppColors.onAccent,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
+                      ],
                     ],
                   ),
                 ),
@@ -700,8 +703,10 @@ class _CompactEventCardState extends State<_CompactEventCard> {
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                             ),
-                            const SizedBox(height: 12),
-                            _buildViewEventChip(context, l10n),
+                            if (!isMobile) ...[
+                              const SizedBox(height: 12),
+                              _buildViewEventChip(context, l10n),
+                            ],
                           ],
                         ),
                       ),

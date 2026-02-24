@@ -101,10 +101,10 @@ class _MobileHeader extends StatelessWidget {
               borderRadius: BorderRadius.circular(_kMenuBarRadius),
               border: Border.all(color: _MenuColors.barBorder, width: 1.5),
               boxShadow: AppShadows.header,
-              padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 10),
+              padding: const EdgeInsets.only(left: 16, right: 28, top: 10, bottom: 10),
               child: Row(
                 children: [
-                  SizedBox(width: logoSlotWidth),
+                  SizedBox(width: logoHeight + 10),
                   const SizedBox(width: 4),
                   Text(
                     'MENU',
@@ -212,6 +212,7 @@ class _DesktopHeader extends StatelessWidget {
         items: [
           _NavItem(l10n.masterElfSystem, '/apps#master-elf', LucideIcons.cpu),
           _NavItem(l10n.period9MobileApp, '/apps#period9', LucideIcons.smartphone),
+          _NavItem(l10n.bookStoreNav, '/apps#books', LucideIcons.bookOpen),
           _NavItem(l10n.talismanStore, '/apps#talisman', LucideIcons.shoppingBag),
         ],
         isActive: activeDropdownIndex == 1,
@@ -310,7 +311,7 @@ class _ContactUsButton extends StatelessWidget {
     final isNarrow = Breakpoints.isNarrow(width);
     final horizontalPadding = isMobile ? 16.0 : (isNarrow ? 20.0 : 24.0);
     final verticalPadding = isMobile ? 8.0 : (isNarrow ? 10.0 : 12.0);
-    final fontSize = isMobile ? 12.0 : (isNarrow ? 14.0 : 15.0);
+    final fontSize = isMobile ? 14.0 : (isNarrow ? 14.0 : 15.0);
 
     return Container(
       decoration: BoxDecoration(

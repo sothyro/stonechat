@@ -31,7 +31,11 @@ class _ConsultationOption {
 }
 
 class AppointmentsScreen extends StatefulWidget {
-  const AppointmentsScreen({super.key});
+  const AppointmentsScreen({super.key, this.initialServiceId});
+
+  /// When set (e.g. from /consultations?service=bazi), pre-select this service,
+  /// show step 2 (date/time), and scroll to the step section.
+  final String? initialServiceId;
 
   @override
   State<AppointmentsScreen> createState() => _AppointmentsScreenState();
@@ -40,6 +44,9 @@ class AppointmentsScreen extends StatefulWidget {
 class _AppointmentsScreenState extends State<AppointmentsScreen> {
   static const int _maxStep = 4; // 0: service, 1: date/time, 2: details, 3: confirm, 4: success
   int _step = 0;
+
+  final GlobalKey _stepSectionKey = GlobalKey();
+  bool _appliedInitialService = false;
 
   int? _selectedServiceIndex;
   DateTime? _selectedDate;
@@ -72,6 +79,34 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
       _ConsultationOption(id: 'maosan', category: l10n.consult5Category, method: l10n.consult5Method, icon: LucideIcons.sparkles),
       _ConsultationOption(id: 'publications', category: l10n.consult6Category, method: l10n.consult6Method, icon: LucideIcons.bookOpen),
     ];
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final serviceId = widget.initialServiceId?.trim();
+    if (serviceId == null || serviceId.isEmpty || _appliedInitialService) return;
+    final l10n = AppLocalizations.of(context)!;
+    final services = _getServices(l10n);
+    final idx = services.indexWhere((s) => s.id == serviceId);
+    if (idx < 0) return;
+    _appliedInitialService = true;
+    setState(() {
+      _selectedServiceIndex = idx;
+      _step = 1; // Step 2 in UI: date/time
+    });
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final ctx = _stepSectionKey.currentContext;
+      if (ctx != null) {
+        Scrollable.ensureVisible(
+          ctx,
+          duration: const Duration(milliseconds: 400),
+          curve: Curves.easeInOut,
+          alignment: 0.2,
+        );
+      }
+    });
   }
 
   @override
@@ -262,6 +297,7 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       mainAxisSize: MainAxisSize.min,
+                      key: _stepSectionKey,
                       children: [
                         Text(
                           l10n.bookConsultation,

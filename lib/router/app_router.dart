@@ -63,7 +63,12 @@ GoRouter createAppRouter({Listenable? refreshListenable}) {
           GoRoute(path: '/apps', builder: (_, __) => const AppsScreen()),
           GoRoute(path: '/academy', builder: (_, __) => const AcademyScreen()),
           GoRoute(path: '/contact', builder: (_, __) => const ContactScreen()),
-          GoRoute(path: '/consultations', builder: (_, __) => const AppointmentsScreen()),
+          GoRoute(
+            path: '/consultations',
+            builder: (_, state) => AppointmentsScreen(
+              initialServiceId: state.uri.queryParameters['service'],
+            ),
+          ),
           GoRoute(path: '/consultations/dashboard', builder: (_, __) => const AppointmentsDashboardScreen()),
           GoRoute(path: '/not-found', builder: (_, __) => const _NotFoundScreen()),
         ],

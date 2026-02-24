@@ -19,6 +19,8 @@ class ConsultationsSection extends StatelessWidget {
     final width = MediaQuery.sizeOf(context).width;
     final isMobile = Breakpoints.isMobile(width);
 
+    // Service IDs must match Consultations page: bazi, fengshui, dateselection, qimeniching, maosan, publications
+    const serviceIds = ['bazi', 'fengshui', 'dateselection', 'qimeniching', 'maosan', 'publications'];
     final blocks = [
       _ConsultBlock(
         category: l10n.consult1Category,
@@ -26,7 +28,8 @@ class ConsultationsSection extends StatelessWidget {
         question: l10n.consult1Question,
         description: l10n.consult1Desc,
         icon: LucideIcons.user,
-        onGetConsultation: () => context.push('/consultations'),
+        serviceId: serviceIds[0],
+        onGetConsultation: () => context.push('/consultations?service=${serviceIds[0]}'),
       ),
       _ConsultBlock(
         category: l10n.consult2Category,
@@ -34,7 +37,8 @@ class ConsultationsSection extends StatelessWidget {
         question: l10n.consult2Question,
         description: l10n.consult2Desc,
         icon: LucideIcons.calendar,
-        onGetConsultation: () => context.push('/consultations'),
+        serviceId: serviceIds[1],
+        onGetConsultation: () => context.push('/consultations?service=${serviceIds[1]}'),
       ),
       _ConsultBlock(
         category: l10n.consult3Category,
@@ -42,7 +46,8 @@ class ConsultationsSection extends StatelessWidget {
         question: l10n.consult3Question,
         description: l10n.consult3Desc,
         icon: LucideIcons.home,
-        onGetConsultation: () => context.push('/consultations'),
+        serviceId: serviceIds[2],
+        onGetConsultation: () => context.push('/consultations?service=${serviceIds[2]}'),
       ),
       _ConsultBlock(
         category: l10n.consult4Category,
@@ -50,7 +55,8 @@ class ConsultationsSection extends StatelessWidget {
         question: l10n.consult4Question,
         description: l10n.consult4Desc,
         icon: LucideIcons.clock,
-        onGetConsultation: () => context.push('/consultations'),
+        serviceId: serviceIds[3],
+        onGetConsultation: () => context.push('/consultations?service=${serviceIds[3]}'),
       ),
       _ConsultBlock(
         category: l10n.consult5Category,
@@ -58,7 +64,8 @@ class ConsultationsSection extends StatelessWidget {
         question: l10n.consult5Question,
         description: l10n.consult5Desc,
         icon: LucideIcons.sparkles,
-        onGetConsultation: () => context.push('/consultations'),
+        serviceId: serviceIds[4],
+        onGetConsultation: () => context.push('/consultations?service=${serviceIds[4]}'),
       ),
       _ConsultBlock(
         category: l10n.consult6Category,
@@ -66,7 +73,8 @@ class ConsultationsSection extends StatelessWidget {
         question: l10n.consult6Question,
         description: l10n.consult6Desc,
         icon: LucideIcons.bookOpen,
-        onGetConsultation: () => context.push('/consultations'),
+        serviceId: serviceIds[5],
+        onGetConsultation: () => context.push('/consultations?service=${serviceIds[5]}'),
       ),
     ];
 
@@ -230,6 +238,7 @@ class _ConsultBlock extends StatefulWidget {
     required this.question,
     required this.description,
     required this.icon,
+    required this.serviceId,
     required this.onGetConsultation,
   });
 
@@ -238,6 +247,7 @@ class _ConsultBlock extends StatefulWidget {
   final String question;
   final String description;
   final IconData icon;
+  final String serviceId;
   final VoidCallback onGetConsultation;
 
   @override
