@@ -170,7 +170,7 @@ class _DesktopHeader extends StatelessWidget {
   /// Paths per dropdown (by index). When multiple dropdowns share a path (e.g. /events),
   /// only the last matching one is active so at most one menu is highlighted.
   static const _dropdownPaths = [
-    ['/about', '/journey', '/method', '/academy'],
+    ['/about', '/journey', '/academy'],
     ['/apps'],  // Apps & Store
     ['/events'],  // Events (Events Calendar, Media & Posts)
   ];
@@ -202,7 +202,6 @@ class _DesktopHeader extends StatelessWidget {
         label: l10n.charteredPractitioner,
         items: [
           _NavItem(l10n.journey, '/journey', LucideIcons.compass),
-          _NavItem(l10n.ourMethod, '/method', LucideIcons.lightbulb),
           _NavItem(l10n.academyPageTitle, '/academy', LucideIcons.graduationCap),
         ],
         isActive: activeDropdownIndex == 0,

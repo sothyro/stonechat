@@ -24,7 +24,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get learning => '学习';
 
   @override
-  String get charteredPractitioner => '特许执业师';
+  String get charteredPractitioner => '大师';
 
   @override
   String get resources => '资源';
@@ -485,7 +485,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get academyFengShuiDesc => '气的流动之执业师。';
 
   @override
-  String get academyPageTitle => '学习与培训';
+  String get academyPageTitle => '学院';
 
   @override
   String get academyQiMenAbout => '基于时间与空间的古老策略体系，用于决策、择日与情境优势。';
@@ -641,6 +641,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get eventsCalendarTitle => 'Master Elf 活动日历';
 
   @override
+  String get eventsHeroHeadline => '年度盛会——不容错过';
+
+  @override
+  String get eventsHeroSubline => '现场授课。大师亲授。与同道共修共进。';
+
+  @override
   String get eventsSubline => '讨论化为真知的地方。';
 
   @override
@@ -649,6 +655,28 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get eventsDescriptionHighlight => '顶尖的风水、中华玄学与占星盛会';
+
+  @override
+  String get eventsWhyAttendTitle => '为什么这是最好的盛会';
+
+  @override
+  String get eventsWhyAttendLead =>
+      '这不仅是又一堂讲座。这是最受期待的风水与中华玄学体验——古老智慧与实战策略相遇，让你满载而归、改变人生。';
+
+  @override
+  String get eventsWhyAttend1 => '向大师学习——现场授课与独到见解，别处难求。';
+
+  @override
+  String get eventsWhyAttend2 => '结识同修与爱好者，与志同道合者同行。';
+
+  @override
+  String get eventsWhyAttend3 => '席位有限。立即预订，成为这场盛会的一员。';
+
+  @override
+  String get eventsUpcomingHeadline => '即将举行的活动';
+
+  @override
+  String get eventsUpcomingSubline => '选择活动并预订座位。期待与您相见。';
 
   @override
   String get secureYourSeat => '预订座位';

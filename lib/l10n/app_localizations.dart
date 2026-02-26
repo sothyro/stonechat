@@ -133,7 +133,7 @@ abstract class AppLocalizations {
   /// No description provided for @charteredPractitioner.
   ///
   /// In en, this message translates to:
-  /// **'Chartered Practitioner'**
+  /// **'Master'**
   String get charteredPractitioner;
 
   /// No description provided for @resources.
@@ -1033,7 +1033,7 @@ abstract class AppLocalizations {
   /// No description provided for @academyPageTitle.
   ///
   /// In en, this message translates to:
-  /// **'Learning & Training'**
+  /// **'Academy'**
   String get academyPageTitle;
 
   /// No description provided for @academyQiMenAbout.
@@ -1342,6 +1342,18 @@ abstract class AppLocalizations {
   /// **'Master Elf\'s Events Calendar'**
   String get eventsCalendarTitle;
 
+  /// No description provided for @eventsHeroHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'The Event of the Year—Don\'t Miss It'**
+  String get eventsHeroHeadline;
+
+  /// No description provided for @eventsHeroSubline.
+  ///
+  /// In en, this message translates to:
+  /// **'Live teachings. Expert masters. A community that transforms.'**
+  String get eventsHeroSubline;
+
   /// No description provided for @eventsSubline.
   ///
   /// In en, this message translates to:
@@ -1359,6 +1371,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'best event for Feng Shui, Chinese Metaphysics and Astrology in Cambodia'**
   String get eventsDescriptionHighlight;
+
+  /// No description provided for @eventsWhyAttendTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Why This Is the Best Event Ever'**
+  String get eventsWhyAttendTitle;
+
+  /// No description provided for @eventsWhyAttendLead.
+  ///
+  /// In en, this message translates to:
+  /// **'This isn\'t just another seminar. It\'s the most anticipated Feng Shui and Chinese Metaphysics experience—where ancient wisdom meets real strategy and you leave ready to transform your path.'**
+  String get eventsWhyAttendLead;
+
+  /// No description provided for @eventsWhyAttend1.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn from the masters—live sessions and insights you can\'t get anywhere else.'**
+  String get eventsWhyAttend1;
+
+  /// No description provided for @eventsWhyAttend2.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect with practitioners and enthusiasts who share your journey.'**
+  String get eventsWhyAttend2;
+
+  /// No description provided for @eventsWhyAttend3.
+  ///
+  /// In en, this message translates to:
+  /// **'Limited seats. Secure your spot and be part of something extraordinary.'**
+  String get eventsWhyAttend3;
+
+  /// No description provided for @eventsUpcomingHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming Events'**
+  String get eventsUpcomingHeadline;
+
+  /// No description provided for @eventsUpcomingSubline.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose your event and secure your seat. We can\'t wait to see you there.'**
+  String get eventsUpcomingSubline;
 
   /// No description provided for @secureYourSeat.
   ///

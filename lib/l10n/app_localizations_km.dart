@@ -24,7 +24,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get learning => 'ការរៀន';
 
   @override
-  String get charteredPractitioner => 'អ្នកអនុវត្តវិជ្ជាជីវៈផ្លូវការ';
+  String get charteredPractitioner => 'គ្រូ';
 
   @override
   String get resources => 'ធនធាន';
@@ -503,7 +503,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get academyFengShuiDesc => 'អ្នកអនុវត្តវិជ្ជាជីវៈនៃលំហូរឈី។';
 
   @override
-  String get academyPageTitle => 'ការរៀន និងបណ្តុះបណ្តល់';
+  String get academyPageTitle => 'អកាធែមី';
 
   @override
   String get academyQiMenAbout =>
@@ -680,6 +680,13 @@ class AppLocalizationsKm extends AppLocalizations {
   String get eventsCalendarTitle => 'ប្រតិទិនព្រឹត្តិការណ៍របស់ Master Elf';
 
   @override
+  String get eventsHeroHeadline => 'ព្រឹត្តិការណ៍ឆ្នាំនេះ—កុំខកខាន';
+
+  @override
+  String get eventsHeroSubline =>
+      'ការបង្រៀនផ្ទាល់។ អ្នកជំនាញ។ សហគមន៍ដែលផ្លាស់ប្តូរ។';
+
+  @override
   String get eventsSubline => 'កន្លែងដែលការពិភាក្សាក្លាយជាចំណេះដឹងពិត។';
 
   @override
@@ -689,6 +696,32 @@ class AppLocalizationsKm extends AppLocalizations {
   @override
   String get eventsDescriptionHighlight =>
       'ព្រឹត្តិការណ៍ហ្វងស៊ី រូបវិទ្យាចិន និងហាស្ត្រូឡូហ្គីដ៏ល្អបំផុតនៅកម្ពុជា';
+
+  @override
+  String get eventsWhyAttendTitle => 'ហេតុអ្វីព្រឹត្តិការណ៍នេះជាល្អបំផុត';
+
+  @override
+  String get eventsWhyAttendLead =>
+      'នេះមិនគ្រាន់តែជាសិក្ខាសាលាមួយទៀតទេ។ វាជាការជួបហ្វងស៊ី និងរូបវិទ្យាចិនដែលគេរង់ចាំច្រើនបំផុត—ជួបគ្នារវាងគតិចាស់ និងយុទ្ធសាស្រ្តពិត ហើយអ្នកនឹងត្រៀមខ្លួនផ្លាស់ប្តូរផ្លូវរបស់អ្នក។';
+
+  @override
+  String get eventsWhyAttend1 =>
+      'រៀនពីអ្នកជំនាញ—សម័យផ្ទាល់ និងការយល់ដឹងដែលអ្នកមិនអាចទទួលបានកន្លែងផ្សេង។';
+
+  @override
+  String get eventsWhyAttend2 =>
+      'ទាក់ទងជាមួយអ្នកអនុវត្ត និងអ្នកចូលចិត្តដែលចែករឿងរបស់អ្នក។';
+
+  @override
+  String get eventsWhyAttend3 =>
+      'កៅអីមានកំណត់។ កក់កន្លែងរបស់អ្នក និងចូលរួមរឿងពិសេស។';
+
+  @override
+  String get eventsUpcomingHeadline => 'ព្រឹត្តិការណ៍រវាងមកដល់';
+
+  @override
+  String get eventsUpcomingSubline =>
+      'ជ្រើសរើសព្រឹត្តិការណ៍របស់អ្នក និងកក់កៅអីរបស់អ្នក។ យើងរង់ចាំជួបអ្នក។';
 
   @override
   String get secureYourSeat => 'កក់កៅអីរបស់អ្នក';

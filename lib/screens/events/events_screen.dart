@@ -70,10 +70,18 @@ class _EventsScreenState extends State<EventsScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      l10n.comingUpNext,
+                      l10n.eventsUpcomingHeadline,
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w700,
                             color: AppColors.onPrimary,
+                          ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      l10n.eventsUpcomingSubline,
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                            color: AppColors.onSurfaceVariantDark,
+                            height: 1.5,
                           ),
                     ),
                     const SizedBox(height: 20),
@@ -147,6 +155,8 @@ class _EventsScreenState extends State<EventsScreen> {
                           return Column(children: rows);
                         },
                       ),
+                    SizedBox(height: isNarrow ? 40 : 56),
+                    _EventsWhyAttendSection(l10n: l10n),
                     const SizedBox(height: 48),
                   ],
                 ),
@@ -273,23 +283,25 @@ class _EventsHeroState extends State<_EventsHero> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    l10n.eventsCalendarTitle,
+                    l10n.eventsHeroHeadline,
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                           color: AppColors.onPrimary,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: -0.5,
                         ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: isNarrow ? 12 : 16),
+                  SizedBox(height: isNarrow ? 10 : 14),
                   Text(
-                    l10n.eventsSubline,
-                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                          color: AppColors.onSurfaceVariantDark,
-                          height: 1.5,
+                    l10n.eventsHeroSubline,
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          color: AppColors.accent,
+                          fontWeight: FontWeight.w600,
+                          height: 1.3,
                         ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: isNarrow ? 20 : 24),
+                  SizedBox(height: isNarrow ? 16 : 20),
                   ConstrainedBox(
                     constraints: const BoxConstraints(maxWidth: 640),
                     child: _EventsScreenState._buildDescriptionWithHighlight(
@@ -331,6 +343,97 @@ class _EventsHeroState extends State<_EventsHero> {
           ),
         ],
       ),
+    );
+  }
+}
+
+/// Marketing-style "Why attend" section: headline, lead paragraph, and three value bullets.
+class _EventsWhyAttendSection extends StatelessWidget {
+  const _EventsWhyAttendSection({required this.l10n});
+
+  final AppLocalizations l10n;
+
+  @override
+  Widget build(BuildContext context) {
+    final isNarrow = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          l10n.eventsWhyAttendTitle,
+          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                color: AppColors.onPrimary,
+                fontWeight: FontWeight.w700,
+                height: 1.2,
+              ),
+        ),
+        SizedBox(height: isNarrow ? 14 : 18),
+        Text(
+          l10n.eventsWhyAttendLead,
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                color: AppColors.onSurfaceVariantDark,
+                height: 1.6,
+              ),
+        ),
+        SizedBox(height: isNarrow ? 20 : 28),
+        _WhyAttendBullet(
+          icon: LucideIcons.sparkles,
+          text: l10n.eventsWhyAttend1,
+        ),
+        SizedBox(height: isNarrow ? 12 : 16),
+        _WhyAttendBullet(
+          icon: LucideIcons.users,
+          text: l10n.eventsWhyAttend2,
+        ),
+        SizedBox(height: isNarrow ? 12 : 16),
+        _WhyAttendBullet(
+          icon: LucideIcons.calendarCheck,
+          text: l10n.eventsWhyAttend3,
+        ),
+      ],
+    );
+  }
+}
+
+class _WhyAttendBullet extends StatelessWidget {
+  const _WhyAttendBullet({required this.icon, required this.text});
+
+  final IconData icon;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          margin: const EdgeInsets.only(top: 4),
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            color: AppColors.accent.withValues(alpha: 0.15),
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(
+              color: AppColors.accent.withValues(alpha: 0.35),
+              width: 1,
+            ),
+          ),
+          child: Icon(icon, size: 20, color: AppColors.accent),
+        ),
+        const SizedBox(width: 16),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 6),
+            child: Text(
+              text,
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    color: AppColors.onSurfaceVariantDark,
+                    height: 1.5,
+                  ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

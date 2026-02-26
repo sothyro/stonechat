@@ -58,13 +58,6 @@ class AppDrawer extends StatelessWidget {
                       onTap: () => _go(context, '/journey'),
                     ),
                     _DrawerTile(
-                      label: l10n.ourMethod,
-                      path: '/method',
-                      current: current,
-                      icon: LucideIcons.lightbulb,
-                      onTap: () => _go(context, '/method'),
-                    ),
-                    _DrawerTile(
                       label: l10n.academyPageTitle,
                       path: '/academy',
                       current: current,

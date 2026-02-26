@@ -146,12 +146,14 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
   void _nextStep() {
     if (_step < _maxStep) {
       setState(() => _step++);
+      _focusSteppingSection();
     }
   }
 
   void _backStep() {
     if (_step > 0) {
       setState(() => _step--);
+      _focusSteppingSection();
     }
   }
 
@@ -167,6 +169,25 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
       _selectedSessionType = sessionTypeVisit;
       _submitError = null;
       _lastBookingReference = null;
+    });
+    _focusSteppingSection();
+  }
+
+  /// On mobile, scroll the stepping section into view after a step change.
+  void _focusSteppingSection() {
+    if (!mounted) return;
+    if (!Breakpoints.isMobile(MediaQuery.sizeOf(context).width)) return;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final ctx = _stepSectionKey.currentContext;
+      if (ctx != null) {
+        Scrollable.ensureVisible(
+          ctx,
+          duration: const Duration(milliseconds: 400),
+          curve: Curves.easeInOut,
+          alignment: 0.2,
+        );
+      }
     });
   }
 
@@ -241,6 +262,7 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
           _submitError = result.error;
         }
       });
+      if (result.success) _focusSteppingSection();
     } catch (e) {
       if (!mounted) return;
       setState(() {

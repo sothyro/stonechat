@@ -12,7 +12,6 @@ import '../screens/consultations/consultations_screen.dart';
 import '../screens/consultations/consultations_dashboard_screen.dart';
 import '../screens/academy/academy_screen.dart';
 import '../screens/journey/journey_screen.dart';
-import '../screens/method/method_screen.dart';
 import '../screens/apps/apps_screen.dart';
 import '../providers/auth_provider.dart';
 import '../l10n/app_localizations.dart';
@@ -23,7 +22,6 @@ const Set<String> _knownPaths = {
   '/',
   '/about',
   '/journey',
-  '/method',
   '/events',
   '/apps',
   '/academy',
@@ -58,7 +56,6 @@ GoRouter createAppRouter({Listenable? refreshListenable}) {
           GoRoute(path: '/', builder: (_, __) => const HomeScreen()),
           GoRoute(path: '/about', builder: (_, __) => const AboutScreen()),
           GoRoute(path: '/journey', builder: (_, __) => const JourneyScreen()),
-          GoRoute(path: '/method', builder: (_, __) => const MethodScreen()),
           GoRoute(path: '/events', builder: (_, __) => const EventsScreen()),
           GoRoute(path: '/apps', builder: (_, __) => const AppsScreen()),
           GoRoute(path: '/academy', builder: (_, __) => const AcademyScreen()),

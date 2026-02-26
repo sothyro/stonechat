@@ -24,7 +24,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get learning => 'Learning';
 
   @override
-  String get charteredPractitioner => 'Chartered Practitioner';
+  String get charteredPractitioner => 'Master';
 
   @override
   String get resources => 'Resources';
@@ -507,7 +507,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Chartered Practitioner of the Qi flow. Assign best Feng Shui for your home and office.';
 
   @override
-  String get academyPageTitle => 'Learning & Training';
+  String get academyPageTitle => 'Academy';
 
   @override
   String get academyQiMenAbout =>
@@ -688,6 +688,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get eventsCalendarTitle => 'Master Elf\'s Events Calendar';
 
   @override
+  String get eventsHeroHeadline => 'The Event of the Year—Don\'t Miss It';
+
+  @override
+  String get eventsHeroSubline =>
+      'Live teachings. Expert masters. A community that transforms.';
+
+  @override
   String get eventsSubline => 'Where discussion turns into real knowledge.';
 
   @override
@@ -697,6 +704,32 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get eventsDescriptionHighlight =>
       'best event for Feng Shui, Chinese Metaphysics and Astrology in Cambodia';
+
+  @override
+  String get eventsWhyAttendTitle => 'Why This Is the Best Event Ever';
+
+  @override
+  String get eventsWhyAttendLead =>
+      'This isn\'t just another seminar. It\'s the most anticipated Feng Shui and Chinese Metaphysics experience—where ancient wisdom meets real strategy and you leave ready to transform your path.';
+
+  @override
+  String get eventsWhyAttend1 =>
+      'Learn from the masters—live sessions and insights you can\'t get anywhere else.';
+
+  @override
+  String get eventsWhyAttend2 =>
+      'Connect with practitioners and enthusiasts who share your journey.';
+
+  @override
+  String get eventsWhyAttend3 =>
+      'Limited seats. Secure your spot and be part of something extraordinary.';
+
+  @override
+  String get eventsUpcomingHeadline => 'Upcoming Events';
+
+  @override
+  String get eventsUpcomingSubline =>
+      'Choose your event and secure your seat. We can\'t wait to see you there.';
 
   @override
   String get secureYourSeat => 'Book your seat';

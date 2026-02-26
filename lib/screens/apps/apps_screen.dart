@@ -136,13 +136,15 @@ class _AppsScreenState extends State<AppsScreen> {
                     ),
                   ),
                 ),
-                // Content centered vertically with extra top clearance from the main menu.
+                // Content centered vertically with extra top clearance from the main menu (match Consultations page).
                 Align(
                   alignment: const Alignment(0, 0.12),
                   child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: isNarrow ? 16 : 24,
-                      vertical: isNarrow ? 48 : 56,
+                    padding: EdgeInsets.fromLTRB(
+                      isNarrow ? 16 : 24,
+                      isNarrow ? 148 : 120,
+                      isNarrow ? 16 : 24,
+                      isNarrow ? 48 : 56,
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -446,11 +448,14 @@ class _FeaturedMasterElfSectionState extends State<_FeaturedMasterElfSection> {
   bool _muted = true;
   VideoPlayerController? _videoController;
   bool _videoReady = false;
+  void Function()? _loopListener;
 
   @override
   void initState() {
     super.initState();
-    _initVideo();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) _initVideo();
+    });
   }
 
   Future<void> _initVideo() async {
@@ -467,14 +472,34 @@ class _FeaturedMasterElfSectionState extends State<_FeaturedMasterElfSection> {
       }
       controller.setLooping(true);
       controller.setVolume(_muted ? 0 : 1);
+      // Fallback loop: when position reaches end, seek to start and play (reliable on mobile/web where setLooping can fail).
+      void listener() {
+        final duration = controller.value.duration;
+        if (duration.inMilliseconds <= 0) return;
+        final pos = controller.value.position.inMilliseconds;
+        final end = duration.inMilliseconds - 200;
+        if (pos >= end) {
+          controller.seekTo(Duration.zero);
+          controller.play();
+        }
+      }
+      _loopListener = listener;
+      controller.addListener(_loopListener!);
       await controller.play();
       if (!mounted) {
+        controller.removeListener(_loopListener!);
         controller.dispose();
         return;
       }
       setState(() {
         _videoController = controller;
         _videoReady = true;
+      });
+      // On mobile, first play() can fail to start; trigger play again after build.
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && _videoController != null && !_videoController!.value.isPlaying) {
+          _videoController!.play();
+        }
       });
     } catch (e) {
       // Silently handle errors - fallback to image will be shown
@@ -496,6 +521,10 @@ class _FeaturedMasterElfSectionState extends State<_FeaturedMasterElfSection> {
 
   @override
   void dispose() {
+    final c = _videoController;
+    if (c != null && _loopListener != null) {
+      c.removeListener(_loopListener!);
+    }
     _videoController?.dispose();
     super.dispose();
   }
@@ -1752,7 +1781,7 @@ class _TalismanProductCardState extends State<_TalismanProductCard> {
                     );
                   },
                   icon: const Icon(LucideIcons.shoppingCart, size: 16),
-                  label: Text(widget.l10n.bookStoreAddToCart),
+                  label: Text(isNarrow ? 'Add' : widget.l10n.bookStoreAddToCart),
                   style: FilledButton.styleFrom(
                     backgroundColor: AppColors.accent,
                     foregroundColor: AppColors.onAccent,
