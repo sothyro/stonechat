@@ -63,7 +63,7 @@ class _StickyCtaBarState extends State<StickyCtaBar> {
                 IconButton(
                   icon: const Icon(LucideIcons.x, color: AppColors.onAccent, size: 18),
                   onPressed: () => setState(() => _dismissed = true),
-                  tooltip: 'Dismiss',
+                  tooltip: l10n.dismiss,
                   padding: EdgeInsets.zero,
                   constraints: const BoxConstraints(
                     minWidth: kMinTouchTargetSize,

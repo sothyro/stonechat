@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 import '../config/app_content.dart';
+import '../l10n/app_localizations.dart';
 import '../theme/app_theme.dart';
 import '../utils/breakpoints.dart';
 
@@ -20,6 +21,7 @@ class ProfileDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final isMobile = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
     final padding = MediaQuery.paddingOf(context);
     final insetPadding = EdgeInsets.fromLTRB(
@@ -58,7 +60,7 @@ class ProfileDialog extends StatelessWidget {
                     IconButton(
                       icon: const Icon(LucideIcons.x, size: 22, color: AppColors.onPrimary),
                       onPressed: () => Navigator.of(context).pop(),
-                      tooltip: 'Close',
+                      tooltip: l10n.close,
                     ),
                   ],
                 ),

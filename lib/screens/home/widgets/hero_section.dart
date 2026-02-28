@@ -106,7 +106,8 @@ class _HeroSectionState extends State<HeroSection> {
               TextSpan(text: l10n.heroHeadline1Prefix),
               TextSpan(
                 text: l10n.heroHeadline1Highlight,
-                style: GoogleFonts.condiment(
+                style: highlightStyleForLocale(
+                  context,
                   color: AppColors.accent,
                   fontWeight: FontWeight.bold,
                   fontSize: width < 600 ? 38 : (width < 900 ? 46 : 56),
@@ -131,7 +132,8 @@ class _HeroSectionState extends State<HeroSection> {
             TextSpan(text: l10n.heroHeadline2Prefix),
             TextSpan(
               text: l10n.heroHeadline2Highlight,
-              style: GoogleFonts.condiment(
+              style: highlightStyleForLocale(
+                context,
                 color: AppColors.accent,
                 fontWeight: FontWeight.bold,
                 fontSize: width < 600 ? 38 : (width < 900 ? 46 : 56),

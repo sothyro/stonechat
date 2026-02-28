@@ -43,7 +43,8 @@ class StorySection extends StatelessWidget {
       fontSize: isMobile ? 30 : 40,
       height: 1.25,
     );
-    final headingHighlightStyle = GoogleFonts.condiment(
+    final headingHighlightStyle = highlightStyleForLocale(
+      context,
       color: AppColors.accent,
       fontWeight: FontWeight.bold,
       fontSize: (isMobile ? 38 : 52),
@@ -70,7 +71,8 @@ class StorySection extends StatelessWidget {
       color: AppColors.onPrimary.withValues(alpha: 0.92),
       fontWeight: FontWeight.w400,
     );
-    final bodyHighlight = GoogleFonts.exo2(
+    final bodyHighlight = highlightStyleForLocale(
+      context,
       fontSize: isMobile ? 18 : 20,
       height: 1.7,
       color: AppColors.accent,
@@ -402,19 +404,19 @@ class _FeaturedInCarouselState extends State<_FeaturedInCarousel> {
 
     final header = Text(
       l10n.featuredIn,
-      style: GoogleFonts.condiment(
+      style: highlightStyleForLocale(
+        context,
         fontSize: isMobile ? 28 : 52,
         fontWeight: FontWeight.bold,
         color: AppColors.accent,
         height: 1.2,
-        shadows: [
-          Shadow(
-            color: AppColors.accent.withValues(alpha: 0.4),
-            offset: const Offset(0, 2),
-            blurRadius: 8,
-          ),
-        ],
-      ),
+      ).copyWith(shadows: [
+        Shadow(
+          color: AppColors.accent.withValues(alpha: 0.4),
+          offset: const Offset(0, 2),
+          blurRadius: 8,
+        ),
+      ]),
     );
 
     final startIndex = _currentPage * _kLogosPerLine;

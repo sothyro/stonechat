@@ -52,7 +52,8 @@ class EventsSection extends StatelessWidget {
                       if (headlineHighlight.isNotEmpty)
                         TextSpan(
                           text: headlineHighlight,
-                          style: GoogleFonts.condiment(
+                          style: highlightStyleForLocale(
+                            context,
                             color: AppColors.accent,
                             fontWeight: FontWeight.bold,
                             fontSize: width < 600 ? 28 : (width < 900 ? 34 : 42),

@@ -408,3 +408,29 @@ TextStyle textStyleWithLocale(
   if (color != null) base = base.copyWith(color: color);
   return base;
 }
+
+/// Highlight text style: Khmer locale uses Dangrek; other locales use Condiment.
+TextStyle highlightStyleForLocale(
+  BuildContext context, {
+  double? fontSize,
+  Color? color,
+  FontWeight? fontWeight,
+  double? height,
+}) {
+  final locale = Localizations.localeOf(context);
+  final lang = locale.languageCode;
+  if (lang == 'km') {
+    return GoogleFonts.dangrek(
+      fontSize: fontSize,
+      color: color ?? AppColors.accent,
+      fontWeight: fontWeight ?? FontWeight.bold,
+      height: height,
+    );
+  }
+  return GoogleFonts.condiment(
+    fontSize: fontSize,
+    color: color ?? AppColors.accent,
+    fontWeight: fontWeight ?? FontWeight.bold,
+    height: height,
+  );
+}

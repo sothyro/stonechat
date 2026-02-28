@@ -120,7 +120,8 @@ class _SectionTheStory extends StatelessWidget {
       children: [
         Text(
           l10n.journeySectionTheStory,
-          style: GoogleFonts.condiment(
+          style: highlightStyleForLocale(
+            context,
             fontSize: isNarrow ? 26 : 32,
             fontWeight: FontWeight.bold,
             color: AppColors.accent,
@@ -351,7 +352,8 @@ class _SectionPhoenix extends StatelessWidget {
               Expanded(
                 child: Text(
                   l10n.journeyPhoenixTitle,
-                  style: GoogleFonts.condiment(
+                  style: highlightStyleForLocale(
+                    context,
                     fontSize: Breakpoints.isMobile(MediaQuery.sizeOf(context).width) ? 24 : 28,
                     fontWeight: FontWeight.bold,
                     color: AppColors.accent,

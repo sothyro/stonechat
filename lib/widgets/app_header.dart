@@ -12,13 +12,6 @@ import 'glass_container.dart';
 import 'logo_with_shape_shadow.dart';
 import 'media_posts_popup.dart';
 
-/// Mobile breakpoints for header scaling (within mobile range).
-class _MobileBreakpoints {
-  _MobileBreakpoints._();
-  static const double narrow = 360;
-  static const double compact = 400;
-}
-
 /// Menu bar colors: gold accents and link text (glass fill uses [AppColors.overlayDark]).
 class _MenuColors {
   _MenuColors._();
@@ -45,7 +38,7 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
     final isMobile = Breakpoints.isMobile(width);
     return Semantics(
       container: true,
-      label: 'Navigation',
+      label: l10n.semanticsNavigation,
       child: Container(
         width: double.infinity,
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
@@ -58,10 +51,7 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
   }
 }
 
-/// Standard left inset for logo (mobile): aligns with safe area and touch targets.
-const double _kLogoLeftInsetMobile = 20.0;
-
-/// Standard left inset for logo (desktop): matches bar horizontal padding.
+/// Standard left inset for logo: matches bar horizontal padding (used for both mobile and desktop).
 const double _kLogoLeftInsetDesktop = 28.0;
 
 class _MobileHeader extends StatelessWidget {
@@ -107,7 +97,7 @@ class _MobileHeader extends StatelessWidget {
                   SizedBox(width: logoHeight + 10),
                   const SizedBox(width: 4),
                   Text(
-                    'MENU',
+                    l10n.menu,
                     style: TextStyle(
                       color: _MenuColors.linkText,
                       fontSize: 12,
@@ -119,7 +109,7 @@ class _MobileHeader extends StatelessWidget {
                   IconButton(
                     icon: const Icon(LucideIcons.menu, color: _MenuColors.linkText, size: 24),
                     onPressed: onOpenDrawer ?? () {},
-                    tooltip: 'Menu',
+                    tooltip: l10n.menu,
                     style: IconButton.styleFrom(
                       minimumSize: const Size(kMinTouchTargetSize, kMinTouchTargetSize),
                       tapTargetSize: MaterialTapTargetSize.padded,

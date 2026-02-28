@@ -1523,4 +1523,88 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get validationUrlInvalid =>
       'Please enter a valid URL (must start with http:// or https://)';
+
+  @override
+  String get semanticsNavigation => 'Navigation';
+
+  @override
+  String get semanticsMainContent => 'Main content';
+
+  @override
+  String get semanticsFooter => 'Footer';
+
+  @override
+  String get drawerNavigate => 'Navigate';
+
+  @override
+  String get drawerGetInTouch => 'Get in touch';
+
+  @override
+  String get buttonOk => 'OK';
+
+  @override
+  String get buttonAdd => 'Add';
+
+  @override
+  String get dismiss => 'Dismiss';
+
+  @override
+  String get menu => 'Menu';
+
+  @override
+  String get validationPleaseSelectService => 'Please select a service';
+
+  @override
+  String get noSlotsAvailable => 'No slots available for this date.';
+
+  @override
+  String get poweredBy => 'Powered by Stonechat Communications';
+
+  @override
+  String get tooltipWhatsApp => 'WhatsApp';
+
+  @override
+  String get tooltipFacebook => 'Facebook';
+
+  @override
+  String get tooltipInstagram => 'Instagram';
+
+  @override
+  String get tooltipTikTok => 'TikTok';
+
+  @override
+  String get tooltipTelegram => 'Telegram';
+
+  @override
+  String get tooltipEmail => 'Email';
+
+  @override
+  String get loadingExperience => 'Loading your experience…';
+
+  @override
+  String get loadingOptimising => 'Optimising view…';
+
+  @override
+  String get loadingAlmostThere => 'Almost there…';
+
+  @override
+  String get loadingJustAMoment => 'Just a moment…';
+
+  @override
+  String get eventRegEmailSubjectPrefix => 'Event Registration: ';
+
+  @override
+  String get eventRegEmailBodyRegistrant => 'Registrant';
+
+  @override
+  String get sectionTestimonialsPart1 => 'Real ';
+
+  @override
+  String get sectionTestimonialsPart2 => 'Insights.\n';
+
+  @override
+  String get sectionTestimonialsPart3 => 'Real ';
+
+  @override
+  String get sectionTestimonialsPart4 => 'Outcomes.';
 }

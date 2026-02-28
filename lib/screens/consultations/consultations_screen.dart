@@ -218,7 +218,7 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
     if (opt == null) {
       setState(() {
         _submitError = AppError.validation(
-          message: 'Please select a service',
+          message: l10n.validationPleaseSelectService,
         );
       });
       return;
@@ -723,7 +723,7 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8),
               child: Text(
-                'No slots available for this date.',
+                l10n.noSlotsAvailable,
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariantDark),
               ),
             )

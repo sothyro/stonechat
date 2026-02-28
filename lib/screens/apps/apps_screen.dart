@@ -73,7 +73,8 @@ class _AppsScreenState extends State<AppsScreen> {
       color: baseColor ?? AppColors.onSurfaceVariantDark,
       height: 1.5,
     ) ?? TextStyle(fontSize: 16, color: baseColor ?? AppColors.onSurfaceVariantDark, height: 1.5));
-    final highlightStyle = GoogleFonts.condiment(
+    final highlightStyle = highlightStyleForLocale(
+      context,
       color: baseColor != null ? AppColors.accentLight : AppColors.accent,
       fontWeight: FontWeight.bold,
       fontSize: (bodyStyle.fontSize ?? 16) * 1.45,
@@ -374,7 +375,8 @@ class _StoreSectionHeader extends StatelessWidget {
       children: [
         Text(
           heading,
-          style: GoogleFonts.condiment(
+          style: highlightStyleForLocale(
+            context,
             fontSize: 36,
             fontWeight: FontWeight.bold,
             color: AppColors.accent,
@@ -648,13 +650,14 @@ class _FeaturedMasterElfSectionState extends State<_FeaturedMasterElfSection> {
                       children: [
                         Text(
                           widget.l10n.masterElfSystemSpotlightTitle,
-                          style: GoogleFonts.condiment(
+                          style: highlightStyleForLocale(
+                            context,
                             fontSize: isNarrow ? 30 : 38,
                             fontWeight: FontWeight.bold,
                             color: AppColors.accentLight,
-                            shadows: [
-                              Shadow(
-                                color: Colors.black.withValues(alpha: 0.7),
+                          ).copyWith(shadows: [
+                            Shadow(
+                              color: Colors.black.withValues(alpha: 0.7),
                                 blurRadius: 12,
                                 offset: const Offset(0, 2),
                               ),
@@ -730,7 +733,8 @@ class _FeaturedPeriod9Section extends StatelessWidget {
                   children: [
                     Text(
                       l10n.period9SpotlightTitle,
-                      style: GoogleFonts.condiment(
+                      style: highlightStyleForLocale(
+                        context,
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: AppColors.accent,
@@ -788,7 +792,8 @@ class _FeaturedPeriod9Section extends StatelessWidget {
                         children: [
                           Text(
                             l10n.period9SpotlightTitle,
-                            style: GoogleFonts.condiment(
+                            style: highlightStyleForLocale(
+                              context,
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
                               color: AppColors.accent,
@@ -977,7 +982,8 @@ class _BookStoreSection extends StatelessWidget {
       children: [
         Text(
           l10n.bookStoreSectionHeading,
-          style: GoogleFonts.condiment(
+          style: highlightStyleForLocale(
+            context,
             fontSize: isNarrow ? 28 : 34,
             fontWeight: FontWeight.bold,
             color: AppColors.accent,
@@ -1181,7 +1187,8 @@ class _BookStoreCardState extends State<_BookStoreCard> {
               children: [
                 Text(
                   '$prefix${widget.price}',
-                  style: GoogleFonts.condiment(
+                  style: highlightStyleForLocale(
+                    context,
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                     color: AppColors.accent,
@@ -1195,7 +1202,7 @@ class _BookStoreCardState extends State<_BookStoreCard> {
                         behavior: SnackBarBehavior.floating,
                         backgroundColor: AppColors.surfaceElevatedDark,
                         action: SnackBarAction(
-                          label: 'OK',
+                          label: widget.l10n.buttonOk,
                           textColor: AppColors.accent,
                           onPressed: () {},
                         ),
@@ -1236,7 +1243,8 @@ class _TalismanStoreSection extends StatelessWidget {
       children: [
         Text(
           l10n.talismanStoreSpotlightTitle,
-          style: GoogleFonts.condiment(
+          style: highlightStyleForLocale(
+            context,
             fontSize: 28,
             fontWeight: FontWeight.bold,
             color: AppColors.accent,
@@ -1759,7 +1767,8 @@ class _TalismanProductCardState extends State<_TalismanProductCard> {
               children: [
                 Text(
                   '${widget.pricePrefix}${widget.price}',
-                  style: GoogleFonts.condiment(
+                  style: highlightStyleForLocale(
+                    context,
                     fontSize: isNarrow ? 18 : 20,
                     fontWeight: FontWeight.bold,
                     color: AppColors.accent,
@@ -1773,7 +1782,7 @@ class _TalismanProductCardState extends State<_TalismanProductCard> {
                         behavior: SnackBarBehavior.floating,
                         backgroundColor: AppColors.surfaceElevatedDark,
                         action: SnackBarAction(
-                          label: 'OK',
+                          label: widget.l10n.buttonOk,
                           textColor: AppColors.accent,
                           onPressed: () {},
                         ),
@@ -1781,7 +1790,7 @@ class _TalismanProductCardState extends State<_TalismanProductCard> {
                     );
                   },
                   icon: const Icon(LucideIcons.shoppingCart, size: 16),
-                  label: Text(isNarrow ? 'Add' : widget.l10n.bookStoreAddToCart),
+                  label: Text(isNarrow ? widget.l10n.buttonAdd : widget.l10n.bookStoreAddToCart),
                   style: FilledButton.styleFrom(
                     backgroundColor: AppColors.accent,
                     foregroundColor: AppColors.onAccent,

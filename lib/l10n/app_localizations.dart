@@ -2883,6 +2883,174 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please enter a valid URL (must start with http:// or https://)'**
   String get validationUrlInvalid;
+
+  /// No description provided for @semanticsNavigation.
+  ///
+  /// In en, this message translates to:
+  /// **'Navigation'**
+  String get semanticsNavigation;
+
+  /// No description provided for @semanticsMainContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Main content'**
+  String get semanticsMainContent;
+
+  /// No description provided for @semanticsFooter.
+  ///
+  /// In en, this message translates to:
+  /// **'Footer'**
+  String get semanticsFooter;
+
+  /// No description provided for @drawerNavigate.
+  ///
+  /// In en, this message translates to:
+  /// **'Navigate'**
+  String get drawerNavigate;
+
+  /// No description provided for @drawerGetInTouch.
+  ///
+  /// In en, this message translates to:
+  /// **'Get in touch'**
+  String get drawerGetInTouch;
+
+  /// No description provided for @buttonOk.
+  ///
+  /// In en, this message translates to:
+  /// **'OK'**
+  String get buttonOk;
+
+  /// No description provided for @buttonAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get buttonAdd;
+
+  /// No description provided for @dismiss.
+  ///
+  /// In en, this message translates to:
+  /// **'Dismiss'**
+  String get dismiss;
+
+  /// No description provided for @menu.
+  ///
+  /// In en, this message translates to:
+  /// **'Menu'**
+  String get menu;
+
+  /// No description provided for @validationPleaseSelectService.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a service'**
+  String get validationPleaseSelectService;
+
+  /// No description provided for @noSlotsAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No slots available for this date.'**
+  String get noSlotsAvailable;
+
+  /// No description provided for @poweredBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Powered by Stonechat Communications'**
+  String get poweredBy;
+
+  /// No description provided for @tooltipWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'WhatsApp'**
+  String get tooltipWhatsApp;
+
+  /// No description provided for @tooltipFacebook.
+  ///
+  /// In en, this message translates to:
+  /// **'Facebook'**
+  String get tooltipFacebook;
+
+  /// No description provided for @tooltipInstagram.
+  ///
+  /// In en, this message translates to:
+  /// **'Instagram'**
+  String get tooltipInstagram;
+
+  /// No description provided for @tooltipTikTok.
+  ///
+  /// In en, this message translates to:
+  /// **'TikTok'**
+  String get tooltipTikTok;
+
+  /// No description provided for @tooltipTelegram.
+  ///
+  /// In en, this message translates to:
+  /// **'Telegram'**
+  String get tooltipTelegram;
+
+  /// No description provided for @tooltipEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get tooltipEmail;
+
+  /// No description provided for @loadingExperience.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading your experience…'**
+  String get loadingExperience;
+
+  /// No description provided for @loadingOptimising.
+  ///
+  /// In en, this message translates to:
+  /// **'Optimising view…'**
+  String get loadingOptimising;
+
+  /// No description provided for @loadingAlmostThere.
+  ///
+  /// In en, this message translates to:
+  /// **'Almost there…'**
+  String get loadingAlmostThere;
+
+  /// No description provided for @loadingJustAMoment.
+  ///
+  /// In en, this message translates to:
+  /// **'Just a moment…'**
+  String get loadingJustAMoment;
+
+  /// No description provided for @eventRegEmailSubjectPrefix.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Registration: '**
+  String get eventRegEmailSubjectPrefix;
+
+  /// No description provided for @eventRegEmailBodyRegistrant.
+  ///
+  /// In en, this message translates to:
+  /// **'Registrant'**
+  String get eventRegEmailBodyRegistrant;
+
+  /// No description provided for @sectionTestimonialsPart1.
+  ///
+  /// In en, this message translates to:
+  /// **'Real '**
+  String get sectionTestimonialsPart1;
+
+  /// No description provided for @sectionTestimonialsPart2.
+  ///
+  /// In en, this message translates to:
+  /// **'Insights.\n'**
+  String get sectionTestimonialsPart2;
+
+  /// No description provided for @sectionTestimonialsPart3.
+  ///
+  /// In en, this message translates to:
+  /// **'Real '**
+  String get sectionTestimonialsPart3;
+
+  /// No description provided for @sectionTestimonialsPart4.
+  ///
+  /// In en, this message translates to:
+  /// **'Outcomes.'**
+  String get sectionTestimonialsPart4;
 }
 
 class _AppLocalizationsDelegate

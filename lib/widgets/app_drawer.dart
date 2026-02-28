@@ -41,7 +41,7 @@ class AppDrawer extends StatelessWidget {
                 child: ListView(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   children: [
-                    _SectionLabel(label: 'Navigate'),
+                    _SectionLabel(label: l10n.drawerNavigate),
                     _DrawerTile(
                       label: l10n.home,
                       path: '/',
@@ -114,7 +114,7 @@ class AppDrawer extends StatelessWidget {
                       onTap: () => _go(context, '/consultations'),
                     ),
                     const SizedBox(height: 24),
-                    _SectionLabel(label: 'Get in touch'),
+                    _SectionLabel(label: l10n.drawerGetInTouch),
                     const SizedBox(height: 8),
                     _ContactCta(
                       label: l10n.contactUs,

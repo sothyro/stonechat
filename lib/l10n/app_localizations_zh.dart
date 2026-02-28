@@ -65,13 +65,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get appsFeatureShowcaseMarketingHighlight => '改变人生';
 
   @override
-  String get marketplaceCategoryDigital => 'Digital';
+  String get marketplaceCategoryDigital => '数字';
 
   @override
-  String get marketplaceCategoryBooks => 'Books';
+  String get marketplaceCategoryBooks => '图书';
 
   @override
-  String get marketplaceCategoryTalismans => 'Talismans';
+  String get marketplaceCategoryTalismans => '符咒';
 
   @override
   String get masterElfSystemSpotlightTitle => 'Master Elf 系统';
@@ -84,19 +84,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String get openMasterElfSystem => '打开 Master Elf 系统';
 
   @override
-  String get masterElfSubscribe => 'Subscribe';
+  String get masterElfSubscribe => '订阅';
 
   @override
   String get masterElfSubscriptionPrice => '9.99';
 
   @override
-  String get masterElfPricePerMonth => '/ month';
+  String get masterElfPricePerMonth => '/ 月';
 
   @override
-  String get period9PriceFree => 'Free';
+  String get period9PriceFree => '免费';
 
   @override
-  String get period9PremiumLabel => 'Premium subscription available';
+  String get period9PremiumLabel => '可订阅高级版';
 
   @override
   String get period9SpotlightTitle => '九运手机应用';
@@ -117,38 +117,37 @@ class AppLocalizationsZh extends AppLocalizations {
   String get talismanStoreSpotlightDesc => '精选符咒与化解用品。更多商品即将上架。';
 
   @override
-  String get marketplaceAddedToCart =>
-      'Added to cart. We\'ll contact you to complete your order.';
+  String get marketplaceAddedToCart => '已加入购物车。我们将联系您完成订单。';
 
   @override
   String get talismanProductPrice => '29.99';
 
   @override
-  String get talismanProduct1Title => 'Protection Talisman';
+  String get talismanProduct1Title => '护身符';
 
   @override
-  String get talismanProduct2Title => 'Wealth Charm';
+  String get talismanProduct2Title => '招财符';
 
   @override
-  String get talismanProduct3Title => 'Health Amulet';
+  String get talismanProduct3Title => '健康符';
 
   @override
-  String get talismanProduct4Title => 'Love & Harmony';
+  String get talismanProduct4Title => '姻缘和谐';
 
   @override
-  String get talismanProduct5Title => 'Career Success';
+  String get talismanProduct5Title => '事业成功';
 
   @override
-  String get talismanProduct6Title => 'Peace & Calm';
+  String get talismanProduct6Title => '平安宁静';
 
   @override
-  String get talismanProduct7Title => 'Travel Protection';
+  String get talismanProduct7Title => '出行护佑';
 
   @override
-  String get talismanProduct8Title => 'Home Blessing';
+  String get talismanProduct8Title => '家宅祈福';
 
   @override
-  String get talismanProduct9Title => 'Wisdom Pendant';
+  String get talismanProduct9Title => '智慧吊坠';
 
   @override
   String get masterElfSystemSpotlightTagline => '你的时机，一目了然。';
@@ -169,37 +168,35 @@ class AppLocalizationsZh extends AppLocalizations {
   String get talismanStoreSpotlightTaglineHighlight => '护佑';
 
   @override
-  String get bookStoreSectionHeading => 'Master Elf Book Store';
+  String get bookStoreSectionHeading => 'Master Elf 书店';
 
   @override
-  String get bookStoreSectionTagline =>
-      'Wisdom you can hold. Knowledge that lasts.';
+  String get bookStoreSectionTagline => '握在手中的智慧。历久弥新的知识。';
 
   @override
-  String get bookStoreSectionTaglineHighlight => 'Wisdom';
+  String get bookStoreSectionTaglineHighlight => '智慧';
 
   @override
   String get bookStoreSectionMarketing =>
-      'Dive deeper into Period 9 Feng Shui and Chinese metaphysics with our curated books. Perfect for practitioners and enthusiasts—order now and transform your understanding.';
+      '通过我们精选的书籍，深入探索九运风水与中华玄学。适合修行者与爱好者—立即订购，转变你的认知。';
 
   @override
-  String get bookStoreSectionMarketingHighlight =>
-      'transform your understanding';
+  String get bookStoreSectionMarketingHighlight => '转变你的认知';
 
   @override
-  String get bookStoreBook1Title => 'Period 9 Feng Shui — Volume 1';
+  String get bookStoreBook1Title => '九运风水 — 第一卷';
 
   @override
-  String get bookStoreBook1Subtitle => 'Foundations & Flying Stars';
+  String get bookStoreBook1Subtitle => '基础与飞星';
 
   @override
   String get bookStoreBook1Price => '24.99';
 
   @override
-  String get bookStoreBook2Title => 'Period 9 Feng Shui — Volume 2';
+  String get bookStoreBook2Title => '九运风水 — 第二卷';
 
   @override
-  String get bookStoreBook2Subtitle => 'Advanced Applications';
+  String get bookStoreBook2Subtitle => '进阶应用';
 
   @override
   String get bookStoreBook2Price => '24.99';
@@ -208,17 +205,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get bookStorePricePrefix => '\$';
 
   @override
-  String get bookStoreAddToCart => 'Add to Cart';
+  String get bookStoreAddToCart => '加入购物车';
 
   @override
-  String get bookStoreAddedToCart =>
-      'Added to cart. We\'ll contact you to complete your order.';
+  String get bookStoreAddedToCart => '已加入购物车。我们将联系您完成订单。';
 
   @override
-  String get bookStoreBestsellerBadge => 'Bestseller';
+  String get bookStoreBestsellerBadge => '畅销';
 
   @override
-  String get bookStoreNav => 'Book Store';
+  String get bookStoreNav => '书店';
 
   @override
   String get appFeatureQiMen => '奇门遁甲';
@@ -1430,4 +1426,88 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get validationUrlInvalid => '请输入有效的 URL（需以 http:// 或 https:// 开头）';
+
+  @override
+  String get semanticsNavigation => '导航';
+
+  @override
+  String get semanticsMainContent => '主内容';
+
+  @override
+  String get semanticsFooter => '页脚';
+
+  @override
+  String get drawerNavigate => '导航';
+
+  @override
+  String get drawerGetInTouch => '联系我们';
+
+  @override
+  String get buttonOk => '确定';
+
+  @override
+  String get buttonAdd => '添加';
+
+  @override
+  String get dismiss => '关闭';
+
+  @override
+  String get menu => '菜单';
+
+  @override
+  String get validationPleaseSelectService => '请选择服务项目';
+
+  @override
+  String get noSlotsAvailable => '此日期暂无可用时段。';
+
+  @override
+  String get poweredBy => '由 Stonechat Communications 提供支持';
+
+  @override
+  String get tooltipWhatsApp => 'WhatsApp';
+
+  @override
+  String get tooltipFacebook => 'Facebook';
+
+  @override
+  String get tooltipInstagram => 'Instagram';
+
+  @override
+  String get tooltipTikTok => 'TikTok';
+
+  @override
+  String get tooltipTelegram => 'Telegram';
+
+  @override
+  String get tooltipEmail => '邮箱';
+
+  @override
+  String get loadingExperience => '正在加载您的体验…';
+
+  @override
+  String get loadingOptimising => '正在优化视图…';
+
+  @override
+  String get loadingAlmostThere => '即将完成…';
+
+  @override
+  String get loadingJustAMoment => '请稍候…';
+
+  @override
+  String get eventRegEmailSubjectPrefix => '活动报名：';
+
+  @override
+  String get eventRegEmailBodyRegistrant => '报名者';
+
+  @override
+  String get sectionTestimonialsPart1 => '真实 ';
+
+  @override
+  String get sectionTestimonialsPart2 => '洞见。\n';
+
+  @override
+  String get sectionTestimonialsPart3 => '真实 ';
+
+  @override
+  String get sectionTestimonialsPart4 => '成果。';
 }

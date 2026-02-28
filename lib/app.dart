@@ -40,7 +40,7 @@ class _MasterElfAppState extends State<MasterElfApp> {
           );
           final theme = _themeForLocale(localeNotifier.locale.languageCode);
           return MaterialApp.router(
-            title: 'Master Elf Feng Shui',
+            title: lookupAppLocalizations(localeNotifier.locale).appTitle,
             debugShowCheckedModeBanner: false,
             theme: theme,
             darkTheme: theme,

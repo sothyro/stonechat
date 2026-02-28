@@ -467,7 +467,8 @@ class AcademyScreen extends StatelessWidget {
       color: AppColors.onPrimary,
       fontWeight: FontWeight.w600,
     ) ?? const TextStyle(color: AppColors.onPrimary, fontWeight: FontWeight.w600);
-    final highlightStyle = GoogleFonts.condiment(
+    final highlightStyle = highlightStyleForLocale(
+      context,
       color: AppColors.accent,
       fontWeight: FontWeight.bold,
       fontSize: (theme?.fontSize ?? 28) * 1.1,
@@ -662,7 +663,6 @@ class _AcademyDisciplineCard extends StatefulWidget {
     required this.about,
     required this.topics,
     required this.onExplore,
-    this.imageFit = BoxFit.cover,
     this.imageAlignment,
   });
 
@@ -673,7 +673,6 @@ class _AcademyDisciplineCard extends StatefulWidget {
   final String about;
   final String topics;
   final VoidCallback onExplore;
-  final BoxFit imageFit;
   final Alignment? imageAlignment;
 
   @override
@@ -724,11 +723,8 @@ class _AcademyDisciplineCardState extends State<_AcademyDisciplineCard> {
                           aspectRatio: 16 / 9,
                           child: Image.asset(
                             widget.imageAsset,
-                            fit: widget.imageFit,
-                            alignment: widget.imageAlignment ??
-                                (widget.imageFit == BoxFit.contain
-                                    ? Alignment.center
-                                    : Alignment.topCenter),
+                            fit: BoxFit.cover,
+                            alignment: widget.imageAlignment ?? Alignment.topCenter,
                             errorBuilder: (_, __, ___) => Container(
                               color: AppColors.accent.withValues(alpha: 0.15),
                               child: Icon(widget.icon, size: 48, color: AppColors.accent),

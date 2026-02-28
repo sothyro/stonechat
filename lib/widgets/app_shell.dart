@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import '../l10n/app_localizations.dart';
 import '../theme/app_theme.dart';
@@ -7,6 +8,11 @@ import 'app_header.dart';
 import 'app_footer.dart';
 import 'app_drawer.dart';
 import 'sticky_cta_bar.dart';
+
+/// Maximum height (from top of overlay) that participates in hit testing on mobile.
+/// Covers the menu bar (72px) and logo (~118px). Taps below this pass through to
+/// the hero buttons so they remain tappable when the header overlaps them.
+const double _kMobileHeaderHitTestHeight = 140.0;
 
 /// Wraps each route with persistent header and footer.
 class AppShell extends StatefulWidget {
@@ -81,6 +87,7 @@ class _AppShellState extends State<AppShell> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final width = MediaQuery.sizeOf(context).width;
     final isMobile = Breakpoints.isMobile(width);
     final bottomSafe = MediaQuery.paddingOf(context).bottom;
@@ -115,7 +122,7 @@ class _AppShellState extends State<AppShell> {
         children: [
           Semantics(
             container: true,
-            label: 'Main content',
+            label: l10n.semanticsMainContent,
             child: SingleChildScrollView(
               controller: _scrollController,
               physics: const ClampingScrollPhysics(),
@@ -125,7 +132,7 @@ class _AppShellState extends State<AppShell> {
                   widget.child,
                   Semantics(
                     container: true,
-                    label: 'Footer',
+                    label: l10n.semanticsFooter,
                     child: const AppFooter(),
                   ),
                 ],
@@ -150,9 +157,16 @@ class _AppShellState extends State<AppShell> {
                     bottom: false,
                     child: Padding(
                       padding: const EdgeInsets.only(top: 12),
-                      child: AppHeader(
-                        onOpenDrawer: () => _scaffoldKey.currentState?.openDrawer(),
-                      ),
+                      child: isMobile
+                          ? _HeaderHitTestLimit(
+                              maxHitTestHeight: _kMobileHeaderHitTestHeight,
+                              child: AppHeader(
+                                onOpenDrawer: () => _scaffoldKey.currentState?.openDrawer(),
+                              ),
+                            )
+                          : AppHeader(
+                              onOpenDrawer: () => _scaffoldKey.currentState?.openDrawer(),
+                            ),
                     ),
                   ),
                 ),
@@ -179,5 +193,47 @@ class _AppShellState extends State<AppShell> {
         ],
       ),
     );
+  }
+}
+
+/// Limits the header overlay's hit test area so taps below [maxHitTestHeight] pass
+/// through to the content underneath (e.g. hero buttons). Fixes mobile tap-through
+/// when the header overlaps the hero section.
+class _HeaderHitTestLimit extends SingleChildRenderObjectWidget {
+  const _HeaderHitTestLimit({
+    required this.maxHitTestHeight,
+    required super.child,
+  });
+
+  final double maxHitTestHeight;
+
+  @override
+  RenderObject createRenderObject(BuildContext context) {
+    return _RenderHeaderHitTestLimit(maxHitTestHeight: maxHitTestHeight);
+  }
+
+  @override
+  void updateRenderObject(BuildContext context, covariant RenderObject renderObject) {
+    (renderObject as _RenderHeaderHitTestLimit).maxHitTestHeight = maxHitTestHeight;
+  }
+}
+
+class _RenderHeaderHitTestLimit extends RenderProxyBox {
+  _RenderHeaderHitTestLimit({required double maxHitTestHeight})
+      : _maxHitTestHeight = maxHitTestHeight;
+
+  double _maxHitTestHeight;
+
+  double get maxHitTestHeight => _maxHitTestHeight;
+
+  set maxHitTestHeight(double value) {
+    if (_maxHitTestHeight == value) return;
+    _maxHitTestHeight = value;
+  }
+
+  @override
+  bool hitTest(BoxHitTestResult result, {required Offset position}) {
+    if (position.dy > _maxHitTestHeight) return false;
+    return super.hitTest(result, position: position);
   }
 }

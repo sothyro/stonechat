@@ -181,7 +181,8 @@ class ConsultationsSection extends StatelessWidget {
       fontSize: size,
       height: 1.3,
     );
-    final highlight = GoogleFonts.condiment(
+    final highlight = highlightStyleForLocale(
+      context,
       color: AppColors.accent,
       fontWeight: FontWeight.bold,
       fontSize: size * 1.12,

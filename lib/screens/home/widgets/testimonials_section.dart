@@ -243,7 +243,8 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
       height: 1.15,
       fontSize: headingFontSize,
     );
-    final realStyle = GoogleFonts.condiment(
+    final realStyle = highlightStyleForLocale(
+      context,
       color: AppColors.accent,
       fontWeight: FontWeight.bold,
       fontSize: isMobile ? 30 : 38,
@@ -259,20 +260,17 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
     );
 
     final heading = l10n.sectionTestimonialsHeading;
-    final hasRealInsightsOutcomes = heading.contains('Real') && heading.contains('Insights') && heading.contains('Outcomes');
-    final headingWidget = hasRealInsightsOutcomes
-        ? RichText(
-            text: TextSpan(
-              style: headingStyle,
-              children: [
-                TextSpan(text: 'Real ', style: realStyle),
-                TextSpan(text: 'Insights.\n'),
-                TextSpan(text: 'Real ', style: realStyle),
-                TextSpan(text: 'Outcomes.', style: whiteItalicStyle),
-              ],
-            ),
-          )
-        : Text(heading, style: headingStyle);
+    final headingWidget = RichText(
+      text: TextSpan(
+        style: headingStyle,
+        children: [
+          TextSpan(text: l10n.sectionTestimonialsPart1, style: realStyle),
+          TextSpan(text: l10n.sectionTestimonialsPart2),
+          TextSpan(text: l10n.sectionTestimonialsPart3, style: realStyle),
+          TextSpan(text: l10n.sectionTestimonialsPart4, style: whiteItalicStyle),
+        ],
+      ),
+    );
 
     final headerContent = isMobile
         ? Column(
@@ -306,19 +304,17 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
                 flex: 2,
                 child: Padding(
                   padding: const EdgeInsets.only(right: 24),
-                  child: hasRealInsightsOutcomes
-                      ? RichText(
-                          text: TextSpan(
-                            style: headingStyle,
-                            children: [
-                              TextSpan(text: 'Real ', style: realStyle),
-                              TextSpan(text: 'Insights.\n'),
-                              TextSpan(text: 'Real ', style: realStyle),
-                              TextSpan(text: 'Outcomes.', style: whiteItalicStyle),
-                            ],
-                          ),
-                        )
-                      : Text(heading, style: headingStyle),
+                  child: RichText(
+                    text: TextSpan(
+                      style: headingStyle,
+                      children: [
+                        TextSpan(text: l10n.sectionTestimonialsPart1, style: realStyle),
+                        TextSpan(text: l10n.sectionTestimonialsPart2),
+                        TextSpan(text: l10n.sectionTestimonialsPart3, style: realStyle),
+                        TextSpan(text: l10n.sectionTestimonialsPart4, style: whiteItalicStyle),
+                      ],
+                    ),
+                  ),
                 ),
               ),
               Expanded(

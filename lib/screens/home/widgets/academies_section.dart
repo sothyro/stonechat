@@ -155,7 +155,8 @@ class AcademiesSection extends StatelessWidget {
       fontWeight: FontWeight.w600,
       color: _textLight,
     ).copyWith(height: 1.3);
-    final highlight = GoogleFonts.condiment(
+    final highlight = highlightStyleForLocale(
+      context,
       color: AppColors.accent,
       fontWeight: FontWeight.bold,
       fontSize: baseSize * 1.15,

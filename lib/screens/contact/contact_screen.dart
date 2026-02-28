@@ -281,7 +281,7 @@ class _ContactScreenState extends State<ContactScreen> {
         IconButton.filled(
           onPressed: () => launchWhatsApp(),
           icon: const Icon(LucideIcons.messageCircle, size: 22),
-          tooltip: 'WhatsApp',
+          tooltip: l10n.tooltipWhatsApp,
           style: IconButton.styleFrom(
             backgroundColor: AppColors.accent,
             foregroundColor: AppColors.onAccent,
@@ -291,7 +291,7 @@ class _ContactScreenState extends State<ContactScreen> {
         IconButton.outlined(
           onPressed: () => launchEmail(),
           icon: const Icon(LucideIcons.mail, size: 22),
-          tooltip: 'Email',
+          tooltip: l10n.tooltipEmail,
           style: IconButton.styleFrom(
             foregroundColor: AppColors.onPrimary,
             side: const BorderSide(color: AppColors.borderLight),
@@ -301,7 +301,7 @@ class _ContactScreenState extends State<ContactScreen> {
         IconButton.outlined(
           onPressed: () => launchTelegram(),
           icon: const Icon(LucideIcons.send, size: 22),
-          tooltip: 'Telegram',
+          tooltip: l10n.tooltipTelegram,
           style: IconButton.styleFrom(
             foregroundColor: AppColors.onPrimary,
             side: const BorderSide(color: AppColors.borderLight),

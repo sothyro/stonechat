@@ -87,7 +87,7 @@ class AboutScreen extends StatelessWidget {
                           ),
                           child: Center(
                             child: Text(
-                              'Logo ${i + 1}',
+                              l10n.logoPlaceholder(i + 1),
                               style: Theme.of(context).textTheme.bodySmall?.copyWith(
                                     color: AppColors.onSurfaceVariantDark,
                                     fontSize: 11,
@@ -113,7 +113,7 @@ class AboutScreen extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            'Logo ${i + 1}',
+                            l10n.logoPlaceholder(i + 1),
                             style: Theme.of(context).textTheme.bodySmall?.copyWith(
                                   color: AppColors.onSurfaceVariantDark,
                                 ),

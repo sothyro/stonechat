@@ -178,7 +178,8 @@ class _EventsScreenState extends State<EventsScreen> {
       color: AppColors.onSurfaceVariantDark,
       height: 1.5,
     ) ?? const TextStyle(fontSize: 16, color: AppColors.onSurfaceVariantDark, height: 1.5);
-    final highlightStyle = GoogleFonts.condiment(
+    final highlightStyle = highlightStyleForLocale(
+      context,
       color: AppColors.accent,
       fontWeight: FontWeight.bold,
       fontSize: (bodyStyle.fontSize ?? 16) * 1.45,
@@ -665,9 +666,10 @@ class _EventRegistrationDialogState extends State<_EventRegistrationDialog> {
     final phone = _phoneController.text.trim();
     if (name.isEmpty || email.isEmpty) return;
 
-    final body = 'Event: ${widget.event.title}\nDate: ${widget.event.date}\nLocation: ${widget.event.location}\n\nRegistrant:\nName: $name\nEmail: $email\nPhone: $phone';
+    final l10n = AppLocalizations.of(context)!;
+    final body = '${l10n.eventColumn}: ${widget.event.title}\n${l10n.dateColumn}: ${widget.event.date}\n${l10n.locationColumn}: ${widget.event.location}\n\n${l10n.eventRegEmailBodyRegistrant}:\n${l10n.eventRegName}: $name\n${l10n.eventRegEmail}: $email\n${l10n.eventRegPhone}: $phone';
     final uri = Uri.parse(
-      'mailto:${AppContent.email}?subject=Event Registration: ${Uri.encodeComponent(widget.event.title)}&body=${Uri.encodeComponent(body)}',
+      'mailto:${AppContent.email}?subject=${Uri.encodeComponent(l10n.eventRegEmailSubjectPrefix + widget.event.title)}&body=${Uri.encodeComponent(body)}',
     );
     if (await canLaunchUrl(uri)) await launchUrl(uri);
     if (mounted) setState(() => _submitted = true);
