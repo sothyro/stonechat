@@ -75,10 +75,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
-    - assets/images/apps/
-    - assets/images/placeholders/
-    - assets/images/testimonials/
-    - assets/images/backgrounddirection.jpg
+    - assets/images/publications/
     - assets/icons/
     - assets/videos/
     - assets/stores/books/

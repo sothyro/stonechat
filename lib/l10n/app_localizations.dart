@@ -133,7 +133,7 @@ abstract class AppLocalizations {
   /// No description provided for @charteredPractitioner.
   ///
   /// In en, this message translates to:
-  /// **'Master'**
+  /// **'Learning & Practice'**
   String get charteredPractitioner;
 
   /// No description provided for @resources.
@@ -151,13 +151,13 @@ abstract class AppLocalizations {
   /// No description provided for @stonechatSystem.
   ///
   /// In en, this message translates to:
-  /// **'Stonechat System'**
+  /// **'Apps & Digital'**
   String get stonechatSystem;
 
   /// No description provided for @period9MobileApp.
   ///
   /// In en, this message translates to:
-  /// **'Period 9 Mobile App'**
+  /// **'Period 9 App'**
   String get period9MobileApp;
 
   /// No description provided for @talismanStore.
@@ -583,7 +583,7 @@ abstract class AppLocalizations {
   /// No description provided for @mediaAndPosts.
   ///
   /// In en, this message translates to:
-  /// **'Media & Posts'**
+  /// **'News & Media'**
   String get mediaAndPosts;
 
   /// No description provided for @mediaPostsFacebookTitle.
@@ -637,7 +637,7 @@ abstract class AppLocalizations {
   /// No description provided for @consultations.
   ///
   /// In en, this message translates to:
-  /// **'Consultations'**
+  /// **'Book Consultation'**
   String get consultations;
 
   /// No description provided for @contactUs.
@@ -667,7 +667,7 @@ abstract class AppLocalizations {
   /// No description provided for @journey.
   ///
   /// In en, this message translates to:
-  /// **'Our story'**
+  /// **'Our Story'**
   String get journey;
 
   /// No description provided for @ourMethod.
@@ -679,13 +679,13 @@ abstract class AppLocalizations {
   /// No description provided for @events.
   ///
   /// In en, this message translates to:
-  /// **'Events'**
+  /// **'Workshops & Events'**
   String get events;
 
   /// No description provided for @eventsCalendar.
   ///
   /// In en, this message translates to:
-  /// **'Events Calendar'**
+  /// **'Event Calendar'**
   String get eventsCalendar;
 
   /// No description provided for @blog.
@@ -1033,7 +1033,7 @@ abstract class AppLocalizations {
   /// No description provided for @academyPageTitle.
   ///
   /// In en, this message translates to:
-  /// **'Training'**
+  /// **'Academy'**
   String get academyPageTitle;
 
   /// No description provided for @academyQiMenAbout.
@@ -1297,7 +1297,7 @@ abstract class AppLocalizations {
   /// No description provided for @stickyCtaText.
   ///
   /// In en, this message translates to:
-  /// **'Get in touch'**
+  /// **'Subscribe'**
   String get stickyCtaText;
 
   /// No description provided for @popupTitle1.
@@ -1335,6 +1335,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Submit'**
   String get submit;
+
+  /// No description provided for @subscribeEmailHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Your email'**
+  String get subscribeEmailHint;
+
+  /// No description provided for @subscribeButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscribe'**
+  String get subscribeButton;
+
+  /// No description provided for @subscribeJoinTelegram.
+  ///
+  /// In en, this message translates to:
+  /// **'Join us on Telegram'**
+  String get subscribeJoinTelegram;
+
+  /// No description provided for @subscribeSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Thanks! We\'ll be in touch.'**
+  String get subscribeSuccess;
+
+  /// No description provided for @subscribeOr.
+  ///
+  /// In en, this message translates to:
+  /// **'or'**
+  String get subscribeOr;
 
   /// No description provided for @eventsCalendarTitle.
   ///
@@ -2905,7 +2935,7 @@ abstract class AppLocalizations {
   /// No description provided for @drawerNavigate.
   ///
   /// In en, this message translates to:
-  /// **'Navigate'**
+  /// **'Menu'**
   String get drawerNavigate;
 
   /// No description provided for @drawerGetInTouch.

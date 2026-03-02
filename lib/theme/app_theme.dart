@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-/// Stonechat Communications brand colors (dark theme, gold accent).
+/// Stonechat Communications brand colors (dark theme, cyan/teal accent).
 class AppColors {
   AppColors._();
 
   static const Color primary = Color(0xFF1A1A1A);
-  static const Color accent = Color(0xFFC9A227); // gold
-  static const Color accentLight = Color(0xFFE5D4A1);
+  static const Color accent = Color(0xFF00A9B8); // cyan/teal
+  static const Color accentLight = Color(0xFF5DD5E0); // lighter teal
   static const Color surface = Color(0xFFFFFFFF);
   static const Color surfaceDark = Color(0xFF0D0D0D);
   static const Color background = Color(0xFFF5F5F5);
   static const Color error = Color(0xFFB00020);
   static const Color onPrimary = Color(0xFFFFFFFF);
-  static const Color onAccent = Color(0xFF1A1A1A);
+  static const Color onAccent = Color(0xFFFFFFFF); // white on teal for contrast
   static const Color onSurface = Color(0xFF1A1A1A);
   static const Color onSurfaceVariant = Color(0xFF666666);
 
@@ -22,8 +22,8 @@ class AppColors {
   static const Color surfaceElevatedDark = Color(0xFF1A1A1E);
   static const Color overlayDark = Color(0xFF0D0D0F);
   static const Color borderDark = Color(0xFF2A2A2E);
-  static const Color borderLight = Color(0xFFC9A227); // gold, for glass border
-  static const Color accentGlow = Color(0xFFC9A227); // use with alpha for shadows
+  static const Color borderLight = Color(0xFF00A9B8); // teal, for glass border
+  static const Color accentGlow = Color(0xFF00A9B8); // use with alpha for shadows
 
   /// Muted text on dark backgrounds (WCAG AA–compliant on surfaceDark/backgroundDark).
   static const Color onSurfaceVariantDark = Color(0xFFB5B5B5);

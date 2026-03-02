@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 import '../../../config/app_content.dart';
@@ -259,7 +258,6 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
       color: AppColors.onPrimary.withValues(alpha: 0.9),
     );
 
-    final heading = l10n.sectionTestimonialsHeading;
     final headingWidget = RichText(
       text: TextSpan(
         style: headingStyle,

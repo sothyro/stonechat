@@ -6,7 +6,7 @@ import '../l10n/app_localizations.dart';
 import '../theme/app_theme.dart';
 import '../utils/breakpoints.dart';
 
-/// Shows a dialog with the profile image (assets/images/profile.jpg),
+/// Shows a dialog with the profile image (AppContent.assetTestimonialProfile → CEO.jpg),
 /// fitted to preserve aspect ratio.
 void showProfileDialog(BuildContext context) {
   showDialog<void>(

@@ -24,7 +24,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get learning => '学习';
 
   @override
-  String get charteredPractitioner => '大师';
+  String get charteredPractitioner => '学习与实践';
 
   @override
   String get resources => '资源';
@@ -33,10 +33,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get appsAndStore => '应用与商店';
 
   @override
-  String get stonechatSystem => 'Stonechat 系统';
+  String get stonechatSystem => '应用与数字';
 
   @override
-  String get period9MobileApp => '九运手机应用';
+  String get period9MobileApp => '九运应用';
 
   @override
   String get talismanStore => '符咒商店';
@@ -252,7 +252,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get newsAndEvents => '新闻与活动';
 
   @override
-  String get mediaAndPosts => '媒体与动态';
+  String get mediaAndPosts => '资讯与媒体';
 
   @override
   String get mediaPostsFacebookTitle => '动态与更新';
@@ -279,7 +279,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get mediaPostsCoverageBody => '报道与专题示例链接（将陆续更新）：';
 
   @override
-  String get consultations => '咨询';
+  String get consultations => '预约咨询';
 
   @override
   String get contactUs => '联系我们';
@@ -294,13 +294,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get heroStonechatCaption => 'Stonechat';
 
   @override
-  String get journey => '我的奋进';
+  String get journey => '我们的故事';
 
   @override
   String get ourMethod => '我们的方法';
 
   @override
-  String get events => '活动';
+  String get events => '工作坊与活动';
 
   @override
   String get eventsCalendar => '活动日历';
@@ -612,25 +612,40 @@ class AppLocalizationsZh extends AppLocalizations {
   String get consult6Desc => '探索我们在风水与中国玄学方面的出版作品。';
 
   @override
-  String get stickyCtaText => '免费十二生肖运势';
+  String get stickyCtaText => '订阅';
 
   @override
   String get popupTitle1 => 'Stonechat';
 
   @override
-  String get popupTitle2 => '十二生肖运势';
+  String get popupTitle2 => '资讯与动态';
 
   @override
-  String get popupDescription => '获取您的个人 2026 生肖运势…';
+  String get popupDescription => '获取 Stonechat 的新闻、活动与最新动态。';
 
   @override
   String get readFullArticles => '阅读全文';
 
   @override
-  String get popupFormPrompt => '在下方填写信息，我们将在您的生肖发布时通知您。';
+  String get popupFormPrompt => '在下方填写信息，我们将在有更新时通知您。';
 
   @override
   String get submit => '提交';
+
+  @override
+  String get subscribeEmailHint => '您的邮箱';
+
+  @override
+  String get subscribeButton => '订阅';
+
+  @override
+  String get subscribeJoinTelegram => '加入我们的 Telegram';
+
+  @override
+  String get subscribeSuccess => '感谢订阅！我们会与您联系。';
+
+  @override
+  String get subscribeOr => '或';
 
   @override
   String get eventsCalendarTitle => 'Stonechat 活动日历';
@@ -1436,7 +1451,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get semanticsFooter => '页脚';
 
   @override
-  String get drawerNavigate => '导航';
+  String get drawerNavigate => '菜单';
 
   @override
   String get drawerGetInTouch => '联系我们';

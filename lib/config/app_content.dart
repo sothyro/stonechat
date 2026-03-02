@@ -50,71 +50,92 @@ class AppContent {
   static const String appointmentBookingApiUrl = '';
 
   // Asset paths (§1, §2, §8, §9 – use images from assets folder)
-  /// Logo for header; favicon can use same. Monochrome logo for tinting (e.g. accent).
-  static const String assetLogo = 'assets/icons/logomono.png';
-  static const String assetFavicon = 'assets/icons/logomono.png';
-  static const String assetHeroBackground = 'assets/images/main.jpg';
-  static const String assetBackgroundDirection = 'assets/images/backgrounddirection.jpg';
-  static const String assetHeroVideo = 'assets/videos/videobackground720.mp4';
+  /// Logo for header; favicon can use same.
+  static const String assetLogo = 'assets/icons/logo_with_name.png';
+  static const String assetFavicon = 'assets/icons/mainicon.png';
+  /// Hero section: fallback image and video.
+  static const String assetHeroBackground = 'assets/images/hero_background.jpg';
+  static const String assetHeroVideo = 'assets/videos/hero.mp4';
+  /// Consultations/Feng Shui section background.
+  static const String assetBackgroundDirection = 'assets/images/hero_background.jpg';
   /// Apps page: Stonechat system section video.
-  static const String assetAppPageVideo = 'assets/videos/appads.mp4';
-  static const String assetEventCard = 'assets/images/event.jpg';
-  static const String assetEventMain = 'assets/images/event2026.jpg';
-  static const String assetAboutHero = 'assets/images/sessions.jpg';
+  static const String assetAppPageVideo = 'assets/videos/hero.mp4';
+  /// Events section cards and main banner.
+  static const String assetEventCard = 'assets/images/training_presentation.jpg';
+  static const String assetEventMain = 'assets/images/training_presentation.jpg';
+  /// About page hero image.
+  static const String assetAboutHero = 'assets/images/training_presentation.jpg';
   /// Contact page hero background.
-  static const String assetContactHero = 'assets/images/herobackground.jpg';
+  static const String assetContactHero = 'assets/images/hero_background.jpg';
   /// Journey page hero background.
-  static const String assetJourneyHero = 'assets/images/endeavour.jpg';
+  static const String assetJourneyHero = 'assets/images/training_image.jpg';
   /// Story section image (portrait).
-  static const String assetStoryBackground = 'assets/images/story.PNG';
-  static const String assetTestimonialProfile = 'assets/images/profile.jpg';
-  static const String assetTestimonialParticipant = 'assets/images/participant2.jpg';
-  static const String assetTestimonialPanhaLeakhena = 'assets/images/testimonials/panhaleakhena.jpg';
-  static const String assetTestimonialMoon = 'assets/images/testimonials/moon.jpg';
-  static const String assetTestimonialRithy = 'assets/images/testimonials/rithy.jpg';
-  static const String assetTestimonialVanna = 'assets/images/testimonials/vanna.jpg';
-  static const String assetTestimonialThida = 'assets/images/testimonials/thida.jpg';
-  static const String assetTestimonialZeiitey = 'assets/images/testimonials/zeiitey.jpg';
-  static const String assetTestimonial7 = 'assets/images/testimonials/7.jpg';
-  static const String assetTestimonial8 = 'assets/images/testimonials/8.jpg';
-  static const String assetTestimonial9 = 'assets/images/testimonials/9.jpg';
-  static const String assetTestimonial10 = 'assets/images/testimonials/10.jpg';
-  static const String assetTestimonial11 = 'assets/images/testimonials/11.jpg';
-  static const String assetTestimonial12 = 'assets/images/testimonials/12.jpg';
-  static const String assetTestimonial13 = 'assets/images/testimonials/13.jpg';
-  static const String assetTestimonial14 = 'assets/images/testimonials/14.jpg';
-  static const String assetTestimonial15 = 'assets/images/testimonials/15.jpg';
-  static const String assetTestimonial16 = 'assets/images/testimonials/16.jpg';
-  static const String assetTestimonial17 = 'assets/images/testimonials/17.jpg';
-  static const String assetTestimonial18 = 'assets/images/testimonials/18.jpg';
-  static const String assetAcademy = 'assets/images/apps.jpg';
+  static const String assetStoryBackground = 'assets/images/female_assistant.jpg';
+  /// Testimonials: profile and participant (used when no per-testimonial image).
+  static const String assetTestimonialProfile = 'assets/images/CEO.jpg';
+  static const String assetTestimonialParticipant = 'assets/images/female_assistant2.jpg';
+  /// Testimonial images (using available team/assistant images).
+  static const String assetTestimonialPanhaLeakhena = 'assets/images/female_assistant.jpg';
+  static const String assetTestimonialMoon = 'assets/images/female_assistant2.jpg';
+  static const String assetTestimonialRithy = 'assets/images/CEO.jpg';
+  static const String assetTestimonialVanna = 'assets/images/female_assistant.jpg';
+  static const String assetTestimonialThida = 'assets/images/female_assistant2.jpg';
+  static const String assetTestimonialZeiitey = 'assets/images/CEO.jpg';
+  static const String assetTestimonial7 = 'assets/images/female_assistant.jpg';
+  static const String assetTestimonial8 = 'assets/images/female_assistant2.jpg';
+  static const String assetTestimonial9 = 'assets/images/CEO.jpg';
+  static const String assetTestimonial10 = 'assets/images/female_assistant.jpg';
+  static const String assetTestimonial11 = 'assets/images/female_assistant2.jpg';
+  static const String assetTestimonial12 = 'assets/images/CEO.jpg';
+  static const String assetTestimonial13 = 'assets/images/female_assistant.jpg';
+  static const String assetTestimonial14 = 'assets/images/female_assistant2.jpg';
+  static const String assetTestimonial15 = 'assets/images/CEO.jpg';
+  static const String assetTestimonial16 = 'assets/images/female_assistant.jpg';
+  static const String assetTestimonial17 = 'assets/images/female_assistant2.jpg';
+  static const String assetTestimonial18 = 'assets/images/CEO.jpg';
+  /// Academy / training card image.
+  static const String assetAcademy = 'assets/images/training_image.jpg';
   /// Consultation / appointments page (Smart Move cards).
-  static const String assetConsultation = 'assets/images/consultation.jpg';
-  /// BaZi Harmony card image on main page (Academies section).
-  static const String assetBaziHarmony = 'assets/icons/baziharmony.jpg';
-  /// QiMen card image on main page (Academies section).
-  static const String assetAcademyQiMen = 'assets/icons/qimendunjia.jpg';
-  /// Feng Shui card image on main page (Academies section).
-  static const String assetAcademyFengShui = 'assets/images/backgrounddirection.jpg';
+  static const String assetConsultation = 'assets/images/female_assistant.jpg';
+  /// Academy cards on main page (using logo/icon).
+  static const String assetBaziHarmony = 'assets/icons/mainicon.png';
+  static const String assetAcademyQiMen = 'assets/icons/mainicon.png';
+  /// Feng Shui card image on main page.
+  static const String assetAcademyFengShui = 'assets/images/hero_background.jpg';
 
-  // Apps page showcase (assets/images/apps/)
-  /// Apps page hero banner
-  static const String assetAppsHero = 'assets/images/hero1x.jpg';
-  static const String assetAppQiMen = 'assets/images/apps/qimen.jpg';
-  static const String assetAppBaziLife = 'assets/images/apps/bazi_life.jpg';
-  static const String assetAppBaziReport = 'assets/images/apps/bazi_report.jpg';
-  static const String assetAppBaziAge = 'assets/images/apps/bazi_age.jpg';
-  static const String assetAppBaziStars = 'assets/images/apps/bazi_stars.jpg';
-  static const String assetAppBaziKhmer = 'assets/images/apps/bazi_khmer.jpg';
-  static const String assetAppBaziPage2 = 'assets/images/apps/bazi_page2.jpg';
-  static const String assetAppDateSelection = 'assets/images/apps/dateselection.jpg';
-  static const String assetAppMarriage = 'assets/images/apps/marriage.jpg';
-  static const String assetAppBusinessPartner = 'assets/images/apps/business_partner.jpg';
-  static const String assetAppAdvancedFeatures = 'assets/images/apps/advancedfeatures.jpg';
-  /// Period 9 mobile app screenshots
-  static const String assetPeriod9_1 = 'assets/images/apps/period9_1.JPG';
-  static const String assetPeriod9_2 = 'assets/images/apps/period9_2.JPG';
-  /// Book store (Period 9 books)
+  // Apps page showcase
+  /// Apps page hero banner.
+  static const String assetAppsHero = 'assets/images/hero_background.jpg';
+  /// App feature screenshots (using training/students imagery).
+  static const String assetAppQiMen = 'assets/images/training_image.jpg';
+  static const String assetAppBaziLife = 'assets/images/students.jpg';
+  static const String assetAppBaziReport = 'assets/images/training_image.jpg';
+  static const String assetAppBaziAge = 'assets/images/students.jpg';
+  static const String assetAppBaziStars = 'assets/images/training_image.jpg';
+  static const String assetAppBaziKhmer = 'assets/images/students.jpg';
+  static const String assetAppBaziPage2 = 'assets/images/training_image.jpg';
+  static const String assetAppDateSelection = 'assets/images/students.jpg';
+  static const String assetAppMarriage = 'assets/images/training_image.jpg';
+  static const String assetAppBusinessPartner = 'assets/images/students.jpg';
+  static const String assetAppAdvancedFeatures = 'assets/images/training_image.jpg';
+  /// Period 9 mobile app screenshots.
+  static const String assetPeriod9_1 = 'assets/images/training_image.jpg';
+  static const String assetPeriod9_2 = 'assets/images/students.jpg';
+  /// Book store (Period 9 books).
   static const String assetBook1 = 'assets/stores/books/period9book1.jpg';
   static const String assetBook2 = 'assets/stores/books/period9book2.jpg';
+
+  // Publications (book covers and mockups).
+  static const String assetBookMockup = 'assets/images/publications/book_mockup.jpg';
+  static const String assetBookMockup2 = 'assets/images/publications/book_mockup2.jpg';
+  static const String assetBookMockup3 = 'assets/images/publications/book_mockup3.jpg';
+  static const String assetBookPersuasionEng = 'assets/images/publications/book_persuasion_eng.jpg';
+  static const String assetBookPersuasionEngBig = 'assets/images/publications/book_persuasion_eng_big.jpg';
+  static const String assetBookPersuasionKhmer = 'assets/images/publications/book_persuasion_khmer.png';
+  static const String assetBookPersuasionBack = 'assets/images/publications/book_persuasion_back.jpg';
+
+  // Store / app icons.
+  static const String assetAppStoreIcon = 'assets/icons/appstore_icon.png';
+  static const String assetGooglePlayIcon = 'assets/icons/googleplay_icon.png';
+  static const String assetLogoPngBig = 'assets/icons/logo_png_big.png';
 }

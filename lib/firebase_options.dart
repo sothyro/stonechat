@@ -7,7 +7,7 @@ class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     return FirebaseOptions(
       apiKey: 'AIzaSyCl5KYgvcRfQeDYV6--jrT_fTJNteNEBZk',
-      appId: '1:94393696378:f2867dfa866712c777bc3',
+      appId: '1:94393696378:web:8f2867dfa866712c777bc3',
       messagingSenderId: '94393696378',
       projectId: 'stonechat-84b51',
       authDomain: 'stonechat-84b51.firebaseapp.com',

@@ -550,8 +550,7 @@ const List<_ZodiacForecast> _zodiacForecasts = [
     id: 'rat',
     englishName: 'Rat',
     chineseName: '鼠',
-    assetPath:
-        'assets/c__Users_sothy_AppData_Roaming_Cursor_User_workspaceStorage_867b90d3f467249f0f4d0b1da278e5de_images_image-ebb38279-a049-45ac-bd6d-b9f475ed8a1e.png',
+    assetPath: 'assets/icons/mainicon.png',
     auspiciousStars: [
       _StarInfo(khmerName: 'យូកុង', chineseName: '月空', englishTranslation: 'Clear Moon'),
       _StarInfo(khmerName: 'ធានជូ', chineseName: '天厨', englishTranslation: 'Heavenly Kitchen'),
@@ -572,8 +571,7 @@ const List<_ZodiacForecast> _zodiacForecasts = [
     id: 'ox',
     englishName: 'Ox',
     chineseName: '牛',
-    assetPath:
-        'assets/c__Users_sothy_AppData_Roaming_Cursor_User_workspaceStorage_867b90d3f467249f0f4d0b1da278e5de_images_image-c153ef55-42d8-4686-a191-331bb939a520.png',
+    assetPath: 'assets/icons/mainicon.png',
     auspiciousStars: [
       _StarInfo(khmerName: 'Long De', chineseName: '龍德', englishTranslation: 'Dragon Virtue'),
       _StarInfo(khmerName: 'Zi Wei', chineseName: '紫微', englishTranslation: 'Purple Star'),
@@ -593,8 +591,7 @@ const List<_ZodiacForecast> _zodiacForecasts = [
     id: 'tiger',
     englishName: 'Tiger',
     chineseName: '虎',
-    assetPath:
-        'assets/c__Users_sothy_AppData_Roaming_Cursor_User_workspaceStorage_867b90d3f467249f0f4d0b1da278e5de_images_image-b5b363d6-eb1c-4c95-86b9-5db0efb2eed0.png',
+    assetPath: 'assets/icons/mainicon.png',
     auspiciousStars: [
       _StarInfo(khmerName: 'San He', chineseName: '三合', englishTranslation: 'Three Harmony'),
       _StarInfo(khmerName: 'Xue Tang', chineseName: '學堂', englishTranslation: 'Study Hall'),
@@ -614,8 +611,7 @@ const List<_ZodiacForecast> _zodiacForecasts = [
     id: 'rabbit',
     englishName: 'Rabbit',
     chineseName: '兔',
-    assetPath:
-        'assets/c__Users_sothy_AppData_Roaming_Cursor_User_workspaceStorage_867b90d3f467249f0f4d0b1da278e5de_images_image-fb1c91fd-56dd-41c7-8756-9b679409a7b5.png',
+    assetPath: 'assets/icons/mainicon.png',
     auspiciousStars: [
       _StarInfo(khmerName: 'Tian De', chineseName: '天德', englishTranslation: 'Heavenly Virtue'),
       _StarInfo(khmerName: 'Fu De', chineseName: '福德', englishTranslation: 'Fortune Virtue'),
@@ -637,8 +633,7 @@ const List<_ZodiacForecast> _zodiacForecasts = [
     id: 'dragon',
     englishName: 'Dragon',
     chineseName: '龙',
-    assetPath:
-        'assets/c__Users_sothy_AppData_Roaming_Cursor_User_workspaceStorage_867b90d3f467249f0f4d0b1da278e5de_images_image-1ef25318-a273-44da-9c0c-127816445c49.png',
+    assetPath: 'assets/icons/mainicon.png',
     auspiciousStars: [
       _StarInfo(khmerName: 'Tian Jie', chineseName: '天解', englishTranslation: 'Heavenly Relief'),
       _StarInfo(khmerName: 'Jie Shen', chineseName: '解神', englishTranslation: 'Resolving God'),
@@ -659,8 +654,7 @@ const List<_ZodiacForecast> _zodiacForecasts = [
     id: 'snake',
     englishName: 'Snake',
     chineseName: '蛇',
-    assetPath:
-        'assets/c__Users_sothy_AppData_Roaming_Cursor_User_workspaceStorage_867b90d3f467249f0f4d0b1da278e5de_images_image-da8d1953-7356-4601-990f-2237bcfebf0c.png',
+    assetPath: 'assets/icons/mainicon.png',
     auspiciousStars: [
       _StarInfo(khmerName: 'Lu Xun', chineseName: '祿勲', englishTranslation: 'Prosperity Medal'),
     ],
@@ -679,8 +673,7 @@ const List<_ZodiacForecast> _zodiacForecasts = [
     id: 'horse',
     englishName: 'Horse',
     chineseName: '马',
-    assetPath:
-        'assets/c__Users_sothy_AppData_Roaming_Cursor_User_workspaceStorage_867b90d3f467249f0f4d0b1da278e5de_images_image-4143623c-8082-44e3-a0b4-5eef11aba0df.png',
+    assetPath: 'assets/icons/mainicon.png',
     auspiciousStars: [
       _StarInfo(khmerName: 'Sui Jia', chineseName: '歲駕', englishTranslation: 'Yearly Governing'),
       _StarInfo(khmerName: 'Jiang Xing', chineseName: '將星', englishTranslation: 'General Star'),
@@ -701,8 +694,7 @@ const List<_ZodiacForecast> _zodiacForecasts = [
     id: 'goat',
     englishName: 'Goat',
     chineseName: '羊',
-    assetPath:
-        'assets/c__Users_sothy_AppData_Roaming_Cursor_User_workspaceStorage_867b90d3f467249f0f4d0b1da278e5de_images_image-9ca4fe62-5061-443d-b3a0-c3de2bade4c1.png',
+    assetPath: 'assets/icons/mainicon.png',
     auspiciousStars: [
       _StarInfo(khmerName: 'Tai Yang', chineseName: '太陽', englishTranslation: 'The Sun'),
       _StarInfo(khmerName: 'Sui He', chineseName: '歲合', englishTranslation: 'Yearly Harmony'),
@@ -723,8 +715,7 @@ const List<_ZodiacForecast> _zodiacForecasts = [
     id: 'monkey',
     englishName: 'Monkey',
     chineseName: '猴',
-    assetPath:
-        'assets/c__Users_sothy_AppData_Roaming_Cursor_User_workspaceStorage_867b90d3f467249f0f4d0b1da278e5de_images_image-7935edc2-8fde-4c15-a869-7abf5456fd5d.png',
+    assetPath: 'assets/icons/mainicon.png',
     auspiciousStars: [
       _StarInfo(khmerName: 'Sui Dian', chineseName: '歳殿', englishTranslation: 'Yearly Palace'),
       _StarInfo(khmerName: 'Wen Chang', chineseName: '文昌', englishTranslation: 'Intelligence Star'),
@@ -745,8 +736,7 @@ const List<_ZodiacForecast> _zodiacForecasts = [
     id: 'rooster',
     englishName: 'Rooster',
     chineseName: '鸡',
-    assetPath:
-        'assets/c__Users_sothy_AppData_Roaming_Cursor_User_workspaceStorage_867b90d3f467249f0f4d0b1da278e5de_images_image-cf86f726-f42b-4a95-8a90-611423d81d1a.png',
+    assetPath: 'assets/icons/mainicon.png',
     auspiciousStars: [
       _StarInfo(khmerName: 'Tai Yin', chineseName: '太陰', englishTranslation: 'The Moon'),
       _StarInfo(khmerName: 'Hong Luan', chineseName: '紅鸞', englishTranslation: 'Romance Star'),
@@ -766,8 +756,7 @@ const List<_ZodiacForecast> _zodiacForecasts = [
     id: 'dog',
     englishName: 'Dog',
     chineseName: '狗',
-    assetPath:
-        'assets/c__Users_sothy_AppData_Roaming_Cursor_User_workspaceStorage_867b90d3f467249f0f4d0b1da278e5de_images_image-bb8a90d2-01d2-4854-a072-f53bceed0865.png',
+    assetPath: 'assets/icons/mainicon.png',
     auspiciousStars: [
       _StarInfo(khmerName: 'San He', chineseName: '三合', englishTranslation: 'Three Harmony'),
       _StarInfo(khmerName: 'Di Jie', chineseName: '地解', englishTranslation: 'Earthly Resolve'),
@@ -787,8 +776,7 @@ const List<_ZodiacForecast> _zodiacForecasts = [
     id: 'pig',
     englishName: 'Pig',
     chineseName: '猪',
-    assetPath:
-        'assets/c__Users_sothy_AppData_Roaming_Cursor_User_workspaceStorage_867b90d3f467249f0f4d0b1da278e5de_images_image-364ac169-f1bb-4ed0-84a9-ec5d58dd6dec.png',
+    assetPath: 'assets/icons/mainicon.png',
     auspiciousStars: [
       _StarInfo(khmerName: 'Yue De', chineseName: '月德', englishTranslation: 'Monthly Virtue'),
       _StarInfo(khmerName: 'Yu Tang', chineseName: '玉堂', englishTranslation: 'Jade Hall'),

@@ -24,7 +24,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get learning => 'Learning';
 
   @override
-  String get charteredPractitioner => 'Master';
+  String get charteredPractitioner => 'Learning & Practice';
 
   @override
   String get resources => 'Resources';
@@ -33,10 +33,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appsAndStore => 'Apps & Store';
 
   @override
-  String get stonechatSystem => 'Stonechat System';
+  String get stonechatSystem => 'Apps & Digital';
 
   @override
-  String get period9MobileApp => 'Period 9 Mobile App';
+  String get period9MobileApp => 'Period 9 App';
 
   @override
   String get talismanStore => 'Talisman Store';
@@ -259,7 +259,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get newsAndEvents => 'News & Events';
 
   @override
-  String get mediaAndPosts => 'Media & Posts';
+  String get mediaAndPosts => 'News & Media';
 
   @override
   String get mediaPostsFacebookTitle => 'Posts & updates';
@@ -289,7 +289,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Sample links to articles and features (to be updated):';
 
   @override
-  String get consultations => 'Consultations';
+  String get consultations => 'Book Consultation';
 
   @override
   String get contactUs => 'Contact';
@@ -304,16 +304,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get heroStonechatCaption => 'Stonechat';
 
   @override
-  String get journey => 'Our story';
+  String get journey => 'Our Story';
 
   @override
   String get ourMethod => 'What we do';
 
   @override
-  String get events => 'Events';
+  String get events => 'Workshops & Events';
 
   @override
-  String get eventsCalendar => 'Events Calendar';
+  String get eventsCalendar => 'Event Calendar';
 
   @override
   String get blog => 'Blog';
@@ -504,7 +504,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Tailored workshops for your team or organization. We adapt to your needs.';
 
   @override
-  String get academyPageTitle => 'Training';
+  String get academyPageTitle => 'Academy';
 
   @override
   String get academyQiMenAbout =>
@@ -658,7 +658,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Our’ publishing and authoring services help you go from idea to finished book. We also offer training materials and resources. Get in touch for more.';
 
   @override
-  String get stickyCtaText => 'Get in touch';
+  String get stickyCtaText => 'Subscribe';
 
   @override
   String get popupTitle1 => 'Stonechat';
@@ -678,6 +678,21 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get submit => 'Submit';
+
+  @override
+  String get subscribeEmailHint => 'Your email';
+
+  @override
+  String get subscribeButton => 'Subscribe';
+
+  @override
+  String get subscribeJoinTelegram => 'Join us on Telegram';
+
+  @override
+  String get subscribeSuccess => 'Thanks! We\'ll be in touch.';
+
+  @override
+  String get subscribeOr => 'or';
 
   @override
   String get eventsCalendarTitle => 'Workshops & events';
@@ -1530,7 +1545,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get semanticsFooter => 'Footer';
 
   @override
-  String get drawerNavigate => 'Navigate';
+  String get drawerNavigate => 'Menu';
 
   @override
   String get drawerGetInTouch => 'Get in touch';

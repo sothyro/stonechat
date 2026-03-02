@@ -12,10 +12,10 @@ import 'glass_container.dart';
 import 'logo_with_shape_shadow.dart';
 import 'media_posts_popup.dart';
 
-/// Menu bar colors: gold accents and link text (glass fill uses [AppColors.overlayDark]).
+/// Menu bar colors: cyan/teal accent for frame, link text (glass fill uses [AppColors.overlayDark]).
 class _MenuColors {
   _MenuColors._();
-  static const Color barBorder = Color(0xFFC9A227);
+  static const Color barBorder = Color(0xFF00A9B8); // cyan/teal, matches AppColors.accent
   static const Color linkText = Color(0xFFF0F0F0);
 }
 

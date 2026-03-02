@@ -49,6 +49,13 @@ class AppDrawer extends StatelessWidget {
                       icon: LucideIcons.home,
                       onTap: () => _go(context, '/'),
                     ),
+                    _DrawerTile(
+                      label: l10n.about,
+                      path: '/about',
+                      current: current,
+                      icon: LucideIcons.info,
+                      onTap: () => _go(context, '/about'),
+                    ),
                     _SectionLabel(label: l10n.charteredPractitioner),
                     _DrawerTile(
                       label: l10n.journey,
@@ -302,7 +309,7 @@ class _ContactCta extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(14),
             gradient: const LinearGradient(
-              colors: [Color(0xFFA68520), AppColors.accent],
+              colors: [Color(0xFFE91E8C), Color(0xFF00A9B8)], // magenta → teal
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),

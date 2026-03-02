@@ -4,10 +4,10 @@ import 'package:lucide_icons/lucide_icons.dart';
 import '../l10n/app_localizations.dart';
 import '../theme/app_theme.dart';
 import '../utils/breakpoints.dart';
-import 'forecast_popup.dart';
 import 'glass_container.dart';
+import 'subscribe_dialog.dart';
 
-/// Floating vertical bar on the right side for the Free 12 Animal Forecast CTA.
+/// Floating vertical bar on the right side for the Subscribe CTA.
 class StickyCtaBar extends StatefulWidget {
   const StickyCtaBar({super.key});
 
@@ -22,7 +22,7 @@ class _StickyCtaBarState extends State<StickyCtaBar> {
     showDialog<void>(
       context: context,
       barrierDismissible: true,
-      builder: (_) => const ForecastPopup(),
+      builder: (_) => const SubscribeDialog(),
     );
   }
 
@@ -82,7 +82,7 @@ class _StickyCtaBarState extends State<StickyCtaBar> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(LucideIcons.megaphone, color: AppColors.onAccent, size: 22),
+                        Icon(LucideIcons.mail, color: AppColors.onAccent, size: 22),
                         const SizedBox(height: 12),
                         RotatedBox(
                           quarterTurns: 3,

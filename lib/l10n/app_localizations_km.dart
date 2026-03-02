@@ -24,22 +24,22 @@ class AppLocalizationsKm extends AppLocalizations {
   String get learning => 'វគ្គសិក្សា';
 
   @override
-  String get charteredPractitioner => 'ម៉ាស្ទ័រ';
+  String get charteredPractitioner => 'រៀន និងអនុវត្ត';
 
   @override
   String get resources => 'ធនធាន';
 
   @override
-  String get appsAndStore => 'ហាង';
+  String get appsAndStore => 'កម្មវិធី និងហាង';
 
   @override
-  String get stonechatSystem => 'ប្រព័ន្ធកម្មវិធី Stonechat';
+  String get stonechatSystem => 'កម្មវិធី និងឌីជីថល';
 
   @override
-  String get period9MobileApp => 'កម្មវិធីយុគ9';
+  String get period9MobileApp => 'កម្មវិធីយុគ៩';
 
   @override
-  String get talismanStore => 'ស្តេចយ័ន្ត';
+  String get talismanStore => 'ហាងស្តេចយ័ន្ត';
 
   @override
   String get appsPageTitle => 'កម្មវិធីមិះ ស្តេចយ័ន្ត និង សៀវភៅ សម្រាប់ជាវ';
@@ -260,7 +260,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get newsAndEvents => 'ព័ត៌មាន និងព្រឹត្តិការណ៍';
 
   @override
-  String get mediaAndPosts => 'មេឌៀ និងសេចក្ដីជូនដំណឹង';
+  String get mediaAndPosts => 'ព័ត៌មាន និងមេឌៀ';
 
   @override
   String get mediaPostsFacebookTitle => 'សេចក្ដីជូនដំណឹង និងអាប់ដេត';
@@ -290,7 +290,7 @@ class AppLocalizationsKm extends AppLocalizations {
       'តំណភ្ជាប់ឧទាហរណ៍អត្ថបទ និងអត្ថបទពិសេស (នឹងធ្វើអាប់ដេត):';
 
   @override
-  String get consultations => 'ការពិគ្រោះ';
+  String get consultations => 'ណាត់ជួបពិគ្រោះ';
 
   @override
   String get contactUs => 'ទាក់ទង';
@@ -305,13 +305,13 @@ class AppLocalizationsKm extends AppLocalizations {
   String get heroStonechatCaption => 'Stonechat';
 
   @override
-  String get journey => 'ដំណើររបស់ខ្ញុំ';
+  String get journey => 'រឿងរបស់យើង';
 
   @override
   String get ourMethod => 'វិធីសាស្រ្តរបស់ពួកយើង';
 
   @override
-  String get events => 'ព្រឹត្តិការណ៍';
+  String get events => 'សិក្ខាសាលា និងព្រឹត្តិការណ៍';
 
   @override
   String get eventsCalendar => 'ប្រតិទិនព្រឹត្តិការណ៍';
@@ -504,7 +504,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get academyFengShuiDesc => 'ម៉ាស្ទ័រនៃលំហូរដង្ហើមនាគ។';
 
   @override
-  String get academyPageTitle => 'សាលាបណ្ដុះបណ្ដាល';
+  String get academyPageTitle => 'វគ្គសិក្សា';
 
   @override
   String get academyQiMenAbout =>
@@ -656,17 +656,17 @@ class AppLocalizationsKm extends AppLocalizations {
       'ស្វែងយល់ពីស្នាដៃរបស់យើងអំពីហុងស៊ុយ និងក្បួនចិនបុរាណ។';
 
   @override
-  String get stickyCtaText => 'ទស្សន៍ទាយឆ្នាំសត្វទាំង ១២ ឥតគិតថ្លៃ';
+  String get stickyCtaText => 'ចុះឈ្មោះ';
 
   @override
-  String get popupTitle1 => 'របស់ Stonechat';
+  String get popupTitle1 => 'Stonechat';
 
   @override
-  String get popupTitle2 => 'ទស្សន៍ទាយឆ្នាំសត្វទាំង ១២';
+  String get popupTitle2 => 'ព័ត៌មាន និងធ្វើបច្ចុប្បន្នភាព';
 
   @override
   String get popupDescription =>
-      'ទទួលទស្សន៍ទាយ មើលរាសី និងមិះឆ្នាំ ២០២៦ របស់អ្នក…';
+      'ទទួលព័ត៌មាន ព្រឹត្តិការណ៍ និងធ្វើបច្ចុប្បន្នភាពពី Stonechat។';
 
   @override
   String get readFullArticles => 'អានអត្ថបទពេញ';
@@ -677,6 +677,21 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get submit => 'ដាក់ស្នើ';
+
+  @override
+  String get subscribeEmailHint => 'អ៉ីមែលរបស់អ្នក';
+
+  @override
+  String get subscribeButton => 'ចុះឈ្មោះ';
+
+  @override
+  String get subscribeJoinTelegram => 'ចូលរួមជាមួយយើងនៅ Telegram';
+
+  @override
+  String get subscribeSuccess => 'អរគុណ! យើងនឹងទាក់ទងអ្នក។';
+
+  @override
+  String get subscribeOr => 'ឬ';
 
   @override
   String get eventsCalendarTitle => 'ប្រតិទិនព្រឹត្តិការណ៍របស់ Stonechat';
@@ -1525,7 +1540,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get semanticsFooter => 'ផ្នែកខាងក្រោម';
 
   @override
-  String get drawerNavigate => 'រុករក';
+  String get drawerNavigate => 'ម៉ឺនុយ';
 
   @override
   String get drawerGetInTouch => 'ទាក់ទងយើង';
