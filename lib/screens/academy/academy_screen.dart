@@ -517,7 +517,7 @@ class _AcademyHero extends StatelessWidget {
           children: [
             Positioned.fill(
               child: Image.asset(
-                AppContent.assetJourneyHero,
+                AppContent.assetEventMain,
                 fit: BoxFit.cover,
                 errorBuilder: (_, __, ___) => const SizedBox.expand(),
               ),
@@ -599,7 +599,7 @@ class _AcademyHero extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           Image.asset(
-            AppContent.assetAppsHero,
+            AppContent.assetEventMain,
             fit: BoxFit.cover,
           ),
           Container(

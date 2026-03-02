@@ -36,10 +36,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get stonechatSystem => 'Apps & Digital';
 
   @override
-  String get period9MobileApp => 'Period 9 App';
+  String get period9MobileApp => 'Clinic App';
 
   @override
-  String get talismanStore => 'Talisman Store';
+  String get talismanStore => 'Book Store';
 
   @override
   String get appsPageTitle => 'Apps & Store';
@@ -72,7 +72,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get marketplaceCategoryBooks => 'Books';
 
   @override
-  String get marketplaceCategoryTalismans => 'Talismans';
+  String get marketplaceCategoryTalismans => 'Book Store';
 
   @override
   String get stonechatSpotlightTitle => 'App & website development';
@@ -100,11 +100,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get period9PremiumLabel => 'Premium subscription available';
 
   @override
-  String get period9SpotlightTitle => 'Period 9 Mobile App';
+  String get period9SpotlightTitle => 'Stonechat Clinic App';
 
   @override
   String get period9SpotlightDesc =>
-      'Carry Period 9 Feng Shui and timing insights in your pocket. Available on iOS and Android.';
+      'Manage appointments, patients, and records on the go. Built for clinics and small practices. Available on iOS and Android.';
 
   @override
   String get downloadOnAppStore => 'Download on the App Store';
@@ -113,11 +113,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get getItOnGooglePlay => 'Get it on Google Play';
 
   @override
-  String get talismanStoreSpotlightTitle => 'Talisman Store';
+  String get talismanStoreSpotlightTitle => 'Book Store';
 
   @override
   String get talismanStoreSpotlightDesc =>
-      'Curated talismans and remedies. Add to cart and we\'ll contact you to complete your order.';
+      'Curated books on communication, leadership, and professional development. Add to cart and we\'ll contact you to complete your order.';
 
   @override
   String get marketplaceAddedToCart =>
@@ -127,31 +127,37 @@ class AppLocalizationsEn extends AppLocalizations {
   String get talismanProductPrice => '29.99';
 
   @override
-  String get talismanProduct1Title => 'Protection Talisman';
+  String get talismanProduct1Title =>
+      'Chapter 1 - Branding & Communication Strategy';
 
   @override
-  String get talismanProduct2Title => 'Wealth Charm';
+  String get talismanProduct2Title =>
+      'Chapter 2 - Digital Communications Platform Design';
 
   @override
-  String get talismanProduct3Title => 'Health Amulet';
+  String get talismanProduct3Title =>
+      'Chapter 3 - Engaging Your Audiences Online';
 
   @override
-  String get talismanProduct4Title => 'Love & Harmony';
+  String get talismanProduct4Title =>
+      'Chapter 4 - Speech Writing & Presentations';
 
   @override
-  String get talismanProduct5Title => 'Career Success';
+  String get talismanProduct5Title => 'Chapter 5 - Liaising With The Media';
 
   @override
-  String get talismanProduct6Title => 'Peace & Calm';
+  String get talismanProduct6Title => 'Chapter 6 - Effective Communications';
 
   @override
-  String get talismanProduct7Title => 'Travel Protection';
+  String get talismanProduct7Title => 'Chapter 7 - Embracing Soft Power';
 
   @override
-  String get talismanProduct8Title => 'Home Blessing';
+  String get talismanProduct8Title =>
+      'Chapter 8 - Crisis Management & Communications';
 
   @override
-  String get talismanProduct9Title => 'Wisdom Pendant';
+  String get talismanProduct9Title =>
+      'Chapter 9 - Communications for Organisational Change';
 
   @override
   String get stonechatSpotlightTagline => 'Quality without the high price.';
@@ -160,16 +166,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get stonechatSpotlightTaglineHighlight => 'Quality';
 
   @override
-  String get period9SpotlightTagline => 'Apps in your pocket.';
+  String get period9SpotlightTagline => 'Your clinic in your pocket.';
 
   @override
   String get period9SpotlightTaglineHighlight => 'pocket';
 
   @override
-  String get talismanStoreSpotlightTagline => 'Wear your protection.';
+  String get talismanStoreSpotlightTagline => 'Knowledge that fits your shelf.';
 
   @override
-  String get talismanStoreSpotlightTaglineHighlight => 'protection';
+  String get talismanStoreSpotlightTaglineHighlight => 'shelf';
 
   @override
   String get bookStoreSectionHeading => 'Book publishing & authoring';
@@ -189,22 +195,40 @@ class AppLocalizationsEn extends AppLocalizations {
   String get bookStoreSectionMarketingHighlight => 'idea to published book';
 
   @override
-  String get bookStoreBook1Title => 'Period 9 Feng Shui — Volume 1';
+  String get bookStoreBook1Title => 'From Idea to Finished Book';
 
   @override
-  String get bookStoreBook1Subtitle => 'Foundations & Flying Stars';
+  String get bookStoreBook1Subtitle => 'Writing, editing & publishing';
 
   @override
   String get bookStoreBook1Price => '24.99';
 
   @override
-  String get bookStoreBook2Title => 'Period 9 Feng Shui — Volume 2';
+  String get bookStoreBook2Title => 'Clear Communication at Work';
 
   @override
-  String get bookStoreBook2Subtitle => 'Advanced Applications';
+  String get bookStoreBook2Subtitle => 'Practical skills for teams';
 
   @override
   String get bookStoreBook2Price => '24.99';
+
+  @override
+  String get bookStoreBook3Title => 'The Art of Persuasion (English)';
+
+  @override
+  String get bookStoreBook3Subtitle => 'Persuasion & influence';
+
+  @override
+  String get bookStoreBook3Price => '24.99';
+
+  @override
+  String get bookStoreBook4Title => 'The Art of Persuasion (Khmer)';
+
+  @override
+  String get bookStoreBook4Subtitle => 'Persuasion & influence';
+
+  @override
+  String get bookStoreBook4Price => '24.99';
 
   @override
   String get bookStorePricePrefix => '\$';
@@ -379,13 +403,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get heroSubline => 'Apps & digital solutions studio';
 
   @override
-  String get exploreAllEvents => 'Explore All Events';
+  String get exploreAllEvents => 'Explore All Trainings';
 
   @override
   String get comingUpNext => 'Coming Up Next';
 
   @override
-  String get allUpcomingEvents => 'All Upcoming Events';
+  String get allUpcomingEvents => 'All Upcoming Trainings';
 
   @override
   String get limitedSeats => 'Limited seats';
@@ -735,11 +759,11 @@ class AppLocalizationsEn extends AppLocalizations {
       'Limited seats. Secure your spot and get the most from the session.';
 
   @override
-  String get eventsUpcomingHeadline => 'Upcoming Events';
+  String get eventsUpcomingHeadline => 'Upcoming Trainings';
 
   @override
   String get eventsUpcomingSubline =>
-      'Choose your event and secure your seat. We can\'t wait to see you there.';
+      'Choose your training and secure your seat. We can\'t wait to see you there.';
 
   @override
   String get secureYourSeat => 'Book your seat';
@@ -1213,33 +1237,36 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sampleFeature => 'Sample feature';
 
   @override
-  String get event1Title => 'Stonechat - The Rise of Phoenix 2026';
+  String get event1Title =>
+      'The Art of Human-Centered Communication (Core Training)';
 
   @override
-  String get event1Description => 'The Master Revelation.';
+  String get event1Description =>
+      'A practical core training on listening, clarity, and empathy so everyday communication feels natural, confident, and human.';
 
   @override
-  String get event1Location => 'Phnom Penh';
+  String get event1Location => 'Phnom Penh & Online (Zoom)';
 
   @override
-  String get event2Title => 'Feng Shui & Astrology 2026';
+  String get event2Title =>
+      'The Art of AI-Enhanced Communication (Applied Training)';
 
   @override
   String get event2Description =>
-      'The Singapore Edition of Feng Shui & Astrology 2026 live event.';
+      'Learn how to work with AI tools to plan, draft, and refine your emails, posts, scripts, and more—without losing your own voice.';
 
   @override
-  String get event2Location => 'Resorts World Sentosa, Singapore';
+  String get event2Location => 'Online (Zoom)';
 
   @override
-  String get event3Title => 'Crimson Horse QiMen';
+  String get event3Title => 'Facilitation & Presentation Skills Lab';
 
   @override
   String get event3Description =>
-      'The Art of War In The Year of the Fire Horse';
+      'Hands-on practice for trainers, team leads, and speakers who want to run engaging sessions, keep energy high, and land clear messages.';
 
   @override
-  String get event3Location => 'Resorts World Singapore';
+  String get event3Location => 'In-house or on-site (by arrangement)';
 
   @override
   String get loginSectionTitle => 'Staff / Admin Login';

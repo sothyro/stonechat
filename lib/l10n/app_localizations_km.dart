@@ -36,10 +36,10 @@ class AppLocalizationsKm extends AppLocalizations {
   String get stonechatSystem => 'កម្មវិធី និងឌីជីថល';
 
   @override
-  String get period9MobileApp => 'កម្មវិធីយុគ៩';
+  String get period9MobileApp => 'កម្មវិធីគ្លីនិក';
 
   @override
-  String get talismanStore => 'ហាងស្តេចយ័ន្ត';
+  String get talismanStore => 'ហាងសៀវភៅ';
 
   @override
   String get appsPageTitle => 'កម្មវិធីមិះ ស្តេចយ័ន្ត និង សៀវភៅ សម្រាប់ជាវ';
@@ -72,7 +72,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get marketplaceCategoryBooks => 'សៀវភៅ';
 
   @override
-  String get marketplaceCategoryTalismans => 'ស្តេចយ័ន្ត';
+  String get marketplaceCategoryTalismans => 'ហាងសៀវភៅ';
 
   @override
   String get stonechatSpotlightTitle => 'ប្រព័ន្ធកម្មវិធី Stonechat';
@@ -100,11 +100,11 @@ class AppLocalizationsKm extends AppLocalizations {
   String get period9PremiumLabel => 'មានការជាវប៉្រេម៉ាយុម';
 
   @override
-  String get period9SpotlightTitle => 'កម្មវិធីយុគ9';
+  String get period9SpotlightTitle => 'Stonechat Clinic App';
 
   @override
   String get period9SpotlightDesc =>
-      'ទទួលយកចំណេះដឹងហុងស៊ុយ និងពេលវេលាយុគ9របស់អ្នក។ មានលើ iOS និង Android។';
+      'គ្រប់គ្រងការណាត់ជួប អ្នកជម្ងឺ និងកំណត់ត្រាក្នុងដៃអ្នក។ រចនាសម្រាប់គ្លីនិក និងការអនុវត្តតូច។ មានលើ iOS និង Android។';
 
   @override
   String get downloadOnAppStore => 'ដោនឡូតពី App Store';
@@ -113,11 +113,11 @@ class AppLocalizationsKm extends AppLocalizations {
   String get getItOnGooglePlay => 'ដោនឡូតពី Google Play';
 
   @override
-  String get talismanStoreSpotlightTitle => 'ហាងស្ដេចយ័ន្ដ';
+  String get talismanStoreSpotlightTitle => 'ហាងសៀវភៅ';
 
   @override
   String get talismanStoreSpotlightDesc =>
-      'ជាវស្ដេចយ័ន្ដ ដើម្បីកាត់ឆុង និងលើករាសី។ មានស្ដេចយ័ន្ដបន្ថែមនៅពេល ឆាប់ៗនេះ។';
+      'សៀវភៅជ្រើសរើសអំពីការទំនាក់ទំនង ភាពជាអ្នកដឹកនាំ និងការអភិវឌ្ឍវិជ្ជាជីវៈ។ បន្ថែមទៅរទេះ ហើយយើងនឹងទាក់ទងអ្នកដើម្បីបញ្ចប់ការបញ្ជាទិញ។';
 
   @override
   String get marketplaceAddedToCart =>
@@ -127,31 +127,36 @@ class AppLocalizationsKm extends AppLocalizations {
   String get talismanProductPrice => '29.99';
 
   @override
-  String get talismanProduct1Title => 'យ័ន្តការពារ';
+  String get talismanProduct1Title =>
+      'ជំពូក ១ - ទំព័រដើម និងយុទ្ធសាស្រ្តការទំនាក់ទំនង';
 
   @override
-  String get talismanProduct2Title => 'យ័ន្តទ្រព្យសម្បត្តិ';
+  String get talismanProduct2Title =>
+      'ជំពូក ២ - ការរចនាវេទិកាការទំនាក់ទំនងឌីជីថល';
 
   @override
-  String get talismanProduct3Title => 'យ័ន្តសុខភាព';
+  String get talismanProduct3Title =>
+      'ជំពូក ៣ - ការរួបរួមទស្សនិកជនរបស់អ្នកតាមអនឡាញ';
 
   @override
-  String get talismanProduct4Title => 'សេចក្តីស្រឡាញ់ និងភាពព្រមព្រៀង';
+  String get talismanProduct4Title => 'ជំពូក ៤ - ការសរសេរសុន្ទរកថា និងបទបង្ហាញ';
 
   @override
-  String get talismanProduct5Title => 'ជោគជ័យអាជីវកម្ម';
+  String get talismanProduct5Title => 'ជំពូក ៥ - ការទំនាក់ទំនងជាមួយសារព័ត៌មាន';
 
   @override
-  String get talismanProduct6Title => 'សន្តិភាព និងភាពស្ងប់';
+  String get talismanProduct6Title => 'ជំពូក ៦ - ការទំនាក់ទំនងមានប្រសិទ្ធភាព';
 
   @override
-  String get talismanProduct7Title => 'ការពារការធ្វើដំណើរ';
+  String get talismanProduct7Title => 'ជំពូក ៧ - ការទទួលយកអំណាចទន់';
 
   @override
-  String get talismanProduct8Title => 'ពរផ្ទះ';
+  String get talismanProduct8Title =>
+      'ជំពូក ៨ - ការគ្រប់គ្រងវិបត្តិ និងការទំនាក់ទំនង';
 
   @override
-  String get talismanProduct9Title => 'យ័ន្តគតិបណ្ឌិត';
+  String get talismanProduct9Title =>
+      'ជំពូក ៩ - ការទំនាក់ទំនងសម្រាប់ការផ្លាស់ប្តូរអង្គការ';
 
   @override
   String get stonechatSpotlightTagline => 'គុណភាពដោយថ្លៃសមរម្យ។';
@@ -160,16 +165,16 @@ class AppLocalizationsKm extends AppLocalizations {
   String get stonechatSpotlightTaglineHighlight => 'គុណភាព';
 
   @override
-  String get period9SpotlightTagline => 'ហុងស៊ុយនៅក្នុងដៃអ្នក។';
+  String get period9SpotlightTagline => 'គ្លីនិករបស់អ្នកនៅក្នុងដៃអ្នក។';
 
   @override
   String get period9SpotlightTaglineHighlight => 'ដៃ';
 
   @override
-  String get talismanStoreSpotlightTagline => 'សៀតការការពាររបស់អ្នក។';
+  String get talismanStoreSpotlightTagline => 'ចំណេះដឹងដែលសមនឹងធ្នើររបស់អ្នក។';
 
   @override
-  String get talismanStoreSpotlightTaglineHighlight => 'ការពារ';
+  String get talismanStoreSpotlightTaglineHighlight => 'ធ្នើរ';
 
   @override
   String get bookStoreSectionHeading => 'ហាងសៀវភៅ Stonechat';
@@ -206,6 +211,24 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get bookStoreBook2Price => '24.99';
+
+  @override
+  String get bookStoreBook3Title => 'សិល្បៈការចារឹក (អង់គ្លេស)';
+
+  @override
+  String get bookStoreBook3Subtitle => 'ការចារឹក និងឥទ្ធិពល';
+
+  @override
+  String get bookStoreBook3Price => '24.99';
+
+  @override
+  String get bookStoreBook4Title => 'សិល្បៈការចារឹក (ខ្មែរ)';
+
+  @override
+  String get bookStoreBook4Subtitle => 'ការចារឹក និងឥទ្ធិពល';
+
+  @override
+  String get bookStoreBook4Price => '24.99';
 
   @override
   String get bookStorePricePrefix => '\$';

@@ -305,68 +305,73 @@ class _FeaturedEventCardState extends State<_FeaturedEventCard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                AspectRatio(
-                  aspectRatio: 16 / 9,
-                  child: Stack(
-                    fit: StackFit.expand,
-                    children: [
-                      RepaintBoundary(
-                        child: Image.asset(
-                          AppContent.assetEventMain,
-                          fit: BoxFit.cover,
-                          alignment: Alignment.center,
-                          cacheWidth: 800,
-                          cacheHeight: 450,
-                          errorBuilder: (_, __, ___) => Container(
-                            color: AppColors.primary.withValues(alpha: 0.2),
-                          ),
-                        ),
-                      ),
-                      DecoratedBox(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Colors.transparent,
-                              Colors.black.withValues(alpha: 0.15),
-                              Colors.black.withValues(alpha: 0.4),
-                            ],
-                          ),
-                        ),
-                        child: const SizedBox.expand(),
-                      ),
-                      if (widget.limitedSeats)
-                        Positioned(
-                          top: 12,
-                          right: 12,
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 10,
-                              vertical: 6,
-                            ),
-                            decoration: BoxDecoration(
-                              color: AppColors.accent.withValues(alpha: 0.95),
-                              borderRadius: BorderRadius.circular(20),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: AppColors.accentGlow.withValues(alpha: 0.35),
-                                  blurRadius: 8,
-                                  offset: const Offset(0, 2),
-                                ),
-                              ],
-                            ),
-                            child: Text(
-                              l10n.limitedSeats,
-                              style: const TextStyle(
-                                color: AppColors.onAccent,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
+                ClipRRect(
+                  borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+                  child: AspectRatio(
+                    aspectRatio: 16 / 9,
+                    child: Stack(
+                      fit: StackFit.expand,
+                      children: [
+                        Positioned.fill(
+                          child: RepaintBoundary(
+                            child: Image.asset(
+                              AppContent.assetEventMain,
+                              fit: BoxFit.cover,
+                              alignment: Alignment.center,
+                              cacheWidth: 800,
+                              cacheHeight: 450,
+                              errorBuilder: (_, __, ___) => Container(
+                                color: AppColors.primary.withValues(alpha: 0.2),
                               ),
                             ),
                           ),
                         ),
-                    ],
+                        DecoratedBox(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                Colors.transparent,
+                                Colors.black.withValues(alpha: 0.15),
+                                Colors.black.withValues(alpha: 0.4),
+                              ],
+                            ),
+                          ),
+                          child: const SizedBox.expand(),
+                        ),
+                        if (widget.limitedSeats)
+                          Positioned(
+                            top: 12,
+                            right: 12,
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 6,
+                              ),
+                              decoration: BoxDecoration(
+                                color: AppColors.accent.withValues(alpha: 0.95),
+                                borderRadius: BorderRadius.circular(20),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: AppColors.accentGlow.withValues(alpha: 0.35),
+                                    blurRadius: 8,
+                                    offset: const Offset(0, 2),
+                                  ),
+                                ],
+                              ),
+                              child: Text(
+                                l10n.limitedSeats,
+                                style: const TextStyle(
+                                  color: AppColors.onAccent,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
                   ),
                 ),
                 Padding(
@@ -621,15 +626,17 @@ class _CompactEventCardState extends State<_CompactEventCard> {
                           child: Stack(
                             fit: StackFit.expand,
                             children: [
-                              RepaintBoundary(
-                                child: Image.asset(
-                                  AppContent.assetEventCard,
-                                  fit: BoxFit.cover,
-                                  alignment: Alignment.center,
-                                  cacheWidth: 640,
-                                  cacheHeight: 360,
-                                  errorBuilder: (_, __, ___) => Container(
-                                    color: AppColors.primary.withValues(alpha: 0.2),
+                              Positioned.fill(
+                                child: RepaintBoundary(
+                                  child: Image.asset(
+                                    AppContent.assetEventCard,
+                                    fit: BoxFit.cover,
+                                    alignment: Alignment.center,
+                                    cacheWidth: 640,
+                                    cacheHeight: 360,
+                                    errorBuilder: (_, __, ___) => Container(
+                                      color: AppColors.primary.withValues(alpha: 0.2),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -723,15 +730,17 @@ class _CompactEventCardState extends State<_CompactEventCard> {
                           child: Stack(
                             fit: StackFit.expand,
                             children: [
-                              RepaintBoundary(
-                                child: Image.asset(
-                                  AppContent.assetEventCard,
-                                  fit: BoxFit.cover,
-                                  alignment: Alignment.center,
-                                  cacheWidth: 640,
-                                  cacheHeight: 360,
-                                  errorBuilder: (_, __, ___) => Container(
-                                    color: AppColors.primary.withValues(alpha: 0.2),
+                              Positioned.fill(
+                                child: RepaintBoundary(
+                                  child: Image.asset(
+                                    AppContent.assetEventCard,
+                                    fit: BoxFit.cover,
+                                    alignment: Alignment.center,
+                                    cacheWidth: 640,
+                                    cacheHeight: 360,
+                                    errorBuilder: (_, __, ___) => Container(
+                                      color: AppColors.primary.withValues(alpha: 0.2),
+                                    ),
                                   ),
                                 ),
                               ),

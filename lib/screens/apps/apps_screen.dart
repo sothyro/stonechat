@@ -15,7 +15,7 @@ const String _sectionPeriod9 = 'period9';
 const String _sectionBooks = 'books';
 const String _sectionTalisman = 'talisman';
 
-/// Apps & Store page: Stonechat system, Period 9 Mobile App, Talisman Store.
+/// Apps & Store page: Stonechat system, Clinic App, Book Store.
 class AppsScreen extends StatefulWidget {
   const AppsScreen({super.key});
 
@@ -253,17 +253,19 @@ class _AppsScreenState extends State<AppsScreen> {
                       child: _FeaturedStonechatSection(l10n: l10n),
                     ),
                     const SizedBox(height: 56),
+                    _PersuasionBooksSection(l10n: l10n),
+                    const SizedBox(height: 56),
                     _AppFeatureShowcase(
                       features: [
-                        (AppContent.assetAppQiMen, l10n.appFeatureQiMen),
-                        (AppContent.assetAppBaziKhmer, l10n.appFeatureBaziKhmer),
-                        (AppContent.assetAppBaziReport, l10n.appFeatureBaziReport),
-                        (AppContent.assetAppBaziAge, l10n.appFeatureBaziAge),
-                        (AppContent.assetAppBaziStars, l10n.appFeatureBaziStars),
-                        (AppContent.assetAppBaziLife, l10n.appFeatureBaziLife),
-                        (AppContent.assetAppAdvancedFeatures, l10n.appFeatureAdvancedFeatures),
-                        (AppContent.assetAppDateSelection, l10n.appFeatureDateSelection),
-                        (AppContent.assetAppMarriage, l10n.appFeatureMarriage),
+                        (AppContent.assetChapter1, l10n.talismanProduct1Title),
+                        (AppContent.assetChapter2, l10n.talismanProduct2Title),
+                        (AppContent.assetChapter3, l10n.talismanProduct3Title),
+                        (AppContent.assetChapter4, l10n.talismanProduct4Title),
+                        (AppContent.assetChapter5, l10n.talismanProduct5Title),
+                        (AppContent.assetChapter6, l10n.talismanProduct6Title),
+                        (AppContent.assetChapter7, l10n.talismanProduct7Title),
+                        (AppContent.assetChapter8, l10n.talismanProduct8Title),
+                        (AppContent.assetChapter9, l10n.talismanProduct9Title),
                       ],
                     ),
                     const SizedBox(height: 56),
@@ -397,7 +399,7 @@ class _StoreSectionHeader extends StatelessWidget {
   }
 }
 
-/// Category pills for marketplace: Digital, Books, Talismans — tap to scroll to section.
+/// Category pills for marketplace: Digital, Books, Book Store — tap to scroll to section.
 class _MarketplaceCategoryStrip extends StatelessWidget {
   const _MarketplaceCategoryStrip({required this.l10n});
 
@@ -688,7 +690,7 @@ class _FeaturedStonechatSectionState extends State<_FeaturedStonechatSection> {
   }
 }
 
-/// Period 9 section with prominent download buttons.
+/// Clinic App section with prominent download buttons.
 class _FeaturedPeriod9Section extends StatelessWidget {
   const _FeaturedPeriod9Section({required this.l10n});
 
@@ -879,8 +881,7 @@ class _DownloadButtonsRow extends StatelessWidget {
               SizedBox(
                 height: 56,
                 child: _ProminentStoreButton(
-                  label: l10n.downloadOnAppStore,
-                  icon: Icons.apple,
+                  imageAsset: AppContent.assetAppStoreIcon,
                   url: AppContent.period9AppStoreUrl,
                 ),
               ),
@@ -888,8 +889,7 @@ class _DownloadButtonsRow extends StatelessWidget {
               SizedBox(
                 height: 56,
                 child: _ProminentStoreButton(
-                  label: l10n.getItOnGooglePlay,
-                  icon: Icons.play_circle_filled,
+                  imageAsset: AppContent.assetGooglePlayIcon,
                   url: AppContent.period9PlayStoreUrl,
                 ),
               ),
@@ -903,8 +903,7 @@ class _DownloadButtonsRow extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(right: 10),
                     child: _ProminentStoreButton(
-                      label: l10n.downloadOnAppStore,
-                      icon: Icons.apple,
+                      imageAsset: AppContent.assetAppStoreIcon,
                       url: AppContent.period9AppStoreUrl,
                     ),
                   ),
@@ -913,8 +912,7 @@ class _DownloadButtonsRow extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 10),
                     child: _ProminentStoreButton(
-                      label: l10n.getItOnGooglePlay,
-                      icon: Icons.play_circle_filled,
+                      imageAsset: AppContent.assetGooglePlayIcon,
                       url: AppContent.period9PlayStoreUrl,
                     ),
                   ),
@@ -925,42 +923,179 @@ class _DownloadButtonsRow extends StatelessWidget {
   }
 }
 
-class _ProminentStoreButton extends StatelessWidget {
+class _ProminentStoreButton extends StatefulWidget {
   const _ProminentStoreButton({
-    required this.label,
-    required this.icon,
+    required this.imageAsset,
     required this.url,
   });
 
-  final String label;
-  final IconData icon;
+  final String imageAsset;
   final String? url;
 
   @override
-  Widget build(BuildContext context) {
-    final enabled = url != null && url!.isNotEmpty;
+  State<_ProminentStoreButton> createState() => _ProminentStoreButtonState();
+}
 
-    return FilledButton.icon(
-      onPressed: enabled ? () => launchUrlExternal(url!) : null,
-      icon: Icon(icon, size: 28, color: enabled ? AppColors.onAccent : AppColors.onSurfaceVariantDark),
-      label: Text(
-        label,
-        style: TextStyle(
-          fontSize: 17,
-          fontWeight: FontWeight.w700,
-          color: enabled ? AppColors.onAccent : AppColors.onSurfaceVariantDark,
+class _ProminentStoreButtonState extends State<_ProminentStoreButton> {
+  bool _hovered = false;
+
+  static final List<BoxShadow> _storeButtonShadow = [
+    BoxShadow(
+      color: Colors.black38,
+      blurRadius: 12,
+      offset: const Offset(0, 4),
+    ),
+    BoxShadow(
+      color: Colors.black26,
+      blurRadius: 6,
+      offset: const Offset(0, 2),
+    ),
+  ];
+
+  static final List<BoxShadow> _storeButtonShadowHover = [
+    BoxShadow(
+      color: Colors.black45,
+      blurRadius: 18,
+      offset: const Offset(0, 6),
+    ),
+    BoxShadow(
+      color: Colors.black26,
+      blurRadius: 8,
+      offset: const Offset(0, 3),
+    ),
+    BoxShadow(
+      color: AppColors.accentGlow.withValues(alpha: 0.3),
+      blurRadius: 16,
+      spreadRadius: -2,
+      offset: const Offset(0, 4),
+    ),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    final enabled = widget.url != null && widget.url!.isNotEmpty;
+    final showHighlight = enabled && _hovered;
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _hovered = true),
+      onExit: (_) => setState(() => _hovered = false),
+      child: GestureDetector(
+        onTap: enabled ? () => launchUrlExternal(widget.url!) : null,
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          curve: Curves.easeOut,
+          height: 56,
+          padding: const EdgeInsets.all(6),
+          decoration: BoxDecoration(
+            color: enabled ? AppColors.surfaceElevatedDark : AppColors.surfaceElevatedDark.withValues(alpha: 0.6),
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(
+              color: showHighlight ? AppColors.accent : AppColors.borderDark,
+              width: showHighlight ? 3 : 1,
+            ),
+            boxShadow: enabled ? (showHighlight ? _storeButtonShadowHover : _storeButtonShadow) : null,
+          ),
+          child: Center(
+            child: SizedBox(
+              width: double.infinity,
+              height: 44,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(
+                    color: AppColors.borderDark.withValues(alpha: 0.5),
+                    width: 1,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.25),
+                      blurRadius: 8,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                clipBehavior: Clip.antiAlias,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                  child: Image.asset(
+                    widget.imageAsset,
+                    fit: BoxFit.contain,
+                    opacity: AlwaysStoppedAnimation(enabled ? 1.0 : 0.5),
+                    errorBuilder: (_, __, ___) => Icon(
+                      Icons.download,
+                      size: 28,
+                      color: enabled ? AppColors.onPrimary : AppColors.onSurfaceVariantDark,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
         ),
       ),
-      style: FilledButton.styleFrom(
-        backgroundColor: enabled ? AppColors.accent : AppColors.surfaceElevatedDark,
-        foregroundColor: AppColors.onAccent,
-        padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 18),
-        minimumSize: const Size(double.infinity, 56),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-        elevation: enabled ? 3 : 0,
-        shadowColor: AppColors.accentGlow.withValues(alpha: 0.45),
-      ),
     );
+  }
+}
+
+/// Two persuasion book cards placed below the video section.
+class _PersuasionBooksSection extends StatelessWidget {
+  const _PersuasionBooksSection({required this.l10n});
+
+  final AppLocalizations l10n;
+
+  @override
+  Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+    final isNarrow = Breakpoints.isMobile(width);
+    return isNarrow
+        ? Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _BookStoreCard(
+                l10n: l10n,
+                asset: AppContent.assetBookPersuasionEngBig,
+                title: l10n.bookStoreBook3Title,
+                subtitle: l10n.bookStoreBook3Subtitle,
+                price: l10n.bookStoreBook3Price,
+                showBestseller: false,
+              ),
+              const SizedBox(height: 24),
+              _BookStoreCard(
+                l10n: l10n,
+                asset: AppContent.assetBookPersuasionKhmer,
+                title: l10n.bookStoreBook4Title,
+                subtitle: l10n.bookStoreBook4Subtitle,
+                price: l10n.bookStoreBook4Price,
+                showBestseller: false,
+              ),
+            ],
+          )
+        : Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: _BookStoreCard(
+                  l10n: l10n,
+                  asset: AppContent.assetBookPersuasionEngBig,
+                  title: l10n.bookStoreBook3Title,
+                  subtitle: l10n.bookStoreBook3Subtitle,
+                  price: l10n.bookStoreBook3Price,
+                  showBestseller: false,
+                ),
+              ),
+              const SizedBox(width: 24),
+              Expanded(
+                child: _BookStoreCard(
+                  l10n: l10n,
+                  asset: AppContent.assetBookPersuasionKhmer,
+                  title: l10n.bookStoreBook4Title,
+                  subtitle: l10n.bookStoreBook4Subtitle,
+                  price: l10n.bookStoreBook4Price,
+                  showBestseller: false,
+                ),
+              ),
+            ],
+          );
   }
 }
 
@@ -1228,7 +1363,7 @@ class _BookStoreCardState extends State<_BookStoreCard> {
   }
 }
 
-/// Talisman Store as a product section with highlight title.
+/// Book Store as a product section with highlight title.
 class _TalismanStoreSection extends StatelessWidget {
   const _TalismanStoreSection({required this.l10n});
 
@@ -1399,6 +1534,10 @@ class _SpotlightSection extends StatelessWidget {
 }
 
 void _showPeriod9FullImage(BuildContext context, String asset) {
+  _showFullImageDialog(context, asset);
+}
+
+void _showFullImageDialog(BuildContext context, String asset, {String? title}) {
   showDialog<void>(
     context: context,
     barrierColor: Colors.black87,
@@ -1429,16 +1568,37 @@ void _showPeriod9FullImage(BuildContext context, String asset) {
           ),
           SafeArea(
             child: Align(
-              alignment: Alignment.topRight,
+              alignment: Alignment.topCenter,
               child: Padding(
                 padding: const EdgeInsets.all(8),
-                child: IconButton.filled(
-                  onPressed: () => Navigator.of(context).pop(),
-                  icon: const Icon(Icons.close, color: Colors.white),
-                  style: IconButton.styleFrom(
-                    backgroundColor: Colors.black54,
-                    foregroundColor: Colors.white,
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    if (title != null)
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 8),
+                          child: Text(
+                            title,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                            ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ),
+                    IconButton.filled(
+                      onPressed: () => Navigator.of(context).pop(),
+                      icon: const Icon(Icons.close, color: Colors.white),
+                      style: IconButton.styleFrom(
+                        backgroundColor: Colors.black54,
+                        foregroundColor: Colors.white,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -1449,7 +1609,7 @@ void _showPeriod9FullImage(BuildContext context, String asset) {
   );
 }
 
-/// Two Period 9 app screenshots. Desktop: stacked with divider. Mobile: side-by-side, compact.
+/// Two Clinic App screenshots. Desktop: stacked with divider. Mobile: side-by-side, compact.
 class _Period9Screenshots extends StatelessWidget {
   const _Period9Screenshots();
 
@@ -1567,7 +1727,7 @@ class _AppFeatureShowcase extends StatelessWidget {
         crossAxisCount: crossAxisCount,
         mainAxisSpacing: 16,
         crossAxisSpacing: 16,
-        childAspectRatio: 3 / 4,
+        childAspectRatio: 2 / 3,
       ),
       itemCount: features.length,
       itemBuilder: (context, index) {
@@ -1591,25 +1751,63 @@ class _AppFeatureCard extends StatefulWidget {
 class _AppFeatureCardState extends State<_AppFeatureCard> {
   bool _hovered = false;
 
+  static final List<BoxShadow> _chapterCardShadow = [
+    BoxShadow(
+      color: Colors.black54,
+      blurRadius: 16,
+      offset: const Offset(0, 6),
+    ),
+    BoxShadow(
+      color: Colors.black26,
+      blurRadius: 8,
+      offset: const Offset(0, 2),
+    ),
+  ];
+
+  static final List<BoxShadow> _chapterCardShadowHover = [
+    BoxShadow(
+      color: Colors.black54,
+      blurRadius: 24,
+      offset: const Offset(0, 8),
+    ),
+    BoxShadow(
+      color: Colors.black38,
+      blurRadius: 12,
+      offset: const Offset(0, 4),
+    ),
+    BoxShadow(
+      color: AppColors.accentGlow.withValues(alpha: 0.4),
+      blurRadius: 24,
+      spreadRadius: 0,
+      offset: const Offset(0, 4),
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
       onExit: (_) => setState(() => _hovered = false),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 180),
+      child: GestureDetector(
+        onTap: () => _showFullImageDialog(context, widget.asset, title: widget.title),
+        child: AnimatedScale(
+        scale: _hovered ? 1.02 : 1.0,
+        duration: const Duration(milliseconds: 200),
         curve: Curves.easeOut,
-        decoration: BoxDecoration(
-          color: AppColors.surfaceElevatedDark,
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(
-            color: _hovered ? AppColors.borderLight.withValues(alpha: 0.5) : AppColors.borderDark,
-            width: _hovered ? 1.5 : 1,
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          curve: Curves.easeOut,
+          decoration: BoxDecoration(
+            color: AppColors.surfaceElevatedDark,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: _hovered ? AppColors.accent : AppColors.borderDark,
+              width: _hovered ? 3 : 1,
+            ),
+            boxShadow: _hovered ? _chapterCardShadowHover : _chapterCardShadow,
           ),
-          boxShadow: _hovered ? AppShadows.cardHover : AppShadows.card,
-        ),
-        clipBehavior: Clip.antiAlias,
-        child: Column(
+          clipBehavior: Clip.antiAlias,
+          child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Expanded(
@@ -1621,26 +1819,34 @@ class _AppFeatureCardState extends State<_AppFeatureCard> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-              child: Text(
-                widget.title,
-                style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      color: AppColors.onPrimary,
-                      fontWeight: FontWeight.w600,
-                    ),
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
+            SizedBox(
+              height: 56,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    widget.title,
+                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          color: AppColors.onPrimary,
+                          fontWeight: FontWeight.w600,
+                        ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
               ),
             ),
           ],
         ),
+        ),
+      ),
       ),
     );
   }
 }
 
-/// Product grid for Talisman Store with price and Add to Cart.
+/// Product grid for Book Store with price and Add to Cart.
 class _TalismanGrid extends StatelessWidget {
   const _TalismanGrid({required this.l10n});
 
@@ -1658,6 +1864,21 @@ class _TalismanGrid extends StatelessWidget {
       8 => l10n.talismanProduct8Title,
       9 => l10n.talismanProduct9Title,
       _ => l10n.talismanProduct1Title,
+    };
+  }
+
+  static String _chapterAsset(int index) {
+    return switch (index) {
+      1 => AppContent.assetChapter1,
+      2 => AppContent.assetChapter2,
+      3 => AppContent.assetChapter3,
+      4 => AppContent.assetChapter4,
+      5 => AppContent.assetChapter5,
+      6 => AppContent.assetChapter6,
+      7 => AppContent.assetChapter7,
+      8 => AppContent.assetChapter8,
+      9 => AppContent.assetChapter9,
+      _ => AppContent.assetChapter1,
     };
   }
 
@@ -1683,6 +1904,7 @@ class _TalismanGrid extends StatelessWidget {
           price: price,
           pricePrefix: prefix,
           index: i + 1,
+          imageAsset: _chapterAsset(i + 1),
         ),
       ),
     );
@@ -1696,6 +1918,7 @@ class _TalismanProductCard extends StatefulWidget {
     required this.price,
     required this.pricePrefix,
     required this.index,
+    required this.imageAsset,
   });
 
   final AppLocalizations l10n;
@@ -1703,6 +1926,7 @@ class _TalismanProductCard extends StatefulWidget {
   final String price;
   final String pricePrefix;
   final int index;
+  final String imageAsset;
 
   @override
   State<_TalismanProductCard> createState() => _TalismanProductCardState();
@@ -1735,17 +1959,13 @@ class _TalismanProductCardState extends State<_TalismanProductCard> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: AppColors.accent.withValues(alpha: 0.08),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Center(
-                  child: Icon(
-                    LucideIcons.sparkles,
-                    size: 40,
-                    color: AppColors.accent.withValues(alpha: 0.6),
-                  ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset(
+                  widget.imageAsset,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: double.infinity,
                 ),
               ),
             ),

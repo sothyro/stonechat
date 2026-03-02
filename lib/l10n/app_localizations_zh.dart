@@ -36,10 +36,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get stonechatSystem => '应用与数字';
 
   @override
-  String get period9MobileApp => '九运应用';
+  String get period9MobileApp => '诊所应用';
 
   @override
-  String get talismanStore => '符咒商店';
+  String get talismanStore => '书店';
 
   @override
   String get appsPageTitle => '应用与商店';
@@ -70,7 +70,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get marketplaceCategoryBooks => '图书';
 
   @override
-  String get marketplaceCategoryTalismans => '符咒';
+  String get marketplaceCategoryTalismans => '书店';
 
   @override
   String get stonechatSpotlightTitle => '应用与网站开发';
@@ -98,10 +98,11 @@ class AppLocalizationsZh extends AppLocalizations {
   String get period9PremiumLabel => '可订阅高级版';
 
   @override
-  String get period9SpotlightTitle => '九运手机应用';
+  String get period9SpotlightTitle => 'Stonechat 诊所应用';
 
   @override
-  String get period9SpotlightDesc => '随身掌握九运风水与时机洞见。支持 iOS 与 Android。';
+  String get period9SpotlightDesc =>
+      '随时管理预约、患者与档案。为诊所与小规模执业打造。支持 iOS 与 Android。';
 
   @override
   String get downloadOnAppStore => '在 App Store 下载';
@@ -110,10 +111,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get getItOnGooglePlay => '在 Google Play 获取';
 
   @override
-  String get talismanStoreSpotlightTitle => '符咒商店';
+  String get talismanStoreSpotlightTitle => '书店';
 
   @override
-  String get talismanStoreSpotlightDesc => '精选符咒与化解用品。更多商品即将上架。';
+  String get talismanStoreSpotlightDesc => '精选沟通、领导力与职业发展类书籍。加入购物车后我们将联系您完成订单。';
 
   @override
   String get marketplaceAddedToCart => '已加入购物车。我们将联系您完成订单。';
@@ -122,31 +123,31 @@ class AppLocalizationsZh extends AppLocalizations {
   String get talismanProductPrice => '29.99';
 
   @override
-  String get talismanProduct1Title => '护身符';
+  String get talismanProduct1Title => '第 1 章 - 品牌与沟通策略';
 
   @override
-  String get talismanProduct2Title => '招财符';
+  String get talismanProduct2Title => '第 2 章 - 数字传播平台设计';
 
   @override
-  String get talismanProduct3Title => '健康符';
+  String get talismanProduct3Title => '第 3 章 - 在线吸引受众';
 
   @override
-  String get talismanProduct4Title => '姻缘和谐';
+  String get talismanProduct4Title => '第 4 章 - 演讲稿撰写与演讲';
 
   @override
-  String get talismanProduct5Title => '事业成功';
+  String get talismanProduct5Title => '第 5 章 - 媒体联络';
 
   @override
-  String get talismanProduct6Title => '平安宁静';
+  String get talismanProduct6Title => '第 6 章 - 有效沟通';
 
   @override
-  String get talismanProduct7Title => '出行护佑';
+  String get talismanProduct7Title => '第 7 章 - 拥抱软实力';
 
   @override
-  String get talismanProduct8Title => '家宅祈福';
+  String get talismanProduct8Title => '第 8 章 - 危机管理与传播';
 
   @override
-  String get talismanProduct9Title => '智慧吊坠';
+  String get talismanProduct9Title => '第 9 章 - 组织变革沟通';
 
   @override
   String get stonechatSpotlightTagline => '品质不打折，价格更亲民。';
@@ -155,16 +156,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get stonechatSpotlightTaglineHighlight => '品质';
 
   @override
-  String get period9SpotlightTagline => '九运风水，随身随行。';
+  String get period9SpotlightTagline => '诊所装进口袋。';
 
   @override
-  String get period9SpotlightTaglineHighlight => '随身随行';
+  String get period9SpotlightTaglineHighlight => '口袋';
 
   @override
-  String get talismanStoreSpotlightTagline => '把护佑戴在身上。';
+  String get talismanStoreSpotlightTagline => '知识装进书架。';
 
   @override
-  String get talismanStoreSpotlightTaglineHighlight => '护佑';
+  String get talismanStoreSpotlightTaglineHighlight => '书架';
 
   @override
   String get bookStoreSectionHeading => 'Stonechat 书店';
@@ -199,6 +200,24 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get bookStoreBook2Price => '24.99';
+
+  @override
+  String get bookStoreBook3Title => '说服的艺术（英文版）';
+
+  @override
+  String get bookStoreBook3Subtitle => '说服与影响力';
+
+  @override
+  String get bookStoreBook3Price => '24.99';
+
+  @override
+  String get bookStoreBook4Title => '说服的艺术（高棉文版）';
+
+  @override
+  String get bookStoreBook4Subtitle => '说服与影响力';
+
+  @override
+  String get bookStoreBook4Price => '24.99';
 
   @override
   String get bookStorePricePrefix => '\$';

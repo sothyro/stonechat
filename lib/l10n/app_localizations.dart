@@ -157,13 +157,13 @@ abstract class AppLocalizations {
   /// No description provided for @period9MobileApp.
   ///
   /// In en, this message translates to:
-  /// **'Period 9 App'**
+  /// **'Clinic App'**
   String get period9MobileApp;
 
   /// No description provided for @talismanStore.
   ///
   /// In en, this message translates to:
-  /// **'Talisman Store'**
+  /// **'Book Store'**
   String get talismanStore;
 
   /// No description provided for @appsPageTitle.
@@ -223,7 +223,7 @@ abstract class AppLocalizations {
   /// No description provided for @marketplaceCategoryTalismans.
   ///
   /// In en, this message translates to:
-  /// **'Talismans'**
+  /// **'Book Store'**
   String get marketplaceCategoryTalismans;
 
   /// No description provided for @stonechatSpotlightTitle.
@@ -277,13 +277,13 @@ abstract class AppLocalizations {
   /// No description provided for @period9SpotlightTitle.
   ///
   /// In en, this message translates to:
-  /// **'Period 9 Mobile App'**
+  /// **'Stonechat Clinic App'**
   String get period9SpotlightTitle;
 
   /// No description provided for @period9SpotlightDesc.
   ///
   /// In en, this message translates to:
-  /// **'Carry Period 9 Feng Shui and timing insights in your pocket. Available on iOS and Android.'**
+  /// **'Manage appointments, patients, and records on the go. Built for clinics and small practices. Available on iOS and Android.'**
   String get period9SpotlightDesc;
 
   /// No description provided for @downloadOnAppStore.
@@ -301,13 +301,13 @@ abstract class AppLocalizations {
   /// No description provided for @talismanStoreSpotlightTitle.
   ///
   /// In en, this message translates to:
-  /// **'Talisman Store'**
+  /// **'Book Store'**
   String get talismanStoreSpotlightTitle;
 
   /// No description provided for @talismanStoreSpotlightDesc.
   ///
   /// In en, this message translates to:
-  /// **'Curated talismans and remedies. Add to cart and we\'ll contact you to complete your order.'**
+  /// **'Curated books on communication, leadership, and professional development. Add to cart and we\'ll contact you to complete your order.'**
   String get talismanStoreSpotlightDesc;
 
   /// No description provided for @marketplaceAddedToCart.
@@ -325,55 +325,55 @@ abstract class AppLocalizations {
   /// No description provided for @talismanProduct1Title.
   ///
   /// In en, this message translates to:
-  /// **'Protection Talisman'**
+  /// **'Chapter 1 - Branding & Communication Strategy'**
   String get talismanProduct1Title;
 
   /// No description provided for @talismanProduct2Title.
   ///
   /// In en, this message translates to:
-  /// **'Wealth Charm'**
+  /// **'Chapter 2 - Digital Communications Platform Design'**
   String get talismanProduct2Title;
 
   /// No description provided for @talismanProduct3Title.
   ///
   /// In en, this message translates to:
-  /// **'Health Amulet'**
+  /// **'Chapter 3 - Engaging Your Audiences Online'**
   String get talismanProduct3Title;
 
   /// No description provided for @talismanProduct4Title.
   ///
   /// In en, this message translates to:
-  /// **'Love & Harmony'**
+  /// **'Chapter 4 - Speech Writing & Presentations'**
   String get talismanProduct4Title;
 
   /// No description provided for @talismanProduct5Title.
   ///
   /// In en, this message translates to:
-  /// **'Career Success'**
+  /// **'Chapter 5 - Liaising With The Media'**
   String get talismanProduct5Title;
 
   /// No description provided for @talismanProduct6Title.
   ///
   /// In en, this message translates to:
-  /// **'Peace & Calm'**
+  /// **'Chapter 6 - Effective Communications'**
   String get talismanProduct6Title;
 
   /// No description provided for @talismanProduct7Title.
   ///
   /// In en, this message translates to:
-  /// **'Travel Protection'**
+  /// **'Chapter 7 - Embracing Soft Power'**
   String get talismanProduct7Title;
 
   /// No description provided for @talismanProduct8Title.
   ///
   /// In en, this message translates to:
-  /// **'Home Blessing'**
+  /// **'Chapter 8 - Crisis Management & Communications'**
   String get talismanProduct8Title;
 
   /// No description provided for @talismanProduct9Title.
   ///
   /// In en, this message translates to:
-  /// **'Wisdom Pendant'**
+  /// **'Chapter 9 - Communications for Organisational Change'**
   String get talismanProduct9Title;
 
   /// No description provided for @stonechatSpotlightTagline.
@@ -391,7 +391,7 @@ abstract class AppLocalizations {
   /// No description provided for @period9SpotlightTagline.
   ///
   /// In en, this message translates to:
-  /// **'Apps in your pocket.'**
+  /// **'Your clinic in your pocket.'**
   String get period9SpotlightTagline;
 
   /// No description provided for @period9SpotlightTaglineHighlight.
@@ -403,13 +403,13 @@ abstract class AppLocalizations {
   /// No description provided for @talismanStoreSpotlightTagline.
   ///
   /// In en, this message translates to:
-  /// **'Wear your protection.'**
+  /// **'Knowledge that fits your shelf.'**
   String get talismanStoreSpotlightTagline;
 
   /// No description provided for @talismanStoreSpotlightTaglineHighlight.
   ///
   /// In en, this message translates to:
-  /// **'protection'**
+  /// **'shelf'**
   String get talismanStoreSpotlightTaglineHighlight;
 
   /// No description provided for @bookStoreSectionHeading.
@@ -445,13 +445,13 @@ abstract class AppLocalizations {
   /// No description provided for @bookStoreBook1Title.
   ///
   /// In en, this message translates to:
-  /// **'Period 9 Feng Shui — Volume 1'**
+  /// **'From Idea to Finished Book'**
   String get bookStoreBook1Title;
 
   /// No description provided for @bookStoreBook1Subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Foundations & Flying Stars'**
+  /// **'Writing, editing & publishing'**
   String get bookStoreBook1Subtitle;
 
   /// No description provided for @bookStoreBook1Price.
@@ -463,13 +463,13 @@ abstract class AppLocalizations {
   /// No description provided for @bookStoreBook2Title.
   ///
   /// In en, this message translates to:
-  /// **'Period 9 Feng Shui — Volume 2'**
+  /// **'Clear Communication at Work'**
   String get bookStoreBook2Title;
 
   /// No description provided for @bookStoreBook2Subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Advanced Applications'**
+  /// **'Practical skills for teams'**
   String get bookStoreBook2Subtitle;
 
   /// No description provided for @bookStoreBook2Price.
@@ -477,6 +477,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'24.99'**
   String get bookStoreBook2Price;
+
+  /// No description provided for @bookStoreBook3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'The Art of Persuasion (English)'**
+  String get bookStoreBook3Title;
+
+  /// No description provided for @bookStoreBook3Subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Persuasion & influence'**
+  String get bookStoreBook3Subtitle;
+
+  /// No description provided for @bookStoreBook3Price.
+  ///
+  /// In en, this message translates to:
+  /// **'24.99'**
+  String get bookStoreBook3Price;
+
+  /// No description provided for @bookStoreBook4Title.
+  ///
+  /// In en, this message translates to:
+  /// **'The Art of Persuasion (Khmer)'**
+  String get bookStoreBook4Title;
+
+  /// No description provided for @bookStoreBook4Subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Persuasion & influence'**
+  String get bookStoreBook4Subtitle;
+
+  /// No description provided for @bookStoreBook4Price.
+  ///
+  /// In en, this message translates to:
+  /// **'24.99'**
+  String get bookStoreBook4Price;
 
   /// No description provided for @bookStorePricePrefix.
   ///
@@ -811,7 +847,7 @@ abstract class AppLocalizations {
   /// No description provided for @exploreAllEvents.
   ///
   /// In en, this message translates to:
-  /// **'Explore All Events'**
+  /// **'Explore All Trainings'**
   String get exploreAllEvents;
 
   /// No description provided for @comingUpNext.
@@ -823,7 +859,7 @@ abstract class AppLocalizations {
   /// No description provided for @allUpcomingEvents.
   ///
   /// In en, this message translates to:
-  /// **'All Upcoming Events'**
+  /// **'All Upcoming Trainings'**
   String get allUpcomingEvents;
 
   /// No description provided for @limitedSeats.
@@ -1435,13 +1471,13 @@ abstract class AppLocalizations {
   /// No description provided for @eventsUpcomingHeadline.
   ///
   /// In en, this message translates to:
-  /// **'Upcoming Events'**
+  /// **'Upcoming Trainings'**
   String get eventsUpcomingHeadline;
 
   /// No description provided for @eventsUpcomingSubline.
   ///
   /// In en, this message translates to:
-  /// **'Choose your event and secure your seat. We can\'t wait to see you there.'**
+  /// **'Choose your training and secure your seat. We can\'t wait to see you there.'**
   String get eventsUpcomingSubline;
 
   /// No description provided for @secureYourSeat.
@@ -2311,55 +2347,55 @@ abstract class AppLocalizations {
   /// No description provided for @event1Title.
   ///
   /// In en, this message translates to:
-  /// **'Stonechat - The Rise of Phoenix 2026'**
+  /// **'The Art of Human-Centered Communication (Core Training)'**
   String get event1Title;
 
   /// No description provided for @event1Description.
   ///
   /// In en, this message translates to:
-  /// **'The Master Revelation.'**
+  /// **'A practical core training on listening, clarity, and empathy so everyday communication feels natural, confident, and human.'**
   String get event1Description;
 
   /// No description provided for @event1Location.
   ///
   /// In en, this message translates to:
-  /// **'Phnom Penh'**
+  /// **'Phnom Penh & Online (Zoom)'**
   String get event1Location;
 
   /// No description provided for @event2Title.
   ///
   /// In en, this message translates to:
-  /// **'Feng Shui & Astrology 2026'**
+  /// **'The Art of AI-Enhanced Communication (Applied Training)'**
   String get event2Title;
 
   /// No description provided for @event2Description.
   ///
   /// In en, this message translates to:
-  /// **'The Singapore Edition of Feng Shui & Astrology 2026 live event.'**
+  /// **'Learn how to work with AI tools to plan, draft, and refine your emails, posts, scripts, and more—without losing your own voice.'**
   String get event2Description;
 
   /// No description provided for @event2Location.
   ///
   /// In en, this message translates to:
-  /// **'Resorts World Sentosa, Singapore'**
+  /// **'Online (Zoom)'**
   String get event2Location;
 
   /// No description provided for @event3Title.
   ///
   /// In en, this message translates to:
-  /// **'Crimson Horse QiMen'**
+  /// **'Facilitation & Presentation Skills Lab'**
   String get event3Title;
 
   /// No description provided for @event3Description.
   ///
   /// In en, this message translates to:
-  /// **'The Art of War In The Year of the Fire Horse'**
+  /// **'Hands-on practice for trainers, team leads, and speakers who want to run engaging sessions, keep energy high, and land clear messages.'**
   String get event3Description;
 
   /// No description provided for @event3Location.
   ///
   /// In en, this message translates to:
-  /// **'Resorts World Singapore'**
+  /// **'In-house or on-site (by arrangement)'**
   String get event3Location;
 
   /// No description provided for @loginSectionTitle.
