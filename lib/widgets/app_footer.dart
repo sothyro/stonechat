@@ -147,7 +147,7 @@ class AppFooter extends StatelessWidget {
           child: _LinkColumn(
             title: l10n.appsAndStore,
             links: [
-              _LinkItem(l10n.masterElfSystem, '/apps#master-elf'),
+              _LinkItem(l10n.stonechatSystem, '/apps#stonechat'),
               _LinkItem(l10n.period9MobileApp, '/apps#period9'),
               _LinkItem(l10n.talismanStore, '/apps#talisman'),
               _LinkItem(l10n.academyPageTitle, '/academy'),
@@ -194,7 +194,7 @@ class AppFooter extends StatelessWidget {
         _LinkColumn(
           title: l10n.appsAndStore,
           links: [
-            _LinkItem(l10n.masterElfSystem, '/apps#master-elf'),
+            _LinkItem(l10n.stonechatSystem, '/apps#stonechat'),
             _LinkItem(l10n.period9MobileApp, '/apps#period9'),
             _LinkItem(l10n.talismanStore, '/apps#talisman'),
             _LinkItem(l10n.academyPageTitle, '/academy'),

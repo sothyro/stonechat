@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-/// Master Elf brand colors (dark theme, gold accent).
+/// Stonechat Communications brand colors (dark theme, gold accent).
 class AppColors {
   AppColors._();
 

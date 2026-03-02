@@ -66,11 +66,11 @@ class AppDrawer extends StatelessWidget {
                     ),
                     _SectionLabel(label: l10n.appsAndStore),
                     _DrawerTile(
-                      label: l10n.masterElfSystem,
-                      path: '/apps#master-elf',
+                      label: l10n.stonechatSystem,
+                      path: '/apps#stonechat',
                       current: current,
                       icon: LucideIcons.cpu,
-                      onTap: () => _go(context, '/apps#master-elf'),
+                      onTap: () => _go(context, '/apps#stonechat'),
                     ),
                     _DrawerTile(
                       label: l10n.period9MobileApp,

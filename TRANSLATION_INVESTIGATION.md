@@ -15,9 +15,9 @@ The template is `app_en.arb`. If a key exists in `app_en.arb` but is missing in 
 | `marketplaceCategoryDigital` | Digital | Translate for km, zh |
 | `marketplaceCategoryBooks` | Books | Translate for km, zh |
 | `marketplaceCategoryTalismans` | Talismans | Translate for km, zh |
-| `masterElfSubscribe` | Subscribe | Translate for km, zh |
-| `masterElfSubscriptionPrice` | 9.99 | May keep as-is (number) |
-| `masterElfPricePerMonth` | / month | Translate for km, zh |
+| `spotlightSubscribe` | Subscribe | Translate for km, zh |
+| `spotlightSubscriptionPrice` | 9.99 | May keep as-is (number) |
+| `spotlightPricePerMonth` | / month | Translate for km, zh |
 | `period9PriceFree` | Free | Translate for km, zh |
 | `period9PremiumLabel` | Premium subscription available | Translate for km, zh |
 | `marketplaceAddedToCart` | Added to cart. We'll contact you to complete your order. | Translate for km, zh |
@@ -29,13 +29,13 @@ Verify in `app_km.arb` and `app_zh.arb` that every key from `app_en.arb` exists 
 These keys exist in `app_km.arb` or `app_zh.arb` but still have English values:
 
 **In `app_km.arb`:**
-- `appTitle`: "Master Elf Feng Shui" (brand may stay; confirm)
+- `appTitle`: "Stonechat Communications" (brand may stay; confirm)
 - `event2Location`: "Resorts World Sentosa, Singapore"
 - `event3Title`: "Crimson Horse QiMen"
 - `event3Location`: "Resorts World Singapore"
 
 **In `app_zh.arb`:**
-- `appTitle`: "Master Elf Feng Shui" (brand may stay)
+- `appTitle`: "Stonechat Communications" (brand may stay)
 - `event2Location`: "Resorts World Sentosa, Singapore"
 - `event3Location`: "Resorts World Singapore"
 
@@ -51,7 +51,7 @@ These strings are displayed to users but do not go through `AppLocalizations`. T
 
 | File | String | Usage |
 |------|--------|--------|
-| `lib/app.dart` | `'Master Elf Feng Shui'` | MaterialApp `title` |
+| `lib/app.dart` | `'Stonechat Communications'` | MaterialApp `title` |
 | `lib/widgets/app_header.dart` | `'Navigation'` | Semantics `label` |
 | `lib/widgets/app_shell.dart` | `'Main content'` | Semantics `label` |
 | `lib/widgets/app_shell.dart` | `'Footer'` | Semantics `label` |
@@ -133,9 +133,9 @@ All of these are user-visible and currently English-only:
 
 | Constant | Current value (English) |
 |----------|--------------------------|
-| `companyName` | Master Elf Feng Shui |
-| `shortName` | Master Elf |
-| `legalEntity` | Master Elf Feng Shui Co., Ltd. |
+| `companyName` | Stonechat Communications |
+| `shortName` | Stonechat |
+| `legalEntity` | Stonechat Communications |
 | `addressLine` | #23-25, Street V07, Victory City, Steung Meanchey |
 | `office1Label` | Cambodia Office |
 | `office1Address` | #23-25, Street V07, Victory City, Steung Mean Chey, Phnom Penh, Cambodia, 12000 |

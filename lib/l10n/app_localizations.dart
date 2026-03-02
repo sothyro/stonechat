@@ -103,7 +103,7 @@ abstract class AppLocalizations {
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
-  /// **'Master Elf Feng Shui'**
+  /// **'Stonechat Communications'**
   String get appTitle;
 
   /// No description provided for @skipToContent.
@@ -148,11 +148,11 @@ abstract class AppLocalizations {
   /// **'Apps & Store'**
   String get appsAndStore;
 
-  /// No description provided for @masterElfSystem.
+  /// No description provided for @stonechatSystem.
   ///
   /// In en, this message translates to:
-  /// **'Master Elf System'**
-  String get masterElfSystem;
+  /// **'Stonechat System'**
+  String get stonechatSystem;
 
   /// No description provided for @period9MobileApp.
   ///
@@ -175,37 +175,37 @@ abstract class AppLocalizations {
   /// No description provided for @appsPageSubline.
   ///
   /// In en, this message translates to:
-  /// **'Shop digital tools, books, and talismans—all in one place.'**
+  /// **'Digital tools, apps, training, and books—all in one place.'**
   String get appsPageSubline;
 
   /// No description provided for @appsPageDescription.
   ///
   /// In en, this message translates to:
-  /// **'Our marketplace brings together subscriptions, apps, books, and curated talismans. Subscribe, download, or add to cart—we\'ll help you complete your order.'**
+  /// **'We build modern apps and digital solutions. Browse our development services, communication training, and book publishing. Get in touch and we\'ll help you find the right fit.'**
   String get appsPageDescription;
 
   /// No description provided for @appsPageDescriptionHighlight.
   ///
   /// In en, this message translates to:
-  /// **'marketplace'**
+  /// **'modern apps'**
   String get appsPageDescriptionHighlight;
 
   /// No description provided for @appsFeatureShowcaseHeading.
   ///
   /// In en, this message translates to:
-  /// **'Shop by category'**
+  /// **'What we offer'**
   String get appsFeatureShowcaseHeading;
 
   /// No description provided for @appsFeatureShowcaseMarketingDesc.
   ///
   /// In en, this message translates to:
-  /// **'Browse digital subscriptions, one-time purchases, and curated products. Add to cart or subscribe and we\'ll get in touch to complete your order.'**
+  /// **'App and website development, communication skills training, and book publishing. We use clear, human language so you stay informed and confident.'**
   String get appsFeatureShowcaseMarketingDesc;
 
   /// No description provided for @appsFeatureShowcaseMarketingHighlight.
   ///
   /// In en, this message translates to:
-  /// **'Add to cart or subscribe'**
+  /// **'clear, human language'**
   String get appsFeatureShowcaseMarketingHighlight;
 
   /// No description provided for @marketplaceCategoryDigital.
@@ -226,41 +226,41 @@ abstract class AppLocalizations {
   /// **'Talismans'**
   String get marketplaceCategoryTalismans;
 
-  /// No description provided for @masterElfSystemSpotlightTitle.
+  /// No description provided for @stonechatSpotlightTitle.
   ///
   /// In en, this message translates to:
-  /// **'Master Elf System'**
-  String get masterElfSystemSpotlightTitle;
+  /// **'App & website development'**
+  String get stonechatSpotlightTitle;
 
-  /// No description provided for @masterElfSystemSpotlightDesc.
+  /// No description provided for @stonechatSpotlightDesc.
   ///
   /// In en, this message translates to:
-  /// **'The complete BaZi and Chinese metaphysics platform. Plot charts, analyse timing and access Master Elf\'s system online.'**
-  String get masterElfSystemSpotlightDesc;
+  /// **'We develop modern, beautiful, affordable apps for Web, Desktop, macOS, iOS, and Android. Clean architectures, elegant interfaces—high-quality products without breaking the bank.'**
+  String get stonechatSpotlightDesc;
 
-  /// No description provided for @openMasterElfSystem.
+  /// No description provided for @openStonechatCta.
   ///
   /// In en, this message translates to:
-  /// **'Open Master Elf System'**
-  String get openMasterElfSystem;
+  /// **'Get a quote'**
+  String get openStonechatCta;
 
-  /// No description provided for @masterElfSubscribe.
+  /// No description provided for @spotlightSubscribe.
   ///
   /// In en, this message translates to:
   /// **'Subscribe'**
-  String get masterElfSubscribe;
+  String get spotlightSubscribe;
 
-  /// No description provided for @masterElfSubscriptionPrice.
+  /// No description provided for @spotlightSubscriptionPrice.
   ///
   /// In en, this message translates to:
   /// **'9.99'**
-  String get masterElfSubscriptionPrice;
+  String get spotlightSubscriptionPrice;
 
-  /// No description provided for @masterElfPricePerMonth.
+  /// No description provided for @spotlightPricePerMonth.
   ///
   /// In en, this message translates to:
   /// **'/ month'**
-  String get masterElfPricePerMonth;
+  String get spotlightPricePerMonth;
 
   /// No description provided for @period9PriceFree.
   ///
@@ -376,22 +376,22 @@ abstract class AppLocalizations {
   /// **'Wisdom Pendant'**
   String get talismanProduct9Title;
 
-  /// No description provided for @masterElfSystemSpotlightTagline.
+  /// No description provided for @stonechatSpotlightTagline.
   ///
   /// In en, this message translates to:
-  /// **'Your timing, clarified.'**
-  String get masterElfSystemSpotlightTagline;
+  /// **'Quality without the high price.'**
+  String get stonechatSpotlightTagline;
 
-  /// No description provided for @masterElfSystemSpotlightTaglineHighlight.
+  /// No description provided for @stonechatSpotlightTaglineHighlight.
   ///
   /// In en, this message translates to:
-  /// **'clarified'**
-  String get masterElfSystemSpotlightTaglineHighlight;
+  /// **'Quality'**
+  String get stonechatSpotlightTaglineHighlight;
 
   /// No description provided for @period9SpotlightTagline.
   ///
   /// In en, this message translates to:
-  /// **'Feng Shui in your pocket.'**
+  /// **'Apps in your pocket.'**
   String get period9SpotlightTagline;
 
   /// No description provided for @period9SpotlightTaglineHighlight.
@@ -415,31 +415,31 @@ abstract class AppLocalizations {
   /// No description provided for @bookStoreSectionHeading.
   ///
   /// In en, this message translates to:
-  /// **'Master Elf Book Store'**
+  /// **'Book publishing & authoring'**
   String get bookStoreSectionHeading;
 
   /// No description provided for @bookStoreSectionTagline.
   ///
   /// In en, this message translates to:
-  /// **'Wisdom you can hold. Knowledge that lasts.'**
+  /// **'From idea to finished book. In one place.'**
   String get bookStoreSectionTagline;
 
   /// No description provided for @bookStoreSectionTaglineHighlight.
   ///
   /// In en, this message translates to:
-  /// **'Wisdom'**
+  /// **'one place'**
   String get bookStoreSectionTaglineHighlight;
 
   /// No description provided for @bookStoreSectionMarketing.
   ///
   /// In en, this message translates to:
-  /// **'Dive deeper into Period 9 Feng Shui and Chinese metaphysics with our curated books. Perfect for practitioners and enthusiasts—order now and transform your understanding.'**
+  /// **'We support authors and organizations from concept development to writing, editing, book design (layout and cover), and final publishing. Everything you need to go from idea to published book, smoothly and efficiently.'**
   String get bookStoreSectionMarketing;
 
   /// No description provided for @bookStoreSectionMarketingHighlight.
   ///
   /// In en, this message translates to:
-  /// **'transform your understanding'**
+  /// **'idea to published book'**
   String get bookStoreSectionMarketingHighlight;
 
   /// No description provided for @bookStoreBook1Title.
@@ -601,7 +601,7 @@ abstract class AppLocalizations {
   /// No description provided for @mediaPostsFacebookLink.
   ///
   /// In en, this message translates to:
-  /// **'facebook.com/masterelf.vip'**
+  /// **'facebook.com/stonechat.vip'**
   String get mediaPostsFacebookLink;
 
   /// No description provided for @mediaPostsTelegramTitle.
@@ -652,28 +652,28 @@ abstract class AppLocalizations {
   /// **'Book Consultation'**
   String get bookConsultation;
 
-  /// No description provided for @aboutMasterElf.
+  /// No description provided for @aboutStonechat.
   ///
   /// In en, this message translates to:
-  /// **'About Master Elf'**
-  String get aboutMasterElf;
+  /// **'About Stonechat'**
+  String get aboutStonechat;
 
-  /// No description provided for @heroMasterElfCaption.
+  /// No description provided for @heroStonechatCaption.
   ///
   /// In en, this message translates to:
-  /// **'Master Elf'**
-  String get heroMasterElfCaption;
+  /// **'Stonechat'**
+  String get heroStonechatCaption;
 
   /// No description provided for @journey.
   ///
   /// In en, this message translates to:
-  /// **'My Endeavour'**
+  /// **'Our story'**
   String get journey;
 
   /// No description provided for @ourMethod.
   ///
   /// In en, this message translates to:
-  /// **'Our Method'**
+  /// **'What we do'**
   String get ourMethod;
 
   /// No description provided for @events.
@@ -769,7 +769,7 @@ abstract class AppLocalizations {
   /// No description provided for @heroHeadline1.
   ///
   /// In en, this message translates to:
-  /// **'Awareness always comes before outcome.'**
+  /// **'Quality apps. Without breaking the bank.'**
   String get heroHeadline1;
 
   /// No description provided for @heroHeadline1Prefix.
@@ -781,31 +781,31 @@ abstract class AppLocalizations {
   /// No description provided for @heroHeadline1Highlight.
   ///
   /// In en, this message translates to:
-  /// **'Awareness'**
+  /// **'Quality apps'**
   String get heroHeadline1Highlight;
 
   /// No description provided for @heroHeadline1Suffix.
   ///
   /// In en, this message translates to:
-  /// **' always comes before outcome.'**
+  /// **'. Without breaking the bank.'**
   String get heroHeadline1Suffix;
 
   /// No description provided for @heroHeadline2Prefix.
   ///
   /// In en, this message translates to:
-  /// **'Its true value lies in guiding better '**
+  /// **'Modern, beautiful, affordable apps for '**
   String get heroHeadline2Prefix;
 
   /// No description provided for @heroHeadline2Highlight.
   ///
   /// In en, this message translates to:
-  /// **'Choices.'**
+  /// **'Web, Desktop, iOS & Android.'**
   String get heroHeadline2Highlight;
 
   /// No description provided for @heroSubline.
   ///
   /// In en, this message translates to:
-  /// **'Feng Shui & Life Planning Services'**
+  /// **'Apps & digital solutions studio'**
   String get heroSubline;
 
   /// No description provided for @exploreAllEvents.
@@ -853,25 +853,25 @@ abstract class AppLocalizations {
   /// No description provided for @finalCtaHeading.
   ///
   /// In en, this message translates to:
-  /// **'Hesitate to Start?'**
+  /// **'Ready to get started?'**
   String get finalCtaHeading;
 
   /// No description provided for @finalCtaBody.
   ///
   /// In en, this message translates to:
-  /// **'Just make a phone call. Send a message to our Facebook page. Or visit us.'**
+  /// **'Send a message, give us a call, or visit our website. We\'ll get back to you in a clear, friendly way.'**
   String get finalCtaBody;
 
   /// No description provided for @notSureWhereToStart.
   ///
   /// In en, this message translates to:
-  /// **'Not Sure Where To Start?'**
+  /// **'Not sure where to start?'**
   String get notSureWhereToStart;
 
   /// No description provided for @notSureBody.
   ///
   /// In en, this message translates to:
-  /// **'We\'re here to help. Just reach out to us and we\'ll guide you to your best next step, whether it\'s a consultation, course or supportive community.'**
+  /// **'We\'re here to help. Tell us what you need—an app, a website, training, or a book—and we\'ll guide you in clear, human terms. No technical runaround.'**
   String get notSureBody;
 
   /// No description provided for @language.
@@ -883,85 +883,85 @@ abstract class AppLocalizations {
   /// No description provided for @sectionExperienceHeading.
   ///
   /// In en, this message translates to:
-  /// **'Best practice guided, result Transformation.'**
+  /// **'Clean architectures. Elegant interfaces. Low cost.'**
   String get sectionExperienceHeading;
 
   /// No description provided for @sectionExperienceHeadingPrefix.
   ///
   /// In en, this message translates to:
-  /// **'Best practice guided, result '**
+  /// **'Clean architectures. Elegant '**
   String get sectionExperienceHeadingPrefix;
 
   /// No description provided for @sectionExperienceHeadingHighlight.
   ///
   /// In en, this message translates to:
-  /// **'Transformation.'**
+  /// **'interfaces. Low cost.'**
   String get sectionExperienceHeadingHighlight;
 
   /// No description provided for @sectionKnowledgeHeading.
   ///
   /// In en, this message translates to:
-  /// **'This isn\'t just instruction. It\'s a practical framework for Real Change.'**
+  /// **'We deliver quality without the high price.'**
   String get sectionKnowledgeHeading;
 
   /// No description provided for @sectionKnowledgeBody.
   ///
   /// In en, this message translates to:
-  /// **'Over 44,000 followers have used this system. Success is certain when you align with the right people, right places, and right time.'**
+  /// **'We build modern, beautiful, affordable apps for Web, Desktop, macOS, iOS, and Android. Clean, solid-standard architectures with user-friendly interfaces so individuals and businesses get high-quality products without breaking the bank.'**
   String get sectionKnowledgeBody;
 
   /// No description provided for @sectionKnowledgeBody2.
   ///
   /// In en, this message translates to:
-  /// **'Success doesn\'t come from working harder. It comes from making the right moves, at the right time, with the right system.'**
+  /// **'We support Khmer, English, and Chinese—and we can add more languages. Fast turnaround so you don\'t wait for months; we prioritize speed without sacrificing quality.'**
   String get sectionKnowledgeBody2;
 
   /// No description provided for @sectionKnowledgeStat.
   ///
   /// In en, this message translates to:
-  /// **'44,000+ followers'**
+  /// **'3+ languages'**
   String get sectionKnowledgeStat;
 
   /// No description provided for @sectionMapHeading.
   ///
   /// In en, this message translates to:
-  /// **'You don\'t need more advice. You need a RoadMap.\nLet heaven guide you to the correct way.'**
+  /// **'You don\'t need jargon. You need a partner.'**
   String get sectionMapHeading;
 
   /// No description provided for @sectionMapIntro.
   ///
   /// In en, this message translates to:
-  /// **'On your mark… We know the best way to help you align your timing and create a clear path forward.'**
+  /// **'We communicate in a clear, human tone so non-technical clients feel comfortable, informed, and confident. Tell us your idea—we\'ll help you get there.'**
   String get sectionMapIntro;
 
   /// No description provided for @sectionStoryHeading.
   ///
   /// In en, this message translates to:
-  /// **'The Story of Master Elf.'**
+  /// **'Who we are.'**
   String get sectionStoryHeading;
 
   /// No description provided for @sectionStoryPara1.
   ///
   /// In en, this message translates to:
-  /// **'Master Elf prepared you for the first 50% of success, then guides you with another 50% to reap the benefit for you.'**
+  /// **'Stonechat Communications is a handy apps and digital solutions studio. We develop modern, beautiful, affordable applications for Web, Desktop, macOS, iOS, and Android.'**
   String get sectionStoryPara1;
 
   /// No description provided for @sectionStoryPara2.
   ///
   /// In en, this message translates to:
-  /// **'Through years of study, testing, and developing a proven method rooted in Chinese Metaphysics.'**
+  /// **'We focus on clean, solid-standard app architectures with elegant, user-friendly interfaces at a low cost. We support Khmer, English, and Chinese and are flexible to add more languages.'**
   String get sectionStoryPara2;
 
   /// No description provided for @sectionStoryPara3.
   ///
   /// In en, this message translates to:
-  /// **'Today, that method has helped 44,000 followers create better outcomes for themselves and others.'**
+  /// **'We value fast turnaround and clear communication. In every interaction we use a human tone so you feel comfortable and confident throughout the process.'**
   String get sectionStoryPara3;
 
   /// No description provided for @sectionStoryCtaButton.
   ///
   /// In en, this message translates to:
-  /// **'Master Elf\'s Endeavor'**
+  /// **'Our story'**
   String get sectionStoryCtaButton;
 
   /// No description provided for @sectionTestimonialsHeading.
@@ -997,43 +997,43 @@ abstract class AppLocalizations {
   /// No description provided for @academyQiMen.
   ///
   /// In en, this message translates to:
-  /// **'QiMen Dunjia Mastery™'**
+  /// **'The Art of Human-Centered Communication™'**
   String get academyQiMen;
 
   /// No description provided for @academyQiMenDesc.
   ///
   /// In en, this message translates to:
-  /// **'Gain strategic advantage to maximise your wins. Your road to victory!'**
+  /// **'Build strong general communication skills. Clear, practical training.'**
   String get academyQiMenDesc;
 
   /// No description provided for @academyBaZi.
   ///
   /// In en, this message translates to:
-  /// **'BaZi Harmony™'**
+  /// **'The Art of AI-Enhanced Communication™'**
   String get academyBaZi;
 
   /// No description provided for @academyBaZiDesc.
   ///
   /// In en, this message translates to:
-  /// **'Reveal your destiny, and understand your hidden power. Maximise your potentials.'**
+  /// **'Communicate effectively with and through AI tools. Get the most from AI.'**
   String get academyBaZiDesc;
 
   /// No description provided for @academyFengShui.
   ///
   /// In en, this message translates to:
-  /// **'Feng Shui Charter™'**
+  /// **'Custom training'**
   String get academyFengShui;
 
   /// No description provided for @academyFengShuiDesc.
   ///
   /// In en, this message translates to:
-  /// **'Chartered Practitioner of the Qi flow. Assign best Feng Shui for your home and office.'**
+  /// **'Tailored workshops for your team or organization. We adapt to your needs.'**
   String get academyFengShuiDesc;
 
   /// No description provided for @academyPageTitle.
   ///
   /// In en, this message translates to:
-  /// **'Academy'**
+  /// **'Training'**
   String get academyPageTitle;
 
   /// No description provided for @academyQiMenAbout.
@@ -1153,181 +1153,181 @@ abstract class AppLocalizations {
   /// No description provided for @consult1Category.
   ///
   /// In en, this message translates to:
-  /// **'Bazi Reading'**
+  /// **'App & website development'**
   String get consult1Category;
 
   /// No description provided for @consult1Method.
   ///
   /// In en, this message translates to:
-  /// **'BaZi'**
+  /// **'Development'**
   String get consult1Method;
 
   /// No description provided for @consult1Question.
   ///
   /// In en, this message translates to:
-  /// **'Become who you are born to be…'**
+  /// **'Need a modern app or website?'**
   String get consult1Question;
 
   /// No description provided for @consult1Desc.
   ///
   /// In en, this message translates to:
-  /// **'Your birth chart holds the key to your strengths, challenges and timing. A BaZi reading reveals your true potential and helps you align your choices with the energies you were born with—so you can make decisions with clarity and confidence.'**
+  /// **'We build for Web, Desktop, macOS, iOS, and Android. Clean architectures, elegant interfaces, affordable pricing. Get in touch and we\'ll find the right solution for you.'**
   String get consult1Desc;
 
   /// No description provided for @consult2Category.
   ///
   /// In en, this message translates to:
-  /// **'Feng Shui Services'**
+  /// **'Communication training'**
   String get consult2Category;
 
   /// No description provided for @consult2Method.
   ///
   /// In en, this message translates to:
-  /// **'Feng Shui'**
+  /// **'Training'**
   String get consult2Method;
 
   /// No description provided for @consult2Question.
   ///
   /// In en, this message translates to:
-  /// **'Arrange your place, define your life...'**
+  /// **'Want to sharpen your communication skills?'**
   String get consult2Question;
 
   /// No description provided for @consult2Desc.
   ///
   /// In en, this message translates to:
-  /// **'Your environment shapes your wellbeing and success. Learn how to harness the positive energy of your space—at home or at work—so that your surroundings support your goals instead of working against them. A personalised assessment helps you apply these principles where they matter most.'**
+  /// **'We offer The Art of Human-Centered Communication for general skills and The Art of AI-Enhanced Communication for working effectively with AI tools. Clear, practical training.'**
   String get consult2Desc;
 
   /// No description provided for @consult3Category.
   ///
   /// In en, this message translates to:
-  /// **'Date Selection'**
+  /// **'Book publishing & authoring'**
   String get consult3Category;
 
   /// No description provided for @consult3Method.
   ///
   /// In en, this message translates to:
-  /// **'Xuan Kong'**
+  /// **'Publishing'**
   String get consult3Method;
 
   /// No description provided for @consult3Question.
   ///
   /// In en, this message translates to:
-  /// **'When is the best time to choose things wisely?'**
+  /// **'Ready to publish your book?'**
   String get consult3Question;
 
   /// No description provided for @consult3Desc.
   ///
   /// In en, this message translates to:
-  /// **'Choosing the right date and time can turn an ordinary step into a favourable one. We use traditional methods to help you schedule important events—from openings and signings to personal milestones—for the best possible outcome.'**
+  /// **'From concept to finished book—writing, editing, design (layout and cover), and publishing. We support authors and organizations every step of the way. Everything in one place.'**
   String get consult3Desc;
 
   /// No description provided for @consult4Category.
   ///
   /// In en, this message translates to:
-  /// **'Qimen and Iching'**
+  /// **'Custom project'**
   String get consult4Category;
 
   /// No description provided for @consult4Method.
   ///
   /// In en, this message translates to:
-  /// **'QiMen & I Ching'**
+  /// **'Custom'**
   String get consult4Method;
 
   /// No description provided for @consult4Question.
   ///
   /// In en, this message translates to:
-  /// **'Strategise your wise move...'**
+  /// **'Something else in mind?'**
   String get consult4Question;
 
   /// No description provided for @consult4Desc.
   ///
   /// In en, this message translates to:
-  /// **'Face complex decisions with ancient wisdom. QiMen Dunjia and I Ching offer strategic insight and clarity—so you can see your options clearly, anticipate outcomes and choose the move that best serves your goals. Ideal for business, competition and pivotal life choices.'**
+  /// **'We\'re flexible. Whether it\'s a blend of development, training, or publishing—or something new—tell us your idea and we\'ll help you get there in clear, human terms.'**
   String get consult4Desc;
 
   /// No description provided for @consult5Category.
   ///
   /// In en, this message translates to:
-  /// **'Mao San Rituals'**
+  /// **'Training workshops'**
   String get consult5Category;
 
   /// No description provided for @consult5Method.
   ///
   /// In en, this message translates to:
-  /// **'Mao Shan'**
+  /// **'Workshops'**
   String get consult5Method;
 
   /// No description provided for @consult5Question.
   ///
   /// In en, this message translates to:
-  /// **'Taoist tradition of ritual and practice for transformation.'**
+  /// **'Team or group training?'**
   String get consult5Question;
 
   /// No description provided for @consult5Desc.
   ///
   /// In en, this message translates to:
-  /// **'Mao Shan brings together Taoist ritual and Chinese metaphysical practice. Whether for spiritual growth or life transitions, these methods offer a structured path to transformation and a deeper connection to tradition.'**
+  /// **'We run workshops on communication skills and AI-enhanced communication. We can tailor sessions for your organization and schedule. Fast turnaround.'**
   String get consult5Desc;
 
   /// No description provided for @consult6Category.
   ///
   /// In en, this message translates to:
-  /// **'Master Elf Publications'**
+  /// **'Books & resources'**
   String get consult6Category;
 
   /// No description provided for @consult6Method.
   ///
   /// In en, this message translates to:
-  /// **'Publications'**
+  /// **'Resources'**
   String get consult6Method;
 
   /// No description provided for @consult6Question.
   ///
   /// In en, this message translates to:
-  /// **'Books and resources from Master Elf.'**
+  /// **'Books and resources from Stonechat.'**
   String get consult6Question;
 
   /// No description provided for @consult6Desc.
   ///
   /// In en, this message translates to:
-  /// **'Dive deeper with Master Elf’s published works on Feng Shui, BaZi and Chinese metaphysics. Our books and resources are designed to support your learning and practice beyond the consultation room.'**
+  /// **'Our’ publishing and authoring services help you go from idea to finished book. We also offer training materials and resources. Get in touch for more.'**
   String get consult6Desc;
 
   /// No description provided for @stickyCtaText.
   ///
   /// In en, this message translates to:
-  /// **'Free 12 Animal Forecast'**
+  /// **'Get in touch'**
   String get stickyCtaText;
 
   /// No description provided for @popupTitle1.
   ///
   /// In en, this message translates to:
-  /// **'Master Elf\'s'**
+  /// **'Stonechat'**
   String get popupTitle1;
 
   /// No description provided for @popupTitle2.
   ///
   /// In en, this message translates to:
-  /// **'12 ZODIACS FORECAST'**
+  /// **'News & updates'**
   String get popupTitle2;
 
   /// No description provided for @popupDescription.
   ///
   /// In en, this message translates to:
-  /// **'Year of Fire Horse'**
+  /// **'Stay in the loop.'**
   String get popupDescription;
 
   /// No description provided for @readFullArticles.
   ///
   /// In en, this message translates to:
-  /// **'Read Full Articles'**
+  /// **'Read more'**
   String get readFullArticles;
 
   /// No description provided for @popupFormPrompt.
   ///
   /// In en, this message translates to:
-  /// **'Enter Your Details Below and we\'ll notify you when your sign premieres.'**
+  /// **'Enter your details below and we\'ll notify you when we have updates.'**
   String get popupFormPrompt;
 
   /// No description provided for @submit.
@@ -1339,67 +1339,67 @@ abstract class AppLocalizations {
   /// No description provided for @eventsCalendarTitle.
   ///
   /// In en, this message translates to:
-  /// **'Master Elf\'s Events Calendar'**
+  /// **'Workshops & events'**
   String get eventsCalendarTitle;
 
   /// No description provided for @eventsHeroHeadline.
   ///
   /// In en, this message translates to:
-  /// **'The Event of the Year—Don\'t Miss It'**
+  /// **'Workshops and events'**
   String get eventsHeroHeadline;
 
   /// No description provided for @eventsHeroSubline.
   ///
   /// In en, this message translates to:
-  /// **'Live teachings. Expert masters. A community that transforms.'**
+  /// **'Training, launches, and community. Clear and practical.'**
   String get eventsHeroSubline;
 
   /// No description provided for @eventsSubline.
   ///
   /// In en, this message translates to:
-  /// **'Where discussion turns into real knowledge.'**
+  /// **'Where learning meets doing.'**
   String get eventsSubline;
 
   /// No description provided for @eventsDescription.
   ///
   /// In en, this message translates to:
-  /// **'Experience the best event for Feng Shui, Chinese Metaphysics and Astrology in Cambodia—live teachings, expert insights, and a community ready to grow with you.'**
+  /// **'Join our workshops on communication skills, app demos, or publishing. We keep things clear and practical. Khmer, English, and Chinese supported.'**
   String get eventsDescription;
 
   /// No description provided for @eventsDescriptionHighlight.
   ///
   /// In en, this message translates to:
-  /// **'best event for Feng Shui, Chinese Metaphysics and Astrology in Cambodia'**
+  /// **'communication skills, app demos, or publishing'**
   String get eventsDescriptionHighlight;
 
   /// No description provided for @eventsWhyAttendTitle.
   ///
   /// In en, this message translates to:
-  /// **'Why This Is the Best Event Ever'**
+  /// **'Why join our events'**
   String get eventsWhyAttendTitle;
 
   /// No description provided for @eventsWhyAttendLead.
   ///
   /// In en, this message translates to:
-  /// **'This isn\'t just another seminar. It\'s the most anticipated Feng Shui and Chinese Metaphysics experience—where ancient wisdom meets real strategy and you leave ready to transform your path.'**
+  /// **'Hands-on training in human-centered and AI-enhanced communication. App and publishing insights. A friendly, no-jargon environment.'**
   String get eventsWhyAttendLead;
 
   /// No description provided for @eventsWhyAttend1.
   ///
   /// In en, this message translates to:
-  /// **'Learn from the masters—live sessions and insights you can\'t get anywhere else.'**
+  /// **'Learn in plain language—no technical runaround. We make sure you feel comfortable and confident.'**
   String get eventsWhyAttend1;
 
   /// No description provided for @eventsWhyAttend2.
   ///
   /// In en, this message translates to:
-  /// **'Connect with practitioners and enthusiasts who share your journey.'**
+  /// **'Meet others who care about clear communication and quality apps.'**
   String get eventsWhyAttend2;
 
   /// No description provided for @eventsWhyAttend3.
   ///
   /// In en, this message translates to:
-  /// **'Limited seats. Secure your spot and be part of something extraordinary.'**
+  /// **'Limited seats. Secure your spot and get the most from the session.'**
   String get eventsWhyAttend3;
 
   /// No description provided for @eventsUpcomingHeadline.
@@ -1507,73 +1507,73 @@ abstract class AppLocalizations {
   /// No description provided for @aboutPageTitle.
   ///
   /// In en, this message translates to:
-  /// **'Master Elf | The Rise of Phoenix'**
+  /// **'Stonechat Communications | About us'**
   String get aboutPageTitle;
 
   /// No description provided for @aboutBreadcrumb.
   ///
   /// In en, this message translates to:
-  /// **'About Master Elf.'**
+  /// **'About Stonechat.'**
   String get aboutBreadcrumb;
 
   /// No description provided for @aboutHeroHeadline.
   ///
   /// In en, this message translates to:
-  /// **'Enrich Lives Through Heavenly Knowledge'**
+  /// **'A handy apps and digital solutions studio.'**
   String get aboutHeroHeadline;
 
   /// No description provided for @aboutBullet1.
   ///
   /// In en, this message translates to:
-  /// **'It started with believe.'**
+  /// **'Modern, beautiful, affordable apps for Web, Desktop, macOS, iOS & Android.'**
   String get aboutBullet1;
 
   /// No description provided for @aboutBullet2.
   ///
   /// In en, this message translates to:
-  /// **'A mission delegated by the heaven.'**
+  /// **'Clean architectures. Elegant interfaces. Without breaking the bank.'**
   String get aboutBullet2;
 
   /// No description provided for @aboutBullet3.
   ///
   /// In en, this message translates to:
-  /// **'Guiding you with metaphysics into reapable outcome.'**
+  /// **'Khmer, English, Chinese—and we can add more languages. Fast turnaround.'**
   String get aboutBullet3;
 
   /// No description provided for @aboutBullet4.
   ///
   /// In en, this message translates to:
-  /// **'Real achievement. Real outputs.'**
+  /// **'Clear, human communication so you feel comfortable and confident.'**
   String get aboutBullet4;
 
   /// No description provided for @journeyPageHeadline.
   ///
   /// In en, this message translates to:
-  /// **'My Endeavour'**
+  /// **'Our story'**
   String get journeyPageHeadline;
 
   /// No description provided for @journeyHeroSubline.
   ///
   /// In en, this message translates to:
-  /// **'From a calling to clarity—Feng Shui and Chinese Metaphysics in practice.'**
+  /// **'A handy apps and digital solutions studio. Modern, beautiful, affordable.'**
   String get journeyHeroSubline;
 
   /// No description provided for @journeySectionTheStory.
   ///
   /// In en, this message translates to:
-  /// **'The Story'**
+  /// **'The story'**
   String get journeySectionTheStory;
 
   /// No description provided for @journeyHeroSpotlightTitle.
   ///
   /// In en, this message translates to:
-  /// **'The Path'**
+  /// **'Who we are'**
   String get journeyHeroSpotlightTitle;
 
   /// No description provided for @journeyHeroSpotlightDesc.
   ///
   /// In en, this message translates to:
-  /// **'From a calling to a system that brings clarity and results. Discover the story below.'**
+  /// **'We develop apps and digital solutions, offer communication training, and support book publishing. Discover more below.'**
   String get journeyHeroSpotlightDesc;
 
   /// No description provided for @journeyHeroSpotlightCta.
@@ -1585,127 +1585,127 @@ abstract class AppLocalizations {
   /// No description provided for @journeyStory1.
   ///
   /// In en, this message translates to:
-  /// **'Master Elf is a recognised practitioner of Feng Shui and Chinese Metaphysics, with a following of over 44,000 and a track record of guiding individuals and businesses toward clarity and results. His path did not begin by chance—it began with a calling.'**
+  /// **'Stonechat Communications is a handy apps and digital solutions studio. We develop modern, beautiful, affordable applications for Web, Desktop, macOS, iOS, and Android.'**
   String get journeyStory1;
 
   /// No description provided for @journeyStory2.
   ///
   /// In en, this message translates to:
-  /// **'What started as a deep belief in the wisdom of the heavens grew into a mission: to bring ancient systems of timing, space and destiny into everyday life. Through years of study, practice and refinement, he built a method that turns metaphysics into actionable insight.'**
+  /// **'We focus on clean, solid-standard architectures and elegant, user-friendly interfaces at a low cost—so individuals and businesses can get high-quality products without breaking the bank. We support Khmer, English, and Chinese, and we\'re flexible to add more languages.'**
   String get journeyStory2;
 
   /// No description provided for @journeyStory3.
   ///
   /// In en, this message translates to:
-  /// **'Today, that method helps clients make better decisions, choose auspicious dates, understand their strengths and align their environments. From destiny readings to strategic date selection and Feng Shui audits, Master Elf\'s system is designed for real-world impact.'**
+  /// **'We value fast turnaround so our clients don\'t get stuck waiting for months; we prioritize speed without sacrificing quality. In every interaction we use a clear, human tone so non-technical clients feel comfortable, informed, and confident.'**
   String get journeyStory3;
 
   /// No description provided for @journeyPeriod9Title.
   ///
   /// In en, this message translates to:
-  /// **'Period 9 and the New Era'**
+  /// **'Communication training'**
   String get journeyPeriod9Title;
 
   /// No description provided for @journeyPeriod9Body.
   ///
   /// In en, this message translates to:
-  /// **'We are now in Period 9 (2024–2043), the Li Fire era in the Xuan Kong Nine Periods cycle. This 20-year phase emphasises fire element energy, the south direction, and themes of visibility, progress and inner clarity. Master Elf\'s practice is aligned with this shift, helping you navigate the new era with timing and placement that match the cosmic cycle.'**
+  /// **'We provide communication skills training: The Art of Human-Centered Communication for general skills, and The Art of AI-Enhanced Communication for communicating effectively with and through AI tools. Clear, practical, no jargon.'**
   String get journeyPeriod9Body;
 
   /// No description provided for @journeyPhoenixTitle.
   ///
   /// In en, this message translates to:
-  /// **'The Rise of the Phoenix'**
+  /// **'Book publishing & authoring'**
   String get journeyPhoenixTitle;
 
   /// No description provided for @journeyPhoenixBody.
   ///
   /// In en, this message translates to:
-  /// **'The Rise of the Phoenix is Master Elf\'s revelation and the name of his system. It symbolises renewal, transformation and the moment when insight leads to action. In Period 9, the phoenix rises—and with the right knowledge, so can you. His framework integrates BaZi, Qimen Dunjia, I Ching, Date Selection, Feng Shui and Mao Shan into one coherent approach for those ready to rise.'**
+  /// **'We\'re also experts in book publishing and authoring. We support authors and organizations from concept development to writing, editing, book design (layout and cover), and final publishing. Everything in one place—from idea to finished book, smoothly and efficiently.'**
   String get journeyPhoenixBody;
 
   /// No description provided for @methodPageHeadline.
   ///
   /// In en, this message translates to:
-  /// **'Our Method'**
+  /// **'What we do'**
   String get methodPageHeadline;
 
   /// No description provided for @methodIntro.
   ///
   /// In en, this message translates to:
-  /// **'Master Elf\'s system is built on classical Chinese metaphysics. Each discipline is applied with clear formulas and standards so that consultations and training are consistent, explainable and effective. Below is how the main pillars are practiced, calculated and used.'**
+  /// **'We offer three main areas: app and website development, communication skills training, and book publishing. Below is how we work and what you can expect. We keep our language clear and human so you stay informed.'**
   String get methodIntro;
 
   /// No description provided for @methodBaZiTitle.
   ///
   /// In en, this message translates to:
-  /// **'BaZi (Four Pillars of Destiny)'**
+  /// **'App & website development'**
   String get methodBaZiTitle;
 
   /// No description provided for @methodBaZiBody.
   ///
   /// In en, this message translates to:
-  /// **'BaZi uses your exact birth date and time to build four pillars—Year, Month, Day, Hour—each with a Heavenly Stem and Earthly Branch (eight characters in total). The chart is calculated in true solar time where applicable. We analyse the Five Elements, strengths and clashes, and life cycles to reveal your potential, favourable directions and timing for key decisions.'**
+  /// **'We develop modern, beautiful, affordable apps for Web, Desktop, macOS, iOS, and Android. We focus on clean, solid-standard architectures and elegant, user-friendly interfaces at a low cost so individuals and businesses get high-quality products without breaking the bank.'**
   String get methodBaZiBody;
 
   /// No description provided for @methodQimenTitle.
   ///
   /// In en, this message translates to:
-  /// **'Qimen Dunjia'**
+  /// **'Communication training'**
   String get methodQimenTitle;
 
   /// No description provided for @methodQimenBody.
   ///
   /// In en, this message translates to:
-  /// **'Qimen is built on a 3×3 Nine Palaces grid that changes with date and double-hour. We set the chart for the time of the question or event, place the Three Odd Stars (Yi, Bing, Ding), Eight Gates and Eight Deities, and interpret using Yin or Yang Dun. The formula is time-sensitive and used for strategy, date selection and situational analysis.'**
+  /// **'We offer two main courses: The Art of Human-Centered Communication for general communication skills, and The Art of AI-Enhanced Communication for communicating effectively with and through AI tools. We use clear, human language—no jargon—so you feel comfortable and confident.'**
   String get methodQimenBody;
 
   /// No description provided for @methodIChingTitle.
   ///
   /// In en, this message translates to:
-  /// **'I Ching (Book of Changes)'**
+  /// **'Book publishing & authoring'**
   String get methodIChingTitle;
 
   /// No description provided for @methodIChingBody.
   ///
   /// In en, this message translates to:
-  /// **'The I Ching is consulted to obtain a hexagram (six lines) that reflects the situation. We use the classical three-coin or yarrow-stalk method: each line is built from bottom to top (6 = transforming yin, 7 = stable yang, 8 = stable yin, 9 = transforming yang). The resulting hexagram and any changing lines are interpreted using the classic text and Master Elf\'s framework for decisions and direction.'**
+  /// **'We support authors and organizations from concept development to writing, editing, book design (layout and cover), and final publishing. Everything in one place so you can go from idea to finished, published book smoothly and efficiently.'**
   String get methodIChingBody;
 
   /// No description provided for @methodDateSelectionTitle.
   ///
   /// In en, this message translates to:
-  /// **'Date Selection'**
+  /// **'Fast turnaround'**
   String get methodDateSelectionTitle;
 
   /// No description provided for @methodDateSelectionBody.
   ///
   /// In en, this message translates to:
-  /// **'Auspicious dates and hours are chosen using the Chinese almanac (Tung Shu), BaZi compatibility with the event and principal, and Qimen Dunjia for strategic timing. We avoid inauspicious days (e.g. conflicting stems and branches) and align with favourable energies for openings, weddings, travel and major commitments.'**
+  /// **'We value speed without sacrificing quality. We don\'t keep you waiting for months; we prioritize a fast turnaround so you get your website, app, training, or book moving in good time.'**
   String get methodDateSelectionBody;
 
   /// No description provided for @methodFengShuiTitle.
   ///
   /// In en, this message translates to:
-  /// **'Feng Shui (Xuan Kong Flying Star)'**
+  /// **'Languages we support'**
   String get methodFengShuiTitle;
 
   /// No description provided for @methodFengShuiBody.
   ///
   /// In en, this message translates to:
-  /// **'We use Xuan Kong Fei Xing (Flying Star) Feng Shui. The building\'s period (based on completion year; the Feng Shui year starts 4 February) and facing direction (24 Mountains) determine the Flying Star chart. The nine palaces receive stars that combine with the Lo Shu layout. We assess mountain and water stars, element balance and Period 9 adjustments to recommend placement and remedies.'**
+  /// **'Our products and services support Khmer, English, and Chinese. We\'re flexible enough to add more languages upon request so you can reach the audience you need.'**
   String get methodFengShuiBody;
 
   /// No description provided for @methodMaoShanTitle.
   ///
   /// In en, this message translates to:
-  /// **'Mao Shan'**
+  /// **'Clear, human communication'**
   String get methodMaoShanTitle;
 
   /// No description provided for @methodMaoShanBody.
   ///
   /// In en, this message translates to:
-  /// **'Mao Shan (Mount Mao) traditions are integrated where appropriate for ritual and practice within Master Elf\'s system. The methods are applied with respect to classical form and purpose, supporting both spiritual and practical dimensions of Chinese metaphysics as used in his framework.'**
+  /// **'In every interaction we communicate in a clear, human tone rather than using overly technical jargon. Our goal is to make sure non-technical clients feel comfortable, informed, and confident throughout the process.'**
   String get methodMaoShanBody;
 
   /// No description provided for @appointmentIntro.
@@ -1969,85 +1969,85 @@ abstract class AppLocalizations {
   /// No description provided for @smartMoveHeading.
   ///
   /// In en, this message translates to:
-  /// **'Every Move Can Be A Smart Move'**
+  /// **'Let\'s build something great.'**
   String get smartMoveHeading;
 
   /// No description provided for @smartMoveIntro.
   ///
   /// In en, this message translates to:
-  /// **'Behind every breakthrough is a moment of clarity. When you see the full picture, opportunities arise, decisions become easier, and progress flows naturally. That\'s what we help you with: seeing clearly turns your next step into the right one. A consultation with our team gives you more than insight. It gives you structure to move forward with confidence.'**
+  /// **'We deliver clean, solid-standard app architectures with elegant, user-friendly interfaces at a low cost. Individuals and businesses get high-quality products without breaking the bank. Fast turnaround, clear communication—so you\'re never left in the dark. We explain things in plain language so you stay informed and confident.'**
   String get smartMoveIntro;
 
   /// No description provided for @smartMoveCard1Title.
   ///
   /// In en, this message translates to:
-  /// **'Reach Your Personal Goals'**
+  /// **'Web, Desktop, iOS & Android'**
   String get smartMoveCard1Title;
 
   /// No description provided for @smartMoveCard1Desc.
   ///
   /// In en, this message translates to:
-  /// **'Turn ambitions into achievable milestones with clear guidance.'**
+  /// **'Modern apps built on clean architectures. We cover the platforms you need.'**
   String get smartMoveCard1Desc;
 
   /// No description provided for @smartMoveCard2Title.
   ///
   /// In en, this message translates to:
-  /// **'Create a Roadmap That Fits'**
+  /// **'Elegant, user-friendly interfaces'**
   String get smartMoveCard2Title;
 
   /// No description provided for @smartMoveCard2Desc.
   ///
   /// In en, this message translates to:
-  /// **'Get a structured plan tailored to your life, career, or business.'**
+  /// **'Beautiful design that works. No clutter, no confusion.'**
   String get smartMoveCard2Desc;
 
   /// No description provided for @smartMoveCard3Title.
   ///
   /// In en, this message translates to:
-  /// **'Remove Hidden Roadblocks'**
+  /// **'Affordable pricing'**
   String get smartMoveCard3Title;
 
   /// No description provided for @smartMoveCard3Desc.
   ///
   /// In en, this message translates to:
-  /// **'Identify obstacles you didn\'t see and learn how to move past them.'**
+  /// **'High-quality products without the high price. We keep costs reasonable.'**
   String get smartMoveCard3Desc;
 
   /// No description provided for @smartMoveCard4Title.
   ///
   /// In en, this message translates to:
-  /// **'Gain Situational Awareness'**
+  /// **'Fast turnaround'**
   String get smartMoveCard4Title;
 
   /// No description provided for @smartMoveCard4Desc.
   ///
   /// In en, this message translates to:
-  /// **'See your situation as it is so decisions feel lighter and easier.'**
+  /// **'We don\'t keep you waiting for months. Speed without sacrificing quality.'**
   String get smartMoveCard4Desc;
 
   /// No description provided for @smartMoveCard5Title.
   ///
   /// In en, this message translates to:
-  /// **'Unlock Better Options'**
+  /// **'Clear, human communication'**
   String get smartMoveCard5Title;
 
   /// No description provided for @smartMoveCard5Desc.
   ///
   /// In en, this message translates to:
-  /// **'Discover choices you didn\'t know you had and select the one that serves you best.'**
+  /// **'We use plain language so non-technical clients feel comfortable and confident.'**
   String get smartMoveCard5Desc;
 
   /// No description provided for @smartMoveCard6Title.
   ///
   /// In en, this message translates to:
-  /// **'Move in the Right Direction'**
+  /// **'Khmer, English, Chinese'**
   String get smartMoveCard6Title;
 
   /// No description provided for @smartMoveCard6Desc.
   ///
   /// In en, this message translates to:
-  /// **'Act with timing and alignment so progress feels natural and sustainable.'**
+  /// **'We support three main languages and can add more on request.'**
   String get smartMoveCard6Desc;
 
   /// No description provided for @contactLetsConnect.
@@ -2059,7 +2059,7 @@ abstract class AppLocalizations {
   /// No description provided for @contactIntro.
   ///
   /// In en, this message translates to:
-  /// **'Whether you are seeking clarity through a consultation, exploring our programs, or reaching out for collaborations, our team is here to guide you. Simply choose your subject, leave your message, and we will connect with you shortly.'**
+  /// **'Whether you need an app, a website, training, or help publishing a book—we\'re here. We use clear, human language so you feel comfortable and informed. Choose a topic, leave your message, and we\'ll get back to you shortly.'**
   String get contactIntro;
 
   /// No description provided for @contactFormName.
@@ -2125,31 +2125,31 @@ abstract class AppLocalizations {
   /// No description provided for @contactSubjectDestiny.
   ///
   /// In en, this message translates to:
-  /// **'Destiny / Personal Reading (Bazi)'**
+  /// **'App or website development'**
   String get contactSubjectDestiny;
 
   /// No description provided for @contactSubjectBusiness.
   ///
   /// In en, this message translates to:
-  /// **'Business & Strategy Planning (Qi Men / Business Date Selection)'**
+  /// **'Communication training'**
   String get contactSubjectBusiness;
 
   /// No description provided for @contactSubjectFengShui.
   ///
   /// In en, this message translates to:
-  /// **'Feng Shui (Home / Office Alignment)'**
+  /// **'Book publishing'**
   String get contactSubjectFengShui;
 
   /// No description provided for @contactSubjectDateSelection.
   ///
   /// In en, this message translates to:
-  /// **'Date Selection (Training Specifics)'**
+  /// **'General enquiry'**
   String get contactSubjectDateSelection;
 
   /// No description provided for @contactSubjectUnsure.
   ///
   /// In en, this message translates to:
-  /// **'Unsure - I need your recommendation'**
+  /// **'Not sure—recommend something for me'**
   String get contactSubjectUnsure;
 
   /// No description provided for @forecastAuspiciousStars.
@@ -2281,7 +2281,7 @@ abstract class AppLocalizations {
   /// No description provided for @event1Title.
   ///
   /// In en, this message translates to:
-  /// **'Master Elf - The Rise of Phoenix 2026'**
+  /// **'Stonechat - The Rise of Phoenix 2026'**
   String get event1Title;
 
   /// No description provided for @event1Description.

@@ -188,7 +188,7 @@ class _DesktopLayout extends StatelessWidget {
                     child: FilledButton.icon(
                       onPressed: () async {
                         await launchUrlExternal(
-                          'https://www.facebook.com/masterelf.vip',
+                          'https://www.facebook.com/stonechat',
                         );
                         if (context.mounted) Navigator.of(context).pop();
                       },
@@ -262,7 +262,7 @@ class _MobileLayout extends StatelessWidget {
             child: FilledButton.icon(
               onPressed: () async {
                 await launchUrlExternal(
-                  'https://www.facebook.com/masterelf.vip',
+                  'https://www.facebook.com/stonechat',
                 );
                 if (context.mounted) Navigator.of(context).pop();
               },

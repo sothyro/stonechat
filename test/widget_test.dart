@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:masterelf_homepage/app.dart';
+import 'package:stonechat_communications/app.dart';
 
 void main() {
   testWidgets('App smoke test', (WidgetTester tester) async {
-    await tester.pumpWidget(const MasterElfApp());
+    await tester.pumpWidget(const StonechatApp());
     await tester.pumpAndSettle();
 
     // Home appears in header and drawer; default locale is en so text is "Home"
@@ -14,7 +14,7 @@ void main() {
   });
 
   testWidgets('404 shows not-found page inside shell', (WidgetTester tester) async {
-    await tester.pumpWidget(const MasterElfApp());
+    await tester.pumpWidget(const StonechatApp());
     await tester.pumpAndSettle();
 
     final context = tester.element(find.byType(Scaffold).first);

@@ -36,7 +36,7 @@ class LegalContent {
 Last updated: 2026
 
 1. Acceptance of Terms
-By accessing and using this website and related services ("Services") operated by Master Elf Feng Shui Co., Ltd. ("Company", "we", "us"), you accept and agree to be bound by these Terms of Service. If you do not agree, please do not use our Services.
+By accessing and using this website and related services ("Services") operated by Stonechat Communications ("Company", "we", "us"), you accept and agree to be bound by these Terms of Service. If you do not agree, please do not use our Services.
 
 2. Description of Services
 We provide information, consultations, events, and educational content related to Feng Shui, BaZi, Qi Men, and related practices. Services are offered at our discretion and may be modified or discontinued without notice.
@@ -92,7 +92,7 @@ If you have questions about this Disclaimer, please contact us using the informa
 Last updated: 2026
 
 1. Introduction
-Master Elf Feng Shui Co., Ltd. ("we", "us", "our") respects your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website and services.
+Stonechat Communications ("we", "us", "our") respects your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website and services.
 
 2. Information We Collect
 We may collect information you provide directly, such as:

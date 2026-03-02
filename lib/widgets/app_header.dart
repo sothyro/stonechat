@@ -199,7 +199,7 @@ class _DesktopHeader extends StatelessWidget {
       _NavDropdown(
         label: l10n.appsAndStore,
         items: [
-          _NavItem(l10n.masterElfSystem, '/apps#master-elf', LucideIcons.cpu),
+          _NavItem(l10n.stonechatSystem, '/apps#stonechat', LucideIcons.cpu),
           _NavItem(l10n.period9MobileApp, '/apps#period9', LucideIcons.smartphone),
           _NavItem(l10n.bookStoreNav, '/apps#books', LucideIcons.bookOpen),
           _NavItem(l10n.talismanStore, '/apps#talisman', LucideIcons.shoppingBag),

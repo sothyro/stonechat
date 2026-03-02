@@ -9,7 +9,7 @@ import '../../theme/app_theme.dart';
 import '../../utils/breakpoints.dart';
 import '../../widgets/academy_card.dart';
 
-/// Master Elf's Journey page: hero, story, Period 9, and The Rise of the Phoenix.
+/// Stonechat Communications Journey page: hero, story, Period 9, and The Rise of the Phoenix.
 class JourneyScreen extends StatelessWidget {
   const JourneyScreen({super.key});
 

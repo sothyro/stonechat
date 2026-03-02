@@ -1,6 +1,8 @@
-# Master Elf Feng Shui – Company Website
+# Stonechat Communications
 
-Flutter web app for Master Elf Feng Shui: consultations, courses, events, and Chinese metaphysics resources (BaZi, Qi Men, Feng Shui). Localized in English, Khmer, and Chinese.
+Stonechat Communications is a handy apps and digital solutions studio. This Flutter web app showcases our services: modern, beautiful, affordable applications for Web, Desktop, macOS, iOS, and Android; communication skills training (The Art of Human-Centered Communication and The Art of AI-Enhanced Communication); and book publishing and authoring. Localized in Khmer, English, and Chinese.
+
+**Website:** https://www.stonechat.vip
 
 ## Getting started
 
@@ -81,7 +83,7 @@ They do not share data or logic. Contact form submissions do not affect the book
      firebase functions:secrets:set RESEND_API_KEY
      firebase functions:secrets:set CONTACT_NOTIFY_EMAIL
      ```
-     When prompted, enter your Resend API key and the email address that should receive contact form notifications (e.g. `team@masterelf.vip`).
+     When prompted, enter your Resend API key and the email address that should receive contact form notifications (e.g. `team@yourdomain.com`).
    - Redeploy functions. From project root, first install dependencies in `functions`, then deploy:
      ```powershell
      cd functions; npm ci; cd ..
@@ -89,14 +91,14 @@ They do not share data or logic. Contact form submissions do not affect the book
      ```
      (PowerShell: use `;` to chain commands. If you see "Couldn't find firebase-functions", run `npm ci` inside `functions` before deploying.)
 
-   Each new submission will trigger an email to `CONTACT_NOTIFY_EMAIL` with the sender’s name, email, phone, subject, and message.  
-   Resend’s free tier allows sending from `onboarding@resend.dev`; for a custom “From” address, verify your domain in Resend.
+   Each new submission will trigger an email to `CONTACT_NOTIFY_EMAIL` with the sender's name, email, phone, subject, and message.  
+   Resend's free tier allows sending from `onboarding@resend.dev`; for a custom "From" address, verify your domain in Resend.
 
 ### PlasGate SMS (appointment confirmations)
 
 When a new document is created in `appointments`, a Cloud Function sends an SMS confirmation via [PlasGate](https://support.plasgate.com/article/api-overview) (sender: **PlasGateUAT**).
 
-1. **Set Firebase secrets** (from project root). You need your PlasGate **private key** and **secret** from the PlasGate portal, and (optional) an admin phone for “create booking on behalf of client” SMS:
+1. **Set Firebase secrets** (from project root). You need your PlasGate **private key** and **secret** from the PlasGate portal, and (optional) an admin phone for "create booking on behalf of client" SMS:
    ```bash
    firebase functions:secrets:set PLASGATE_PRIVATE_KEY
    firebase functions:secrets:set PLASGATE_SECRET
@@ -112,9 +114,40 @@ When a new document is created in `appointments`, a Cloud Function sends an SMS 
 
 3. **Verify** by creating a test booking from the app (Consultations → book a slot and confirm), or call the `sendTestSms` Cloud Function (requires an authenticated user) with `{ "phone": "855XXXXXXXXX", "message": "Optional text" }` to send a test SMS.
 
-**If SMS is not sent:** In the Consultations dashboard, open an appointment and check **SMS status**. If it shows `failed` with reason `config`, set `PLASGATE_PRIVATE_KEY` and `PLASGATE_SECRET` and redeploy. If it shows `invalid_phone`, ensure the customer’s number has at least 8 digits (Cambodia E.164: 855 + 8–9 digits). Check function logs: `firebase functions:log` for `onAppointmentCreated` and `sendPlasGateSms`.
+**If SMS is not sent:** In the Consultations dashboard, open an appointment and check **SMS status**. If it shows `failed` with reason `config`, set `PLASGATE_PRIVATE_KEY` and `PLASGATE_SECRET` and redeploy. If it shows `invalid_phone`, ensure the customer's number has at least 8 digits (Cambodia E.164: 855 + 8–9 digits). Check function logs: `firebase functions:log` for `onAppointmentCreated` and `sendPlasGateSms`.
 
-Implementation details: on every new booking, 3 SMS are sent—(1) customer (confirmation), (2) admin (summary to `ADMIN_SMS_PHONE`), (3) Master Elf (+85512222211, summary). Phone numbers are normalized to E.164. Invalid or missing customer phone skips only the customer SMS and sets `smsStatus: "skipped"`. The function retries once on 5xx or network errors. Customer SMS status is written to the appointment document (`smsStatus`, `smsSentAt`, and on failure `smsErrorReason`, `smsErrorBody`, etc.).
+Implementation details: on every new booking, 3 SMS are sent—(1) customer (confirmation), (2) admin (summary to `ADMIN_SMS_PHONE`), (3) Stonechat business line (summary to configured number). Phone numbers are normalized to E.164. Invalid or missing customer phone skips only the customer SMS and sets `smsStatus: "skipped"`. The function retries once on 5xx or network errors. Customer SMS status is written to the appointment document (`smsStatus`, `smsSentAt`, and on failure `smsErrorReason`, `smsErrorBody`, etc.).
+
+## Repository
+
+- **Git remote**: https://github.com/sothyro/stonechat.git  
+- **Repo**: [github.com/sothyro/stonechat](https://github.com/sothyro/stonechat)
+
+### First push to GitHub
+
+From the project root:
+
+```bash
+git remote set-url origin https://github.com/sothyro/stonechat.git
+git remote -v
+git add -A
+git status
+git commit -m "Initial commit: Stonechat Communications"
+git push -u origin master
+```
+
+If the default branch on GitHub is `main`, use: `git push -u origin master:main` (or rename the local branch to `main` first).
+
+**Check or fix the remote:** From the project root, run:
+```bash
+git remote -v
+```
+If `origin` is not `https://github.com/sothyro/stonechat.git`, set it:
+```bash
+git remote set-url origin https://github.com/sothyro/stonechat.git
+git remote -v
+```
+On Windows you can instead run: `.\scripts\verify-git-remote.ps1`
 
 ## Resources
 

@@ -1,10 +1,10 @@
-# Cloud Functions – Master Elf
+# Cloud Functions – Stonechat Communications
 
 Firebase Cloud Functions for appointments (slots, booking, PlasGate SMS) and contact form (Resend email).
 
 ## PlasGate SMS setup
 
-When a new document is created in the `appointments` collection, **3 SMS** are sent (sender **PlasGateUAT**): (1) customer, (2) admin, (3) Master Elf (+85512222211).
+When a new document is created in the `appointments` collection, **3 SMS** are sent (sender **PlasGateUAT**): (1) customer, (2) admin, (3) Stonechat business line (+85512222211).
 
 ### Required secrets
 
@@ -48,8 +48,8 @@ firebase deploy --only functions
 
 On every new booking (customer or admin):
 
-1. **Customer SMS**: Sent to the customer’s phone (from the booking). Message: consultation confirmed, date, time, ref. If phone is invalid or missing, customer SMS is skipped and `smsStatus: "skipped"` is set on the document.
+1. **Customer SMS**: Sent to the customer's phone (from the booking). Message: consultation confirmed, date, time, ref. If phone is invalid or missing, customer SMS is skipped and `smsStatus: "skipped"` is set on the document.
 2. **Admin SMS**: Sent to `ADMIN_SMS_PHONE` (summary: name, date, time, ref, customer phone). Skipped if secret not set or invalid.
-3. **Master Elf SMS**: Always sent to **+85512222211** with the same summary.
+3. **Stonechat business SMS**: Always sent to the configured business number with the same summary.
 
 Phone numbers are normalized to E.164. One automatic retry on 5xx or network errors per SMS. Customer SMS result is written to the appointment document (`smsStatus`, `smsSentAt`, and on failure `smsErrorReason`, `smsErrorBody`, etc.).

@@ -22,8 +22,8 @@ const BUSINESS_CLOSE_HOUR = 22;  // Slots up to 21:00 (special: 1h or 2h to 23:0
 const PLASGATE_API_URL = "https://cloudapi.plasgate.com/rest/send";
 const MIN_PHONE_DIGITS = 9; // Cambodia local number length without country code
 const SMS_RETRY_DELAY_MS = 2000;
-/** Master Elf business line – receives SMS on every new booking. */
-const MASTER_ELF_SMS_PHONE = "85512222211";
+/** Stonechat business line – receives SMS on every new booking. */
+const STONECHAT_SMS_PHONE = "85512222211";
 
 /**
  * Normalize phone to E.164 (digits only, Cambodia 855).
@@ -174,8 +174,8 @@ export const onAppointmentCreated = onDocumentCreated(
     console.log(`onAppointmentCreated: Processing appointment ${docId} for phone ${phone || "(empty)"}`);
 
     const sessionLabel = sessionType === "ONLINE" ? "Online" : "In-person visit";
-    // Admin & Master Elf: Khmer notice + Ref (Master Hong Chhayheng: New appointment, confirm with client 1h before)
-    const adminMasterElfContent = `ម៉ាស្ទ័រ ហុង ឆាយហេង៖ ការណាត់ថ្មី ឈ្មោះ ${name}។ ដើម្បីមើល ${serviceName} នៅថ្ងៃ ${date} ម៉ោង ${time}។ សូមបញ្ជាក់ជាមួយភ្ញៀវមុនពេលជួប ១ម៉ោងមុន! Ref: ${bookingRef}.`;
+    // Admin & Stonechat: Khmer notice + Ref (New appointment, confirm with client 1h before)
+    const adminStonechatContent = `Stonechat៖ ការណាត់ថ្មី ឈ្មោះ ${name}។ ដើម្បីមើល ${serviceName} នៅថ្ងៃ ${date} ម៉ោង ${time}។ សូមបញ្ជាក់ជាមួយភ្ញៀវមុនពេលជួប ១ម៉ោងមុន! Ref: ${bookingRef}.`;
 
     try {
       // 1. Customer SMS (only if valid phone)
@@ -212,7 +212,7 @@ export const onAppointmentCreated = onDocumentCreated(
         const adminPhoneRaw = adminSmsPhone.value();
         const adminPhone = typeof adminPhoneRaw === "string" ? adminPhoneRaw.trim() : "";
         if (adminPhone && isValidE164Phone(normalizePhone(adminPhone))) {
-          const adminResult = await sendPlasGateSms(adminPhone, adminMasterElfContent);
+          const adminResult = await sendPlasGateSms(adminPhone, adminStonechatContent);
           if (adminResult.ok) {
             console.log(`onAppointmentCreated: Admin SMS sent for ${docId}`);
           } else {
@@ -225,16 +225,16 @@ export const onAppointmentCreated = onDocumentCreated(
         console.warn(`onAppointmentCreated: Admin SMS error (non-fatal):`, adminErr);
       }
 
-      // 3. Master Elf SMS – every booking (fixed business number).
+      // 3. Stonechat business SMS – every booking (fixed business number).
       try {
-        const masterElfResult = await sendPlasGateSms(MASTER_ELF_SMS_PHONE, adminMasterElfContent);
-        if (masterElfResult.ok) {
-          console.log(`onAppointmentCreated: Master Elf SMS sent for ${docId}`);
+        const stonechatResult = await sendPlasGateSms(STONECHAT_SMS_PHONE, adminStonechatContent);
+        if (stonechatResult.ok) {
+          console.log(`onAppointmentCreated: Stonechat SMS sent for ${docId}`);
         } else {
-          console.warn(`onAppointmentCreated: Master Elf SMS failed for ${docId}:`, masterElfResult.reason || masterElfResult.body);
+          console.warn(`onAppointmentCreated: Stonechat SMS failed for ${docId}:`, stonechatResult.reason || stonechatResult.body);
         }
-      } catch (masterErr) {
-        console.warn(`onAppointmentCreated: Master Elf SMS error (non-fatal):`, masterErr);
+      } catch (stonechatErr) {
+        console.warn(`onAppointmentCreated: Stonechat SMS error (non-fatal):`, stonechatErr);
       }
     } catch (error) {
       console.error(`onAppointmentCreated: Error processing appointment ${docId}:`, error);
@@ -522,7 +522,7 @@ export const sendTestSms = onCall(
     if (!isValidE164Phone(toE164)) {
       throw new HttpsError("invalid-argument", "Invalid phone number. Use format 855XXXXXXXX or 0XXXXXXXX.");
     }
-    const content = message && message.length > 0 ? message : `Master Elf: Test SMS at ${new Date().toISOString()}. PlasGate OK.`;
+    const content = message && message.length > 0 ? message : `Stonechat: Test SMS at ${new Date().toISOString()}. PlasGate OK.`;
     const result = await sendPlasGateSms(toE164, content);
     if (!result.ok) {
       throw new HttpsError(
@@ -637,7 +637,7 @@ function buildContactNotificationHtml(submission) {
           <!-- Header -->
           <tr>
             <td style="background:linear-gradient(135deg, ${EMAIL_DARK} 0%, #2a2a2a 100%);padding:24px 28px;text-align:left;">
-              <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:${EMAIL_ACCENT};font-weight:600;">Master Elf Feng Shui</span>
+              <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:${EMAIL_ACCENT};font-weight:600;">Stonechat Communications</span>
               <h1 style="margin:8px 0 0;font-size:22px;font-weight:700;color:#ffffff;letter-spacing:-0.02em;">New contact form submission</h1>
               <p style="margin:6px 0 0;font-size:13px;color:rgba(255,255,255,0.75);">Someone reached out via your website.</p>
             </td>
@@ -688,8 +688,8 @@ async function sendContactNotificationEmail(toEmail, apiKey, submission) {
     return;
   }
   const subject = submission.subjectLabel
-    ? `[Master Elf] ${submission.subjectLabel} – ${submission.name}`
-    : `[Master Elf] Contact from ${submission.name}`;
+    ? `[Stonechat] ${submission.subjectLabel} – ${submission.name}`
+    : `[Stonechat] Contact from ${submission.name}`;
   const html = buildContactNotificationHtml(submission);
 
   const res = await fetch("https://api.resend.com/emails", {
@@ -699,7 +699,7 @@ async function sendContactNotificationEmail(toEmail, apiKey, submission) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: "Master Elf Contact <onboarding@resend.dev>",
+      from: "Stonechat Contact <onboarding@resend.dev>",
       to: [toEmail],
       subject,
       html,

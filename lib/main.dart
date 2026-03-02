@@ -84,6 +84,6 @@ class _HeroVideoBootstrapState extends State<HeroVideoBootstrap> {
     if (!_transitioning) {
       return HeroLoadingScreen(progress: _progress);
     }
-    return const MasterElfApp();
+    return const StonechatApp();
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:masterelf_homepage/services/appointment_booking_service.dart';
+import 'package:stonechat_communications/services/appointment_booking_service.dart';
 
 void main() {
   group('submitAppointmentBooking', () {

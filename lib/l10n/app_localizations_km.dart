@@ -9,7 +9,7 @@ class AppLocalizationsKm extends AppLocalizations {
   AppLocalizationsKm([String locale = 'km']) : super(locale);
 
   @override
-  String get appTitle => 'Master Elf Feng Shui';
+  String get appTitle => 'Stonechat Communications';
 
   @override
   String get skipToContent => 'រំលងទៅមាតិកា';
@@ -33,7 +33,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get appsAndStore => 'ហាង';
 
   @override
-  String get masterElfSystem => 'ប្រព័ន្ធកម្មវិធី Master Elf';
+  String get stonechatSystem => 'ប្រព័ន្ធកម្មវិធី Stonechat';
 
   @override
   String get period9MobileApp => 'កម្មវិធីយុគ9';
@@ -50,10 +50,10 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get appsPageDescription =>
-      'ចូលប្រើប្រព័ន្ធកម្មវធី Master Elf —មើលប៉ាជឺ ដោនឡូតកម្មវិធីយុគ9 និងទទួលស្តេចយ័ន្តទេវតា —មាននៅទីនេះទាំងអស់។';
+      'ចូលប្រើប្រព័ន្ធកម្មវធី Stonechat —មើលប៉ាជឺ ដោនឡូតកម្មវិធីយុគ9 និងទទួលស្តេចយ័ន្តទេវតា —មាននៅទីនេះទាំងអស់។';
 
   @override
-  String get appsPageDescriptionHighlight => 'ប្រព័ន្ធកម្មវិធី Master Elf';
+  String get appsPageDescriptionHighlight => 'ប្រព័ន្ធកម្មវិធី Stonechat';
 
   @override
   String get appsFeatureShowcaseHeading => 'ឧបករណ៍ដែលប្រែការយល់ឃើញទៅជាសកម្មភាព';
@@ -75,23 +75,23 @@ class AppLocalizationsKm extends AppLocalizations {
   String get marketplaceCategoryTalismans => 'ស្តេចយ័ន្ត';
 
   @override
-  String get masterElfSystemSpotlightTitle => 'ប្រព័ន្ធកម្មវិធី Master Elf';
+  String get stonechatSpotlightTitle => 'ប្រព័ន្ធកម្មវិធី Stonechat';
 
   @override
-  String get masterElfSystemSpotlightDesc =>
-      'ប៉ាជឺទេវតា ថ្លឹងឆ្អឹង ថ្លឹងវាសនា។ មិះនិងរើសពេលាហេង ព្រមទាំងអាចចូលប្រើប្រព័ន្ធកម្មវិធី Master Elf តាមអនឡាញ។';
+  String get stonechatSpotlightDesc =>
+      'យើងបង្កើតកម្មវិធីគំរូ ស្អាត និងថ្លៃអាចទទួលយកបានសម្រាប់ Web, Desktop, macOS, iOS និង Android។ ស្ថាបនាកម្មវិធីរឹងមាំ ចំណុចប្រទាក់អារម្មណ៍—ផលិតផលគុណភាពខ្ពស់ដោយមិនចាយច្រើន។';
 
   @override
-  String get openMasterElfSystem => 'បើកប្រព័ន្ធកម្មវិធី Master Elf';
+  String get openStonechatCta => 'ស្វែងយល់តម្លៃ';
 
   @override
-  String get masterElfSubscribe => 'ជាវ';
+  String get spotlightSubscribe => 'ជាវ';
 
   @override
-  String get masterElfSubscriptionPrice => '9.99';
+  String get spotlightSubscriptionPrice => '9.99';
 
   @override
-  String get masterElfPricePerMonth => '/ ខែ';
+  String get spotlightPricePerMonth => '/ ខែ';
 
   @override
   String get period9PriceFree => 'ឥតគិតថ្លៃ';
@@ -154,11 +154,10 @@ class AppLocalizationsKm extends AppLocalizations {
   String get talismanProduct9Title => 'យ័ន្តគតិបណ្ឌិត';
 
   @override
-  String get masterElfSystemSpotlightTagline =>
-      'ពេលវេលាដែលច្បាស់លាស់របស់អ្នក ។';
+  String get stonechatSpotlightTagline => 'គុណភាពដោយថ្លៃសមរម្យ។';
 
   @override
-  String get masterElfSystemSpotlightTaglineHighlight => 'ភាពច្បាស់លាស់';
+  String get stonechatSpotlightTaglineHighlight => 'គុណភាព';
 
   @override
   String get period9SpotlightTagline => 'ហុងស៊ុយនៅក្នុងដៃអ្នក។';
@@ -173,7 +172,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get talismanStoreSpotlightTaglineHighlight => 'ការពារ';
 
   @override
-  String get bookStoreSectionHeading => 'ហាងសៀវភៅ Master Elf';
+  String get bookStoreSectionHeading => 'ហាងសៀវភៅ Stonechat';
 
   @override
   String get bookStoreSectionTagline =>
@@ -271,7 +270,7 @@ class AppLocalizationsKm extends AppLocalizations {
       'សេចក្ដីជូនដំណឹង អាប់ដេតព្រឹត្តិការណ៍ និងព័ត៌មានចុងក្រោយរបស់យើងនៅលើទំព័រ Facebook។ តាមដានយើងដើម្បីអាប់ដេត។';
 
   @override
-  String get mediaPostsFacebookLink => 'facebook.com/masterelf.vip';
+  String get mediaPostsFacebookLink => 'facebook.com/stonechat';
 
   @override
   String get mediaPostsTelegramTitle => 'ក្រុម Telegram';
@@ -300,10 +299,10 @@ class AppLocalizationsKm extends AppLocalizations {
   String get bookConsultation => 'ណាត់ការពិគ្រោះ';
 
   @override
-  String get aboutMasterElf => 'អំពីម៉ាស្ទ័រអេល';
+  String get aboutStonechat => 'អំពី Stonechat';
 
   @override
-  String get heroMasterElfCaption => 'Master Elf';
+  String get heroStonechatCaption => 'Stonechat';
 
   @override
   String get journey => 'ដំណើររបស់ខ្ញុំ';
@@ -452,11 +451,11 @@ class AppLocalizationsKm extends AppLocalizations {
       'ត្រៀមខ្លួន… យើងដឹងវិធីដ៏ល្អបំផុតដើម្បីជួយអ្នកសម្របពេលវេលា និងបង្កើតផ្លូវច្បាស់បើកមុខ!';
 
   @override
-  String get sectionStoryHeading => 'អំពី Master Elf។';
+  String get sectionStoryHeading => 'អំពី Stonechat។';
 
   @override
   String get sectionStoryPara1 =>
-      'Master Elf រៀបចំអ្នកសម្រាប់ ៥០% ដំបូងនៃភាពជោគជ័យ បន្ទាប់មកណែនាំអ្នកជាមួយ ៥០% ទៀតដើម្បីទទួលប្រយោជន៍ដល់អ្នក។';
+      'Stonechat រៀបចំអ្នកសម្រាប់ ៥០% ដំបូងនៃភាពជោគជ័យ បន្ទាប់មកណែនាំអ្នកជាមួយ ៥០% ទៀតដើម្បីទទួលប្រយោជន៍ដល់អ្នក។';
 
   @override
   String get sectionStoryPara2 =>
@@ -467,7 +466,7 @@ class AppLocalizationsKm extends AppLocalizations {
       'ថ្ងៃនេះ វិធីសាស្រ្តនោះបានជួយមនុស្សច្រើនជាង ៤៤,០០០ នាក់បង្កើតលទ្ធផលល្អប្រសើរសម្រាប់ខ្លួន និងអ្នកដទៃ។';
 
   @override
-  String get sectionStoryCtaButton => 'ការខិតខំរបស់ Master Elf';
+  String get sectionStoryCtaButton => 'ការខិតខំរបស់ Stonechat';
 
   @override
   String get sectionTestimonialsHeading => 'ការយល់ដឹងពិត លទ្ធផលពិត។';
@@ -644,13 +643,13 @@ class AppLocalizationsKm extends AppLocalizations {
   String get consult5Desc => 'វិធីសាស្រ្ត និងពិធីការម៉ៅសានក្នុងក្បួនបុរាណចិន។';
 
   @override
-  String get consult6Category => 'វណ្ណកម្មស្នាដៃ Master Elf';
+  String get consult6Category => 'វណ្ណកម្មស្នាដៃ Stonechat';
 
   @override
   String get consult6Method => 'ការបោះពុម្ភផ្សាយ';
 
   @override
-  String get consult6Question => 'សៀវភៅ និងវណ្ណកម្មនានាពី Master Elf។';
+  String get consult6Question => 'សៀវភៅ និងវណ្ណកម្មនានាពី Stonechat។';
 
   @override
   String get consult6Desc =>
@@ -660,7 +659,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get stickyCtaText => 'ទស្សន៍ទាយឆ្នាំសត្វទាំង ១២ ឥតគិតថ្លៃ';
 
   @override
-  String get popupTitle1 => 'របស់ Master Elf';
+  String get popupTitle1 => 'របស់ Stonechat';
 
   @override
   String get popupTitle2 => 'ទស្សន៍ទាយឆ្នាំសត្វទាំង ១២';
@@ -680,7 +679,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get submit => 'ដាក់ស្នើ';
 
   @override
-  String get eventsCalendarTitle => 'ប្រតិទិនព្រឹត្តិការណ៍របស់ Master Elf';
+  String get eventsCalendarTitle => 'ប្រតិទិនព្រឹត្តិការណ៍របស់ Stonechat';
 
   @override
   String get eventsHeroHeadline => 'ព្រឹត្តិការណ៍ឆ្នាំនេះ—កុំខកខាន!';
@@ -774,10 +773,10 @@ class AppLocalizationsKm extends AppLocalizations {
   String get locationColumn => 'ទីតាំង';
 
   @override
-  String get aboutPageTitle => 'Master Elf | ការកើនឡើងរបស់មយូរ៉ា';
+  String get aboutPageTitle => 'Stonechat | ការកើនឡើងរបស់មយូរ៉ា';
 
   @override
-  String get aboutBreadcrumb => 'អំពី Master Elf។';
+  String get aboutBreadcrumb => 'អំពី Stonechat។';
 
   @override
   String get aboutHeroHeadline => 'ធ្វើឱ្យជីវិតសម្បូរតាមចំណេះដឹងមេឃ។';
@@ -816,7 +815,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get journeyStory1 =>
-      'Master Elf គឺជាអ្នកអនុវត្តហុងស៊ុយ និងក្បួនចិនបុរាណដែលទទួលស្គាល់ដោយមានមនុស្សច្រើនជាង ៤៤,០០០ នាក់តាមដាន និងកាតព្វកិច្ចណែនាំទាំងបុគ្គល និងអាជីវកម្មឆ្ពោះទៅរកភាពច្បាស់ និងលទ្ធផលល្អ។ ផ្លូវរបស់គាត់មិនមែនចាប់ផ្តើមដោយចៃដន្យនោះទេ—វាចាប់ផ្តើមពីការហៅពីទេវតា។';
+      'Stonechat គឺជាអ្នកអនុវត្តហុងស៊ុយ និងក្បួនចិនបុរាណដែលទទួលស្គាល់ដោយមានមនុស្សច្រើនជាង ៤៤,០០០ នាក់តាមដាន និងកាតព្វកិច្ចណែនាំទាំងបុគ្គល និងអាជីវកម្មឆ្ពោះទៅរកភាពច្បាស់ និងលទ្ធផលល្អ។ ផ្លូវរបស់គាត់មិនមែនចាប់ផ្តើមដោយចៃដន្យនោះទេ—វាចាប់ផ្តើមពីការហៅពីទេវតា។';
 
   @override
   String get journeyStory2 =>
@@ -824,28 +823,28 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get journeyStory3 =>
-      'ថ្ងៃនេះ វិធីសាស្រ្តនោះជួយអតិថិជនសម្រេចចិត្តល្អជាង ជ្រើសរើសកាលបរិច្ឆេទរុក្ខជាតិ យល់ចំណុចខ្លាំង និងសម្របបរិស្ថានជុំវិញរបស់ពួកគេ។ ពីការអានវាសនាដល់ការជ្រើសរើសកាលបរិច្ឆេទយុទ្ធសាស្រ្ត និងការត្រវែងហុងស៊ុយ ប្រព័ន្ធរបស់ Master Elf ត្រូវបានរចនាសម្រាប់ផលប៉ះពាល់ពិត។';
+      'ថ្ងៃនេះ វិធីសាស្រ្តនោះជួយអតិថិជនសម្រេចចិត្តល្អជាង ជ្រើសរើសកាលបរិច្ឆេទរុក្ខជាតិ យល់ចំណុចខ្លាំង និងសម្របបរិស្ថានជុំវិញរបស់ពួកគេ។ ពីការអានវាសនាដល់ការជ្រើសរើសកាលបរិច្ឆេទយុទ្ធសាស្រ្ត និងការត្រវែងហុងស៊ុយ ប្រព័ន្ធរបស់ Stonechat ត្រូវបានរចនាសម្រាប់ផលប៉ះពាល់ពិត។';
 
   @override
   String get journeyPeriod9Title => 'រយៈកាល ៩ និងយុគសម័យថ្មី';
 
   @override
   String get journeyPeriod9Body =>
-      'យើងឥឡូវនៅរយៈកាល ៩ (២០២៤–២០៤៣) យុគភ្លើង Li ក្នុងវដ្តរយៈកាលប្រាំបួន Xuan Kong។ ដំណាក់កាល ២០ ឆ្នាំនេះផ្តោតលើថាមពលធាតុភ្លើង ទិសខាងត្បូង និងចំណុចភាពឃើញ ការរីកចម្រើន និងភាពច្បាស់ខាងក្នុង។ ការអនុវត្តរបស់ Master Elf សម្របជាមួយការផ្លាស់ប្តូរនេះ ជួយអ្នករុករកយុគសម័យថ្មីដោយពេលវេលា និងការដាក់ឱ្យស្របជាមួយវដ្តអាកាស។';
+      'យើងឥឡូវនៅរយៈកាល ៩ (២០២៤–២០៤៣) យុគភ្លើង Li ក្នុងវដ្តរយៈកាលប្រាំបួន Xuan Kong។ ដំណាក់កាល ២០ ឆ្នាំនេះផ្តោតលើថាមពលធាតុភ្លើង ទិសខាងត្បូង និងចំណុចភាពឃើញ ការរីកចម្រើន និងភាពច្បាស់ខាងក្នុង។ ការអនុវត្តរបស់ Stonechat សម្របជាមួយការផ្លាស់ប្តូរនេះ ជួយអ្នករុករកយុគសម័យថ្មីដោយពេលវេលា និងការដាក់ឱ្យស្របជាមួយវដ្តអាកាស។';
 
   @override
   String get journeyPhoenixTitle => 'ការកើតឡើងរបស់មយូរ៉ា';
 
   @override
   String get journeyPhoenixBody =>
-      'ការកើនឡើងរបស់មយូរ៉ា គឺជាការបង្ហាញរបស់ Master Elf និងឈ្មោះប្រព័ន្ធរបស់គាត់។ វាសម្គាល់ការធ្វើឱ្យបរិសុទ្ធ ការផ្លាស់ប្តូរ និងពេលវេលាដែលការយល់ដឹងនាំទៅរកសកម្មភាព។ ក្នុងរយៈកាល ៩ ភ្និកស័រកើនឡើង—ហើយជាមួយចំណេះដឹងត្រឹមត្រូវ អ្នកក៏អាចធ្វើបានដែរ។ គោលការណ៍របស់គាត់រួមបញ្ចូល BaZi, Qimen Dunjia, I Ching, Date Selection, Feng Shui និង Mao Shan ជាវិធីសាស្រ្តជាប់លាប់សម្រាប់អ្នកដែលត្រៀមរួចកើនឡើង។';
+      'ការកើនឡើងរបស់មយូរ៉ា គឺជាការបង្ហាញរបស់ Stonechat និងឈ្មោះប្រព័ន្ធរបស់គាត់។ វាសម្គាល់ការធ្វើឱ្យបរិសុទ្ធ ការផ្លាស់ប្តូរ និងពេលវេលាដែលការយល់ដឹងនាំទៅរកសកម្មភាព។ ក្នុងរយៈកាល ៩ ភ្និកស័រកើនឡើង—ហើយជាមួយចំណេះដឹងត្រឹមត្រូវ អ្នកក៏អាចធ្វើបានដែរ។ គោលការណ៍របស់គាត់រួមបញ្ចូល BaZi, Qimen Dunjia, I Ching, Date Selection, Feng Shui និង Mao Shan ជាវិធីសាស្រ្តជាប់លាប់សម្រាប់អ្នកដែលត្រៀមរួចកើនឡើង។';
 
   @override
   String get methodPageHeadline => 'វិធីសាស្រ្តរបស់យើង';
 
   @override
   String get methodIntro =>
-      'ប្រព័ន្ធរបស់ Master Elf សាងសង់លើរូបវិទ្យាចិនបុរាណ។ រៀងរាល់វិជ្ជាជីវៈត្រូវបានអនុវត្តដោយរូបមន្ត និងស្តង់ដារច្បាស់ ដើម្បីឱ្យការពិគ្រោះ និងការបណ្តុះបណ្តល់មានភាពស្របគ្នា អាចពន្យល់បាន និងមានប្រសិទ្ធភាព។ ខាងក្រោមគឺរបៀបដែលសសរសំខាន់ត្រូវបានអនុវត្ត គណនា និងប្រើ។';
+      'ប្រព័ន្ធរបស់ Stonechat សាងសង់លើរូបវិទ្យាចិនបុរាណ។ រៀងរាល់វិជ្ជាជីវៈត្រូវបានអនុវត្តដោយរូបមន្ត និងស្តង់ដារច្បាស់ ដើម្បីឱ្យការពិគ្រោះ និងការបណ្តុះបណ្តល់មានភាពស្របគ្នា អាចពន្យល់បាន និងមានប្រសិទ្ធភាព។ ខាងក្រោមគឺរបៀបដែលសសរសំខាន់ត្រូវបានអនុវត្ត គណនា និងប្រើ។';
 
   @override
   String get methodBaZiTitle => 'BaZi (សសរបួននៃវាសនា)';
@@ -866,7 +865,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get methodIChingBody =>
-      'I Ching ត្រូវបានពិគ្រោះដើម្បីទទួលហិកសាក្រាម (ប្រាំមួយបន្ទាត់) ដែលឆ្លុះបញ្ចាំងស្ថានភាព។ យើងប្រើវិធីកាក់បី ឬដើម yarrow បុរាណ៖ រៀងរាល់បន្ទាត់ត្រូវបានសាងពីក្រោមឡើងលើ (៦ = yin ផ្លាស់ប្តូរ, ៧ = yang ថ្លៃ, ៨ = yin ថ្លៃ, ៩ = yang ផ្លាស់ប្តូរ)។ ហិកសាក្រាមលទ្ធផល និងបន្ទាត់ផ្លាស់ប្តូរណាមួយត្រូវបានបកស្រាយដោយប្រើអត្ថបទបុរាណ និងគោលការណ៍របស់ Master Elf សម្រាប់ការសម្រេចចិត្ត និងទិសដៅ។';
+      'I Ching ត្រូវបានពិគ្រោះដើម្បីទទួលហិកសាក្រាម (ប្រាំមួយបន្ទាត់) ដែលឆ្លុះបញ្ចាំងស្ថានភាព។ យើងប្រើវិធីកាក់បី ឬដើម yarrow បុរាណ៖ រៀងរាល់បន្ទាត់ត្រូវបានសាងពីក្រោមឡើងលើ (៦ = yin ផ្លាស់ប្តូរ, ៧ = yang ថ្លៃ, ៨ = yin ថ្លៃ, ៩ = yang ផ្លាស់ប្តូរ)។ ហិកសាក្រាមលទ្ធផល និងបន្ទាត់ផ្លាស់ប្តូរណាមួយត្រូវបានបកស្រាយដោយប្រើអត្ថបទបុរាណ និងគោលការណ៍របស់ Stonechat សម្រាប់ការសម្រេចចិត្ត និងទិសដៅ។';
 
   @override
   String get methodDateSelectionTitle => 'Date Selection';
@@ -887,7 +886,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get methodMaoShanBody =>
-      'បែបបទ Mao Shan (Mount Mao) ត្រូវបានរួមបញ្ចូលកន្លែងដែលសមរម្យសម្រាប់ពិធីការ និងការអនុវត្តក្នុងប្រព័ន្ធរបស់ Master Elf។ វិធីសាស្រ្តត្រូវបានអនុវត្តដោយគោរពទម្រង់ និងគោលបំណងបុរាណ គាំទ្រទាំងវិមាត្រខាងព្រលឹង និងជាក់ស្តែងនៃរូបវិទ្យាចិនដូចប្រើក្នុងគោលការណ៍របស់គាត់។';
+      'បែបបទ Mao Shan (Mount Mao) ត្រូវបានរួមបញ្ចូលកន្លែងដែលសមរម្យសម្រាប់ពិធីការ និងការអនុវត្តក្នុងប្រព័ន្ធរបស់ Stonechat។ វិធីសាស្រ្តត្រូវបានអនុវត្តដោយគោរពទម្រង់ និងគោលបំណងបុរាណ គាំទ្រទាំងវិមាត្រខាងព្រលឹង និងជាក់ស្តែងនៃរូបវិទ្យាចិនដូចប្រើក្នុងគោលការណ៍របស់គាត់។';
 
   @override
   String get appointmentIntro =>
@@ -1196,7 +1195,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get sampleFeature => 'អត្ថបទពិសេសគំរូ';
 
   @override
-  String get event1Title => 'Master Elf - The Rise of Phoenix 2026';
+  String get event1Title => 'Stonechat - The Rise of Phoenix 2026';
 
   @override
   String get event1Description => 'ការបង្ហាញរបស់ Master។';

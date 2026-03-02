@@ -1,5 +1,5 @@
-name: masterelf_homepage
-description: "Master Elf Feng Shui Company Website"
+name: stonechat_communications
+description: "Stonechat Communications"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -79,7 +79,6 @@ flutter:
     - assets/images/placeholders/
     - assets/images/testimonials/
     - assets/images/backgrounddirection.jpg
-    - assets/images/masterelf.jpg
     - assets/icons/
     - assets/videos/
     - assets/stores/books/

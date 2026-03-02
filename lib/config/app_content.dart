@@ -4,15 +4,15 @@ class AppContent {
   AppContent._();
 
   // §1 Brand
-  static const String companyName = 'Master Elf Feng Shui';
-  static const String shortName = 'Master Elf';
-  static const String legalEntity = 'Master Elf Feng Shui Co., Ltd.';
+  static const String companyName = 'Stonechat Communications';
+  static const String shortName = 'Stonechat';
+  static const String legalEntity = 'Stonechat Communications';
 
-  // §3 Contact (from "Current in code" / INFORMATION_NEEDED)
+  // §3 Contact
   static const String phonePrimary = '012 222 211';
   static const String phoneSecondary = '090 222 211';
-  static const String email = '8@masterelf.vip';
-  static const String websiteUrl = 'https://www.masterelf.vip';
+  static const String email = 'contact@stonechat.vip';
+  static const String websiteUrl = 'https://www.stonechat.vip';
   /// WhatsApp: country code + number no spaces (e.g. 85512222211 for Cambodia 12 222 211)
   static const String whatsAppNumber = '85512222211';
   static const String addressLine = '#23-25, Street V07, Victory City, Steung Meanchey';
@@ -24,22 +24,22 @@ class AppContent {
   static const String office1Phone = '+855-12 222211';
   static const String office1PhoneSecondary = '+855 90 222 211';
 
-  // §4 Social (Facebook, TikTok, Telegram shown in footer)
-  static const String facebookUrl = 'https://www.facebook.com/masterelf.vip';
+  // §4 Social
+  static const String facebookUrl = 'https://www.facebook.com/stonechat';
   static const String? instagramUrl = null;
-  static const String tiktokUrl = 'https://www.tiktok.com/@masterelf';
+  static const String tiktokUrl = 'https://www.tiktok.com/@stonechat';
   static const String? youtubeUrl = null;
-  static const String telegramUrl = 'https://t.me/hongchhayheng';
+  static const String telegramUrl = 'https://t.me/stonechat';
   static const String? linkedInUrl = null;
 
   /// Telegram group for Media & Posts dialog (same as telegramUrl)
-  static const String telegramGroupUrl = 'https://t.me/hongchhayheng';
+  static const String telegramGroupUrl = 'https://t.me/stonechat';
 
-  /// Explore Courses / Academy link (e.g. charter.masterelf.vip)
-  static const String academyExploreUrl = 'https://charter.masterelf.vip';
+  /// Training / Academy link
+  static const String academyExploreUrl = 'https://www.stonechat.vip/academy';
 
-  /// Master Elf System (BaZi etc.) – open in browser
-  static const String baziSystemUrl = 'https://bazi.masterelf.vip';
+  /// Apps & digital solutions
+  static const String baziSystemUrl = 'https://www.stonechat.vip/apps';
 
   /// Period 9 Mobile App – replace with real store URLs when available
   static const String? period9AppStoreUrl = null;
@@ -56,7 +56,7 @@ class AppContent {
   static const String assetHeroBackground = 'assets/images/main.jpg';
   static const String assetBackgroundDirection = 'assets/images/backgrounddirection.jpg';
   static const String assetHeroVideo = 'assets/videos/videobackground720.mp4';
-  /// Apps page: Master Elf System section video.
+  /// Apps page: Stonechat system section video.
   static const String assetAppPageVideo = 'assets/videos/appads.mp4';
   static const String assetEventCard = 'assets/images/event.jpg';
   static const String assetEventMain = 'assets/images/event2026.jpg';

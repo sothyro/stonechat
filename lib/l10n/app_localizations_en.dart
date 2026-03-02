@@ -9,7 +9,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'Master Elf Feng Shui';
+  String get appTitle => 'Stonechat Communications';
 
   @override
   String get skipToContent => 'Skip to content';
@@ -33,7 +33,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appsAndStore => 'Apps & Store';
 
   @override
-  String get masterElfSystem => 'Master Elf System';
+  String get stonechatSystem => 'Stonechat System';
 
   @override
   String get period9MobileApp => 'Period 9 Mobile App';
@@ -46,25 +46,24 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get appsPageSubline =>
-      'Shop digital tools, books, and talismans—all in one place.';
+      'Digital tools, apps, training, and books—all in one place.';
 
   @override
   String get appsPageDescription =>
-      'Our marketplace brings together subscriptions, apps, books, and curated talismans. Subscribe, download, or add to cart—we\'ll help you complete your order.';
+      'We build modern apps and digital solutions. Browse our development services, communication training, and book publishing. Get in touch and we\'ll help you find the right fit.';
 
   @override
-  String get appsPageDescriptionHighlight => 'marketplace';
+  String get appsPageDescriptionHighlight => 'modern apps';
 
   @override
-  String get appsFeatureShowcaseHeading => 'Shop by category';
+  String get appsFeatureShowcaseHeading => 'What we offer';
 
   @override
   String get appsFeatureShowcaseMarketingDesc =>
-      'Browse digital subscriptions, one-time purchases, and curated products. Add to cart or subscribe and we\'ll get in touch to complete your order.';
+      'App and website development, communication skills training, and book publishing. We use clear, human language so you stay informed and confident.';
 
   @override
-  String get appsFeatureShowcaseMarketingHighlight =>
-      'Add to cart or subscribe';
+  String get appsFeatureShowcaseMarketingHighlight => 'clear, human language';
 
   @override
   String get marketplaceCategoryDigital => 'Digital';
@@ -76,23 +75,23 @@ class AppLocalizationsEn extends AppLocalizations {
   String get marketplaceCategoryTalismans => 'Talismans';
 
   @override
-  String get masterElfSystemSpotlightTitle => 'Master Elf System';
+  String get stonechatSpotlightTitle => 'App & website development';
 
   @override
-  String get masterElfSystemSpotlightDesc =>
-      'The complete BaZi and Chinese metaphysics platform. Plot charts, analyse timing and access Master Elf\'s system online.';
+  String get stonechatSpotlightDesc =>
+      'We develop modern, beautiful, affordable apps for Web, Desktop, macOS, iOS, and Android. Clean architectures, elegant interfaces—high-quality products without breaking the bank.';
 
   @override
-  String get openMasterElfSystem => 'Open Master Elf System';
+  String get openStonechatCta => 'Get a quote';
 
   @override
-  String get masterElfSubscribe => 'Subscribe';
+  String get spotlightSubscribe => 'Subscribe';
 
   @override
-  String get masterElfSubscriptionPrice => '9.99';
+  String get spotlightSubscriptionPrice => '9.99';
 
   @override
-  String get masterElfPricePerMonth => '/ month';
+  String get spotlightPricePerMonth => '/ month';
 
   @override
   String get period9PriceFree => 'Free';
@@ -155,13 +154,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get talismanProduct9Title => 'Wisdom Pendant';
 
   @override
-  String get masterElfSystemSpotlightTagline => 'Your timing, clarified.';
+  String get stonechatSpotlightTagline => 'Quality without the high price.';
 
   @override
-  String get masterElfSystemSpotlightTaglineHighlight => 'clarified';
+  String get stonechatSpotlightTaglineHighlight => 'Quality';
 
   @override
-  String get period9SpotlightTagline => 'Feng Shui in your pocket.';
+  String get period9SpotlightTagline => 'Apps in your pocket.';
 
   @override
   String get period9SpotlightTaglineHighlight => 'pocket';
@@ -173,22 +172,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get talismanStoreSpotlightTaglineHighlight => 'protection';
 
   @override
-  String get bookStoreSectionHeading => 'Master Elf Book Store';
+  String get bookStoreSectionHeading => 'Book publishing & authoring';
 
   @override
   String get bookStoreSectionTagline =>
-      'Wisdom you can hold. Knowledge that lasts.';
+      'From idea to finished book. In one place.';
 
   @override
-  String get bookStoreSectionTaglineHighlight => 'Wisdom';
+  String get bookStoreSectionTaglineHighlight => 'one place';
 
   @override
   String get bookStoreSectionMarketing =>
-      'Dive deeper into Period 9 Feng Shui and Chinese metaphysics with our curated books. Perfect for practitioners and enthusiasts—order now and transform your understanding.';
+      'We support authors and organizations from concept development to writing, editing, book design (layout and cover), and final publishing. Everything you need to go from idea to published book, smoothly and efficiently.';
 
   @override
-  String get bookStoreSectionMarketingHighlight =>
-      'transform your understanding';
+  String get bookStoreSectionMarketingHighlight => 'idea to published book';
 
   @override
   String get bookStoreBook1Title => 'Period 9 Feng Shui — Volume 1';
@@ -271,7 +269,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Our latest posts, event updates and news are on our Facebook page. Follow us for updates.';
 
   @override
-  String get mediaPostsFacebookLink => 'facebook.com/masterelf.vip';
+  String get mediaPostsFacebookLink => 'facebook.com/stonechat.vip';
 
   @override
   String get mediaPostsTelegramTitle => 'Telegram Group';
@@ -300,16 +298,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get bookConsultation => 'Book Consultation';
 
   @override
-  String get aboutMasterElf => 'About Master Elf';
+  String get aboutStonechat => 'About Stonechat';
 
   @override
-  String get heroMasterElfCaption => 'Master Elf';
+  String get heroStonechatCaption => 'Stonechat';
 
   @override
-  String get journey => 'My Endeavour';
+  String get journey => 'Our story';
 
   @override
-  String get ourMethod => 'Our Method';
+  String get ourMethod => 'What we do';
 
   @override
   String get events => 'Events';
@@ -360,25 +358,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get backToHome => 'Back to Home';
 
   @override
-  String get heroHeadline1 => 'Awareness always comes before outcome.';
+  String get heroHeadline1 => 'Quality apps. Without breaking the bank.';
 
   @override
   String get heroHeadline1Prefix => '';
 
   @override
-  String get heroHeadline1Highlight => 'Awareness';
+  String get heroHeadline1Highlight => 'Quality apps';
 
   @override
-  String get heroHeadline1Suffix => ' always comes before outcome.';
+  String get heroHeadline1Suffix => '. Without breaking the bank.';
 
   @override
-  String get heroHeadline2Prefix => 'Its true value lies in guiding better ';
+  String get heroHeadline2Prefix => 'Modern, beautiful, affordable apps for ';
 
   @override
-  String get heroHeadline2Highlight => 'Choices.';
+  String get heroHeadline2Highlight => 'Web, Desktop, iOS & Android.';
 
   @override
-  String get heroSubline => 'Feng Shui & Life Planning Services';
+  String get heroSubline => 'Apps & digital solutions studio';
 
   @override
   String get exploreAllEvents => 'Explore All Events';
@@ -402,72 +400,71 @@ class AppLocalizationsEn extends AppLocalizations {
   String get getConsultation => 'Get Consultation';
 
   @override
-  String get finalCtaHeading => 'Hesitate to Start?';
+  String get finalCtaHeading => 'Ready to get started?';
 
   @override
   String get finalCtaBody =>
-      'Just make a phone call. Send a message to our Facebook page. Or visit us.';
+      'Send a message, give us a call, or visit our website. We\'ll get back to you in a clear, friendly way.';
 
   @override
-  String get notSureWhereToStart => 'Not Sure Where To Start?';
+  String get notSureWhereToStart => 'Not sure where to start?';
 
   @override
   String get notSureBody =>
-      'We\'re here to help. Just reach out to us and we\'ll guide you to your best next step, whether it\'s a consultation, course or supportive community.';
+      'We\'re here to help. Tell us what you need—an app, a website, training, or a book—and we\'ll guide you in clear, human terms. No technical runaround.';
 
   @override
   String get language => 'Language';
 
   @override
   String get sectionExperienceHeading =>
-      'Best practice guided, result Transformation.';
+      'Clean architectures. Elegant interfaces. Low cost.';
 
   @override
-  String get sectionExperienceHeadingPrefix => 'Best practice guided, result ';
+  String get sectionExperienceHeadingPrefix => 'Clean architectures. Elegant ';
 
   @override
-  String get sectionExperienceHeadingHighlight => 'Transformation.';
+  String get sectionExperienceHeadingHighlight => 'interfaces. Low cost.';
 
   @override
   String get sectionKnowledgeHeading =>
-      'This isn\'t just instruction. It\'s a practical framework for Real Change.';
+      'We deliver quality without the high price.';
 
   @override
   String get sectionKnowledgeBody =>
-      'Over 44,000 followers have used this system. Success is certain when you align with the right people, right places, and right time.';
+      'We build modern, beautiful, affordable apps for Web, Desktop, macOS, iOS, and Android. Clean, solid-standard architectures with user-friendly interfaces so individuals and businesses get high-quality products without breaking the bank.';
 
   @override
   String get sectionKnowledgeBody2 =>
-      'Success doesn\'t come from working harder. It comes from making the right moves, at the right time, with the right system.';
+      'We support Khmer, English, and Chinese—and we can add more languages. Fast turnaround so you don\'t wait for months; we prioritize speed without sacrificing quality.';
 
   @override
-  String get sectionKnowledgeStat => '44,000+ followers';
+  String get sectionKnowledgeStat => '3+ languages';
 
   @override
-  String get sectionMapHeading =>
-      'You don\'t need more advice. You need a RoadMap.\nLet heaven guide you to the correct way.';
+  String get sectionMapHeading => 'You don\'t need jargon. You need a partner.';
 
   @override
   String get sectionMapIntro =>
-      'On your mark… We know the best way to help you align your timing and create a clear path forward.';
+      'We communicate in a clear, human tone so non-technical clients feel comfortable, informed, and confident. Tell us your idea—we\'ll help you get there.';
 
   @override
-  String get sectionStoryHeading => 'The Story of Master Elf.';
+  String get sectionStoryHeading => 'Who we are.';
 
   @override
   String get sectionStoryPara1 =>
-      'Master Elf prepared you for the first 50% of success, then guides you with another 50% to reap the benefit for you.';
+      'Stonechat Communications is a handy apps and digital solutions studio. We develop modern, beautiful, affordable applications for Web, Desktop, macOS, iOS, and Android.';
 
   @override
   String get sectionStoryPara2 =>
-      'Through years of study, testing, and developing a proven method rooted in Chinese Metaphysics.';
+      'We focus on clean, solid-standard app architectures with elegant, user-friendly interfaces at a low cost. We support Khmer, English, and Chinese and are flexible to add more languages.';
 
   @override
   String get sectionStoryPara3 =>
-      'Today, that method has helped 44,000 followers create better outcomes for themselves and others.';
+      'We value fast turnaround and clear communication. In every interaction we use a human tone so you feel comfortable and confident throughout the process.';
 
   @override
-  String get sectionStoryCtaButton => 'Master Elf\'s Endeavor';
+  String get sectionStoryCtaButton => 'Our story';
 
   @override
   String get sectionTestimonialsHeading => 'Real Insights. Real Outcomes.';
@@ -486,28 +483,28 @@ class AppLocalizationsEn extends AppLocalizations {
   String get watch => 'Watch';
 
   @override
-  String get academyQiMen => 'QiMen Dunjia Mastery™';
+  String get academyQiMen => 'The Art of Human-Centered Communication™';
 
   @override
   String get academyQiMenDesc =>
-      'Gain strategic advantage to maximise your wins. Your road to victory!';
+      'Build strong general communication skills. Clear, practical training.';
 
   @override
-  String get academyBaZi => 'BaZi Harmony™';
+  String get academyBaZi => 'The Art of AI-Enhanced Communication™';
 
   @override
   String get academyBaZiDesc =>
-      'Reveal your destiny, and understand your hidden power. Maximise your potentials.';
+      'Communicate effectively with and through AI tools. Get the most from AI.';
 
   @override
-  String get academyFengShui => 'Feng Shui Charter™';
+  String get academyFengShui => 'Custom training';
 
   @override
   String get academyFengShuiDesc =>
-      'Chartered Practitioner of the Qi flow. Assign best Feng Shui for your home and office.';
+      'Tailored workshops for your team or organization. We adapt to your needs.';
 
   @override
-  String get academyPageTitle => 'Academy';
+  String get academyPageTitle => 'Training';
 
   @override
   String get academyQiMenAbout =>
@@ -583,146 +580,144 @@ class AppLocalizationsEn extends AppLocalizations {
       'More courses and schedules will be announced here. Contact us for early access or custom group sessions.';
 
   @override
-  String get consult1Category => 'Bazi Reading';
+  String get consult1Category => 'App & website development';
 
   @override
-  String get consult1Method => 'BaZi';
+  String get consult1Method => 'Development';
 
   @override
-  String get consult1Question => 'Become who you are born to be…';
+  String get consult1Question => 'Need a modern app or website?';
 
   @override
   String get consult1Desc =>
-      'Your birth chart holds the key to your strengths, challenges and timing. A BaZi reading reveals your true potential and helps you align your choices with the energies you were born with—so you can make decisions with clarity and confidence.';
+      'We build for Web, Desktop, macOS, iOS, and Android. Clean architectures, elegant interfaces, affordable pricing. Get in touch and we\'ll find the right solution for you.';
 
   @override
-  String get consult2Category => 'Feng Shui Services';
+  String get consult2Category => 'Communication training';
 
   @override
-  String get consult2Method => 'Feng Shui';
+  String get consult2Method => 'Training';
 
   @override
-  String get consult2Question => 'Arrange your place, define your life...';
+  String get consult2Question => 'Want to sharpen your communication skills?';
 
   @override
   String get consult2Desc =>
-      'Your environment shapes your wellbeing and success. Learn how to harness the positive energy of your space—at home or at work—so that your surroundings support your goals instead of working against them. A personalised assessment helps you apply these principles where they matter most.';
+      'We offer The Art of Human-Centered Communication for general skills and The Art of AI-Enhanced Communication for working effectively with AI tools. Clear, practical training.';
 
   @override
-  String get consult3Category => 'Date Selection';
+  String get consult3Category => 'Book publishing & authoring';
 
   @override
-  String get consult3Method => 'Xuan Kong';
+  String get consult3Method => 'Publishing';
 
   @override
-  String get consult3Question =>
-      'When is the best time to choose things wisely?';
+  String get consult3Question => 'Ready to publish your book?';
 
   @override
   String get consult3Desc =>
-      'Choosing the right date and time can turn an ordinary step into a favourable one. We use traditional methods to help you schedule important events—from openings and signings to personal milestones—for the best possible outcome.';
+      'From concept to finished book—writing, editing, design (layout and cover), and publishing. We support authors and organizations every step of the way. Everything in one place.';
 
   @override
-  String get consult4Category => 'Qimen and Iching';
+  String get consult4Category => 'Custom project';
 
   @override
-  String get consult4Method => 'QiMen & I Ching';
+  String get consult4Method => 'Custom';
 
   @override
-  String get consult4Question => 'Strategise your wise move...';
+  String get consult4Question => 'Something else in mind?';
 
   @override
   String get consult4Desc =>
-      'Face complex decisions with ancient wisdom. QiMen Dunjia and I Ching offer strategic insight and clarity—so you can see your options clearly, anticipate outcomes and choose the move that best serves your goals. Ideal for business, competition and pivotal life choices.';
+      'We\'re flexible. Whether it\'s a blend of development, training, or publishing—or something new—tell us your idea and we\'ll help you get there in clear, human terms.';
 
   @override
-  String get consult5Category => 'Mao San Rituals';
+  String get consult5Category => 'Training workshops';
 
   @override
-  String get consult5Method => 'Mao Shan';
+  String get consult5Method => 'Workshops';
 
   @override
-  String get consult5Question =>
-      'Taoist tradition of ritual and practice for transformation.';
+  String get consult5Question => 'Team or group training?';
 
   @override
   String get consult5Desc =>
-      'Mao Shan brings together Taoist ritual and Chinese metaphysical practice. Whether for spiritual growth or life transitions, these methods offer a structured path to transformation and a deeper connection to tradition.';
+      'We run workshops on communication skills and AI-enhanced communication. We can tailor sessions for your organization and schedule. Fast turnaround.';
 
   @override
-  String get consult6Category => 'Master Elf Publications';
+  String get consult6Category => 'Books & resources';
 
   @override
-  String get consult6Method => 'Publications';
+  String get consult6Method => 'Resources';
 
   @override
-  String get consult6Question => 'Books and resources from Master Elf.';
+  String get consult6Question => 'Books and resources from Stonechat.';
 
   @override
   String get consult6Desc =>
-      'Dive deeper with Master Elf’s published works on Feng Shui, BaZi and Chinese metaphysics. Our books and resources are designed to support your learning and practice beyond the consultation room.';
+      'Our’ publishing and authoring services help you go from idea to finished book. We also offer training materials and resources. Get in touch for more.';
 
   @override
-  String get stickyCtaText => 'Free 12 Animal Forecast';
+  String get stickyCtaText => 'Get in touch';
 
   @override
-  String get popupTitle1 => 'Master Elf\'s';
+  String get popupTitle1 => 'Stonechat';
 
   @override
-  String get popupTitle2 => '12 ZODIACS FORECAST';
+  String get popupTitle2 => 'News & updates';
 
   @override
-  String get popupDescription => 'Year of Fire Horse';
+  String get popupDescription => 'Stay in the loop.';
 
   @override
-  String get readFullArticles => 'Read Full Articles';
+  String get readFullArticles => 'Read more';
 
   @override
   String get popupFormPrompt =>
-      'Enter Your Details Below and we\'ll notify you when your sign premieres.';
+      'Enter your details below and we\'ll notify you when we have updates.';
 
   @override
   String get submit => 'Submit';
 
   @override
-  String get eventsCalendarTitle => 'Master Elf\'s Events Calendar';
+  String get eventsCalendarTitle => 'Workshops & events';
 
   @override
-  String get eventsHeroHeadline => 'The Event of the Year—Don\'t Miss It';
+  String get eventsHeroHeadline => 'Workshops and events';
 
   @override
   String get eventsHeroSubline =>
-      'Live teachings. Expert masters. A community that transforms.';
+      'Training, launches, and community. Clear and practical.';
 
   @override
-  String get eventsSubline => 'Where discussion turns into real knowledge.';
+  String get eventsSubline => 'Where learning meets doing.';
 
   @override
   String get eventsDescription =>
-      'Experience the best event for Feng Shui, Chinese Metaphysics and Astrology in Cambodia—live teachings, expert insights, and a community ready to grow with you.';
+      'Join our workshops on communication skills, app demos, or publishing. We keep things clear and practical. Khmer, English, and Chinese supported.';
 
   @override
   String get eventsDescriptionHighlight =>
-      'best event for Feng Shui, Chinese Metaphysics and Astrology in Cambodia';
+      'communication skills, app demos, or publishing';
 
   @override
-  String get eventsWhyAttendTitle => 'Why This Is the Best Event Ever';
+  String get eventsWhyAttendTitle => 'Why join our events';
 
   @override
   String get eventsWhyAttendLead =>
-      'This isn\'t just another seminar. It\'s the most anticipated Feng Shui and Chinese Metaphysics experience—where ancient wisdom meets real strategy and you leave ready to transform your path.';
+      'Hands-on training in human-centered and AI-enhanced communication. App and publishing insights. A friendly, no-jargon environment.';
 
   @override
   String get eventsWhyAttend1 =>
-      'Learn from the masters—live sessions and insights you can\'t get anywhere else.';
+      'Learn in plain language—no technical runaround. We make sure you feel comfortable and confident.';
 
   @override
   String get eventsWhyAttend2 =>
-      'Connect with practitioners and enthusiasts who share your journey.';
+      'Meet others who care about clear communication and quality apps.';
 
   @override
   String get eventsWhyAttend3 =>
-      'Limited seats. Secure your spot and be part of something extraordinary.';
+      'Limited seats. Secure your spot and get the most from the session.';
 
   @override
   String get eventsUpcomingHeadline => 'Upcoming Events';
@@ -778,121 +773,124 @@ class AppLocalizationsEn extends AppLocalizations {
   String get locationColumn => 'Location';
 
   @override
-  String get aboutPageTitle => 'Master Elf | The Rise of Phoenix';
+  String get aboutPageTitle => 'Stonechat Communications | About us';
 
   @override
-  String get aboutBreadcrumb => 'About Master Elf.';
+  String get aboutBreadcrumb => 'About Stonechat.';
 
   @override
-  String get aboutHeroHeadline => 'Enrich Lives Through Heavenly Knowledge';
+  String get aboutHeroHeadline => 'A handy apps and digital solutions studio.';
 
   @override
-  String get aboutBullet1 => 'It started with believe.';
+  String get aboutBullet1 =>
+      'Modern, beautiful, affordable apps for Web, Desktop, macOS, iOS & Android.';
 
   @override
-  String get aboutBullet2 => 'A mission delegated by the heaven.';
+  String get aboutBullet2 =>
+      'Clean architectures. Elegant interfaces. Without breaking the bank.';
 
   @override
   String get aboutBullet3 =>
-      'Guiding you with metaphysics into reapable outcome.';
+      'Khmer, English, Chinese—and we can add more languages. Fast turnaround.';
 
   @override
-  String get aboutBullet4 => 'Real achievement. Real outputs.';
+  String get aboutBullet4 =>
+      'Clear, human communication so you feel comfortable and confident.';
 
   @override
-  String get journeyPageHeadline => 'My Endeavour';
+  String get journeyPageHeadline => 'Our story';
 
   @override
   String get journeyHeroSubline =>
-      'From a calling to clarity—Feng Shui and Chinese Metaphysics in practice.';
+      'A handy apps and digital solutions studio. Modern, beautiful, affordable.';
 
   @override
-  String get journeySectionTheStory => 'The Story';
+  String get journeySectionTheStory => 'The story';
 
   @override
-  String get journeyHeroSpotlightTitle => 'The Path';
+  String get journeyHeroSpotlightTitle => 'Who we are';
 
   @override
   String get journeyHeroSpotlightDesc =>
-      'From a calling to a system that brings clarity and results. Discover the story below.';
+      'We develop apps and digital solutions, offer communication training, and support book publishing. Discover more below.';
 
   @override
   String get journeyHeroSpotlightCta => 'Read the story';
 
   @override
   String get journeyStory1 =>
-      'Master Elf is a recognised practitioner of Feng Shui and Chinese Metaphysics, with a following of over 44,000 and a track record of guiding individuals and businesses toward clarity and results. His path did not begin by chance—it began with a calling.';
+      'Stonechat Communications is a handy apps and digital solutions studio. We develop modern, beautiful, affordable applications for Web, Desktop, macOS, iOS, and Android.';
 
   @override
   String get journeyStory2 =>
-      'What started as a deep belief in the wisdom of the heavens grew into a mission: to bring ancient systems of timing, space and destiny into everyday life. Through years of study, practice and refinement, he built a method that turns metaphysics into actionable insight.';
+      'We focus on clean, solid-standard architectures and elegant, user-friendly interfaces at a low cost—so individuals and businesses can get high-quality products without breaking the bank. We support Khmer, English, and Chinese, and we\'re flexible to add more languages.';
 
   @override
   String get journeyStory3 =>
-      'Today, that method helps clients make better decisions, choose auspicious dates, understand their strengths and align their environments. From destiny readings to strategic date selection and Feng Shui audits, Master Elf\'s system is designed for real-world impact.';
+      'We value fast turnaround so our clients don\'t get stuck waiting for months; we prioritize speed without sacrificing quality. In every interaction we use a clear, human tone so non-technical clients feel comfortable, informed, and confident.';
 
   @override
-  String get journeyPeriod9Title => 'Period 9 and the New Era';
+  String get journeyPeriod9Title => 'Communication training';
 
   @override
   String get journeyPeriod9Body =>
-      'We are now in Period 9 (2024–2043), the Li Fire era in the Xuan Kong Nine Periods cycle. This 20-year phase emphasises fire element energy, the south direction, and themes of visibility, progress and inner clarity. Master Elf\'s practice is aligned with this shift, helping you navigate the new era with timing and placement that match the cosmic cycle.';
+      'We provide communication skills training: The Art of Human-Centered Communication for general skills, and The Art of AI-Enhanced Communication for communicating effectively with and through AI tools. Clear, practical, no jargon.';
 
   @override
-  String get journeyPhoenixTitle => 'The Rise of the Phoenix';
+  String get journeyPhoenixTitle => 'Book publishing & authoring';
 
   @override
   String get journeyPhoenixBody =>
-      'The Rise of the Phoenix is Master Elf\'s revelation and the name of his system. It symbolises renewal, transformation and the moment when insight leads to action. In Period 9, the phoenix rises—and with the right knowledge, so can you. His framework integrates BaZi, Qimen Dunjia, I Ching, Date Selection, Feng Shui and Mao Shan into one coherent approach for those ready to rise.';
+      'We\'re also experts in book publishing and authoring. We support authors and organizations from concept development to writing, editing, book design (layout and cover), and final publishing. Everything in one place—from idea to finished book, smoothly and efficiently.';
 
   @override
-  String get methodPageHeadline => 'Our Method';
+  String get methodPageHeadline => 'What we do';
 
   @override
   String get methodIntro =>
-      'Master Elf\'s system is built on classical Chinese metaphysics. Each discipline is applied with clear formulas and standards so that consultations and training are consistent, explainable and effective. Below is how the main pillars are practiced, calculated and used.';
+      'We offer three main areas: app and website development, communication skills training, and book publishing. Below is how we work and what you can expect. We keep our language clear and human so you stay informed.';
 
   @override
-  String get methodBaZiTitle => 'BaZi (Four Pillars of Destiny)';
+  String get methodBaZiTitle => 'App & website development';
 
   @override
   String get methodBaZiBody =>
-      'BaZi uses your exact birth date and time to build four pillars—Year, Month, Day, Hour—each with a Heavenly Stem and Earthly Branch (eight characters in total). The chart is calculated in true solar time where applicable. We analyse the Five Elements, strengths and clashes, and life cycles to reveal your potential, favourable directions and timing for key decisions.';
+      'We develop modern, beautiful, affordable apps for Web, Desktop, macOS, iOS, and Android. We focus on clean, solid-standard architectures and elegant, user-friendly interfaces at a low cost so individuals and businesses get high-quality products without breaking the bank.';
 
   @override
-  String get methodQimenTitle => 'Qimen Dunjia';
+  String get methodQimenTitle => 'Communication training';
 
   @override
   String get methodQimenBody =>
-      'Qimen is built on a 3×3 Nine Palaces grid that changes with date and double-hour. We set the chart for the time of the question or event, place the Three Odd Stars (Yi, Bing, Ding), Eight Gates and Eight Deities, and interpret using Yin or Yang Dun. The formula is time-sensitive and used for strategy, date selection and situational analysis.';
+      'We offer two main courses: The Art of Human-Centered Communication for general communication skills, and The Art of AI-Enhanced Communication for communicating effectively with and through AI tools. We use clear, human language—no jargon—so you feel comfortable and confident.';
 
   @override
-  String get methodIChingTitle => 'I Ching (Book of Changes)';
+  String get methodIChingTitle => 'Book publishing & authoring';
 
   @override
   String get methodIChingBody =>
-      'The I Ching is consulted to obtain a hexagram (six lines) that reflects the situation. We use the classical three-coin or yarrow-stalk method: each line is built from bottom to top (6 = transforming yin, 7 = stable yang, 8 = stable yin, 9 = transforming yang). The resulting hexagram and any changing lines are interpreted using the classic text and Master Elf\'s framework for decisions and direction.';
+      'We support authors and organizations from concept development to writing, editing, book design (layout and cover), and final publishing. Everything in one place so you can go from idea to finished, published book smoothly and efficiently.';
 
   @override
-  String get methodDateSelectionTitle => 'Date Selection';
+  String get methodDateSelectionTitle => 'Fast turnaround';
 
   @override
   String get methodDateSelectionBody =>
-      'Auspicious dates and hours are chosen using the Chinese almanac (Tung Shu), BaZi compatibility with the event and principal, and Qimen Dunjia for strategic timing. We avoid inauspicious days (e.g. conflicting stems and branches) and align with favourable energies for openings, weddings, travel and major commitments.';
+      'We value speed without sacrificing quality. We don\'t keep you waiting for months; we prioritize a fast turnaround so you get your website, app, training, or book moving in good time.';
 
   @override
-  String get methodFengShuiTitle => 'Feng Shui (Xuan Kong Flying Star)';
+  String get methodFengShuiTitle => 'Languages we support';
 
   @override
   String get methodFengShuiBody =>
-      'We use Xuan Kong Fei Xing (Flying Star) Feng Shui. The building\'s period (based on completion year; the Feng Shui year starts 4 February) and facing direction (24 Mountains) determine the Flying Star chart. The nine palaces receive stars that combine with the Lo Shu layout. We assess mountain and water stars, element balance and Period 9 adjustments to recommend placement and remedies.';
+      'Our products and services support Khmer, English, and Chinese. We\'re flexible enough to add more languages upon request so you can reach the audience you need.';
 
   @override
-  String get methodMaoShanTitle => 'Mao Shan';
+  String get methodMaoShanTitle => 'Clear, human communication';
 
   @override
   String get methodMaoShanBody =>
-      'Mao Shan (Mount Mao) traditions are integrated where appropriate for ritual and practice within Master Elf\'s system. The methods are applied with respect to classical form and purpose, supporting both spiritual and practical dimensions of Chinese metaphysics as used in his framework.';
+      'In every interaction we communicate in a clear, human tone rather than using overly technical jargon. Our goal is to make sure non-technical clients feel comfortable, informed, and confident throughout the process.';
 
   @override
   String get appointmentIntro =>
@@ -1032,60 +1030,60 @@ class AppLocalizationsEn extends AppLocalizations {
   String get next => 'Next';
 
   @override
-  String get smartMoveHeading => 'Every Move Can Be A Smart Move';
+  String get smartMoveHeading => 'Let\'s build something great.';
 
   @override
   String get smartMoveIntro =>
-      'Behind every breakthrough is a moment of clarity. When you see the full picture, opportunities arise, decisions become easier, and progress flows naturally. That\'s what we help you with: seeing clearly turns your next step into the right one. A consultation with our team gives you more than insight. It gives you structure to move forward with confidence.';
+      'We deliver clean, solid-standard app architectures with elegant, user-friendly interfaces at a low cost. Individuals and businesses get high-quality products without breaking the bank. Fast turnaround, clear communication—so you\'re never left in the dark. We explain things in plain language so you stay informed and confident.';
 
   @override
-  String get smartMoveCard1Title => 'Reach Your Personal Goals';
+  String get smartMoveCard1Title => 'Web, Desktop, iOS & Android';
 
   @override
   String get smartMoveCard1Desc =>
-      'Turn ambitions into achievable milestones with clear guidance.';
+      'Modern apps built on clean architectures. We cover the platforms you need.';
 
   @override
-  String get smartMoveCard2Title => 'Create a Roadmap That Fits';
+  String get smartMoveCard2Title => 'Elegant, user-friendly interfaces';
 
   @override
   String get smartMoveCard2Desc =>
-      'Get a structured plan tailored to your life, career, or business.';
+      'Beautiful design that works. No clutter, no confusion.';
 
   @override
-  String get smartMoveCard3Title => 'Remove Hidden Roadblocks';
+  String get smartMoveCard3Title => 'Affordable pricing';
 
   @override
   String get smartMoveCard3Desc =>
-      'Identify obstacles you didn\'t see and learn how to move past them.';
+      'High-quality products without the high price. We keep costs reasonable.';
 
   @override
-  String get smartMoveCard4Title => 'Gain Situational Awareness';
+  String get smartMoveCard4Title => 'Fast turnaround';
 
   @override
   String get smartMoveCard4Desc =>
-      'See your situation as it is so decisions feel lighter and easier.';
+      'We don\'t keep you waiting for months. Speed without sacrificing quality.';
 
   @override
-  String get smartMoveCard5Title => 'Unlock Better Options';
+  String get smartMoveCard5Title => 'Clear, human communication';
 
   @override
   String get smartMoveCard5Desc =>
-      'Discover choices you didn\'t know you had and select the one that serves you best.';
+      'We use plain language so non-technical clients feel comfortable and confident.';
 
   @override
-  String get smartMoveCard6Title => 'Move in the Right Direction';
+  String get smartMoveCard6Title => 'Khmer, English, Chinese';
 
   @override
   String get smartMoveCard6Desc =>
-      'Act with timing and alignment so progress feels natural and sustainable.';
+      'We support three main languages and can add more on request.';
 
   @override
   String get contactLetsConnect => 'Let\'s Connect!';
 
   @override
   String get contactIntro =>
-      'Whether you are seeking clarity through a consultation, exploring our programs, or reaching out for collaborations, our team is here to guide you. Simply choose your subject, leave your message, and we will connect with you shortly.';
+      'Whether you need an app, a website, training, or help publishing a book—we\'re here. We use clear, human language so you feel comfortable and informed. Choose a topic, leave your message, and we\'ll get back to you shortly.';
 
   @override
   String get contactFormName => 'Name';
@@ -1120,21 +1118,19 @@ class AppLocalizationsEn extends AppLocalizations {
       'Something went wrong. Please try again or email us directly.';
 
   @override
-  String get contactSubjectDestiny => 'Destiny / Personal Reading (Bazi)';
+  String get contactSubjectDestiny => 'App or website development';
 
   @override
-  String get contactSubjectBusiness =>
-      'Business & Strategy Planning (Qi Men / Business Date Selection)';
+  String get contactSubjectBusiness => 'Communication training';
 
   @override
-  String get contactSubjectFengShui => 'Feng Shui (Home / Office Alignment)';
+  String get contactSubjectFengShui => 'Book publishing';
 
   @override
-  String get contactSubjectDateSelection =>
-      'Date Selection (Training Specifics)';
+  String get contactSubjectDateSelection => 'General enquiry';
 
   @override
-  String get contactSubjectUnsure => 'Unsure - I need your recommendation';
+  String get contactSubjectUnsure => 'Not sure—recommend something for me';
 
   @override
   String get forecastAuspiciousStars => 'Auspicious Stars';
@@ -1202,7 +1198,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sampleFeature => 'Sample feature';
 
   @override
-  String get event1Title => 'Master Elf - The Rise of Phoenix 2026';
+  String get event1Title => 'Stonechat - The Rise of Phoenix 2026';
 
   @override
   String get event1Description => 'The Master Revelation.';

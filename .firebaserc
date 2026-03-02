@@ -1,6 +1,6 @@
 {
   "projects": {
-    "contactform": "masterelf-website"
+    "default": "stonechat-84b51"
   },
   "targets": {},
   "etags": {}

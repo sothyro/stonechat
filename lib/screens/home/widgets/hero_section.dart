@@ -284,7 +284,7 @@ class _HeroSectionState extends State<HeroSection> {
                                     ),
                                   ),
                                   child: Text(
-                                    l10n.heroMasterElfCaption,
+                                    l10n.heroStonechatCaption,
                                     style: TextStyle(
                                       fontSize: width < 600 ? 15 : 17,
                                       fontWeight: FontWeight.w500,
@@ -347,7 +347,7 @@ class _HeroSectionState extends State<HeroSection> {
                                     ),
                                   ),
                                   child: Text(
-                                    l10n.heroMasterElfCaption,
+                                    l10n.heroStonechatCaption,
                                     style: TextStyle(
                                       fontSize: width < 600 ? 15 : 17,
                                       fontWeight: FontWeight.w500,

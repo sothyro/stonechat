@@ -9,14 +9,14 @@ import 'providers/locale_provider.dart';
 import 'providers/auth_provider.dart';
 import 'router/app_router.dart';
 
-class MasterElfApp extends StatefulWidget {
-  const MasterElfApp({super.key});
+class StonechatApp extends StatefulWidget {
+  const StonechatApp({super.key});
 
   @override
-  State<MasterElfApp> createState() => _MasterElfAppState();
+  State<StonechatApp> createState() => _StonechatAppState();
 }
 
-class _MasterElfAppState extends State<MasterElfApp> {
+class _StonechatAppState extends State<StonechatApp> {
   GoRouter? _router;
 
   @override

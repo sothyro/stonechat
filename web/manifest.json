@@ -1,11 +1,11 @@
 {
-    "name": "Master Elf Feng Shui",
-    "short_name": "Master Elf",
+    "name": "Stonechat Communications",
+    "short_name": "Stonechat",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#1A1A1A",
     "theme_color": "#1A1A1A",
-    "description": "Master Elf Feng Shui Company Website",
+    "description": "Apps and digital solutions studio. Modern, beautiful, affordable apps for Web, Desktop, macOS, iOS & Android. Communication training and book publishing.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

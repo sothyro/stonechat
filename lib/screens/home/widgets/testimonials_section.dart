@@ -67,7 +67,7 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
       imagePath: AppContent.assetTestimonialThida,
     ),
     const TestimonialItem(
-      quote: '🙏🙏🙏❤️Master Elf',
+      quote: '🙏🙏🙏❤️ Stonechat',
       name: 'Zeii Tey',
       location: 'N/A',
       imagePath: AppContent.assetTestimonialZeiitey,
@@ -133,7 +133,7 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
       imagePath: AppContent.assetTestimonial16,
     ),
     const TestimonialItem(
-      quote: 'Master Elf និយាយបាន១ថ្ងៃផ្ទុះពេញfb',
+      quote: 'Stonechat និយាយបាន១ថ្ងៃផ្ទុះពេញfb',
       name: 'Chantrea Smile',
       location: 'Tbong khmoum, Cambodia',
       imagePath: AppContent.assetTestimonial17,

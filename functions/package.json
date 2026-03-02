@@ -1,6 +1,6 @@
 {
-  "name": "masterelf-booking-functions",
-  "description": "Cloud Functions for Master Elf booking: PlasGate SMS and callables",
+  "name": "stonechat-booking-functions",
+  "description": "Cloud Functions for Stonechat Communications: PlasGate SMS and callables",
   "main": "index.js",
   "type": "module",
   "engines": {

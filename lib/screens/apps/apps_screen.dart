@@ -11,12 +11,12 @@ import '../../utils/breakpoints.dart';
 import '../../utils/launcher_utils.dart';
 
 /// Fragment IDs for Apps & Store sections (used in /apps#fragment).
-const String _sectionMasterElf = 'master-elf';
+const String _sectionStonechat = 'stonechat';
 const String _sectionPeriod9 = 'period9';
 const String _sectionBooks = 'books';
 const String _sectionTalisman = 'talisman';
 
-/// Apps & Store page: Master Elf System, Period 9 Mobile App, Talisman Store.
+/// Apps & Store page: Stonechat system, Period 9 Mobile App, Talisman Store.
 class AppsScreen extends StatefulWidget {
   const AppsScreen({super.key});
 
@@ -25,7 +25,7 @@ class AppsScreen extends StatefulWidget {
 }
 
 class _AppsScreenState extends State<AppsScreen> {
-  final GlobalKey _keyMasterElf = GlobalKey();
+  final GlobalKey _keyStonechat = GlobalKey();
   final GlobalKey _keyPeriod9 = GlobalKey();
   final GlobalKey _keyBooks = GlobalKey();
   final GlobalKey _keyTalisman = GlobalKey();
@@ -45,7 +45,7 @@ class _AppsScreenState extends State<AppsScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       final key = switch (fragment) {
-        _sectionMasterElf => _keyMasterElf,
+        _sectionStonechat => _keyStonechat,
         _sectionPeriod9 => _keyPeriod9,
         _sectionBooks => _keyBooks,
         _sectionTalisman => _keyTalisman,
@@ -109,7 +109,7 @@ class _AppsScreenState extends State<AppsScreen> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Hero: background image + title + subline + description + Master Elf System card.
+          // Hero: background image + title + subline + description + Stonechat system card.
           SizedBox(
             height: isNarrow ? 780 : 720,
             width: double.infinity,
@@ -173,21 +173,21 @@ class _AppsScreenState extends State<AppsScreen> {
                           constraints: const BoxConstraints(maxWidth: 1000),
                           child: _SpotlightSection(
                             icon: LucideIcons.cpu,
-                            title: l10n.masterElfSystemSpotlightTitle,
-                            description: l10n.masterElfSystemSpotlightDesc,
+                            title: l10n.stonechatSpotlightTitle,
+                            description: l10n.stonechatSpotlightDesc,
                             transparent: true,
                             child: _MarketplaceCtaRow(
                               primaryButton: FilledButton.icon(
                                 onPressed: () => launchUrlExternal(AppContent.baziSystemUrl),
                                 icon: const Icon(LucideIcons.externalLink, size: 20),
-                                label: Text(l10n.openMasterElfSystem),
+                                label: Text(l10n.openStonechatCta),
                                 style: FilledButton.styleFrom(
                                   backgroundColor: AppColors.accent,
                                   foregroundColor: AppColors.onAccent,
                                   padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
                                 ),
                               ),
-                              secondaryLabel: '${l10n.bookStorePricePrefix}${l10n.masterElfSubscriptionPrice}${l10n.masterElfPricePerMonth}',
+                              secondaryLabel: '${l10n.bookStorePricePrefix}${l10n.spotlightSubscriptionPrice}${l10n.spotlightPricePerMonth}',
                               secondaryButton: OutlinedButton.icon(
                                 onPressed: () {
                                   ScaffoldMessenger.of(context).showSnackBar(
@@ -199,7 +199,7 @@ class _AppsScreenState extends State<AppsScreen> {
                                   );
                                 },
                                 icon: const Icon(LucideIcons.creditCard, size: 18),
-                                label: Text(l10n.masterElfSubscribe),
+                                label: Text(l10n.spotlightSubscribe),
                                 style: OutlinedButton.styleFrom(
                                   foregroundColor: AppColors.accent,
                                   side: const BorderSide(color: AppColors.accent),
@@ -250,8 +250,8 @@ class _AppsScreenState extends State<AppsScreen> {
                     _MarketplaceCategoryStrip(l10n: l10n),
                     const SizedBox(height: 48),
                     _SectionAnchor(
-                      key: _keyMasterElf,
-                      child: _FeaturedMasterElfSection(l10n: l10n),
+                      key: _keyStonechat,
+                      child: _FeaturedStonechatSection(l10n: l10n),
                     ),
                     const SizedBox(height: 56),
                     _AppFeatureShowcase(
@@ -408,7 +408,7 @@ class _MarketplaceCategoryStrip extends StatelessWidget {
   Widget build(BuildContext context) {
     final isNarrow = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
     final items = [
-      (l10n.marketplaceCategoryDigital, _sectionMasterElf),
+      (l10n.marketplaceCategoryDigital, _sectionStonechat),
       (l10n.marketplaceCategoryBooks, _sectionBooks),
       (l10n.marketplaceCategoryTalismans, _sectionTalisman),
     ];
@@ -435,17 +435,17 @@ class _MarketplaceCategoryStrip extends StatelessWidget {
   }
 }
 
-/// Featured Master Elf System block: hero video (looping) + CTA.
-class _FeaturedMasterElfSection extends StatefulWidget {
-  const _FeaturedMasterElfSection({required this.l10n});
+/// Featured Stonechat system block: hero video (looping) + CTA.
+class _FeaturedStonechatSection extends StatefulWidget {
+  const _FeaturedStonechatSection({required this.l10n});
 
   final AppLocalizations l10n;
 
   @override
-  State<_FeaturedMasterElfSection> createState() => _FeaturedMasterElfSectionState();
+  State<_FeaturedStonechatSection> createState() => _FeaturedStonechatSectionState();
 }
 
-class _FeaturedMasterElfSectionState extends State<_FeaturedMasterElfSection> {
+class _FeaturedStonechatSectionState extends State<_FeaturedStonechatSection> {
   bool _hovered = false;
   bool _muted = true;
   VideoPlayerController? _videoController;
@@ -649,7 +649,7 @@ class _FeaturedMasterElfSectionState extends State<_FeaturedMasterElfSection> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          widget.l10n.masterElfSystemSpotlightTitle,
+                          widget.l10n.stonechatSpotlightTitle,
                           style: highlightStyleForLocale(
                             context,
                             fontSize: isNarrow ? 30 : 38,
@@ -672,8 +672,8 @@ class _FeaturedMasterElfSectionState extends State<_FeaturedMasterElfSection> {
                         const SizedBox(height: 8),
                         _AppsScreenState._buildDescriptionWithHighlight(
                           context,
-                          widget.l10n.masterElfSystemSpotlightTagline,
-                          widget.l10n.masterElfSystemSpotlightTaglineHighlight,
+                          widget.l10n.stonechatSpotlightTagline,
+                          widget.l10n.stonechatSpotlightTaglineHighlight,
                           baseColor: AppColors.onPrimary,
                         ),
                       ],

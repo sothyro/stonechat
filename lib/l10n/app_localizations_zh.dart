@@ -9,7 +9,7 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
-  String get appTitle => 'Master Elf Feng Shui';
+  String get appTitle => 'Stonechat Communications';
 
   @override
   String get skipToContent => '跳到主内容';
@@ -33,7 +33,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get appsAndStore => '应用与商店';
 
   @override
-  String get masterElfSystem => 'Master Elf 系统';
+  String get stonechatSystem => 'Stonechat 系统';
 
   @override
   String get period9MobileApp => '九运手机应用';
@@ -48,11 +48,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get appsPageSubline => '您的八字与中华玄学一站式工具。';
 
   @override
-  String get appsPageDescription =>
-      '使用完整的 Master Elf 系统—八字排盘、九运手机应用与符咒商店—尽在一处。';
+  String get appsPageDescription => '使用完整的 Stonechat 系统—八字排盘、九运手机应用与符咒商店—尽在一处。';
 
   @override
-  String get appsPageDescriptionHighlight => 'Master Elf 系统';
+  String get appsPageDescriptionHighlight => 'Stonechat 系统';
 
   @override
   String get appsFeatureShowcaseHeading => '洞见化为行动的工具';
@@ -74,23 +73,23 @@ class AppLocalizationsZh extends AppLocalizations {
   String get marketplaceCategoryTalismans => '符咒';
 
   @override
-  String get masterElfSystemSpotlightTitle => 'Master Elf 系统';
+  String get stonechatSpotlightTitle => '应用与网站开发';
 
   @override
-  String get masterElfSystemSpotlightDesc =>
-      '完整的八字与中华玄学平台。在线排盘、分析时机，使用 Master Elf 系统。';
+  String get stonechatSpotlightDesc =>
+      '我们为 Web、桌面、macOS、iOS 和 Android 开发现代、美观、实惠的应用。架构清晰、界面优雅——高品质产品，价格亲民。';
 
   @override
-  String get openMasterElfSystem => '打开 Master Elf 系统';
+  String get openStonechatCta => '获取报价';
 
   @override
-  String get masterElfSubscribe => '订阅';
+  String get spotlightSubscribe => '订阅';
 
   @override
-  String get masterElfSubscriptionPrice => '9.99';
+  String get spotlightSubscriptionPrice => '9.99';
 
   @override
-  String get masterElfPricePerMonth => '/ 月';
+  String get spotlightPricePerMonth => '/ 月';
 
   @override
   String get period9PriceFree => '免费';
@@ -150,10 +149,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get talismanProduct9Title => '智慧吊坠';
 
   @override
-  String get masterElfSystemSpotlightTagline => '你的时机，一目了然。';
+  String get stonechatSpotlightTagline => '品质不打折，价格更亲民。';
 
   @override
-  String get masterElfSystemSpotlightTaglineHighlight => '一目了然';
+  String get stonechatSpotlightTaglineHighlight => '品质';
 
   @override
   String get period9SpotlightTagline => '九运风水，随身随行。';
@@ -168,7 +167,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get talismanStoreSpotlightTaglineHighlight => '护佑';
 
   @override
-  String get bookStoreSectionHeading => 'Master Elf 书店';
+  String get bookStoreSectionHeading => 'Stonechat 书店';
 
   @override
   String get bookStoreSectionTagline => '握在手中的智慧。历久弥新的知识。';
@@ -262,7 +261,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get mediaPostsFacebookBody => '我们的最新动态、活动与资讯发布在 Facebook 专页，欢迎关注。';
 
   @override
-  String get mediaPostsFacebookLink => 'facebook.com/masterelf.vip';
+  String get mediaPostsFacebookLink => 'facebook.com/stonechat';
 
   @override
   String get mediaPostsTelegramTitle => 'Telegram 群组';
@@ -289,10 +288,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get bookConsultation => '预约咨询';
 
   @override
-  String get aboutMasterElf => '关于 Master Elf';
+  String get aboutStonechat => '关于 Stonechat';
 
   @override
-  String get heroMasterElfCaption => 'Master Elf';
+  String get heroStonechatCaption => 'Stonechat';
 
   @override
   String get journey => '我的奋进';
@@ -433,10 +432,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sectionMapIntro => '各就各位… 我们深知如何助你对准时机、开辟清晰的前进道路。';
 
   @override
-  String get sectionStoryHeading => 'Master Elf 的故事。';
+  String get sectionStoryHeading => 'Stonechat 的故事。';
 
   @override
-  String get sectionStoryPara1 => 'Master Elf 为你铺垫成功的前 50%，再以另外 50% 引领你收获成果。';
+  String get sectionStoryPara1 => 'Stonechat 为你铺垫成功的前 50%，再以另外 50% 引领你收获成果。';
 
   @override
   String get sectionStoryPara2 => '经年研习、验证与提炼，形成根植于中华玄学的可验证方法。';
@@ -445,7 +444,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sectionStoryPara3 => '如今，这套方法已帮助 44,000 多名追随者为己为人创造更好结果。';
 
   @override
-  String get sectionStoryCtaButton => 'Master Elf 的奋进';
+  String get sectionStoryCtaButton => 'Stonechat 的奋进';
 
   @override
   String get sectionTestimonialsHeading => '真实洞见。真实成果。';
@@ -601,13 +600,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get consult5Desc => '茅山法脉在中国玄学中的方法与仪轨。';
 
   @override
-  String get consult6Category => 'Master Elf 出版物';
+  String get consult6Category => 'Stonechat 出版物';
 
   @override
   String get consult6Method => '出版物';
 
   @override
-  String get consult6Question => 'Master Elf 的书籍与资源。';
+  String get consult6Question => 'Stonechat 的书籍与资源。';
 
   @override
   String get consult6Desc => '探索我们在风水与中国玄学方面的出版作品。';
@@ -616,7 +615,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get stickyCtaText => '免费十二生肖运势';
 
   @override
-  String get popupTitle1 => 'Master Elf';
+  String get popupTitle1 => 'Stonechat';
 
   @override
   String get popupTitle2 => '十二生肖运势';
@@ -634,7 +633,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get submit => '提交';
 
   @override
-  String get eventsCalendarTitle => 'Master Elf 活动日历';
+  String get eventsCalendarTitle => 'Stonechat 活动日历';
 
   @override
   String get eventsHeroHeadline => '年度盛会——不容错过';
@@ -720,10 +719,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get locationColumn => '地点';
 
   @override
-  String get aboutPageTitle => 'Master Elf | 凤凰崛起';
+  String get aboutPageTitle => 'Stonechat | 凤凰崛起';
 
   @override
-  String get aboutBreadcrumb => '关于 Master Elf。';
+  String get aboutBreadcrumb => '关于 Stonechat。';
 
   @override
   String get aboutHeroHeadline => '以天道学识丰富人生';
@@ -760,7 +759,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get journeyStory1 =>
-      'Master Elf 是公认的风水与中华玄学实践者，拥有超过 44,000 名追随者，长期为个人与企业提供清晰指引与成果。他的道路并非偶然，而是始于一份使命。';
+      'Stonechat 是公认的风水与中华玄学实践者，拥有超过 44,000 名追随者，长期为个人与企业提供清晰指引与成果。他的道路并非偶然，而是始于一份使命。';
 
   @override
   String get journeyStory2 =>
@@ -768,28 +767,28 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get journeyStory3 =>
-      '如今，这套方法帮助客户做出更好决策、择吉日、认识自身优势并调整环境。从命运解读、战略择日到风水勘察，Master Elf 的系统旨在产生真实影响。';
+      '如今，这套方法帮助客户做出更好决策、择吉日、认识自身优势并调整环境。从命运解读、战略择日到风水勘察，Stonechat 的系统旨在产生真实影响。';
 
   @override
   String get journeyPeriod9Title => '九运与新纪元';
 
   @override
   String get journeyPeriod9Body =>
-      '我们正处在九运（2024–2043），即玄空九运中的离火运。这二十年强调火元素能量、南方方位，以及能见度、进步与内在清明。Master Elf 的实践与此转换同步，助你在新纪元中以契合天时的时机与布局前行。';
+      '我们正处在九运（2024–2043），即玄空九运中的离火运。这二十年强调火元素能量、南方方位，以及能见度、进步与内在清明。Stonechat 的实践与此转换同步，助你在新纪元中以契合天时的时机与布局前行。';
 
   @override
   String get journeyPhoenixTitle => '凤凰崛起';
 
   @override
   String get journeyPhoenixBody =>
-      '「凤凰崛起」是 Master Elf 的悟道与系统之名，象征重生、转化，以及洞见化为行动的一刻。在九运中，凤凰崛起——掌握正确知识，你也能腾飞。他的框架将八字、奇门遁甲、易经、择日、风水与茅山融为一体，为准备好的人提供连贯之道。';
+      '「凤凰崛起」是 Stonechat 的悟道与系统之名，象征重生、转化，以及洞见化为行动的一刻。在九运中，凤凰崛起——掌握正确知识，你也能腾飞。他的框架将八字、奇门遁甲、易经、择日、风水与茅山融为一体，为准备好的人提供连贯之道。';
 
   @override
   String get methodPageHeadline => '我们的方法';
 
   @override
   String get methodIntro =>
-      'Master Elf 的系统建立在古典中华玄学之上。每一门学问均以清晰的公式与标准应用，使咨询与教学一致、可解释且有效。以下为主要支柱的实践、推算与运用方式。';
+      'Stonechat 的系统建立在古典中华玄学之上。每一门学问均以清晰的公式与标准应用，使咨询与教学一致、可解释且有效。以下为主要支柱的实践、推算与运用方式。';
 
   @override
   String get methodBaZiTitle => '八字（四柱命理）';
@@ -810,7 +809,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get methodIChingBody =>
-      '易经通过占得六爻卦象反映当下。我们采用传统三枚钱币或蓍草法：自下而上建爻（6 老阴、7 少阳、8 少阴、9 老阳）。所得卦象与动爻依经典与 Master Elf 的框架解读，用于决策与方向。';
+      '易经通过占得六爻卦象反映当下。我们采用传统三枚钱币或蓍草法：自下而上建爻（6 老阴、7 少阳、8 少阴、9 老阳）。所得卦象与动爻依经典与 Stonechat 的框架解读，用于决策与方向。';
 
   @override
   String get methodDateSelectionTitle => '择日';
@@ -831,7 +830,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get methodMaoShanBody =>
-      '茅山传统在 Master Elf 系统中于适当处融入仪轨与实修。方法依古典形制与用途应用，支持中华玄学在其框架中的精神与实践面向。';
+      '茅山传统在 Stonechat 系统中于适当处融入仪轨与实修。方法依古典形制与用途应用，支持中华玄学在其框架中的精神与实践面向。';
 
   @override
   String get appointmentIntro => '选择咨询类型、预约时间，我们将通过短信向您发送确认。';
@@ -1123,7 +1122,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sampleFeature => '示例專題';
 
   @override
-  String get event1Title => 'Master Elf - The Rise of Phoenix 2026';
+  String get event1Title => 'Stonechat - The Rise of Phoenix 2026';
 
   @override
   String get event1Description => '師父開示。';
