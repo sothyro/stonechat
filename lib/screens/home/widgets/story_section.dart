@@ -18,10 +18,9 @@ class StorySection extends StatelessWidget {
 
   /// Phrases to highlight in story body (matched in order; works across locales where present).
   static const List<String> _bodyHighlightPhrases = [
-    '50%',
-    '44,000',
-    'Chinese Metaphysics',
-    'proven method',
+    'partner',
+    'Khmer, English, and Chinese',
+    'Tell us your idea',
   ];
 
   @override
@@ -79,33 +78,39 @@ class StorySection extends StatelessWidget {
       fontWeight: FontWeight.w600,
     );
 
+    final para1 = isMobile ? l10n.sectionStoryPara1Short : l10n.sectionStoryPara1;
+    final para2 = isMobile ? l10n.sectionStoryPara2Short : l10n.sectionStoryPara2;
+    final para3 = isMobile ? l10n.sectionStoryPara3Short : l10n.sectionStoryPara3;
+    final bodyGap = isMobile ? 12.0 : 16.0;
+    final bottomGap = isMobile ? 24.0 : 32.0;
+
     final content = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
         titleWidget,
-        const SizedBox(height: 28),
+        SizedBox(height: isMobile ? 20 : 28),
         RichText(
           text: TextSpan(
             style: bodyBase,
-            children: _highlightPhrases(l10n.sectionStoryPara1, _bodyHighlightPhrases, bodyBase, bodyHighlight),
+            children: _highlightPhrases(para1, _bodyHighlightPhrases, bodyBase, bodyHighlight),
           ),
         ),
-        const SizedBox(height: 16),
+        SizedBox(height: bodyGap),
         RichText(
           text: TextSpan(
             style: bodyBase,
-            children: _highlightPhrases(l10n.sectionStoryPara2, _bodyHighlightPhrases, bodyBase, bodyHighlight),
+            children: _highlightPhrases(para2, _bodyHighlightPhrases, bodyBase, bodyHighlight),
           ),
         ),
-        const SizedBox(height: 16),
+        SizedBox(height: bodyGap),
         RichText(
           text: TextSpan(
             style: bodyBase,
-            children: _highlightPhrases(l10n.sectionStoryPara3, _bodyHighlightPhrases, bodyBase, bodyHighlight),
+            children: _highlightPhrases(para3, _bodyHighlightPhrases, bodyBase, bodyHighlight),
           ),
         ),
-        const SizedBox(height: 32),
+        SizedBox(height: bottomGap),
         OutlinedButton(
           onPressed: () => context.push('/journey'),
           style: OutlinedButton.styleFrom(

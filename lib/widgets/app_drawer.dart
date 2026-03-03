@@ -49,51 +49,7 @@ class AppDrawer extends StatelessWidget {
                       icon: LucideIcons.home,
                       onTap: () => _go(context, '/'),
                     ),
-                    _DrawerTile(
-                      label: l10n.about,
-                      path: '/about',
-                      current: current,
-                      icon: LucideIcons.info,
-                      onTap: () => _go(context, '/about'),
-                    ),
-                    _SectionLabel(label: l10n.charteredPractitioner),
-                    _DrawerTile(
-                      label: l10n.journey,
-                      path: '/journey',
-                      current: current,
-                      icon: LucideIcons.compass,
-                      onTap: () => _go(context, '/journey'),
-                    ),
-                    _DrawerTile(
-                      label: l10n.academyPageTitle,
-                      path: '/academy',
-                      current: current,
-                      icon: LucideIcons.graduationCap,
-                      onTap: () => _go(context, '/academy'),
-                    ),
-                    _SectionLabel(label: l10n.appsAndStore),
-                    _DrawerTile(
-                      label: l10n.stonechatSystem,
-                      path: '/apps#stonechat',
-                      current: current,
-                      icon: LucideIcons.cpu,
-                      onTap: () => _go(context, '/apps#stonechat'),
-                    ),
-                    _DrawerTile(
-                      label: l10n.period9MobileApp,
-                      path: '/apps#period9',
-                      current: current,
-                      icon: LucideIcons.smartphone,
-                      onTap: () => _go(context, '/apps#period9'),
-                    ),
-                    _DrawerTile(
-                      label: l10n.talismanStore,
-                      path: '/apps#talisman',
-                      current: current,
-                      icon: LucideIcons.shoppingBag,
-                      onTap: () => _go(context, '/apps#talisman'),
-                    ),
-                    _SectionLabel(label: l10n.events),
+                    _SectionLabel(label: l10n.training),
                     _DrawerTile(
                       label: l10n.eventsCalendar,
                       path: '/events',
@@ -102,7 +58,14 @@ class AppDrawer extends StatelessWidget {
                       onTap: () => _go(context, '/events'),
                     ),
                     _DrawerTile(
-                      label: l10n.mediaAndPosts,
+                      label: l10n.ourStory,
+                      path: '/journey',
+                      current: current,
+                      icon: LucideIcons.compass,
+                      onTap: () => _go(context, '/journey'),
+                    ),
+                    _DrawerTile(
+                      label: l10n.onTheNews,
                       path: '',
                       current: current,
                       icon: LucideIcons.fileText,
@@ -111,8 +74,20 @@ class AppDrawer extends StatelessWidget {
                         showMediaPostsPopup(context);
                       },
                     ),
-                    const SizedBox(height: 16),
-                    _SectionLabel(label: l10n.consultations),
+                    _DrawerTile(
+                      label: l10n.appsNav,
+                      path: '/apps',
+                      current: current,
+                      icon: LucideIcons.cpu,
+                      onTap: () => _go(context, '/apps'),
+                    ),
+                    _DrawerTile(
+                      label: l10n.publications,
+                      path: '/book',
+                      current: current,
+                      icon: LucideIcons.bookOpen,
+                      onTap: () => _go(context, '/book'),
+                    ),
                     _DrawerTile(
                       label: l10n.consultations,
                       path: '/consultations',
@@ -238,7 +213,7 @@ class _DrawerTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isActive = current == path;
+    final isActive = current == path || (path.isNotEmpty && current.startsWith('$path#'));
     return Padding(
       padding: const EdgeInsets.only(bottom: 4),
       child: Material(

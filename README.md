@@ -26,6 +26,16 @@ flutter build web
 
 Output is in `build/web/`. Serve with any static host or use `dart run webdev serve` for local preview.
 
+### Direct links and 404 (SPA routing)
+
+The app uses path-based URLs (e.g. `/about`, `/contact`). So that **direct links, bookmarks, and refresh** work (and don’t show 404), the server must serve `index.html` for all routes and let the client router handle them.
+
+- **Namecheap (cPanel / Apache)**: `web/.htaccess` is included in the build. Upload the contents of `build/web/` to your hosting root (e.g. `public_html`). See [Deploying to Namecheap](#deploying-to-namecheap) below.
+- **Firebase Hosting**: `firebase.json` includes a `hosting` section with rewrites so unmatched paths serve `/index.html`. Deploy with `firebase deploy --only hosting` (after `flutter build web`).
+- **Netlify**: `web/_redirects` is copied into `build/web` and tells Netlify to serve `index.html` for every path (status 200).
+- **Vercel**: `vercel.json` has `rewrites` for the same behavior; set build to `flutter build web` and output to `build/web` in the project settings.
+- **Other hosts**: Configure the server so that requests that don’t match a file are served with `index.html` (e.g. nginx `try_files $uri $uri/ /index.html`).
+
 ### Tests
 
 ```bash
@@ -49,8 +59,50 @@ flutter analyze
   - `widgets/` – shared UI (header, footer, shell, dialogs)  
   - `services/` – e.g. appointment booking API  
 - `assets/` – images, icons, video  
-- `web/` – `index.html`, PWA manifest, favicon  
+- `web/` – `index.html`, PWA manifest, favicon, `.htaccess` (Namecheap/Apache SPA config)  
   - `web/videos/` – hero video for web (e.g. `videobackground720.mp4`); copy from `assets/videos/` if missing so the release build serves it as a static file.  
+
+## Deploying to Namecheap
+
+Namecheap shared hosting uses **cPanel and Apache**. The project includes `web/.htaccess` so that direct links (e.g. `https://yoursite.com/about`) and page refresh work instead of showing 404.
+
+### 1. Build the app
+
+From the project root:
+
+```bash
+flutter pub get
+flutter build web
+```
+
+Output is in `build/web/`.
+
+### 2. Upload to Namecheap
+
+1. Log in to [Namecheap](https://www.namecheap.com) → **Dashboard** → **Hosting List** → **Manage** (your hosting).
+2. Open **cPanel** (or **File Manager**).
+3. Go to **public_html** (for the main domain) or the folder for your subdomain (e.g. **public_html** for `www`, or a subfolder if the site is in a subdirectory).
+4. Upload **all contents** of your local `build/web/` folder into that directory:
+   - Drag and drop the *contents* of `build/web/` (not the `build/web` folder itself), so that `index.html`, `main.dart.js`, `favicon.png`, `.htaccess`, `assets/`, `canvaskit/` (or `flutter.js`), etc. are directly inside `public_html` (or your target folder).
+5. Ensure **`.htaccess`** is present in the same directory as `index.html`. If your upload tool hides dotfiles, upload `.htaccess` separately or enable “Show hidden files” in cPanel File Manager and upload it.
+
+### 3. If the app is in a subdirectory
+
+If the site is not at the domain root (e.g. `https://yoursite.com/stonechat/`):
+
+1. In `web/.htaccess`, change `RewriteBase /` to `RewriteBase /stonechat/` (use your subdirectory path with leading and trailing slashes).
+2. Rebuild and upload again.
+
+### 4. Verify
+
+- Open `https://yourdomain.com` — the home page should load.
+- Open `https://yourdomain.com/about` (or `/contact`, etc.) — the correct page should load (no 404).
+- Refresh the page on `/about` — it should still load (no 404).
+
+If you still get 404 on direct links or refresh, confirm that:
+
+- `.htaccess` is in the same folder as `index.html`.
+- **mod_rewrite** is enabled (Namecheap shared hosting usually has it on by default).
 
 ## Configuration
 

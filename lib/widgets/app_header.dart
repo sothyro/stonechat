@@ -157,16 +157,13 @@ class _DesktopHeader extends StatelessWidget {
   final AppLocalizations l10n;
   final LocaleNotifier localeNotifier;
 
-  /// Paths per dropdown (by index). When multiple dropdowns share a path (e.g. /events),
-  /// only the last matching one is active so at most one menu is highlighted.
+  /// Paths per dropdown (by index). Training dropdown: Event Calendar, Our Story; "On the news" is popup.
   static const _dropdownPaths = [
-    ['/about', '/journey', '/academy'],
-    ['/apps'],  // Apps & Store
-    ['/events'],  // Events (Events Calendar, Media & Posts)
+    ['/events', '/journey'],
   ];
 
-  /// Sentinel value for Events dropdown: "Media & Posts" runs a callback instead of navigating.
-  static const _kMediaPostsAction = '__media_posts__';
+  /// Sentinel value for Training dropdown: "On the news" runs a callback instead of navigating.
+  static const _kOnTheNewsAction = '__on_the_news__';
 
   @override
   Widget build(BuildContext context) {
@@ -189,33 +186,18 @@ class _DesktopHeader extends StatelessWidget {
       const SizedBox(width: 36),
       _NavLink(label: l10n.home, path: '/'),
       _NavDropdown(
-        label: l10n.charteredPractitioner,
-        items: [
-          _NavItem(l10n.journey, '/journey', LucideIcons.compass),
-          _NavItem(l10n.academyPageTitle, '/academy', LucideIcons.graduationCap),
-        ],
-        isActive: activeDropdownIndex == 0,
-      ),
-      _NavDropdown(
-        label: l10n.appsAndStore,
-        items: [
-          _NavItem(l10n.stonechatSystem, '/apps#stonechat', LucideIcons.cpu),
-          _NavItem(l10n.period9MobileApp, '/apps#period9', LucideIcons.smartphone),
-          _NavItem(l10n.bookStoreNav, '/apps#books', LucideIcons.bookOpen),
-          _NavItem(l10n.talismanStore, '/apps#talisman', LucideIcons.shoppingBag),
-        ],
-        isActive: activeDropdownIndex == 1,
-      ),
-      _NavDropdown(
-        label: l10n.events,
+        label: l10n.training,
         items: [
           _NavItem(l10n.eventsCalendar, '/events', LucideIcons.calendarDays),
-          _NavItem(l10n.mediaAndPosts, _kMediaPostsAction, LucideIcons.fileText),
+          _NavItem(l10n.ourStory, '/journey', LucideIcons.compass),
+          _NavItem(l10n.onTheNews, _kOnTheNewsAction, LucideIcons.fileText),
         ],
-        isActive: activeDropdownIndex == 2,
-        actionValue: _kMediaPostsAction,
+        isActive: activeDropdownIndex == 0,
+        actionValue: _kOnTheNewsAction,
         onAction: (context) => showMediaPostsPopup(context),
       ),
+      _NavLink(label: l10n.appsNav, path: '/apps'),
+      _NavLink(label: l10n.publications, path: '/book'),
       _NavLink(label: l10n.consultations, path: '/consultations'),
       if (isTablet) const SizedBox(width: 24) else const Spacer(),
       _LocaleSwitcher(notifier: localeNotifier),

@@ -136,6 +136,36 @@ abstract class AppLocalizations {
   /// **'Learning & Practice'**
   String get charteredPractitioner;
 
+  /// No description provided for @training.
+  ///
+  /// In en, this message translates to:
+  /// **'Training'**
+  String get training;
+
+  /// No description provided for @courses.
+  ///
+  /// In en, this message translates to:
+  /// **'Courses'**
+  String get courses;
+
+  /// No description provided for @ourStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Our Story'**
+  String get ourStory;
+
+  /// No description provided for @onTheNews.
+  ///
+  /// In en, this message translates to:
+  /// **'On the news'**
+  String get onTheNews;
+
+  /// No description provided for @publications.
+  ///
+  /// In en, this message translates to:
+  /// **'Publications'**
+  String get publications;
+
   /// No description provided for @resources.
   ///
   /// In en, this message translates to:
@@ -147,6 +177,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Apps & Store'**
   String get appsAndStore;
+
+  /// No description provided for @appsNav.
+  ///
+  /// In en, this message translates to:
+  /// **'Apps'**
+  String get appsNav;
+
+  /// No description provided for @bookNav.
+  ///
+  /// In en, this message translates to:
+  /// **'Book'**
+  String get bookNav;
 
   /// No description provided for @stonechatSystem.
   ///
@@ -375,6 +417,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Chapter 9 - Communications for Organisational Change'**
   String get talismanProduct9Title;
+
+  /// No description provided for @caishenClinicSectionHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Featuring the Caishen Clinic Management System'**
+  String get caishenClinicSectionHeading;
+
+  /// No description provided for @caishenClinicSectionTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'One platform to run your clinic. Appointments, patients, and records—all in one place.'**
+  String get caishenClinicSectionTagline;
+
+  /// No description provided for @caishenClinicSectionTaglineHighlight.
+  ///
+  /// In en, this message translates to:
+  /// **'all in one place'**
+  String get caishenClinicSectionTaglineHighlight;
+
+  /// No description provided for @caishenClinicSectionBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Built for modern practices. Streamline scheduling, secure patient data, and grow your practice with a system that scales with you.'**
+  String get caishenClinicSectionBody;
+
+  /// No description provided for @caishenClinicSectionBodyHighlight.
+  ///
+  /// In en, this message translates to:
+  /// **'scales with you'**
+  String get caishenClinicSectionBodyHighlight;
+
+  /// No description provided for @caishenClinicFeature1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Dashboard'**
+  String get caishenClinicFeature1Title;
+
+  /// No description provided for @caishenClinicFeature2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointments'**
+  String get caishenClinicFeature2Title;
+
+  /// No description provided for @caishenClinicFeature3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Patient records'**
+  String get caishenClinicFeature3Title;
+
+  /// No description provided for @caishenClinicFeature4Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Scheduling'**
+  String get caishenClinicFeature4Title;
+
+  /// No description provided for @caishenClinicFeature5Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Clinical workflow'**
+  String get caishenClinicFeature5Title;
+
+  /// No description provided for @caishenClinicFeature6Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Reports & analytics'**
+  String get caishenClinicFeature6Title;
+
+  /// No description provided for @caishenClinicFeature7Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Billing & payments'**
+  String get caishenClinicFeature7Title;
+
+  /// No description provided for @caishenClinicFeature8Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Staff & roles'**
+  String get caishenClinicFeature8Title;
+
+  /// No description provided for @caishenClinicFeature9Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings & integration'**
+  String get caishenClinicFeature9Title;
 
   /// No description provided for @stonechatSpotlightTagline.
   ///
@@ -679,7 +805,7 @@ abstract class AppLocalizations {
   /// No description provided for @contactUs.
   ///
   /// In en, this message translates to:
-  /// **'Contact'**
+  /// **'Contact Us'**
   String get contactUs;
 
   /// No description provided for @bookConsultation.
@@ -805,7 +931,7 @@ abstract class AppLocalizations {
   /// No description provided for @heroHeadline1.
   ///
   /// In en, this message translates to:
-  /// **'Quality apps. Without breaking the bank.'**
+  /// **'Quality apps, training & publishing—without breaking the bank.'**
   String get heroHeadline1;
 
   /// No description provided for @heroHeadline1Prefix.
@@ -817,13 +943,13 @@ abstract class AppLocalizations {
   /// No description provided for @heroHeadline1Highlight.
   ///
   /// In en, this message translates to:
-  /// **'Quality apps'**
+  /// **'Quality apps, training & publishing'**
   String get heroHeadline1Highlight;
 
   /// No description provided for @heroHeadline1Suffix.
   ///
   /// In en, this message translates to:
-  /// **'. Without breaking the bank.'**
+  /// **'—without breaking the bank.'**
   String get heroHeadline1Suffix;
 
   /// No description provided for @heroHeadline2Prefix.
@@ -841,7 +967,7 @@ abstract class AppLocalizations {
   /// No description provided for @heroSubline.
   ///
   /// In en, this message translates to:
-  /// **'Apps & digital solutions studio'**
+  /// **'Apps, workshops & books—clear, human, and affordable.'**
   String get heroSubline;
 
   /// No description provided for @exploreAllEvents.
@@ -895,7 +1021,7 @@ abstract class AppLocalizations {
   /// No description provided for @finalCtaBody.
   ///
   /// In en, this message translates to:
-  /// **'Send a message, give us a call, or visit our website. We\'ll get back to you in a clear, friendly way.'**
+  /// **'Tell us what you need—an app, training, or a book. We\'ll reply in clear, human terms.'**
   String get finalCtaBody;
 
   /// No description provided for @notSureWhereToStart.
@@ -919,37 +1045,37 @@ abstract class AppLocalizations {
   /// No description provided for @sectionExperienceHeading.
   ///
   /// In en, this message translates to:
-  /// **'Clean architectures. Elegant interfaces. Low cost.'**
+  /// **'Hands-on workshops. Clear skills. Real impact.'**
   String get sectionExperienceHeading;
 
   /// No description provided for @sectionExperienceHeadingPrefix.
   ///
   /// In en, this message translates to:
-  /// **'Clean architectures. Elegant '**
+  /// **'Hands-on workshops. '**
   String get sectionExperienceHeadingPrefix;
 
   /// No description provided for @sectionExperienceHeadingHighlight.
   ///
   /// In en, this message translates to:
-  /// **'interfaces. Low cost.'**
+  /// **'Clear skills. Real impact.'**
   String get sectionExperienceHeadingHighlight;
 
   /// No description provided for @sectionKnowledgeHeading.
   ///
   /// In en, this message translates to:
-  /// **'We deliver quality without the high price.'**
+  /// **'Training that fits your goals.'**
   String get sectionKnowledgeHeading;
 
   /// No description provided for @sectionKnowledgeBody.
   ///
   /// In en, this message translates to:
-  /// **'We build modern, beautiful, affordable apps for Web, Desktop, macOS, iOS, and Android. Clean, solid-standard architectures with user-friendly interfaces so individuals and businesses get high-quality products without breaking the bank.'**
+  /// **'We offer communication training: human-centered and AI-enhanced workshops. Build clear, practical skills—no jargon. Custom sessions for your team or organization.'**
   String get sectionKnowledgeBody;
 
   /// No description provided for @sectionKnowledgeBody2.
   ///
   /// In en, this message translates to:
-  /// **'We support Khmer, English, and Chinese—and we can add more languages. Fast turnaround so you don\'t wait for months; we prioritize speed without sacrificing quality.'**
+  /// **'We support Khmer, English, and Chinese and can add more languages. Fast turnaround so you get results without long waits.'**
   String get sectionKnowledgeBody2;
 
   /// No description provided for @sectionKnowledgeStat.
@@ -967,7 +1093,7 @@ abstract class AppLocalizations {
   /// No description provided for @sectionMapIntro.
   ///
   /// In en, this message translates to:
-  /// **'We communicate in a clear, human tone so non-technical clients feel comfortable, informed, and confident. Tell us your idea—we\'ll help you get there.'**
+  /// **'Choose a service below. We\'ll guide you to the right option and next steps.'**
   String get sectionMapIntro;
 
   /// No description provided for @sectionStoryHeading.
@@ -979,20 +1105,38 @@ abstract class AppLocalizations {
   /// No description provided for @sectionStoryPara1.
   ///
   /// In en, this message translates to:
-  /// **'Stonechat Communications is a handy apps and digital solutions studio. We develop modern, beautiful, affordable applications for Web, Desktop, macOS, iOS, and Android.'**
+  /// **'Stonechat Communications is your partner for apps, communication training, and book publishing. We develop modern, affordable applications and run clear, practical workshops.'**
   String get sectionStoryPara1;
 
   /// No description provided for @sectionStoryPara2.
   ///
   /// In en, this message translates to:
-  /// **'We focus on clean, solid-standard app architectures with elegant, user-friendly interfaces at a low cost. We support Khmer, English, and Chinese and are flexible to add more languages.'**
+  /// **'We work in Khmer, English, and Chinese and can add more languages. We prioritize fast turnaround and clear communication—so you stay informed and confident.'**
   String get sectionStoryPara2;
 
   /// No description provided for @sectionStoryPara3.
   ///
   /// In en, this message translates to:
-  /// **'We value fast turnaround and clear communication. In every interaction we use a human tone so you feel comfortable and confident throughout the process.'**
+  /// **'Tell us your idea. We\'ll help you get there in plain language, without the runaround.'**
   String get sectionStoryPara3;
+
+  /// No description provided for @sectionStoryPara1Short.
+  ///
+  /// In en, this message translates to:
+  /// **'Your partner for apps, training & publishing. Modern, affordable, clear.'**
+  String get sectionStoryPara1Short;
+
+  /// No description provided for @sectionStoryPara2Short.
+  ///
+  /// In en, this message translates to:
+  /// **'Khmer, English & Chinese. Fast turnaround. Human tone.'**
+  String get sectionStoryPara2Short;
+
+  /// No description provided for @sectionStoryPara3Short.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell us your idea—we\'ll help you get there.'**
+  String get sectionStoryPara3Short;
 
   /// No description provided for @sectionStoryCtaButton.
   ///
@@ -1585,31 +1729,31 @@ abstract class AppLocalizations {
   /// No description provided for @aboutHeroHeadline.
   ///
   /// In en, this message translates to:
-  /// **'A handy apps and digital solutions studio.'**
+  /// **'Your partner for apps, training & publishing.'**
   String get aboutHeroHeadline;
 
   /// No description provided for @aboutBullet1.
   ///
   /// In en, this message translates to:
-  /// **'Modern, beautiful, affordable apps for Web, Desktop, macOS, iOS & Android.'**
+  /// **'Modern, affordable apps for Web, Desktop, macOS, iOS & Android.'**
   String get aboutBullet1;
 
   /// No description provided for @aboutBullet2.
   ///
   /// In en, this message translates to:
-  /// **'Clean architectures. Elegant interfaces. Without breaking the bank.'**
+  /// **'Communication training: human-centered and AI-enhanced workshops.'**
   String get aboutBullet2;
 
   /// No description provided for @aboutBullet3.
   ///
   /// In en, this message translates to:
-  /// **'Khmer, English, Chinese—and we can add more languages. Fast turnaround.'**
+  /// **'Book publishing from idea to finished book—writing, design, and distribution.'**
   String get aboutBullet3;
 
   /// No description provided for @aboutBullet4.
   ///
   /// In en, this message translates to:
-  /// **'Clear, human communication so you feel comfortable and confident.'**
+  /// **'Clear communication, fast turnaround. Khmer, English & Chinese.'**
   String get aboutBullet4;
 
   /// No description provided for @journeyPageHeadline.
@@ -2125,7 +2269,7 @@ abstract class AppLocalizations {
   /// No description provided for @contactIntro.
   ///
   /// In en, this message translates to:
-  /// **'Whether you need an app, a website, training, or help publishing a book—we\'re here. We use clear, human language so you feel comfortable and informed. Choose a topic, leave your message, and we\'ll get back to you shortly.'**
+  /// **'Whether you need an app, a website, training, or help publishing a book—we\'re here. We use clear, human language. Choose a topic, leave your message, and we\'ll get back to you shortly. We usually reply within 1 business day.'**
   String get contactIntro;
 
   /// No description provided for @contactFormName.

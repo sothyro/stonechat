@@ -89,17 +89,26 @@ class _HeroSectionState extends State<HeroSection> {
     TextAlign textAlign,
     double width,
   ) {
+    final isMobile = width < Breakpoints.mobile;
+    final baseFontSize = width < 600 ? 20.0 : (width < 900 ? 26.0 : 32.0);
+    final highlightFontSize = width < 600 ? 28.0 : (width < 900 ? 46.0 : 56.0);
+    // On mobile use larger line height so large highlight text doesn't overlap the next line.
+    final lineHeight = isMobile ? 1.22 : 0.88;
+    final headlineSpacing = isMobile ? 16.0 : 10.0;
+    final sublineTopSpacing = isMobile ? 20.0 : 28.0;
+
     return [
       Semantics(
         header: true,
         child: RichText(
           textAlign: textAlign,
+          softWrap: true,
           text: TextSpan(
             style: (Theme.of(context).textTheme.headlineLarge ?? const TextStyle()).copyWith(
               color: AppColors.onPrimary,
               fontWeight: FontWeight.w600,
-              fontSize: width < 600 ? 20 : (width < 900 ? 26 : 32),
-              height: 0.88,
+              fontSize: baseFontSize,
+              height: lineHeight,
             ),
             children: [
               TextSpan(text: l10n.heroHeadline1Prefix),
@@ -109,7 +118,8 @@ class _HeroSectionState extends State<HeroSection> {
                   context,
                   color: AppColors.accent,
                   fontWeight: FontWeight.bold,
-                  fontSize: width < 600 ? 38 : (width < 900 ? 46 : 56),
+                  fontSize: highlightFontSize,
+                  height: lineHeight,
                 ),
               ),
               TextSpan(text: l10n.heroHeadline1Suffix),
@@ -117,15 +127,16 @@ class _HeroSectionState extends State<HeroSection> {
           ),
         ),
       ),
-      const SizedBox(height: 10),
+      SizedBox(height: headlineSpacing),
       RichText(
         textAlign: textAlign,
+        softWrap: true,
         text: TextSpan(
           style: (Theme.of(context).textTheme.headlineLarge ?? const TextStyle()).copyWith(
             color: AppColors.onPrimary,
             fontWeight: FontWeight.w600,
-            fontSize: width < 600 ? 20 : (width < 900 ? 26 : 32),
-            height: 0.88,
+            fontSize: baseFontSize,
+            height: lineHeight,
           ),
           children: [
             TextSpan(text: l10n.heroHeadline2Prefix),
@@ -135,19 +146,20 @@ class _HeroSectionState extends State<HeroSection> {
                 context,
                 color: AppColors.accent,
                 fontWeight: FontWeight.bold,
-                fontSize: width < 600 ? 38 : (width < 900 ? 46 : 56),
+                fontSize: highlightFontSize,
+                height: lineHeight,
               ),
             ),
           ],
         ),
       ),
-      const SizedBox(height: 28),
+      SizedBox(height: sublineTopSpacing),
       Text(
         l10n.heroSubline,
         textAlign: textAlign,
         style: Theme.of(context).textTheme.titleMedium?.copyWith(
           color: AppColors.onPrimary.withValues(alpha: 0.9),
-          height: 0.9,
+          height: isMobile ? 1.2 : 0.9,
           fontSize: width < 600 ? 13 : (width < 900 ? 15 : 17),
         ),
       ),
@@ -235,14 +247,16 @@ class _HeroSectionState extends State<HeroSection> {
               child: Align(
                 alignment: contentAlignment,
                 child: isMobile
-                    ? ConstrainedBox(
-                        constraints: const BoxConstraints(maxWidth: 900),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: crossAlign,
-                          children: [
-                            const SizedBox(height: 140),
-                            Wrap(
+                    ? SizedBox(
+                        width: double.infinity,
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 900),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: crossAlign,
+                            children: [
+                              const SizedBox(height: 80),
+                              Wrap(
                               alignment: WrapAlignment.center,
                               spacing: 20,
                               runSpacing: 14,
@@ -292,11 +306,12 @@ class _HeroSectionState extends State<HeroSection> {
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 28),
+                            const SizedBox(height: 20),
                             ..._heroHeadlinesAndSubline(context, l10n, textAlign, width),
                           ],
                         ),
-                      )
+                      ),
+                    )
                     : ConstrainedBox(
                         constraints: const BoxConstraints(maxWidth: 900),
                         child: Column(

@@ -52,7 +52,7 @@ class AppContent {
   // Asset paths (§1, §2, §8, §9 – use images from assets folder)
   /// Logo for header; favicon can use same.
   static const String assetLogo = 'assets/icons/logo_with_name.png';
-  static const String assetFavicon = 'assets/icons/mainicon.png';
+  static const String assetFavicon = 'assets/icons/logo_png_big.png';
   /// Hero section: fallback image and video.
   static const String assetHeroBackground = 'assets/images/hero_background.jpg';
   static const String assetHeroVideo = 'assets/videos/mainhero.mp4';
@@ -63,8 +63,6 @@ class AppContent {
   /// Events section cards and main banner.
   static const String assetEventCard = 'assets/images/students.jpg';
   static const String assetEventMain = 'assets/images/students.jpg';
-  /// About page hero image.
-  static const String assetAboutHero = 'assets/images/training_presentation.jpg';
   /// Contact page hero background.
   static const String assetContactHero = 'assets/images/hero_background.jpg';
   /// Journey page hero background.
@@ -121,6 +119,17 @@ class AppContent {
   /// Clinic app screenshots.
   static const String assetPeriod9_1 = 'assets/images/training_image.jpg';
   static const String assetPeriod9_2 = 'assets/images/students.jpg';
+  /// Caishen Clinic Management System – 9 feature screenshots.
+  static const String assetCaishenClinic1 = 'assets/images/apps/Caishen Clinic (1).jpg';
+  static const String assetCaishenClinic2 = 'assets/images/apps/Caishen Clinic (2).jpg';
+  static const String assetCaishenClinic3 = 'assets/images/apps/Caishen Clinic (3).jpg';
+  static const String assetCaishenClinic4 = 'assets/images/apps/Caishen Clinic (4).jpg';
+  static const String assetCaishenClinic5 = 'assets/images/apps/Caishen Clinic (5).jpg';
+  static const String assetCaishenClinic6 = 'assets/images/apps/Caishen Clinic (6).jpg';
+  static const String assetCaishenClinic7 = 'assets/images/apps/Caishen Clinic (7).jpg';
+  static const String assetCaishenClinic8 = 'assets/images/apps/Caishen Clinic (8).jpg';
+  static const String assetCaishenClinic9 = 'assets/images/apps/Caishen Clinic (9).jpg';
+
   /// Book store.
   static const String assetBook1 = 'assets/stores/books/period9book1.jpg';
   static const String assetBook2 = 'assets/stores/books/period9book2.jpg';

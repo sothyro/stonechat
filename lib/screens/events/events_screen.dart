@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -8,6 +9,7 @@ import '../../l10n/app_localizations.dart';
 import '../../theme/app_theme.dart';
 import '../../utils/breakpoints.dart';
 import '../../widgets/glass_container.dart';
+import '../home/widgets/testimonials_section.dart';
 
 class EventsScreen extends StatefulWidget {
   const EventsScreen({super.key});
@@ -155,6 +157,25 @@ class _EventsScreenState extends State<EventsScreen> {
                         },
                       ),
                     SizedBox(height: isNarrow ? 40 : 56),
+                    // Courses section (former Academy content)
+                    _buildCoursesSectionHeadline(context, l10n.courses),
+                    const SizedBox(height: 12),
+                    Text(
+                      l10n.academyMoreCoursesNote,
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                            color: AppColors.onSurfaceVariantDark,
+                            height: 1.5,
+                          ),
+                    ),
+                    const SizedBox(height: 40),
+                    ..._buildCoursesCards(context, l10n, isNarrow),
+                    const SizedBox(height: 56),
+                    _buildCoursesMethodologySection(context, l10n),
+                    const SizedBox(height: 48),
+                    const TestimonialsSection(),
+                    const SizedBox(height: 48),
+                    _buildCoursesMarketingCta(context, l10n, isNarrow),
+                    const SizedBox(height: 48),
                     _EventsWhyAttendSection(l10n: l10n),
                     const SizedBox(height: 48),
                   ],
@@ -162,6 +183,428 @@ class _EventsScreenState extends State<EventsScreen> {
               ),
             ),
           ),
+        ],
+      ),
+    );
+  }
+
+  static Widget _buildCoursesSectionHeadline(BuildContext context, String text) {
+    return Text(
+      text,
+      style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+            color: AppColors.onPrimary,
+            fontWeight: FontWeight.w600,
+          ),
+    );
+  }
+
+  static List<Widget> _buildCoursesCards(BuildContext context, AppLocalizations l10n, bool isNarrow) {
+    final onExplore = () => context.push('/consultations');
+    if (isNarrow) {
+      return [
+        _CoursesDisciplineCard(
+          imageAsset: AppContent.assetAcademyQiMen,
+          icon: LucideIcons.compass,
+          title: l10n.academyQiMen,
+          description: l10n.academyQiMenDesc,
+          about: l10n.academyQiMenAbout,
+          topics: l10n.academyQiMenTopics,
+          onExplore: onExplore,
+          imageAlignment: Alignment.center,
+        ),
+        const SizedBox(height: 24),
+        _CoursesDisciplineCard(
+          imageAsset: AppContent.assetBaziHarmony,
+          icon: LucideIcons.user,
+          title: l10n.academyBaZi,
+          description: l10n.academyBaZiDesc,
+          about: l10n.academyBaZiAbout,
+          topics: l10n.academyBaZiTopics,
+          onExplore: onExplore,
+          imageAlignment: Alignment.center,
+        ),
+        const SizedBox(height: 24),
+        _CoursesDisciplineCard(
+          imageAsset: AppContent.assetAcademyFengShui,
+          icon: LucideIcons.home,
+          title: l10n.academyFengShui,
+          description: l10n.academyFengShuiDesc,
+          about: l10n.academyFengShuiAbout,
+          topics: l10n.academyFengShuiTopics,
+          onExplore: onExplore,
+        ),
+        const SizedBox(height: 24),
+        _CoursesDisciplineCard(
+          imageAsset: AppContent.assetEventCard,
+          icon: LucideIcons.calendarDays,
+          title: l10n.academyDateSelection,
+          description: l10n.academyDateSelectionDesc,
+          about: l10n.academyDateSelectionAbout,
+          topics: l10n.academyDateSelectionTopics,
+          onExplore: onExplore,
+        ),
+        const SizedBox(height: 24),
+        _CoursesDisciplineCard(
+          imageAsset: AppContent.assetAppsHero,
+          icon: LucideIcons.bookOpen,
+          title: l10n.academyIChing,
+          description: l10n.academyIChingDesc,
+          about: l10n.academyIChingAbout,
+          topics: l10n.academyIChingTopics,
+          onExplore: onExplore,
+        ),
+        const SizedBox(height: 24),
+        _CoursesDisciplineCard(
+          imageAsset: AppContent.assetEventMain,
+          icon: LucideIcons.mountain,
+          title: l10n.academyMaoShan,
+          description: l10n.academyMaoShanDesc,
+          about: l10n.academyMaoShanAbout,
+          topics: l10n.academyMaoShanTopics,
+          onExplore: onExplore,
+        ),
+      ];
+    }
+    return [
+      IntrinsicHeight(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: _CoursesDisciplineCard(
+                imageAsset: AppContent.assetAcademyQiMen,
+                icon: LucideIcons.compass,
+                title: l10n.academyQiMen,
+                description: l10n.academyQiMenDesc,
+                about: l10n.academyQiMenAbout,
+                topics: l10n.academyQiMenTopics,
+                onExplore: onExplore,
+                imageAlignment: Alignment.center,
+              ),
+            ),
+            const SizedBox(width: 24),
+            Expanded(
+              child: _CoursesDisciplineCard(
+                imageAsset: AppContent.assetBaziHarmony,
+                icon: LucideIcons.user,
+                title: l10n.academyBaZi,
+                description: l10n.academyBaZiDesc,
+                about: l10n.academyBaZiAbout,
+                topics: l10n.academyBaZiTopics,
+                onExplore: onExplore,
+                imageAlignment: Alignment.center,
+              ),
+            ),
+            const SizedBox(width: 24),
+            Expanded(
+              child: _CoursesDisciplineCard(
+                imageAsset: AppContent.assetAcademyFengShui,
+                icon: LucideIcons.home,
+                title: l10n.academyFengShui,
+                description: l10n.academyFengShuiDesc,
+                about: l10n.academyFengShuiAbout,
+                topics: l10n.academyFengShuiTopics,
+                onExplore: onExplore,
+              ),
+            ),
+          ],
+        ),
+      ),
+      const SizedBox(height: 24),
+      IntrinsicHeight(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: _CoursesDisciplineCard(
+                imageAsset: AppContent.assetEventCard,
+                icon: LucideIcons.calendarDays,
+                title: l10n.academyDateSelection,
+                description: l10n.academyDateSelectionDesc,
+                about: l10n.academyDateSelectionAbout,
+                topics: l10n.academyDateSelectionTopics,
+                onExplore: onExplore,
+              ),
+            ),
+            const SizedBox(width: 24),
+            Expanded(
+              child: _CoursesDisciplineCard(
+                imageAsset: AppContent.assetAppsHero,
+                icon: LucideIcons.bookOpen,
+                title: l10n.academyIChing,
+                description: l10n.academyIChingDesc,
+                about: l10n.academyIChingAbout,
+                topics: l10n.academyIChingTopics,
+                onExplore: onExplore,
+              ),
+            ),
+            const SizedBox(width: 24),
+            Expanded(
+              child: _CoursesDisciplineCard(
+                imageAsset: AppContent.assetEventMain,
+                icon: LucideIcons.mountain,
+                title: l10n.academyMaoShan,
+                description: l10n.academyMaoShanDesc,
+                about: l10n.academyMaoShanAbout,
+                topics: l10n.academyMaoShanTopics,
+                onExplore: onExplore,
+              ),
+            ),
+          ],
+        ),
+      ),
+    ];
+  }
+
+  static Widget _buildCoursesHeadingWithHighlight(BuildContext context, String heading) {
+    const String highlightPhrase = 'Real Change';
+    final theme = Theme.of(context).textTheme.headlineMedium;
+    final baseStyle = theme?.copyWith(
+      color: AppColors.onPrimary,
+      fontWeight: FontWeight.w600,
+    ) ?? const TextStyle(color: AppColors.onPrimary, fontWeight: FontWeight.w600);
+    final highlightStyle = highlightStyleForLocale(
+      context,
+      color: AppColors.accent,
+      fontWeight: FontWeight.bold,
+      fontSize: (theme?.fontSize ?? 28) * 1.1,
+      height: theme?.height ?? 1.3,
+    );
+    final idx = heading.indexOf(highlightPhrase);
+    if (idx < 0) return Text(heading, style: baseStyle);
+    return RichText(
+      text: TextSpan(
+        style: baseStyle,
+        children: [
+          TextSpan(text: heading.substring(0, idx)),
+          TextSpan(text: highlightPhrase, style: highlightStyle),
+          TextSpan(text: heading.substring(idx + highlightPhrase.length)),
+        ],
+      ),
+    );
+  }
+
+  static Widget _buildCoursesMethodologySection(BuildContext context, AppLocalizations l10n) {
+    final isNarrow = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(isNarrow ? 24 : 32),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            AppColors.surfaceElevatedDark,
+            AppColors.surfaceElevatedDark.withValues(alpha: 0.95),
+          ],
+        ),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: AppColors.borderLight.withValues(alpha: 0.35), width: 1),
+        boxShadow: AppShadows.card,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _buildCoursesHeadingWithHighlight(context, l10n.sectionKnowledgeHeading),
+          const SizedBox(height: 16),
+          Text(
+            l10n.sectionKnowledgeBody,
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  color: AppColors.onSurfaceVariantDark,
+                  height: 1.55,
+                ),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            l10n.sectionKnowledgeBody2,
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  color: AppColors.onSurfaceVariantDark,
+                  height: 1.55,
+                ),
+          ),
+          const SizedBox(height: 20),
+          if (isNarrow)
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Center(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                    decoration: BoxDecoration(
+                      color: AppColors.accent.withValues(alpha: 0.18),
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: AppColors.accent.withValues(alpha: 0.5)),
+                    ),
+                    child: Text(
+                      l10n.sectionKnowledgeStat,
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                            color: AppColors.accentLight,
+                            fontWeight: FontWeight.w600,
+                          ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    boxShadow: AppShadows.accentButton,
+                  ),
+                  child: FilledButton.icon(
+                    onPressed: () => context.push('/consultations'),
+                    icon: const Icon(LucideIcons.calendarCheck, size: 20),
+                    label: Text(l10n.bookConsultation),
+                    style: FilledButton.styleFrom(
+                      backgroundColor: AppColors.accent,
+                      foregroundColor: AppColors.onAccent,
+                      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                      elevation: 0,
+                    ),
+                  ),
+                ),
+              ],
+            )
+          else
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                  decoration: BoxDecoration(
+                    color: AppColors.accent.withValues(alpha: 0.18),
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(color: AppColors.accent.withValues(alpha: 0.5)),
+                  ),
+                  child: Text(
+                    l10n.sectionKnowledgeStat,
+                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          color: AppColors.accentLight,
+                          fontWeight: FontWeight.w600,
+                        ),
+                  ),
+                ),
+                const Spacer(),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    boxShadow: AppShadows.accentButton,
+                  ),
+                  child: FilledButton.icon(
+                    onPressed: () => context.push('/consultations'),
+                    icon: const Icon(LucideIcons.calendarCheck, size: 20),
+                    label: Text(l10n.bookConsultation),
+                    style: FilledButton.styleFrom(
+                      backgroundColor: AppColors.accent,
+                      foregroundColor: AppColors.onAccent,
+                      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                      elevation: 0,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+        ],
+      ),
+    );
+  }
+
+  static Widget _buildCoursesMarketingCta(BuildContext context, AppLocalizations l10n, bool isNarrow) {
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(isNarrow ? 24 : 32),
+      decoration: BoxDecoration(
+        color: AppColors.backgroundDark,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: AppColors.borderDark, width: 1),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            l10n.notSureWhereToStart,
+            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  color: AppColors.onPrimary,
+                  fontWeight: FontWeight.w600,
+                ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 12),
+          Text(
+            l10n.notSureBody,
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  color: AppColors.onSurfaceVariantDark,
+                  height: 1.55,
+                ),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: isNarrow ? 20 : 24),
+          if (isNarrow)
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    boxShadow: AppShadows.accentButton,
+                  ),
+                  child: FilledButton.icon(
+                    onPressed: () => context.push('/consultations'),
+                    icon: const Icon(LucideIcons.calendarCheck, size: 20),
+                    label: Text(l10n.bookConsultation),
+                    style: FilledButton.styleFrom(
+                      backgroundColor: AppColors.accent,
+                      foregroundColor: AppColors.onAccent,
+                      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                      elevation: 0,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                OutlinedButton.icon(
+                  onPressed: () => context.push('/contact'),
+                  icon: const Icon(LucideIcons.messageCircle, size: 20),
+                  label: Text(l10n.contactUs),
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: AppColors.accent,
+                    side: const BorderSide(color: AppColors.accent),
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                  ),
+                ),
+              ],
+            )
+          else
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    boxShadow: AppShadows.accentButton,
+                  ),
+                  child: FilledButton.icon(
+                    onPressed: () => context.push('/consultations'),
+                    icon: const Icon(LucideIcons.calendarCheck, size: 20),
+                    label: Text(l10n.bookConsultation),
+                    style: FilledButton.styleFrom(
+                      backgroundColor: AppColors.accent,
+                      foregroundColor: AppColors.onAccent,
+                      padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 16),
+                      elevation: 0,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 16),
+                OutlinedButton.icon(
+                  onPressed: () => context.push('/contact'),
+                  icon: const Icon(LucideIcons.messageCircle, size: 20),
+                  label: Text(l10n.contactUs),
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: AppColors.accent,
+                    side: const BorderSide(color: AppColors.accent),
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                  ),
+                ),
+              ],
+            ),
         ],
       ),
     );
@@ -880,6 +1323,202 @@ class _EventRegistrationDialogState extends State<_EventRegistrationDialog> {
         borderSide: const BorderSide(color: AppColors.borderLight, width: 2),
       ),
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+    );
+  }
+}
+
+/// Course discipline card (from former Academy page).
+class _CoursesDisciplineCard extends StatefulWidget {
+  const _CoursesDisciplineCard({
+    required this.imageAsset,
+    required this.icon,
+    required this.title,
+    required this.description,
+    required this.about,
+    required this.topics,
+    required this.onExplore,
+    this.imageAlignment,
+  });
+
+  final String imageAsset;
+  final IconData icon;
+  final String title;
+  final String description;
+  final String about;
+  final String topics;
+  final VoidCallback onExplore;
+  final Alignment? imageAlignment;
+
+  @override
+  State<_CoursesDisciplineCard> createState() => _CoursesDisciplineCardState();
+}
+
+class _CoursesDisciplineCardState extends State<_CoursesDisciplineCard> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final shadow = _isHovered ? AppShadows.cardHover : AppShadows.card;
+    final borderColor =
+        _isHovered ? AppColors.borderLight.withValues(alpha: 0.5) : AppColors.borderDark;
+    final scale = _isHovered ? 1.02 : 1.0;
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: AnimatedScale(
+        scale: scale,
+        duration: const Duration(milliseconds: 150),
+        curve: Curves.easeOut,
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 150),
+          curve: Curves.easeOut,
+          decoration: BoxDecoration(
+            color: AppColors.surfaceElevatedDark,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: borderColor, width: 1),
+            boxShadow: shadow,
+          ),
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: widget.onExplore,
+              borderRadius: BorderRadius.circular(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Stack(
+                    children: [
+                      ClipRRect(
+                        borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
+                        child: AspectRatio(
+                          aspectRatio: 16 / 9,
+                          child: Image.asset(
+                            widget.imageAsset,
+                            fit: BoxFit.cover,
+                            alignment: widget.imageAlignment ?? Alignment.topCenter,
+                            errorBuilder: (_, __, ___) => Container(
+                              color: AppColors.accent.withValues(alpha: 0.15),
+                              child: Icon(widget.icon, size: 48, color: AppColors.accent),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        top: 8,
+                        left: 8,
+                        child: Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            color: AppColors.backgroundDark.withValues(alpha: 0.75),
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(color: AppColors.borderLight.withValues(alpha: 0.4)),
+                          ),
+                          child: Icon(widget.icon, size: 20, color: AppColors.accent),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SizedBox(
+                          height: 26,
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              widget.title,
+                              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                    color: AppColors.onPrimary,
+                                  ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        SizedBox(
+                          height: 36,
+                          child: Text(
+                            widget.description,
+                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                  color: AppColors.accentLight.withValues(alpha: 0.9),
+                                  height: 1.4,
+                                  fontSize: 13,
+                                ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        SizedBox(
+                          height: 54,
+                          child: Text(
+                            widget.about,
+                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                  height: 1.5,
+                                  color: AppColors.onSurfaceVariantDark,
+                                  fontSize: 12,
+                                ),
+                            maxLines: 3,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        SizedBox(
+                          height: 32,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(LucideIcons.sparkles, size: 12, color: AppColors.accent),
+                              const SizedBox(width: 4),
+                              Expanded(
+                                child: Text(
+                                  widget.topics,
+                                  style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                                        color: AppColors.onSurfaceVariantDark,
+                                        height: 1.35,
+                                        fontSize: 11,
+                                      ),
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        SizedBox(
+                          height: 22,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                l10n.exploreCourses,
+                                style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                                      color: AppColors.accent,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              ),
+                              const Icon(Icons.arrow_forward, size: 16, color: AppColors.accent),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

@@ -21,7 +21,6 @@ List<String> get _restImageAssets => [
   AppContent.assetBackgroundDirection,
   AppContent.assetEventCard,
   AppContent.assetEventMain,
-  AppContent.assetAboutHero,
   AppContent.assetStoryBackground,
   AppContent.assetTestimonialProfile,
   AppContent.assetTestimonialParticipant,

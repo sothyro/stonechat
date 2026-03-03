@@ -27,10 +27,31 @@ class AppLocalizationsZh extends AppLocalizations {
   String get charteredPractitioner => '学习与实践';
 
   @override
+  String get training => '培训';
+
+  @override
+  String get courses => '课程';
+
+  @override
+  String get ourStory => '我们的故事';
+
+  @override
+  String get onTheNews => '媒体报道';
+
+  @override
+  String get publications => '出版物';
+
+  @override
   String get resources => '资源';
 
   @override
   String get appsAndStore => '应用与商店';
+
+  @override
+  String get appsNav => '应用';
+
+  @override
+  String get bookNav => '图书';
 
   @override
   String get stonechatSystem => '应用与数字';
@@ -148,6 +169,48 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get talismanProduct9Title => '第 9 章 - 组织变革沟通';
+
+  @override
+  String get caishenClinicSectionHeading => '财神诊所管理系统';
+
+  @override
+  String get caishenClinicSectionTagline => '一个平台，运营您的诊所。预约、患者与档案—尽在一处。';
+
+  @override
+  String get caishenClinicSectionTaglineHighlight => '尽在一处';
+
+  @override
+  String get caishenClinicSectionBody => '为现代诊所打造。优化排程、保障患者数据安全，用随您成长的系统拓展业务。';
+
+  @override
+  String get caishenClinicSectionBodyHighlight => '随您成长';
+
+  @override
+  String get caishenClinicFeature1Title => '仪表盘';
+
+  @override
+  String get caishenClinicFeature2Title => '预约管理';
+
+  @override
+  String get caishenClinicFeature3Title => '患者档案';
+
+  @override
+  String get caishenClinicFeature4Title => '排班';
+
+  @override
+  String get caishenClinicFeature5Title => '临床流程';
+
+  @override
+  String get caishenClinicFeature6Title => '报表与分析';
+
+  @override
+  String get caishenClinicFeature7Title => '账单与支付';
+
+  @override
+  String get caishenClinicFeature8Title => '员工与角色';
+
+  @override
+  String get caishenClinicFeature9Title => '设置与集成';
 
   @override
   String get stonechatSpotlightTagline => '品质不打折，价格更亲民。';
@@ -461,6 +524,15 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get sectionStoryPara3 => '如今，这套方法已帮助 44,000 多名追随者为己为人创造更好结果。';
+
+  @override
+  String get sectionStoryPara1Short => '我们为 Web、桌面、iOS 与 Android 打造现代、实惠的应用。';
+
+  @override
+  String get sectionStoryPara2Short => '架构清晰，界面优雅，成本可控。支持高棉语、英语、中文。';
+
+  @override
+  String get sectionStoryPara3Short => '交付快。沟通清。语气亲。';
 
   @override
   String get sectionStoryCtaButton => 'Stonechat 的奋进';

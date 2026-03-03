@@ -255,20 +255,6 @@ class _AppsScreenState extends State<AppsScreen> {
                     const SizedBox(height: 56),
                     _PersuasionBooksSection(l10n: l10n),
                     const SizedBox(height: 56),
-                    _AppFeatureShowcase(
-                      features: [
-                        (AppContent.assetChapter1, l10n.talismanProduct1Title),
-                        (AppContent.assetChapter2, l10n.talismanProduct2Title),
-                        (AppContent.assetChapter3, l10n.talismanProduct3Title),
-                        (AppContent.assetChapter4, l10n.talismanProduct4Title),
-                        (AppContent.assetChapter5, l10n.talismanProduct5Title),
-                        (AppContent.assetChapter6, l10n.talismanProduct6Title),
-                        (AppContent.assetChapter7, l10n.talismanProduct7Title),
-                        (AppContent.assetChapter8, l10n.talismanProduct8Title),
-                        (AppContent.assetChapter9, l10n.talismanProduct9Title),
-                      ],
-                    ),
-                    const SizedBox(height: 56),
                     _SectionAnchor(
                       key: _keyPeriod9,
                       child: _FeaturedPeriod9Section(l10n: l10n),
@@ -1363,44 +1349,65 @@ class _BookStoreCardState extends State<_BookStoreCard> {
   }
 }
 
-/// Book Store as a product section with highlight title.
+/// Book Store section at the bottom: Featuring the Caishen Clinic Management System.
 class _TalismanStoreSection extends StatelessWidget {
   const _TalismanStoreSection({required this.l10n});
 
   final AppLocalizations l10n;
 
+  static List<(String, String)> _caishenFeatures(AppLocalizations l10n) {
+    return [
+      (AppContent.assetCaishenClinic1, l10n.caishenClinicFeature1Title),
+      (AppContent.assetCaishenClinic2, l10n.caishenClinicFeature2Title),
+      (AppContent.assetCaishenClinic3, l10n.caishenClinicFeature3Title),
+      (AppContent.assetCaishenClinic4, l10n.caishenClinicFeature4Title),
+      (AppContent.assetCaishenClinic5, l10n.caishenClinicFeature5Title),
+      (AppContent.assetCaishenClinic6, l10n.caishenClinicFeature6Title),
+      (AppContent.assetCaishenClinic7, l10n.caishenClinicFeature7Title),
+      (AppContent.assetCaishenClinic8, l10n.caishenClinicFeature8Title),
+      (AppContent.assetCaishenClinic9, l10n.caishenClinicFeature9Title),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
+    final isNarrow = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          l10n.talismanStoreSpotlightTitle,
+          l10n.caishenClinicSectionHeading,
           style: highlightStyleForLocale(
             context,
-            fontSize: 28,
+            fontSize: isNarrow ? 24 : 30,
             fontWeight: FontWeight.bold,
             color: AppColors.accent,
+            height: 1.2,
           ),
         ),
-        const SizedBox(height: 6),
-        _AppsScreenState._buildDescriptionWithHighlight(
-          context,
-          l10n.talismanStoreSpotlightTagline,
-          l10n.talismanStoreSpotlightTaglineHighlight,
-          textAlign: TextAlign.left,
+        const SizedBox(height: 14),
+        ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 720),
+          child: _AppsScreenState._buildDescriptionWithHighlight(
+            context,
+            l10n.caishenClinicSectionTagline,
+            l10n.caishenClinicSectionTaglineHighlight,
+            textAlign: TextAlign.left,
+          ),
         ),
-        const SizedBox(height: 8),
-        Text(
-          l10n.talismanStoreSpotlightDesc,
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                color: AppColors.onSurfaceVariantDark,
-                height: 1.5,
-              ),
+        const SizedBox(height: 12),
+        ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 680),
+          child: _AppsScreenState._buildDescriptionWithHighlight(
+            context,
+            l10n.caishenClinicSectionBody,
+            l10n.caishenClinicSectionBodyHighlight,
+            textAlign: TextAlign.left,
+          ),
         ),
         const SizedBox(height: 28),
-        _TalismanGrid(l10n: l10n),
+        _AppFeatureShowcase(features: _caishenFeatures(l10n)),
       ],
     );
   }

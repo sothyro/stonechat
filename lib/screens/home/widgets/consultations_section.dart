@@ -189,7 +189,7 @@ class ConsultationsSection extends StatelessWidget {
       height: 1.3,
     );
     final s = l10n.sectionMapHeading;
-    final phrases = ['RoadMap.', 'RoadMap', 'Map.', 'Map', 'correct way', '地图'];
+    final phrases = ['partner.', 'partner', 'jargon.'];
     final spans = _highlightPhrases(s, phrases, normal, highlight);
     return Center(
       child: RichText(

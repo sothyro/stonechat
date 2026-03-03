@@ -27,10 +27,31 @@ class AppLocalizationsEn extends AppLocalizations {
   String get charteredPractitioner => 'Learning & Practice';
 
   @override
+  String get training => 'Training';
+
+  @override
+  String get courses => 'Courses';
+
+  @override
+  String get ourStory => 'Our Story';
+
+  @override
+  String get onTheNews => 'On the news';
+
+  @override
+  String get publications => 'Publications';
+
+  @override
   String get resources => 'Resources';
 
   @override
   String get appsAndStore => 'Apps & Store';
+
+  @override
+  String get appsNav => 'Apps';
+
+  @override
+  String get bookNav => 'Book';
 
   @override
   String get stonechatSystem => 'Apps & Digital';
@@ -158,6 +179,51 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get talismanProduct9Title =>
       'Chapter 9 - Communications for Organisational Change';
+
+  @override
+  String get caishenClinicSectionHeading =>
+      'Featuring the Caishen Clinic Management System';
+
+  @override
+  String get caishenClinicSectionTagline =>
+      'One platform to run your clinic. Appointments, patients, and records—all in one place.';
+
+  @override
+  String get caishenClinicSectionTaglineHighlight => 'all in one place';
+
+  @override
+  String get caishenClinicSectionBody =>
+      'Built for modern practices. Streamline scheduling, secure patient data, and grow your practice with a system that scales with you.';
+
+  @override
+  String get caishenClinicSectionBodyHighlight => 'scales with you';
+
+  @override
+  String get caishenClinicFeature1Title => 'Dashboard';
+
+  @override
+  String get caishenClinicFeature2Title => 'Appointments';
+
+  @override
+  String get caishenClinicFeature3Title => 'Patient records';
+
+  @override
+  String get caishenClinicFeature4Title => 'Scheduling';
+
+  @override
+  String get caishenClinicFeature5Title => 'Clinical workflow';
+
+  @override
+  String get caishenClinicFeature6Title => 'Reports & analytics';
+
+  @override
+  String get caishenClinicFeature7Title => 'Billing & payments';
+
+  @override
+  String get caishenClinicFeature8Title => 'Staff & roles';
+
+  @override
+  String get caishenClinicFeature9Title => 'Settings & integration';
 
   @override
   String get stonechatSpotlightTagline => 'Quality without the high price.';
@@ -316,7 +382,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get consultations => 'Book Consultation';
 
   @override
-  String get contactUs => 'Contact';
+  String get contactUs => 'Contact Us';
 
   @override
   String get bookConsultation => 'Book Consultation';
@@ -382,16 +448,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get backToHome => 'Back to Home';
 
   @override
-  String get heroHeadline1 => 'Quality apps. Without breaking the bank.';
+  String get heroHeadline1 =>
+      'Quality apps, training & publishing—without breaking the bank.';
 
   @override
   String get heroHeadline1Prefix => '';
 
   @override
-  String get heroHeadline1Highlight => 'Quality apps';
+  String get heroHeadline1Highlight => 'Quality apps, training & publishing';
 
   @override
-  String get heroHeadline1Suffix => '. Without breaking the bank.';
+  String get heroHeadline1Suffix => '—without breaking the bank.';
 
   @override
   String get heroHeadline2Prefix => 'Modern, beautiful, affordable apps for ';
@@ -400,7 +467,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get heroHeadline2Highlight => 'Web, Desktop, iOS & Android.';
 
   @override
-  String get heroSubline => 'Apps & digital solutions studio';
+  String get heroSubline =>
+      'Apps, workshops & books—clear, human, and affordable.';
 
   @override
   String get exploreAllEvents => 'Explore All Trainings';
@@ -428,7 +496,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get finalCtaBody =>
-      'Send a message, give us a call, or visit our website. We\'ll get back to you in a clear, friendly way.';
+      'Tell us what you need—an app, training, or a book. We\'ll reply in clear, human terms.';
 
   @override
   String get notSureWhereToStart => 'Not sure where to start?';
@@ -442,25 +510,24 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sectionExperienceHeading =>
-      'Clean architectures. Elegant interfaces. Low cost.';
+      'Hands-on workshops. Clear skills. Real impact.';
 
   @override
-  String get sectionExperienceHeadingPrefix => 'Clean architectures. Elegant ';
+  String get sectionExperienceHeadingPrefix => 'Hands-on workshops. ';
 
   @override
-  String get sectionExperienceHeadingHighlight => 'interfaces. Low cost.';
+  String get sectionExperienceHeadingHighlight => 'Clear skills. Real impact.';
 
   @override
-  String get sectionKnowledgeHeading =>
-      'We deliver quality without the high price.';
+  String get sectionKnowledgeHeading => 'Training that fits your goals.';
 
   @override
   String get sectionKnowledgeBody =>
-      'We build modern, beautiful, affordable apps for Web, Desktop, macOS, iOS, and Android. Clean, solid-standard architectures with user-friendly interfaces so individuals and businesses get high-quality products without breaking the bank.';
+      'We offer communication training: human-centered and AI-enhanced workshops. Build clear, practical skills—no jargon. Custom sessions for your team or organization.';
 
   @override
   String get sectionKnowledgeBody2 =>
-      'We support Khmer, English, and Chinese—and we can add more languages. Fast turnaround so you don\'t wait for months; we prioritize speed without sacrificing quality.';
+      'We support Khmer, English, and Chinese and can add more languages. Fast turnaround so you get results without long waits.';
 
   @override
   String get sectionKnowledgeStat => '3+ languages';
@@ -470,22 +537,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sectionMapIntro =>
-      'We communicate in a clear, human tone so non-technical clients feel comfortable, informed, and confident. Tell us your idea—we\'ll help you get there.';
+      'Choose a service below. We\'ll guide you to the right option and next steps.';
 
   @override
   String get sectionStoryHeading => 'Who we are.';
 
   @override
   String get sectionStoryPara1 =>
-      'Stonechat Communications is a handy apps and digital solutions studio. We develop modern, beautiful, affordable applications for Web, Desktop, macOS, iOS, and Android.';
+      'Stonechat Communications is your partner for apps, communication training, and book publishing. We develop modern, affordable applications and run clear, practical workshops.';
 
   @override
   String get sectionStoryPara2 =>
-      'We focus on clean, solid-standard app architectures with elegant, user-friendly interfaces at a low cost. We support Khmer, English, and Chinese and are flexible to add more languages.';
+      'We work in Khmer, English, and Chinese and can add more languages. We prioritize fast turnaround and clear communication—so you stay informed and confident.';
 
   @override
   String get sectionStoryPara3 =>
-      'We value fast turnaround and clear communication. In every interaction we use a human tone so you feel comfortable and confident throughout the process.';
+      'Tell us your idea. We\'ll help you get there in plain language, without the runaround.';
+
+  @override
+  String get sectionStoryPara1Short =>
+      'Your partner for apps, training & publishing. Modern, affordable, clear.';
+
+  @override
+  String get sectionStoryPara2Short =>
+      'Khmer, English & Chinese. Fast turnaround. Human tone.';
+
+  @override
+  String get sectionStoryPara3Short =>
+      'Tell us your idea—we\'ll help you get there.';
 
   @override
   String get sectionStoryCtaButton => 'Our story';
@@ -818,23 +897,24 @@ class AppLocalizationsEn extends AppLocalizations {
   String get aboutBreadcrumb => 'About Stonechat.';
 
   @override
-  String get aboutHeroHeadline => 'A handy apps and digital solutions studio.';
+  String get aboutHeroHeadline =>
+      'Your partner for apps, training & publishing.';
 
   @override
   String get aboutBullet1 =>
-      'Modern, beautiful, affordable apps for Web, Desktop, macOS, iOS & Android.';
+      'Modern, affordable apps for Web, Desktop, macOS, iOS & Android.';
 
   @override
   String get aboutBullet2 =>
-      'Clean architectures. Elegant interfaces. Without breaking the bank.';
+      'Communication training: human-centered and AI-enhanced workshops.';
 
   @override
   String get aboutBullet3 =>
-      'Khmer, English, Chinese—and we can add more languages. Fast turnaround.';
+      'Book publishing from idea to finished book—writing, design, and distribution.';
 
   @override
   String get aboutBullet4 =>
-      'Clear, human communication so you feel comfortable and confident.';
+      'Clear communication, fast turnaround. Khmer, English & Chinese.';
 
   @override
   String get journeyPageHeadline => 'Our story';
@@ -1122,7 +1202,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get contactIntro =>
-      'Whether you need an app, a website, training, or help publishing a book—we\'re here. We use clear, human language so you feel comfortable and informed. Choose a topic, leave your message, and we\'ll get back to you shortly.';
+      'Whether you need an app, a website, training, or help publishing a book—we\'re here. We use clear, human language. Choose a topic, leave your message, and we\'ll get back to you shortly. We usually reply within 1 business day.';
 
   @override
   String get contactFormName => 'Name';

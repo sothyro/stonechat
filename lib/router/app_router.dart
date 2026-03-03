@@ -1,3 +1,9 @@
+// URL handling: On web, the router's initial location is taken from the browser
+// (Uri.base) so direct links and refresh open the correct screen. Paths are
+// normalized (no trailing slash). See docs/URL_HANDLING.md for full details and
+// constraints (e.g. subpath deployment, adding new routes).
+
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -5,14 +11,13 @@ import 'package:provider/provider.dart';
 import '../theme/app_theme.dart';
 import '../widgets/app_shell.dart';
 import '../screens/home/home_screen.dart';
-import '../screens/about/about_screen.dart';
 import '../screens/events/events_screen.dart';
 import '../screens/contact/contact_screen.dart';
 import '../screens/consultations/consultations_screen.dart';
 import '../screens/consultations/consultations_dashboard_screen.dart';
-import '../screens/academy/academy_screen.dart';
 import '../screens/journey/journey_screen.dart';
 import '../screens/apps/apps_screen.dart';
+import '../screens/book/book_screen.dart';
 import '../providers/auth_provider.dart';
 import '../l10n/app_localizations.dart';
 
@@ -20,28 +25,56 @@ final GlobalKey<NavigatorState> _rootNavKey = GlobalKey<NavigatorState>();
 
 const Set<String> _knownPaths = {
   '/',
-  '/about',
   '/journey',
   '/events',
   '/apps',
-  '/academy',
+  '/book',
   '/contact',
   '/consultations',
   '/consultations/dashboard',
   '/not-found',
 };
 
+/// Normalizes a path for matching: no trailing slash (except for '/').
+/// Exposed for testing and reuse.
+String normalizePath(String path) {
+  if (path.isEmpty || path == '/') return '/';
+  return path.endsWith('/') ? path.substring(0, path.length - 1) : path;
+}
+
+/// Returns the initial location for the router. On web, uses the browser's
+/// current URL so direct links and refresh open the correct screen.
+String getInitialRouterLocation() {
+  if (kIsWeb) {
+    final uri = Uri.base;
+    final path = normalizePath(uri.path);
+    final query = uri.hasQuery ? '?${uri.query}' : '';
+    final fragment = uri.fragment.isNotEmpty ? '#${uri.fragment}' : '';
+    return path + query + fragment;
+  }
+  return '/';
+}
+
 /// Creates the app router once. Pass [refreshListenable] (e.g. LocaleNotifier)
 /// so route/redirect logic can react to changes without recreating the router.
 GoRouter createAppRouter({Listenable? refreshListenable}) {
   return GoRouter(
     navigatorKey: _rootNavKey,
-    initialLocation: '/',
+    initialLocation: getInitialRouterLocation(),
     refreshListenable: refreshListenable,
     redirect: (context, state) {
       final path = state.uri.path;
-      if (path.isEmpty || _knownPaths.contains(path)) {
-        if (path == '/consultations/dashboard') {
+      final normalized = normalizePath(path);
+
+      // Redirect trailing-slash URLs to canonical form (e.g. /events/ -> /events).
+      if (path != normalized) {
+        final q = state.uri.query.isEmpty ? '' : '?${state.uri.query}';
+        final f = state.uri.fragment.isEmpty ? '' : '#${state.uri.fragment}';
+        return normalized + q + f;
+      }
+
+      if (normalized.isEmpty || _knownPaths.contains(normalized)) {
+        if (normalized == '/consultations/dashboard') {
           final auth = context.read<AuthProvider>();
           if (!auth.isLoggedIn) return '/consultations';
         }
@@ -54,11 +87,10 @@ GoRouter createAppRouter({Listenable? refreshListenable}) {
         builder: (_, __, child) => AppShell(child: child),
         routes: [
           GoRoute(path: '/', builder: (_, __) => const HomeScreen()),
-          GoRoute(path: '/about', builder: (_, __) => const AboutScreen()),
           GoRoute(path: '/journey', builder: (_, __) => const JourneyScreen()),
           GoRoute(path: '/events', builder: (_, __) => const EventsScreen()),
           GoRoute(path: '/apps', builder: (_, __) => const AppsScreen()),
-          GoRoute(path: '/academy', builder: (_, __) => const AcademyScreen()),
+          GoRoute(path: '/book', builder: (_, __) => const BookScreen()),
           GoRoute(path: '/contact', builder: (_, __) => const ContactScreen()),
           GoRoute(
             path: '/consultations',

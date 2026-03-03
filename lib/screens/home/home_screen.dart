@@ -187,7 +187,7 @@ class _SectionLoadingOverlay extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    'Optimising view…[$sectionIndex|$totalSections]',
+                    'Loading…',
                     style: TextStyle(
                       color: AppColors.accent.withValues(alpha: 0.95),
                       fontSize: 16,

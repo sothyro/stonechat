@@ -78,7 +78,7 @@ class AcademiesSection extends StatelessWidget {
                             title: l10n.academyBaZi,
                             description: l10n.academyBaZiDesc,
                             imageAsset: AppContent.assetBaziHarmony,
-                            onExplore: () => context.push('/academy'),
+                            onExplore: () => context.push('/events'),
                           ),
                           const SizedBox(height: 20),
                           AcademyCard(
@@ -86,7 +86,7 @@ class AcademiesSection extends StatelessWidget {
                             title: l10n.academyFengShui,
                             description: l10n.academyFengShuiDesc,
                             imageAsset: AppContent.assetAcademyFengShui,
-                            onExplore: () => context.push('/academy'),
+                            onExplore: () => context.push('/events'),
                           ),
                           const SizedBox(height: 20),
                           AcademyCard(
@@ -94,7 +94,7 @@ class AcademiesSection extends StatelessWidget {
                             title: l10n.academyQiMen,
                             description: l10n.academyQiMenDesc,
                             imageAsset: AppContent.assetAcademyQiMen,
-                            onExplore: () => context.push('/academy'),
+                            onExplore: () => context.push('/events'),
                           ),
                         ],
                       );
@@ -109,7 +109,7 @@ class AcademiesSection extends StatelessWidget {
                             title: l10n.academyBaZi,
                             description: l10n.academyBaZiDesc,
                             imageAsset: AppContent.assetBaziHarmony,
-                            onExplore: () => context.push('/academy'),
+                            onExplore: () => context.push('/events'),
                           ),
                         ),
                         const SizedBox(width: 24),
@@ -119,7 +119,7 @@ class AcademiesSection extends StatelessWidget {
                             title: l10n.academyFengShui,
                             description: l10n.academyFengShuiDesc,
                             imageAsset: AppContent.assetAcademyFengShui,
-                            onExplore: () => context.push('/academy'),
+                            onExplore: () => context.push('/events'),
                           ),
                         ),
                         const SizedBox(width: 24),
@@ -129,7 +129,7 @@ class AcademiesSection extends StatelessWidget {
                             title: l10n.academyQiMen,
                             description: l10n.academyQiMenDesc,
                             imageAsset: AppContent.assetAcademyQiMen,
-                            onExplore: () => context.push('/academy'),
+                            onExplore: () => context.push('/events'),
                           ),
                         ),
                         ],
@@ -165,7 +165,7 @@ class AcademiesSection extends StatelessWidget {
     final String s = l10n.sectionKnowledgeHeading;
     final List<InlineSpan> spans = _highlightPhrases(
       s,
-      ['Real Change.', 'instruction.', 'Real Change', 'instruction', 'Knowledge.'],
+      ['Training', 'goals.', 'goals'],
       normal,
       highlight,
     );

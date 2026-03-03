@@ -27,10 +27,31 @@ class AppLocalizationsKm extends AppLocalizations {
   String get charteredPractitioner => 'រៀន និងអនុវត្ត';
 
   @override
+  String get training => 'វគ្គបណ្តុះបណ្តាល';
+
+  @override
+  String get courses => 'វគ្គសិក្សា';
+
+  @override
+  String get ourStory => 'រឿងរបស់យើង';
+
+  @override
+  String get onTheNews => 'នៅលើព័ត៌មាន';
+
+  @override
+  String get publications => 'ការបោះពុម្ភ';
+
+  @override
   String get resources => 'ធនធាន';
 
   @override
   String get appsAndStore => 'កម្មវិធី និងហាង';
+
+  @override
+  String get appsNav => 'កម្មវិធី';
+
+  @override
+  String get bookNav => 'សៀវភៅ';
 
   @override
   String get stonechatSystem => 'កម្មវិធី និងឌីជីថល';
@@ -157,6 +178,50 @@ class AppLocalizationsKm extends AppLocalizations {
   @override
   String get talismanProduct9Title =>
       'ជំពូក ៩ - ការទំនាក់ទំនងសម្រាប់ការផ្លាស់ប្តូរអង្គការ';
+
+  @override
+  String get caishenClinicSectionHeading => 'ប្រព័ន្ធគ្រប់គ្រងគ្លីនិក Caishen';
+
+  @override
+  String get caishenClinicSectionTagline =>
+      'វេទិកាតែមួយដើម្បីគ្រប់គ្រងគ្លីនិករបស់អ្នក។ ការណាត់ជួប អ្នកជម្ងឺ និងកំណត់ត្រា—ទាំងអស់នៅកន្លែងតែមួយ។';
+
+  @override
+  String get caishenClinicSectionTaglineHighlight => 'ទាំងអស់នៅកន្លែងតែមួយ';
+
+  @override
+  String get caishenClinicSectionBody =>
+      'រចនាសម្រាប់ការអនុវត្តទំនើប។ ធ្វើឱ្យការកំណត់ពេលវេលា ទិន្នន័យអ្នកជម្ងឺរបស់អ្នកមានសុវត្ថិភាព និងពង្រីកការអនុវត្តរបស់អ្នកជាមួយប្រព័ន្ធដែលអាចពង្រីកបាន។';
+
+  @override
+  String get caishenClinicSectionBodyHighlight => 'អាចពង្រីកបាន';
+
+  @override
+  String get caishenClinicFeature1Title => 'ផ្ទាំងគ្រប់គ្រង';
+
+  @override
+  String get caishenClinicFeature2Title => 'ការណាត់ជួប';
+
+  @override
+  String get caishenClinicFeature3Title => 'កំណត់ត្រាអ្នកជម្ងឺ';
+
+  @override
+  String get caishenClinicFeature4Title => 'ការកំណត់ពេលវេលា';
+
+  @override
+  String get caishenClinicFeature5Title => 'លំហូរការងារគ្លីនិក';
+
+  @override
+  String get caishenClinicFeature6Title => 'របាយការណ៍ និងវិភាគ';
+
+  @override
+  String get caishenClinicFeature7Title => 'វិក័យប័ត្រ និងការទូទាត់';
+
+  @override
+  String get caishenClinicFeature8Title => 'បុគ្គលិក និងតួនាទី';
+
+  @override
+  String get caishenClinicFeature9Title => 'ការកំណត់ និងការរួមបញ្ចូល';
 
   @override
   String get stonechatSpotlightTagline => 'គុណភាពដោយថ្លៃសមរម្យ។';
@@ -316,7 +381,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get consultations => 'ណាត់ជួបពិគ្រោះ';
 
   @override
-  String get contactUs => 'ទាក់ទង';
+  String get contactUs => 'ទាក់ទងយើង';
 
   @override
   String get bookConsultation => 'ណាត់ការពិគ្រោះ';
@@ -487,6 +552,18 @@ class AppLocalizationsKm extends AppLocalizations {
   @override
   String get sectionStoryPara3 =>
       'ថ្ងៃនេះ វិធីសាស្រ្តនោះបានជួយមនុស្សច្រើនជាង ៤៤,០០០ នាក់បង្កើតលទ្ធផលល្អប្រសើរសម្រាប់ខ្លួន និងអ្នកដទៃ។';
+
+  @override
+  String get sectionStoryPara1Short =>
+      'យើងបង្កើតកម្មវិធីទំនើប ថ្លៃសមរម្យ សម្រាប់ Web, Desktop, iOS និង Android។';
+
+  @override
+  String get sectionStoryPara2Short =>
+      'រចនាសម្ព័ន្ធស្អាត ចំណុចប្រទាក់អារម្មណ៍។ ខ្មែរ អង់គ្លេស ចិន។';
+
+  @override
+  String get sectionStoryPara3Short =>
+      'រហ័ស។ ការទំនាក់ទំនងច្បាស់។ សុភាពរាក់ទាក់។';
 
   @override
   String get sectionStoryCtaButton => 'ការខិតខំរបស់ Stonechat';
