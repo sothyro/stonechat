@@ -381,7 +381,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get consultations => 'ណាត់ជួបពិគ្រោះ';
 
   @override
-  String get contactUs => 'ទាក់ទងយើង';
+  String get contactUs => 'ទាក់ទង';
 
   @override
   String get bookConsultation => 'ណាត់ការពិគ្រោះ';

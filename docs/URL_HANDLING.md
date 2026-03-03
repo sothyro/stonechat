@@ -25,15 +25,20 @@ The app already had:
 
 So **direct hits and refreshes were not failing because of server config**; they were failing because the **client-side router did not initialize from the current URL** and did not normalize paths.
 
+### 4. Why “paste link” always showed the main screen (timing)
+
+Even after setting `initialLocation: getInitialRouterLocation()` in the router, the router is created **only when `StonechatApp` first builds**—i.e. **after** `HeroVideoBootstrap` finishes (loading screen). So the sequence was: user opens `https://site.com/events` → main runs → loading screen shows → **router is created later** and calls `getInitialRouterLocation()`. By then, `Uri.base` can differ (e.g. engine or timing), or the value was never used correctly. The **fix** is to read the browser URL **once in `main()` right after startup** and pass that value into the app so the router always receives the URL that was in the address bar when the page loaded.
+
 ---
 
 ## Implemented fix (routing / state layer)
 
-1. **Initial location from browser (web)**  
-   When running on web (`kIsWeb`), the router’s initial location is taken from `Uri.base` (path + query + fragment) instead of a hard-coded `'/'`. So:
+1. **Initial location captured at startup (web)**  
+   The browser URL is read **in `main()` immediately after `usePathUrlStrategy()` and `ensureInitialized()`**, then passed into `HeroVideoBootstrap` → `StonechatApp` → `createAppRouter(initialLocation: …)`. We do not read `Uri.base` when the router is created (after the loading screen), because by then the URL can have changed or the engine may report a different path. Capturing at startup ensures:
    - Direct link to `/events` or `/book` opens the correct screen.
    - Refresh on any valid URL keeps that URL and screen.
-   - Cache clear and reopen with a saved URL still loads the correct page, because the first thing the router does is use the browser’s URL.
+   - Paste/open of a copied link shows the intended page instead of the home screen.
+   - Cache clear and reopen with a saved URL still loads the correct page.
 
 2. **Path normalization**  
    A single `normalizePath()` helper:
@@ -55,7 +60,7 @@ So **direct hits and refreshes were not failing because of server config**; they
 
 ### Current behavior
 
-- **Web:** On load (including after refresh or cache clear), the router’s initial location is the **current browser URL** (path + query + fragment). Direct links, bookmarks, and shared links open the correct screen.
+- **Web:** The initial route is the **URL captured in `main()` at startup** (path + query + fragment), passed through to the router. Direct links, bookmarks, paste, and shared links open the correct screen. The router is created later (after the loading screen) but receives this captured location so it never “forgets” the intended route.
 - **Path format:** Paths are normalized: no trailing slash except for `/`. So `/events` and `/events/` are equivalent; the app redirects `/events/` to `/events`.
 - **Unknown paths:** Any path not in the known set (see `_knownPaths` in `app_router.dart`) redirects to `/not-found` (404 inside the app shell).
 - **Query and fragment:** Query parameters and hash fragments are preserved when normalizing (e.g. `/events?month=3` and `#section`).

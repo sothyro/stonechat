@@ -805,7 +805,7 @@ abstract class AppLocalizations {
   /// No description provided for @contactUs.
   ///
   /// In en, this message translates to:
-  /// **'Contact Us'**
+  /// **'Contact'**
   String get contactUs;
 
   /// No description provided for @bookConsultation.

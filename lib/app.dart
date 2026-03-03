@@ -10,7 +10,10 @@ import 'providers/auth_provider.dart';
 import 'router/app_router.dart';
 
 class StonechatApp extends StatefulWidget {
-  const StonechatApp({super.key});
+  const StonechatApp({super.key, required this.initialLocation});
+
+  /// Initial route (captured at startup, e.g. browser URL on web). Used so direct links work.
+  final String initialLocation;
 
   @override
   State<StonechatApp> createState() => _StonechatAppState();
@@ -37,6 +40,7 @@ class _StonechatAppState extends State<StonechatApp> {
           // Create router once; refresh on locale or auth change.
           _router ??= createAppRouter(
             refreshListenable: Listenable.merge([localeNotifier, authProvider]),
+            initialLocation: widget.initialLocation,
           );
           final theme = _themeForLocale(localeNotifier.locale.languageCode);
           return MaterialApp.router(

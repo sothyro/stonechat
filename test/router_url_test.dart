@@ -31,7 +31,7 @@ void main() {
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
 
-      await tester.pumpWidget(const StonechatApp());
+      await tester.pumpWidget(const StonechatApp(initialLocation: '/'));
       await tester.pumpAndSettle();
 
       final context = tester.element(find.byType(Scaffold).first);
@@ -48,7 +48,7 @@ void main() {
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
 
-      await tester.pumpWidget(const StonechatApp());
+      await tester.pumpWidget(const StonechatApp(initialLocation: '/'));
       await tester.pumpAndSettle();
 
       final context = tester.element(find.byType(Scaffold).first);
@@ -66,7 +66,7 @@ void main() {
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
 
-      await tester.pumpWidget(const StonechatApp());
+      await tester.pumpWidget(const StonechatApp(initialLocation: '/'));
       await tester.pumpAndSettle();
 
       final context = tester.element(find.byType(Scaffold).first);

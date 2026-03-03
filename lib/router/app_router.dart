@@ -57,10 +57,15 @@ String getInitialRouterLocation() {
 
 /// Creates the app router once. Pass [refreshListenable] (e.g. LocaleNotifier)
 /// so route/redirect logic can react to changes without recreating the router.
-GoRouter createAppRouter({Listenable? refreshListenable}) {
+/// Pass [initialLocation] when the app captured the browser URL at startup (web
+/// direct link / refresh); avoids reading Uri.base later when it may have changed.
+GoRouter createAppRouter({
+  Listenable? refreshListenable,
+  String? initialLocation,
+}) {
   return GoRouter(
     navigatorKey: _rootNavKey,
-    initialLocation: getInitialRouterLocation(),
+    initialLocation: initialLocation ?? getInitialRouterLocation(),
     refreshListenable: refreshListenable,
     redirect: (context, state) {
       final path = state.uri.path;

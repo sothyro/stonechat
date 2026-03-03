@@ -382,7 +382,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get consultations => 'Book Consultation';
 
   @override
-  String get contactUs => 'Contact Us';
+  String get contactUs => 'Contact';
 
   @override
   String get bookConsultation => 'Book Consultation';

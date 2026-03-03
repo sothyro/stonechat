@@ -364,7 +364,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get consultations => '预约咨询';
 
   @override
-  String get contactUs => '联系我们';
+  String get contactUs => '联系';
 
   @override
   String get bookConsultation => '预约咨询';
