@@ -1,0 +1,29 @@
+# Namecheap / Apache (cPanel) – SPA fallback for Flutter web
+# Serve index.html for all routes so direct links and refresh work (no 404).
+# Requires: mod_rewrite enabled (default on Namecheap shared hosting).
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # If the request is for a real file or directory, serve it
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # Otherwise send everything to index.html (client-side routing)
+  RewriteRule ^ index.html [QSA,L]
+</IfModule>
+
+# Optional: prevent directory listing
+Options -Indexes
+
+# Optional: cache static assets (adjust as needed)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>

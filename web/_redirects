@@ -1,0 +1,3 @@
+# SPA fallback: serve index.html for all routes so client-side routing works.
+# Enables direct links (e.g. /about, /contact) and prevents 404 on refresh/reopen.
+/* /index.html 200
