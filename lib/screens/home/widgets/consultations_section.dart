@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 import '../../../config/app_content.dart';
@@ -19,17 +18,26 @@ class ConsultationsSection extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     final width = MediaQuery.sizeOf(context).width;
     final isMobile = Breakpoints.isMobile(width);
-
     // Service IDs must match Consultations page: bazi, fengshui, dateselection, qimeniching, maosan, publications
     const serviceIds = ['bazi', 'fengshui', 'dateselection', 'qimeniching', 'maosan', 'publications'];
+    // Map each consultation card to one of the six core services and its brand colour.
+    const accentColors = <Color>[
+      AppColors.serviceAppDevelopment,
+      AppColors.serviceResponsiveWeb,
+      AppColors.serviceAiAgent,
+      AppColors.serviceBookCreation,
+      AppColors.serviceCommunicationsTraining,
+      AppColors.serviceCustomProject,
+    ];
     final blocks = [
       _ConsultBlock(
         category: l10n.consult1Category,
         method: l10n.consult1Method,
         question: l10n.consult1Question,
         description: l10n.consult1Desc,
-        icon: LucideIcons.user,
+        icon: LucideIcons.smartphone,
         serviceId: serviceIds[0],
+        accentColor: accentColors[0],
         onGetConsultation: () => context.push('/consultations?service=${serviceIds[0]}'),
       ),
       _ConsultBlock(
@@ -37,8 +45,9 @@ class ConsultationsSection extends StatelessWidget {
         method: l10n.consult2Method,
         question: l10n.consult2Question,
         description: l10n.consult2Desc,
-        icon: LucideIcons.calendar,
+        icon: LucideIcons.messageCircle,
         serviceId: serviceIds[1],
+        accentColor: accentColors[4],
         onGetConsultation: () => context.push('/consultations?service=${serviceIds[1]}'),
       ),
       _ConsultBlock(
@@ -46,8 +55,9 @@ class ConsultationsSection extends StatelessWidget {
         method: l10n.consult3Method,
         question: l10n.consult3Question,
         description: l10n.consult3Desc,
-        icon: LucideIcons.home,
+        icon: LucideIcons.bookOpen,
         serviceId: serviceIds[2],
+        accentColor: accentColors[3],
         onGetConsultation: () => context.push('/consultations?service=${serviceIds[2]}'),
       ),
       _ConsultBlock(
@@ -55,8 +65,9 @@ class ConsultationsSection extends StatelessWidget {
         method: l10n.consult4Method,
         question: l10n.consult4Question,
         description: l10n.consult4Desc,
-        icon: LucideIcons.clock,
+        icon: LucideIcons.layers,
         serviceId: serviceIds[3],
+        accentColor: accentColors[5],
         onGetConsultation: () => context.push('/consultations?service=${serviceIds[3]}'),
       ),
       _ConsultBlock(
@@ -64,8 +75,9 @@ class ConsultationsSection extends StatelessWidget {
         method: l10n.consult5Method,
         question: l10n.consult5Question,
         description: l10n.consult5Desc,
-        icon: LucideIcons.sparkles,
+        icon: LucideIcons.globe,
         serviceId: serviceIds[4],
+        accentColor: accentColors[1],
         onGetConsultation: () => context.push('/consultations?service=${serviceIds[4]}'),
       ),
       _ConsultBlock(
@@ -73,8 +85,9 @@ class ConsultationsSection extends StatelessWidget {
         method: l10n.consult6Method,
         question: l10n.consult6Question,
         description: l10n.consult6Desc,
-        icon: LucideIcons.bookOpen,
+        icon: LucideIcons.cpu,
         serviceId: serviceIds[5],
+        accentColor: accentColors[2],
         onGetConsultation: () => context.push('/consultations?service=${serviceIds[5]}'),
       ),
     ];
@@ -122,7 +135,9 @@ class ConsultationsSection extends StatelessWidget {
                   const SizedBox(height: 20),
                   Text(
                     l10n.sectionMapIntro,
-                    style: GoogleFonts.exo2(
+                    style: textStyleWithLocale(
+                      context,
+                      isHeading: false,
                       fontSize: width < 600 ? 15 : 17,
                       height: 1.6,
                       color: AppColors.onPrimary.withValues(alpha: 0.92),
@@ -140,30 +155,33 @@ class ConsultationsSection extends StatelessWidget {
                     Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
+                        // Row 1: App Development – Responsive Web
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Expanded(child: blocks[0]),
+                            Expanded(child: blocks[0]), // App Development
                             const SizedBox(width: _cardGap),
-                            Expanded(child: blocks[1]),
+                            Expanded(child: blocks[4]), // Responsive Web
                           ],
                         ),
                         const SizedBox(height: _cardGap),
+                        // Row 2: Book Creation Suite – Communications Training
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Expanded(child: blocks[2]),
+                            Expanded(child: blocks[2]), // Book Creation Suite
                             const SizedBox(width: _cardGap),
-                            Expanded(child: blocks[3]),
+                            Expanded(child: blocks[1]), // Communications Training
                           ],
                         ),
                         const SizedBox(height: _cardGap),
+                        // Row 3: AI Agent – Custom Project
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Expanded(child: blocks[4]),
+                            Expanded(child: blocks[5]), // AI Agent
                             const SizedBox(width: _cardGap),
-                            Expanded(child: blocks[5]),
+                            Expanded(child: blocks[3]), // Custom Project
                           ],
                         ),
                       ],
@@ -186,6 +204,7 @@ class _ConsultBlock extends StatefulWidget {
     required this.description,
     required this.icon,
     required this.serviceId,
+    required this.accentColor,
     required this.onGetConsultation,
   });
 
@@ -195,6 +214,7 @@ class _ConsultBlock extends StatefulWidget {
   final String description;
   final IconData icon;
   final String serviceId;
+  final Color accentColor;
   final VoidCallback onGetConsultation;
 
   @override
@@ -207,8 +227,9 @@ class _ConsultBlockState extends State<_ConsultBlock> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final accent = widget.accentColor;
     final shadow = _isHovered ? AppShadows.cardHover : AppShadows.card;
-    final borderColor = _isHovered ? AppColors.borderLight.withValues(alpha: 0.5) : AppColors.borderDark;
+    final borderColor = _isHovered ? accent.withValues(alpha: 0.8) : AppColors.borderDark;
     final scale = _isHovered ? 1.02 : 1.0;
 
     return MouseRegion(
@@ -228,7 +249,7 @@ class _ConsultBlockState extends State<_ConsultBlock> {
               curve: Curves.easeOut,
               padding: const EdgeInsets.all(24),
               decoration: BoxDecoration(
-                color: AppColors.surfaceElevatedDark.withValues(alpha: 0.82),
+                color: AppColors.surfaceElevatedDark.withValues(alpha: 0.9),
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(color: borderColor, width: 1),
                 boxShadow: shadow,
@@ -243,14 +264,14 @@ class _ConsultBlockState extends State<_ConsultBlock> {
                       Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: AppColors.accent.withValues(alpha: 0.2),
+                          color: accent.withValues(alpha: 0.2),
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
-                            color: AppColors.accent.withValues(alpha: 0.4),
+                            color: accent.withValues(alpha: 0.5),
                             width: 1,
                           ),
                         ),
-                        child: Icon(widget.icon, size: 28, color: AppColors.accent),
+                        child: Icon(widget.icon, size: 28, color: accent),
                       ),
                       const SizedBox(width: 16),
                       Expanded(
@@ -260,8 +281,10 @@ class _ConsultBlockState extends State<_ConsultBlock> {
                           children: [
                             Text(
                               widget.category,
-                              style: GoogleFonts.exo2(
-                                color: AppColors.accent,
+                              style: textStyleWithLocale(
+                                context,
+                                isHeading: true,
+                                color: accent,
                                 fontWeight: FontWeight.w700,
                                 fontSize: 18,
                                 height: 1.25,
@@ -272,7 +295,9 @@ class _ConsultBlockState extends State<_ConsultBlock> {
                               const SizedBox(height: 4),
                               Text(
                                 widget.method,
-                                style: GoogleFonts.exo2(
+                                style: textStyleWithLocale(
+                                  context,
+                                  isHeading: false,
                                   color: AppColors.onPrimary.withValues(alpha: 0.7),
                                   fontSize: 13,
                                   height: 1.3,
@@ -287,7 +312,9 @@ class _ConsultBlockState extends State<_ConsultBlock> {
                   const SizedBox(height: 20),
                   Text(
                     widget.question,
-                    style: GoogleFonts.exo2(
+                    style: textStyleWithLocale(
+                      context,
+                      isHeading: false,
                       fontStyle: FontStyle.italic,
                       color: AppColors.onPrimary.withValues(alpha: 0.95),
                       fontSize: 15,
@@ -303,13 +330,23 @@ class _ConsultBlockState extends State<_ConsultBlock> {
                     height: 1,
                     margin: const EdgeInsets.only(left: 0),
                     decoration: BoxDecoration(
-                      color: AppColors.onPrimary.withValues(alpha: 0.12),
+                      gradient: LinearGradient(
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                        colors: [
+                          accent.withValues(alpha: 0.0),
+                          accent.withValues(alpha: 0.7),
+                          accent.withValues(alpha: 0.0),
+                        ],
+                      ),
                     ),
                   ),
                   const SizedBox(height: 14),
                   Text(
                     widget.description,
-                    style: GoogleFonts.exo2(
+                    style: textStyleWithLocale(
+                      context,
+                      isHeading: false,
                       color: AppColors.onPrimary.withValues(alpha: 0.9),
                       fontSize: 14,
                       height: 1.55,
@@ -325,7 +362,7 @@ class _ConsultBlockState extends State<_ConsultBlock> {
                       onPressed: widget.onGetConsultation,
                       style: OutlinedButton.styleFrom(
                         foregroundColor: AppColors.onPrimary,
-                        side: const BorderSide(color: AppColors.accent, width: 1.5),
+                        side: BorderSide(color: accent, width: 1.6),
                         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
@@ -333,7 +370,9 @@ class _ConsultBlockState extends State<_ConsultBlock> {
                       ),
                       child: Text(
                         l10n.getConsultation,
-                        style: GoogleFonts.exo2(
+                        style: textStyleWithLocale(
+                          context,
+                          isHeading: false,
                           fontWeight: FontWeight.w600,
                           fontSize: 15,
                         ),

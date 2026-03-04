@@ -50,8 +50,8 @@ class AcademiesSection extends StatelessWidget {
               children: [
                 if (isNarrow) ...[
                   SectionHeader(
-                    overline: l10n.sectionKnowledgeOverline,
-                    title: l10n.sectionKnowledgeHeading,
+                    overline: l10n.stonechatSystem,
+                    title: l10n.academiesAppsWebAiTitle,
                     isNarrow: true,
                   ),
                   const SizedBox(height: 24),
@@ -64,8 +64,8 @@ class AcademiesSection extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(right: 32),
                           child: SectionHeader(
-                            overline: l10n.sectionKnowledgeOverline,
-                            title: l10n.sectionKnowledgeHeading,
+                            overline: l10n.stonechatSystem,
+                            title: l10n.academiesAppsWebAiTitle,
                             isNarrow: false,
                           ),
                         ),
@@ -83,27 +83,27 @@ class AcademiesSection extends StatelessWidget {
                       return Column(
                         children: [
                           AcademyCard(
-                            icon: LucideIcons.user,
-                            title: l10n.academyBaZi,
-                            description: l10n.academyBaZiDesc,
-                            imageAsset: AppContent.assetBaziHarmony,
-                            onExplore: () => context.push('/events'),
+                            icon: LucideIcons.smartphone,
+                            title: l10n.serviceAppDevelopment,
+                            description: l10n.serviceAppDevelopmentDesc,
+                            imageAsset: AppContent.assetServiceAppDevelopment,
+                            onExplore: () => context.push('/apps'),
                           ),
                           const SizedBox(height: 20),
                           AcademyCard(
-                            icon: LucideIcons.home,
-                            title: l10n.academyFengShui,
-                            description: l10n.academyFengShuiDesc,
-                            imageAsset: AppContent.assetAcademyFengShui,
-                            onExplore: () => context.push('/events'),
+                            icon: LucideIcons.globe,
+                            title: l10n.serviceResponsiveWeb,
+                            description: l10n.serviceResponsiveWebDesc,
+                            imageAsset: AppContent.assetServiceResponsiveWeb,
+                            onExplore: () => context.push('/apps'),
                           ),
                           const SizedBox(height: 20),
                           AcademyCard(
-                            icon: LucideIcons.compass,
-                            title: l10n.academyQiMen,
-                            description: l10n.academyQiMenDesc,
-                            imageAsset: AppContent.assetAcademyQiMen,
-                            onExplore: () => context.push('/events'),
+                            icon: LucideIcons.cpu,
+                            title: l10n.serviceAiAgent,
+                            description: l10n.serviceAiAgentDesc,
+                            imageAsset: AppContent.assetServiceAiAgent,
+                            onExplore: () => context.push('/apps'),
                           ),
                         ],
                       );
@@ -112,35 +112,35 @@ class AcademiesSection extends StatelessWidget {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                        Expanded(
-                          child: AcademyCard(
-                            icon: LucideIcons.user,
-                            title: l10n.academyBaZi,
-                            description: l10n.academyBaZiDesc,
-                            imageAsset: AppContent.assetBaziHarmony,
-                            onExplore: () => context.push('/events'),
+                          Expanded(
+                            child: AcademyCard(
+                              icon: LucideIcons.smartphone,
+                              title: l10n.serviceAppDevelopment,
+                              description: l10n.serviceAppDevelopmentDesc,
+                              imageAsset: AppContent.assetServiceAppDevelopment,
+                              onExplore: () => context.push('/apps'),
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 24),
-                        Expanded(
-                          child: AcademyCard(
-                            icon: LucideIcons.home,
-                            title: l10n.academyFengShui,
-                            description: l10n.academyFengShuiDesc,
-                            imageAsset: AppContent.assetAcademyFengShui,
-                            onExplore: () => context.push('/events'),
+                          const SizedBox(width: 24),
+                          Expanded(
+                            child: AcademyCard(
+                              icon: LucideIcons.globe,
+                              title: l10n.serviceResponsiveWeb,
+                              description: l10n.serviceResponsiveWebDesc,
+                              imageAsset: AppContent.assetServiceResponsiveWeb,
+                              onExplore: () => context.push('/apps'),
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 24),
-                        Expanded(
-                          child: AcademyCard(
-                            icon: LucideIcons.compass,
-                            title: l10n.academyQiMen,
-                            description: l10n.academyQiMenDesc,
-                            imageAsset: AppContent.assetAcademyQiMen,
-                            onExplore: () => context.push('/events'),
+                          const SizedBox(width: 24),
+                          Expanded(
+                            child: AcademyCard(
+                              icon: LucideIcons.cpu,
+                              title: l10n.serviceAiAgent,
+                              description: l10n.serviceAiAgentDesc,
+                              imageAsset: AppContent.assetServiceAiAgent,
+                              onExplore: () => context.push('/apps'),
+                            ),
                           ),
-                        ),
                         ],
                       ),
                     );
@@ -155,20 +155,28 @@ class AcademiesSection extends StatelessWidget {
 
   Widget _buildBody(BuildContext context, AppLocalizations l10n) {
     final width = MediaQuery.sizeOf(context).width;
+    final isNarrow = Breakpoints.isMobile(width);
     final bodyStyle = textStyleWithLocale(
       context,
       isHeading: false,
-      fontSize: width < 600 ? 15 : 17,
+      fontSize: isNarrow ? 14 : 15,
       fontWeight: FontWeight.w400,
       color: _textMuted,
-    ).copyWith(height: 1.65);
+    ).copyWith(height: 1.6);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(l10n.sectionKnowledgeBody, style: bodyStyle),
-        const SizedBox(height: 18),
-        Text(l10n.sectionKnowledgeBody2, style: bodyStyle),
+        Text(
+          l10n.academiesBody1,
+          style: bodyStyle,
+        ),
+        const SizedBox(height: 10),
+        Text(
+          l10n.academiesBody2,
+          style: bodyStyle,
+        ),
       ],
     );
   }

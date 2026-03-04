@@ -404,6 +404,9 @@ TextStyle textStyleWithLocale(
   double? fontSize,
   FontWeight? fontWeight,
   Color? color,
+  double? height,
+  double? letterSpacing,
+  FontStyle? fontStyle,
 }) {
   final locale = Localizations.localeOf(context);
   final lang = locale.languageCode;
@@ -423,8 +426,12 @@ TextStyle textStyleWithLocale(
     default:
       base = GoogleFonts.exo2(fontSize: fontSize, fontWeight: fontWeight);
   }
-  if (color != null) base = base.copyWith(color: color);
-  return base;
+  return base.copyWith(
+    color: color,
+    height: height,
+    letterSpacing: letterSpacing,
+    fontStyle: fontStyle,
+  );
 }
 
 /// Highlight text style: Khmer locale uses Dangrek; other locales use Condiment.

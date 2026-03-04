@@ -66,29 +66,30 @@ class AppLocalizationsZh extends AppLocalizations {
   String get appsPageTitle => '应用与商店';
 
   @override
-  String get appsPageOverline => 'Apps';
+  String get appsPageOverline => '应用';
 
   @override
-  String get appsPageSubline => '您的八字与中华玄学一站式工具。';
+  String get appsPageSubline => '应用开发、响应式网站、AI 智能体、图书创作、传播培训与定制项目—一站式服务。';
 
   @override
-  String get appsPageDescription => '使用完整的 Stonechat 系统—八字排盘、九运手机应用与符咒商店—尽在一处。';
+  String get appsPageDescription =>
+      'Stonechat 提供六大核心服务：应用开发、响应式网站、AI 智能体、图书创作、传播培训与定制项目。找到适合您的服务，与我们联系。';
 
   @override
-  String get appsPageDescriptionHighlight => 'Stonechat 系统';
+  String get appsPageDescriptionHighlight => '六大核心服务';
 
   @override
-  String get appsFeatureShowcaseHeading => '洞见化为行动的工具';
+  String get appsFeatureShowcaseHeading => '我们提供的服务';
 
   @override
-  String get appsFeatureShowcaseOverline => 'Marketplace';
+  String get appsFeatureShowcaseOverline => '市场';
 
   @override
   String get appsFeatureShowcaseMarketingDesc =>
-      '从每日解读到改变人生的决策—数千用户借助这些工具择吉日、读命盘、从容前行。';
+      '我们的六大服务—应用开发、响应式网站、AI 智能体、图书创作、传播培训与定制项目—让一切清晰直观。一个伙伴，实现您的目标。';
 
   @override
-  String get appsFeatureShowcaseMarketingHighlight => '改变人生';
+  String get appsFeatureShowcaseMarketingHighlight => '六大服务';
 
   @override
   String get marketplaceCategoryDigital => '数字';
@@ -237,38 +238,38 @@ class AppLocalizationsZh extends AppLocalizations {
   String get talismanStoreSpotlightTaglineHighlight => '书架';
 
   @override
-  String get bookStoreSectionHeading => 'Stonechat 书店';
+  String get bookStoreSectionHeading => '图书创作服务';
 
   @override
-  String get bookStoreSectionOverline => 'Book Store';
+  String get bookStoreSectionOverline => '书店';
 
   @override
-  String get bookStoreSectionTagline => '握在手中的智慧。历久弥新的知识。';
+  String get bookStoreSectionTagline => '从构思到成书。一站式完成。';
 
   @override
-  String get bookStoreSectionTaglineHighlight => '智慧';
+  String get bookStoreSectionTaglineHighlight => '一站式';
 
   @override
   String get bookStoreSectionMarketing =>
-      '通过我们精选的书籍，深入探索九运风水与中华玄学。适合修行者与爱好者—立即订购，转变你的认知。';
+      '图书创作是我们六大核心服务之一。我们从构思、写作、编辑、设计到出版全程支持作者与机构。从构思到出版，您所需的一切都在这里。';
 
   @override
-  String get bookStoreSectionMarketingHighlight => '转变你的认知';
+  String get bookStoreSectionMarketingHighlight => '图书创作服务';
 
   @override
-  String get bookStoreBook1Title => '九运风水 — 第一卷';
+  String get bookStoreBook1Title => '从构思到成书';
 
   @override
-  String get bookStoreBook1Subtitle => '基础与飞星';
+  String get bookStoreBook1Subtitle => '写作、编辑与出版';
 
   @override
   String get bookStoreBook1Price => '24.99';
 
   @override
-  String get bookStoreBook2Title => '九运风水 — 第二卷';
+  String get bookStoreBook2Title => '职场清晰沟通';
 
   @override
-  String get bookStoreBook2Subtitle => '进阶应用';
+  String get bookStoreBook2Subtitle => '团队实用技能';
 
   @override
   String get bookStoreBook2Price => '24.99';
@@ -340,7 +341,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get appFeatureAdvancedFeatures => '高级功能';
 
   @override
-  String get newsAndEvents => '新闻与活动';
+  String get newsAndEvents => '新闻与培训';
 
   @override
   String get mediaAndPosts => '资讯与媒体';
@@ -349,7 +350,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get mediaPostsFacebookTitle => '动态与更新';
 
   @override
-  String get mediaPostsFacebookBody => '我们的最新动态、活动与资讯发布在 Facebook 专页，欢迎关注。';
+  String get mediaPostsFacebookBody => '我们的最新动态、培训与资讯发布在 Facebook 专页，欢迎关注。';
 
   @override
   String get mediaPostsFacebookLink => 'facebook.com/stonechat';
@@ -391,10 +392,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get ourMethod => '我们的方法';
 
   @override
-  String get events => '工作坊与活动';
+  String get events => '培训';
 
   @override
-  String get eventsCalendar => '活动日历';
+  String get eventsCalendar => '培训日历';
 
   @override
   String get blog => '博客';
@@ -438,40 +439,40 @@ class AppLocalizationsZh extends AppLocalizations {
   String get backToHome => '返回首页';
 
   @override
-  String get heroHeadline1 => '觉知永远先于结果。';
+  String get heroHeadline1 => '优质应用与培训。价格实惠。';
 
   @override
   String get heroHeadline1Prefix => '';
 
   @override
-  String get heroHeadline1Highlight => '觉知';
+  String get heroHeadline1Highlight => '优质应用';
 
   @override
-  String get heroHeadline1Suffix => '永远先于结果。';
+  String get heroHeadline1Suffix => ' 与培训。';
 
   @override
-  String get heroHeadline2Prefix => '其真正价值在于引导更好的';
+  String get heroHeadline2Prefix => 'Web、桌面、iOS 与 Android。';
 
   @override
-  String get heroHeadline2Highlight => '选择。';
+  String get heroHeadline2Highlight => '实惠。';
 
   @override
-  String get heroSubline => '风水与人生规划服务';
+  String get heroSubline => '我们开发应用、设计图书、提供培训。';
 
   @override
-  String get exploreAllEvents => '探索所有活动';
+  String get exploreAllEvents => '探索所有培训';
 
   @override
   String get comingUpNext => '即将举行';
 
   @override
-  String get allUpcomingEvents => '所有即将举行的活动';
+  String get allUpcomingEvents => '即将举行的培训';
 
   @override
   String get limitedSeats => '名额有限';
 
   @override
-  String get viewEvent => '查看活动';
+  String get viewEvent => '查看培训';
 
   @override
   String get exploreCourses => '探索';
@@ -480,150 +481,148 @@ class AppLocalizationsZh extends AppLocalizations {
   String get getConsultation => '获取咨询';
 
   @override
-  String get finalCtaHeading => '犹豫如何开始？';
+  String get finalCtaHeading => '准备好开始了吗？';
 
   @override
-  String get finalCtaOverline => 'Get started';
+  String get finalCtaOverline => '开始';
 
   @override
-  String get finalCtaBody => '打个电话即可。给我们的 Facebook 专页发消息。或前来拜访。';
+  String get finalCtaBody =>
+      '告诉我们您需要哪项服务—应用开发、响应式网站、AI 智能体、图书创作、传播培训或定制项目。我们会用清晰的语言回复。';
 
   @override
   String get notSureWhereToStart => '不知从何开始？';
 
   @override
-  String get notSureBody => '我们随时为您提供帮助。只需联系我们，我们将引导您迈出最佳下一步，无论是咨询、课程还是支持性社群。';
+  String get notSureBody =>
+      '我们提供六大核心服务：应用开发、响应式网站、AI 智能体、图书创作、传播培训与定制项目。告诉我们您的目标，我们会为您指向合适的服务。';
 
   @override
   String get language => '语言';
 
   @override
-  String get sectionExperienceHeading => '最佳实践引导，成果转化。';
+  String get sectionExperienceHeading => '实操培训。清晰技能。真实成效。';
 
   @override
-  String get sectionExperienceHeadingPrefix => '最佳实践引导，';
+  String get sectionExperienceHeadingPrefix => '实操培训。';
 
   @override
-  String get sectionExperienceHeadingHighlight => '成果转化。';
+  String get sectionExperienceHeadingHighlight => '清晰技能。真实成效。';
 
   @override
-  String get sectionExperienceOverline => 'Workshops';
+  String get sectionExperienceOverline => '培训';
 
   @override
-  String get sectionServicesHeading => 'What we offer';
+  String get sectionServicesHeading => '我们提供的服务';
 
   @override
-  String get sectionServicesOverline => 'Services';
+  String get sectionServicesOverline => '服务';
 
   @override
   String get sectionServicesSubline =>
-      'App Development, Responsive Web, AI Agent, Book Creation Suite, Communications Training, and Custom Project—one partner for all.';
+      '应用开发、响应式网站、AI 智能体、图书创作、传播培训与定制项目—一个伙伴，全包服务。';
 
   @override
-  String get serviceAiAgent => 'AI Agent';
+  String get serviceAiAgent => 'AI 智能体';
 
   @override
-  String get serviceAiAgentDesc =>
-      'Smart automation and AI-powered solutions for your workflows.';
+  String get serviceAiAgentDesc => '为您的流程提供智能自动化与 AI 驱动方案。';
 
   @override
-  String get serviceAppDevelopment => 'App Development';
+  String get serviceAppDevelopment => '应用开发';
 
   @override
-  String get serviceAppDevelopmentDesc =>
-      'Modern apps for Web, Desktop, iOS and Android.';
+  String get serviceAppDevelopmentDesc => '面向 Web、桌面、iOS 与 Android 的现代应用。';
 
   @override
-  String get serviceBookCreation => 'Book Creation Suite';
+  String get serviceBookCreation => '图书创作服务';
 
   @override
-  String get serviceBookCreationDesc =>
-      'From idea to published book—writing, design, and publishing.';
+  String get serviceBookCreationDesc => '从构思到出版—写作、设计与出版。';
 
   @override
-  String get serviceCommunicationsTraining => 'Communications Training';
+  String get serviceCommunicationsTraining => '传播培训';
 
   @override
-  String get serviceCommunicationsTrainingDesc =>
-      'Workshops and training that build clear, practical skills.';
+  String get serviceCommunicationsTrainingDesc => '培养清晰、实用技能的培训。';
 
   @override
-  String get serviceCustomProject => 'Custom Project';
+  String get serviceCustomProject => '定制项目';
 
   @override
-  String get serviceCustomProjectDesc =>
-      'Tailored solutions for your unique needs and goals.';
+  String get serviceCustomProjectDesc => '针对您独特需求与目标的定制方案。';
 
   @override
-  String get serviceResponsiveWeb => 'Responsive Web';
+  String get serviceResponsiveWeb => '响应式网站';
 
   @override
-  String get serviceResponsiveWebDesc =>
-      'Beautiful, fast websites that work on every device.';
+  String get serviceResponsiveWebDesc => '美观、快速、适配各种设备的网站。';
 
   @override
-  String get serviceLearnMore => 'Learn more';
+  String get serviceLearnMore => '了解更多';
 
   @override
-  String get sectionKnowledgeHeading => '这不仅是传授。它是实现真正改变的实践框架。';
+  String get sectionKnowledgeHeading => '贴合您目标的培训。';
 
   @override
-  String get sectionKnowledgeOverline => 'Training';
+  String get sectionKnowledgeOverline => '培训';
 
   @override
   String get sectionKnowledgeBody =>
-      '超过 44,000 名追随者已使用这一系统。与对的人、对的地方、对的时间同频，成功必然。';
+      '传播培训是我们六大核心服务之一。我们开展以人为中心、AI 增强的培训，帮助您掌握清晰、实用的技能—无术语。为您的团队或机构提供定制课程。';
 
   @override
-  String get sectionKnowledgeBody2 => '成功不是来自更努力地工作。它来自在正确的时间，用正确的系统，做出正确的行动。';
+  String get sectionKnowledgeBody2 => '我们支持高棉语、英语和中文。快速响应，让您不必久等即可看到成果。';
 
   @override
-  String get sectionKnowledgeStat => '44,000+ 追随者';
+  String get sectionKnowledgeStat => '3+ 种语言';
 
   @override
-  String get sectionMapHeading => '你不需要更多建议。你需要一张路线图。\n让天道指引你走上正途。';
+  String get sectionMapHeading => '预约咨询——为您匹配最合适的服务。';
 
   @override
-  String get sectionMapOverline => 'Consultations';
+  String get sectionMapOverline => '预约咨询';
 
   @override
-  String get sectionMapIntro => '各就各位… 我们深知如何助你对准时机、开辟清晰的前进道路。';
+  String get sectionMapIntro => '选择下方服务并预约。我们与您沟通需求、规划下一步——通俗易懂，无术语。';
 
   @override
-  String get sectionStoryHeading => 'Stonechat 的故事。';
+  String get sectionStoryHeading => '我们是谁。';
 
   @override
-  String get sectionStoryOverline => 'About';
+  String get sectionStoryOverline => '关于';
 
   @override
-  String get sectionStoryPara1 => 'Stonechat 为你铺垫成功的前 50%，再以另外 50% 引领你收获成果。';
+  String get sectionStoryPara1 =>
+      'Stonechat Communications 提供六大核心服务：应用开发、响应式网站、AI 智能体、图书创作、传播培训与定制项目。一个伙伴，覆盖应用、网站、图书与培训。';
 
   @override
-  String get sectionStoryPara2 => '经年研习、验证与提炼，形成根植于中华玄学的可验证方法。';
+  String get sectionStoryPara2 =>
+      '我们使用高棉语、英语和中文，注重快速响应与清晰沟通。无论您需要应用、网站、图书还是培训—我们都保持直观易懂。';
 
   @override
-  String get sectionStoryPara3 => '如今，这套方法已帮助 44,000 多名追随者为己为人创造更好结果。';
+  String get sectionStoryPara3 => '告诉我们您的目标。我们会为您匹配合适的服务与下一步—用通俗语言。';
 
   @override
-  String get sectionStoryPara1Short => '我们为 Web、桌面、iOS 与 Android 打造现代、实惠的应用。';
+  String get sectionStoryPara1Short => '六大服务：应用开发、响应式网站、AI 智能体、图书创作、传播培训、定制项目。';
 
   @override
-  String get sectionStoryPara2Short => '架构清晰，界面优雅，成本可控。支持高棉语、英语、中文。';
+  String get sectionStoryPara2Short => '高棉语、英语与中文。快速响应。清晰直观。';
 
   @override
-  String get sectionStoryPara3Short => '交付快。沟通清。语气亲。';
+  String get sectionStoryPara3Short => '告诉我们您的目标—我们会为您指向合适的服务。';
 
   @override
-  String get sectionStoryCtaButton => 'Stonechat 的奋进';
+  String get sectionStoryCtaButton => '我们的故事';
 
   @override
   String get sectionTestimonialsHeading => '真实洞见。真实成果。';
 
   @override
-  String get sectionTestimonialsOverline => 'Testimonials';
+  String get sectionTestimonialsOverline => '见证';
 
   @override
-  String get sectionTestimonialsSub1 => '他们不仅是参加了活动。他们见证了真正的策略。';
+  String get sectionTestimonialsSub1 => '他们不仅是参加了培训。他们见证了真正的策略。';
 
   @override
   String get sectionTestimonialsSub2 => '从商界领袖到个人。';
@@ -683,7 +682,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get academyDateSelectionAbout => '结合通书、八字与奇门择取吉日吉时，应用于婚嫁、开业、出行与重大决策。';
 
   @override
-  String get academyDateSelectionTopics => '通书 • 吉时 • 活动与里程碑';
+  String get academyDateSelectionTopics => '通书 • 吉时 • 场合与里程碑';
 
   @override
   String get academyIChing => '易经™';
@@ -714,147 +713,138 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get eventCourseAppDevelopmentDesc =>
-      'Hands-on sessions on building apps for Web, Desktop, iOS & Android.';
+      '面向 Web、桌面、iOS 与 Android 的应用开发实操课程。';
 
   @override
   String get eventCourseAppDevelopmentAbout =>
-      'Join workshops and demos on modern app development. Clean architecture, clear interfaces, and practical tips. Suitable for teams and individuals exploring our App Development service.';
+      '参加现代应用开发培训与演示。架构清晰、界面简洁、实用技巧。适合探索我们应用开发服务的团队与个人。';
 
   @override
-  String get eventCourseAppDevelopmentTopics =>
-      'Cross-platform • Clean code • UI/UX • Demos & Q&A';
+  String get eventCourseAppDevelopmentTopics => '跨平台 • 清晰代码 • UI/UX • 演示与问答';
 
   @override
-  String get eventCourseResponsiveWebDesc =>
-      'Learn to design and deliver websites that work on every device.';
+  String get eventCourseResponsiveWebDesc => '学习设计与交付适配各种设备的网站。';
 
   @override
   String get eventCourseResponsiveWebAbout =>
-      'Workshops on responsive design, performance, and deployment. See live demos and get guidance on your Responsive Web projects. From concept to launch.';
+      '响应式设计、性能与部署培训。观看现场演示，获取响应式网站项目指导。从概念到上线。';
 
   @override
-  String get eventCourseResponsiveWebTopics =>
-      'Responsive layout • Performance • Accessibility • Real projects';
+  String get eventCourseResponsiveWebTopics => '响应式布局 • 性能 • 无障碍 • 真实项目';
 
   @override
-  String get eventCourseAiAgentDesc =>
-      'Smart automation and AI-powered solutions—see them in action.';
+  String get eventCourseAiAgentDesc => '智能自动化与 AI 驱动方案—现场体验。';
 
   @override
   String get eventCourseAiAgentAbout =>
-      'Demos and sessions on AI agents and workflow automation. Understand how our AI Agent service can fit your needs. No heavy jargon—clear, practical insights.';
+      'AI 智能体与工作流自动化演示与课程。了解我们的 AI 智能体服务如何满足您的需求。无艰深术语—清晰、实用的见解。';
 
   @override
-  String get eventCourseAiAgentTopics =>
-      'Automation • AI tools • Use cases • Integration';
+  String get eventCourseAiAgentTopics => '自动化 • AI 工具 • 应用场景 • 集成';
 
   @override
-  String get eventCourseBookCreationDesc =>
-      'From idea to published book. Writing, design, and publishing workshops.';
+  String get eventCourseBookCreationDesc => '从构思到出版。写作、设计与出版培训。';
 
   @override
   String get eventCourseBookCreationAbout =>
-      'Sessions on the full book-creation journey: concept, writing, editing, design, and publishing. Part of our Book Creation Suite. For authors and organizations.';
+      '完整图书创作历程课程：概念、写作、编辑、设计与出版。属于我们的图书创作服务。面向作者与机构。';
 
   @override
-  String get eventCourseBookCreationTopics =>
-      'Writing • Editing • Design • Publishing pipeline';
+  String get eventCourseBookCreationTopics => '写作 • 编辑 • 设计 • 出版流程';
 
   @override
-  String get eventCourseCommunicationsTrainingDesc =>
-      'Human-centered and AI-enhanced communication skills. Clear, practical.';
+  String get eventCourseCommunicationsTrainingDesc => '以人为中心、AI 增强的沟通技能。清晰、实用。';
 
   @override
   String get eventCourseCommunicationsTrainingAbout =>
-      'Our Communications Training in action. Workshops on clear speaking, writing, and using AI to communicate better. Human-centered and AI-enhanced. Khmer, English, Chinese.';
+      '传播培训实战。清晰表达、写作与运用 AI 提升沟通的培训。以人为中心、AI 增强。支持高棉语、英语、中文。';
 
   @override
   String get eventCourseCommunicationsTrainingTopics =>
-      'Clear messaging • AI tools • Team skills • Practice sessions';
+      '清晰表达 • AI 工具 • 团队技能 • 实操环节';
 
   @override
-  String get eventCourseCustomProjectDesc =>
-      'Tailored solutions: mix and match our services for your goals.';
+  String get eventCourseCustomProjectDesc => '定制方案：根据您的目标组合我们的服务。';
 
   @override
   String get eventCourseCustomProjectAbout =>
-      'Sessions and consultations on custom projects that combine App Development, Web, AI, Books, or Training. We help you scope and plan. One partner, flexible delivery.';
+      '定制项目课程与咨询，可结合应用开发、网站、AI、图书或培训。我们协助您界定范围与规划。一个伙伴，灵活交付。';
 
   @override
-  String get eventCourseCustomProjectTopics =>
-      'Scoping • Planning • Multi-service • Your goals';
+  String get eventCourseCustomProjectTopics => '范围界定 • 规划 • 多服务 • 您的目标';
 
   @override
-  String get consult1Category => '八字解读';
+  String get consult1Category => '应用开发';
 
   @override
-  String get consult1Method => '八字';
+  String get consult1Method => '开发';
 
   @override
-  String get consult1Question => '成为你与生俱来的自己…';
+  String get consult1Question => '需要现代应用？';
 
   @override
-  String get consult1Desc => '揭示你内在的真正力量。';
+  String get consult1Desc =>
+      '我们为 Web、桌面、iOS 与 Android 开发应用。架构清晰、界面简洁、价格实惠。六大核心服务之一。';
 
   @override
-  String get consult2Category => '风水服务';
+  String get consult2Category => '传播培训';
 
   @override
-  String get consult2Method => '风水';
+  String get consult2Method => '培训';
 
   @override
-  String get consult2Question => '布置你的空间，定义你的人生...';
+  String get consult2Question => '想提升沟通技能？';
 
   @override
-  String get consult2Desc => '了解如何善用环境的正面能量。';
+  String get consult2Desc => '传播培训是我们的核心服务。以人为中心、AI 增强的工作坊。为您或团队提供清晰、实用的技能。';
 
   @override
-  String get consult3Category => '择日';
+  String get consult3Category => '图书创作服务';
 
   @override
-  String get consult3Method => '玄空';
+  String get consult3Method => '出版';
 
   @override
-  String get consult3Question => '何时才是明智选择的最佳时机？';
+  String get consult3Question => '准备好出版您的书了吗？';
 
   @override
-  String get consult3Desc => '选择时间与日期，争取最佳结果。';
+  String get consult3Desc => '从构思到成书—写作、编辑、设计与出版。图书创作服务全覆盖。我们全程支持作者与机构。';
 
   @override
-  String get consult4Category => '奇门与易经';
+  String get consult4Category => '定制项目';
 
   @override
-  String get consult4Method => '奇门遁甲与易经';
+  String get consult4Method => '定制';
 
   @override
-  String get consult4Question => '谋划你的明智一步...';
+  String get consult4Question => '有其他想法？';
 
   @override
-  String get consult4Desc => '克敌制胜，最大化你的利益。';
+  String get consult4Desc => '定制项目适用于混合我们多项服务或需要定制方案的目标。告诉我们您的想法，我们会为您匹配合适方案。';
 
   @override
-  String get consult5Category => '茅山法事';
+  String get consult5Category => '响应式网站';
 
   @override
-  String get consult5Method => '茅山';
+  String get consult5Method => '网站';
 
   @override
-  String get consult5Question => '道教仪轨与实修传统，助力转化。';
+  String get consult5Question => '需要网站？';
 
   @override
-  String get consult5Desc => '茅山法脉在中国玄学中的方法与仪轨。';
+  String get consult5Desc => '响应式网站：美观、快速、适配各种设备。六大服务之一。联系我们获取报价。';
 
   @override
-  String get consult6Category => 'Stonechat 出版物';
+  String get consult6Category => 'AI 智能体';
 
   @override
-  String get consult6Method => '出版物';
+  String get consult6Method => 'AI';
 
   @override
-  String get consult6Question => 'Stonechat 的书籍与资源。';
+  String get consult6Question => '对 AI 自动化感兴趣？';
 
   @override
-  String get consult6Desc => '探索我们在风水与中国玄学方面的出版作品。';
+  String get consult6Desc => 'AI 智能体涵盖智能自动化与 AI 驱动方案。六大核心服务之一。我们帮您找到合适方案。';
 
   @override
   String get stickyCtaText => '订阅';
@@ -866,7 +856,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get popupTitle2 => '资讯与动态';
 
   @override
-  String get popupDescription => '获取 Stonechat 的新闻、活动与最新动态。';
+  String get popupDescription => '持续关注我们。';
 
   @override
   String get readFullArticles => '阅读全文';
@@ -893,29 +883,29 @@ class AppLocalizationsZh extends AppLocalizations {
   String get subscribeOr => '或';
 
   @override
-  String get eventsCalendarTitle => 'Stonechat 活动日历';
+  String get eventsCalendarTitle => '培训';
 
   @override
-  String get eventsHeroHeadline => '年度盛会——不容错过';
+  String get eventsHeroHeadline => '培训';
 
   @override
-  String get eventsHeroOverline => 'Events';
+  String get eventsHeroOverline => '培训';
 
   @override
-  String get eventsHeroSubline => '现场授课。大师亲授。与同道共修共进。';
+  String get eventsHeroSubline => '传播培训及更多。清晰实用。';
 
   @override
   String get eventsSubline => '讨论化为真知的地方。';
 
   @override
   String get eventsDescription =>
-      '在柬埔寨，体验顶尖的风水、中华玄学与占星盛会——现场授课、专家解读，与志同道合的伙伴共修共进。';
+      '我们的培训支持传播培训及其他服务—应用演示、新书发布与课程。清晰实用。支持高棉语、英语和中文。';
 
   @override
-  String get eventsDescriptionHighlight => '顶尖的风水、中华玄学与占星盛会';
+  String get eventsDescriptionHighlight => '传播培训';
 
   @override
-  String get eventsWhyAttendTitle => '为什么这是最好的盛会';
+  String get eventsWhyAttendTitle => '为什么参加我们的培训';
 
   @override
   String get eventsWhyAttendLead =>
@@ -931,28 +921,28 @@ class AppLocalizationsZh extends AppLocalizations {
   String get eventsWhyAttend3 => '席位有限。立即预订，成为这场盛会的一员。';
 
   @override
-  String get eventsUpcomingHeadline => '即将举行的活动';
+  String get eventsUpcomingHeadline => '即将举行的培训';
 
   @override
-  String get eventsUpcomingSubline => '选择活动并预订座位。期待与您相见。';
+  String get eventsUpcomingSubline => '选择培训并预订座位。期待与您相见。';
 
   @override
   String get secureYourSeat => '预订座位';
 
   @override
-  String get searchEvent => '搜索活动…';
+  String get searchEvent => '搜索培训…';
 
   @override
   String get registerForEvent => '报名';
 
   @override
-  String get eventColumn => '活动';
+  String get eventColumn => '培训';
 
   @override
-  String get eventRegTitle => '活动报名';
+  String get eventRegTitle => '培训报名';
 
   @override
-  String get eventRegFor => '报名活动';
+  String get eventRegFor => '报名培训';
 
   @override
   String get eventRegName => '姓名';
@@ -970,10 +960,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get eventRegSuccess => '报名已收到';
 
   @override
-  String get eventRegSuccessNote => '我们将通过邮件或电话确认您的座位。活动现场见！';
+  String get eventRegSuccessNote => '我们将通过邮件或电话确认您的座位。培训现场见！';
 
   @override
-  String get noEventsMatch => '没有找到匹配的活动。';
+  String get noEventsMatch => '没有找到匹配的培训。';
 
   @override
   String get dateColumn => '日期';
@@ -982,25 +972,25 @@ class AppLocalizationsZh extends AppLocalizations {
   String get locationColumn => '地点';
 
   @override
-  String get aboutPageTitle => 'Stonechat | 凤凰崛起';
+  String get aboutPageTitle => 'Stonechat Communications | 关于我们';
 
   @override
   String get aboutBreadcrumb => '关于 Stonechat。';
 
   @override
-  String get aboutHeroHeadline => '以天道学识丰富人生';
+  String get aboutHeroHeadline => '您的六大核心服务伙伴：应用、网站、AI、图书、培训与定制项目。';
 
   @override
-  String get aboutBullet1 => '始于信念。';
+  String get aboutBullet1 => '应用开发与响应式网站—面向各种设备的现代应用与网站。';
 
   @override
-  String get aboutBullet2 => '上天托付的使命。';
+  String get aboutBullet2 => 'AI 智能体—智能自动化与 AI 驱动方案。';
 
   @override
-  String get aboutBullet3 => '以玄学引领你收获可成之果。';
+  String get aboutBullet3 => '图书创作服务—从构思到出版。传播培训—清晰实用的工作坊。';
 
   @override
-  String get aboutBullet4 => '真实成就。真实产出。';
+  String get aboutBullet4 => '定制项目—定制方案。清晰沟通，快速响应。支持高棉语、英语与中文。';
 
   @override
   String get journeyPageHeadline => '我的奋进';
@@ -1305,19 +1295,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String get contactError => '出了点问题，请重试或直接致信我们。';
 
   @override
-  String get contactSubjectDestiny => '命运 / 个人解读（八字）';
+  String get contactSubjectDestiny => '应用或网站开发';
 
   @override
-  String get contactSubjectBusiness => '商业与战略规划（奇门 / 商业择日）';
+  String get contactSubjectBusiness => '传播培训';
 
   @override
-  String get contactSubjectFengShui => '风水（家居 / 办公布局）';
+  String get contactSubjectFengShui => '图书出版';
 
   @override
-  String get contactSubjectDateSelection => '择日（培训相关）';
+  String get contactSubjectDateSelection => '一般咨询';
 
   @override
-  String get contactSubjectUnsure => '不确定 - 需要您的推荐';
+  String get contactSubjectUnsure => '不确定—请为我推荐';
 
   @override
   String get forecastAuspiciousStars => '吉星';
@@ -1365,6 +1355,215 @@ class AppLocalizationsZh extends AppLocalizations {
   String get close => '关闭';
 
   @override
+  String get loading => '加载中…';
+
+  @override
+  String get academiesAppsWebAiTitle => '应用、网站与 AI 协同工作。';
+
+  @override
+  String get academiesBody1 =>
+      '我们将三项核心服务—应用开发、响应式网站与 AI 智能体—整合，让您的应用、网站与自动化成为一体。';
+
+  @override
+  String get academiesBody2 => '从构思到界面，我们帮您选对组合，然后设计、开发、上线，一个伙伴、流程清晰。';
+
+  @override
+  String get eventsAudienceIntro => '我们的培训面向不同类型的客户。看看您属于哪一类。';
+
+  @override
+  String get eventsAudienceGovernmentTitle => '政府与部委团队';
+
+  @override
+  String get eventsAudienceGovernmentDesc => '为政策、传播与技术部门提供清晰、实用、无术语的培训支持。';
+
+  @override
+  String get eventsAudienceBusinessTitle => '企业与初创';
+
+  @override
+  String get eventsAudienceBusinessDesc =>
+      '帮助创始人与团队展示想法、面向客户写作、在日常工作中使用 AI 工具的培训。';
+
+  @override
+  String get eventsAudienceNgoTitle => '非政府组织与培训机构';
+
+  @override
+  String get eventsAudienceNgoDesc => '为需要实用技能与本地案例的非政府组织、高校与培训机构设计的项目。';
+
+  @override
+  String get sectionStoryHighlight1 => '伙伴';
+
+  @override
+  String get sectionStoryHighlight2 => '高棉语、英语与中文';
+
+  @override
+  String get sectionStoryHighlight3 => '告诉我们您的目标';
+
+  @override
+  String get testimonial1Quote => 'Stonechat 把我们的政策信息变成了公民能用高棉语和英语理解的清晰故事。';
+
+  @override
+  String get testimonial1Name => 'Panha Leakhena – Senate of Cambodia';
+
+  @override
+  String get testimonial1Location => '金边';
+
+  @override
+  String get testimonial2Quote => '工作坊为团队提供了适合日常工作的演讲、报告和社媒的简单结构。';
+
+  @override
+  String get testimonial2Name => 'Moon Pichnil – Palimentary of Cambodia';
+
+  @override
+  String get testimonial2Location => '西哈努克';
+
+  @override
+  String get testimonial3Quote =>
+      '在 Stonechat 实用、以人为中心的辅导之后，我们的年轻专业人士现在更能自信地表达与写作。';
+
+  @override
+  String get testimonial3Name => 'Sereyrath Aumrith – PC Asia';
+
+  @override
+  String get testimonial3Location => '国际';
+
+  @override
+  String get testimonial4Quote =>
+      'Stonechat 为我们搭建了前台易用的简易诊所应用。N.22 Beauty Klinik 的日常工作现在更高效。';
+
+  @override
+  String get testimonial4Name => 'Sieng Vanna – N.22 Beauty Klinik';
+
+  @override
+  String get testimonial4Location => '干拉';
+
+  @override
+  String get testimonial5Quote => '他们帮我们把想法变成清晰的教案、幻灯片和工具，按时交付，又不会太技术化。';
+
+  @override
+  String get testimonial5Name => 'Phum Thida – Master Elf';
+
+  @override
+  String get testimonial5Location => 'N/A';
+
+  @override
+  String get testimonial6Quote =>
+      'Stonechat 为柬埔寨 DAAD 提供双语文案与物料，让本地与国际受众都感到自然。';
+
+  @override
+  String get testimonial6Name => 'Zeii Tey – DAAD in Cambodia';
+
+  @override
+  String get testimonial6Location => 'N/A';
+
+  @override
+  String get testimonial7Quote => '在采用柬埔寨英语与高棉语、氛围轻松的 workshop 之后，学生更愿意上台展示。';
+
+  @override
+  String get testimonial7Name => 'Ya Nara – Royal University of Agriculture';
+
+  @override
+  String get testimonial7Location => '柬埔寨达克茂';
+
+  @override
+  String get testimonial8Quote => '他们的传播培训用简单模板教我们如何把长文档写短、写清。';
+
+  @override
+  String get testimonial8Name => 'Phart Sanit – Senate of Cambodia';
+
+  @override
+  String get testimonial8Location => '柬埔寨暹粒';
+
+  @override
+  String get testimonial9Quote => '为我们的公众论坛，Stonechat 准备了专业、贴近当地人的发言要点和幻灯片。';
+
+  @override
+  String get testimonial9Name => 'Ah Pich – Palimentary of Cambodia';
+
+  @override
+  String get testimonial9Location => '柬埔寨波贝';
+
+  @override
+  String get testimonial10Quote => '他们把技术发现变成带清晰视觉和大量柬埔寨实例的短故事。';
+
+  @override
+  String get testimonial10Name => 'Sreylin Khan – PC Asia';
+
+  @override
+  String get testimonial10Location => '柬埔寨暹粒';
+
+  @override
+  String get testimonial11Quote => 'Stonechat 指导我们的内容、预约流程和短信，让诊所应用和网站既现代又简洁。';
+
+  @override
+  String get testimonial11Name => 'Juary Mith – N.22 Beauty Klinik';
+
+  @override
+  String get testimonial11Location => '柬埔寨金边';
+
+  @override
+  String get testimonial12Quote => '他们用通俗语言解释 AI 与数字工具，让非技术同事也能在实际工作中使用。';
+
+  @override
+  String get testimonial12Name => 'Veth Raksmey – Master Elf';
+
+  @override
+  String get testimonial12Location => '柬埔寨金边';
+
+  @override
+  String get testimonial13Quote => 'Stonechat 帮我们起草了友好又准确的邮件、海报与脚本，用于奖学金沟通。';
+
+  @override
+  String get testimonial13Name => 'Taa – DAAD in Cambodia';
+
+  @override
+  String get testimonial13Location => '柬埔寨金边';
+
+  @override
+  String get testimonial14Quote => '他们设计了一场把传播、应用与图书与实用本地案例结合起来的专题课。';
+
+  @override
+  String get testimonial14Name => 'Da Na – Royal University of Agriculture';
+
+  @override
+  String get testimonial14Location => '柬埔寨金边';
+
+  @override
+  String get testimonial15Quote => '从第一天起他们就倾听需求，然后建议合适的应用、网站与培训组合，而不是推销一切。';
+
+  @override
+  String get testimonial15Name => 'Mo Ly – Senate of Cambodia';
+
+  @override
+  String get testimonial15Location => '柬埔寨金边';
+
+  @override
+  String get testimonial16Quote => '通过我们公共部门现实中的鲜活例子，我们清楚看到 AI 如何支持而非取代人的声音。';
+
+  @override
+  String get testimonial16Name => 'Mey In – Palimentary of Cambodia';
+
+  @override
+  String get testimonial16Location => '柬埔寨暹粒';
+
+  @override
+  String get testimonial17Quote => 'Stonechat 响应快、材料交付早，解释清楚，团队容易调整。';
+
+  @override
+  String get testimonial17Name => 'Chantrea Smile – PC Asia';
+
+  @override
+  String get testimonial17Location => '柬埔寨磅同';
+
+  @override
+  String get testimonial18Quote => '我们的线上形象更专业了，团队也能自行维护应用和网站。';
+
+  @override
+  String get testimonial18Name => 'Suon Mardy – N.22 Beauty Klinik';
+
+  @override
+  String get testimonial18Location => '柬埔寨金边';
+
+  @override
   String get forecastYearBingWu => '2026 丙午，火馬年';
 
   @override
@@ -1385,53 +1584,54 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sampleFeature => '示例專題';
 
   @override
-  String get event1Title => 'Stonechat - The Rise of Phoenix 2026';
+  String get event1Title => '传播培训：以人为中心的技能';
 
   @override
-  String get event1Date => '31 Jan 2026';
+  String get event1Date => '2026年1月31日';
 
   @override
-  String get event1Description => '師父開示。';
+  String get event1Description => '培养倾听、清晰与共情，让日常沟通自然自信。传播培训服务的核心课程。清晰、实用、无术语。';
 
   @override
-  String get event1Location => '金邊';
+  String get event1Location => '金边与在线（Zoom）';
 
   @override
-  String get event2Title => '風水與占星 2026';
+  String get event2Title => '传播培训：AI 增强技能';
 
   @override
-  String get event2Date => '31 Jan 2026';
+  String get event2Date => '2026年1月31日';
 
   @override
-  String get event2Description => '新加坡版風水與占星 2026 現場活動。';
+  String get event2Description =>
+      '使用 AI 工具规划、起草与润色邮件、帖文与讲稿—不丢失您的风格。属于我们的 AI 智能体与传播培训。实操实用。';
 
   @override
-  String get event2Location => 'Resorts World Sentosa, Singapore';
+  String get event2Location => '在线（Zoom）';
 
   @override
-  String get event3Title => '赤馬奇門';
+  String get event3Title => '图书创作：从构思到手稿';
 
   @override
-  String get event3Date => '1 – 2 Feb 2026';
+  String get event3Date => '2026年2月1–2日';
 
   @override
-  String get event3Description => '火馬年之兵法藝術';
+  String get event3Description => '从概念到手稿的完整历程培训：结构、写作与编辑。面向作者与团队。图书创作培训之一。';
 
   @override
-  String get event3Location => 'Resorts World Singapore';
+  String get event3Location => '内部或现场（可约）';
 
   @override
-  String get event4Title => 'App Development & Responsive Web: Intro Workshop';
+  String get event4Title => '应用开发与响应式网站：入门培训';
 
   @override
-  String get event4Date => '15 Feb 2026';
+  String get event4Date => '2026年2月15日';
 
   @override
   String get event4Description =>
-      'See how we build apps and responsive sites. Demos, Q&A, and a hands-on intro to modern development. For teams exploring our App Development or Responsive Web services.';
+      '了解我们如何开发现代应用与响应式网站。演示、问答与入门实操。面向探索我们应用开发或响应式网站服务的团队。';
 
   @override
-  String get event4Location => 'Phnom Penh & Online (Zoom)';
+  String get event4Location => '金边与在线（Zoom）';
 
   @override
   String get loginSectionTitle => '员工/管理员登录';
@@ -1778,7 +1978,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get loadingJustAMoment => '请稍候…';
 
   @override
-  String get eventRegEmailSubjectPrefix => '活动报名：';
+  String get eventRegEmailSubjectPrefix => '培训报名：';
 
   @override
   String get eventRegEmailBodyRegistrant => '报名者';

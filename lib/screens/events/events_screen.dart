@@ -341,90 +341,63 @@ class _EventsScreenState extends State<EventsScreen> {
                   height: 1.55,
                 ),
           ),
-          const SizedBox(height: 10),
-          Text(
-            l10n.sectionKnowledgeBody2,
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  color: AppColors.onSurfaceVariantDark,
-                  height: 1.55,
-                ),
-          ),
           const SizedBox(height: 20),
+          // Audience tiles: who our trainings are for.
+          const SizedBox(height: 8),
           if (isNarrow)
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Center(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-                    decoration: BoxDecoration(
-                      color: AppColors.accent.withValues(alpha: 0.18),
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(color: AppColors.accent.withValues(alpha: 0.5)),
-                    ),
-                    child: Text(
-                      l10n.sectionKnowledgeStat,
-                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                            color: AppColors.accentLight,
-                            fontWeight: FontWeight.w600,
-                          ),
-                    ),
-                  ),
+                _TrainingAudienceCard(
+                  icon: LucideIcons.building2,
+                  title: 'Government & Ministry teams',
+                  description:
+                      'Support for policy, communications and technical units that need clear, practical training without heavy jargon.',
                 ),
-                const SizedBox(height: 16),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    boxShadow: AppShadows.accentButton,
-                  ),
-                  child: FilledButton.icon(
-                    onPressed: () => context.push('/consultations'),
-                    icon: const Icon(LucideIcons.calendarCheck, size: 20),
-                    label: Text(l10n.bookConsultation),
-                    style: FilledButton.styleFrom(
-                      backgroundColor: AppColors.accent,
-                      foregroundColor: AppColors.onAccent,
-                      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-                      elevation: 0,
-                    ),
-                  ),
+                const SizedBox(height: 12),
+                _TrainingAudienceCard(
+                  icon: LucideIcons.briefcase,
+                  title: 'Businesses & Startups',
+                  description:
+                      'Trainings to help founders and teams present ideas, write for customers and use AI tools in daily work.',
+                ),
+                const SizedBox(height: 12),
+                _TrainingAudienceCard(
+                  icon: LucideIcons.users,
+                  title: 'NGOs & Training Centers',
+                  description:
+                      'Programs designed for NGOs, universities and training centers that need practical skills and local examples.',
                 ),
               ],
             )
           else
             Row(
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-                  decoration: BoxDecoration(
-                    color: AppColors.accent.withValues(alpha: 0.18),
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: AppColors.accent.withValues(alpha: 0.5)),
-                  ),
-                  child: Text(
-                    l10n.sectionKnowledgeStat,
-                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                          color: AppColors.accentLight,
-                          fontWeight: FontWeight.w600,
-                        ),
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Expanded(
+                  child: _TrainingAudienceCard(
+                    icon: LucideIcons.building2,
+                    title: 'Government & Ministry teams',
+                    description:
+                        'Support for policy, communications and technical units that need clear, practical training without heavy jargon.',
                   ),
                 ),
-                const Spacer(),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    boxShadow: AppShadows.accentButton,
+                SizedBox(width: 16),
+                Expanded(
+                  child: _TrainingAudienceCard(
+                    icon: LucideIcons.briefcase,
+                    title: 'Businesses & Startups',
+                    description:
+                        'Trainings to help founders and teams present ideas, write for customers and use AI tools in daily work.',
                   ),
-                  child: FilledButton.icon(
-                    onPressed: () => context.push('/consultations'),
-                    icon: const Icon(LucideIcons.calendarCheck, size: 20),
-                    label: Text(l10n.bookConsultation),
-                    style: FilledButton.styleFrom(
-                      backgroundColor: AppColors.accent,
-                      foregroundColor: AppColors.onAccent,
-                      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-                      elevation: 0,
-                    ),
+                ),
+                SizedBox(width: 16),
+                Expanded(
+                  child: _TrainingAudienceCard(
+                    icon: LucideIcons.users,
+                    title: 'NGOs & Training Centers',
+                    description:
+                        'Programs designed for NGOs, universities and training centers that need practical skills and local examples.',
                   ),
                 ),
               ],
@@ -568,6 +541,69 @@ class _EventsScreenState extends State<EventsScreen> {
         if (i + highlight.length < text.length)
           TextSpan(text: text.substring(i + highlight.length), style: base),
       ],
+    );
+  }
+}
+
+class _TrainingAudienceCard extends StatelessWidget {
+  const _TrainingAudienceCard({
+    required this.icon,
+    required this.title,
+    required this.description,
+  });
+
+  final IconData icon;
+  final String title;
+  final String description;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: AppColors.serviceCommunicationsTraining.withValues(alpha: 0.6),
+          width: 1,
+        ),
+        color: AppColors.backgroundDark.withValues(alpha: 0.8),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: AppColors.serviceCommunicationsTraining.withValues(alpha: 0.2),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Icon(icon, size: 18, color: AppColors.serviceCommunicationsTraining),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  title,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        color: AppColors.onPrimary,
+                        fontWeight: FontWeight.w600,
+                      ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Text(
+            description,
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: AppColors.onSurfaceVariantDark,
+                  height: 1.5,
+                ),
+          ),
+        ],
+      ),
     );
   }
 }

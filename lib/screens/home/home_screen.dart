@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
+import '../../l10n/app_localizations.dart';
 import '../../theme/app_theme.dart';
 import 'widgets/hero_section.dart';
 import 'widgets/services_section.dart';
@@ -194,7 +195,7 @@ class _SectionLoadingOverlay extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    'Loading…',
+                    AppLocalizations.of(context)!.loading,
                     style: TextStyle(
                       color: AppColors.accent.withValues(alpha: 0.95),
                       fontSize: 16,

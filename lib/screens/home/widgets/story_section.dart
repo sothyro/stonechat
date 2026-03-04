@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../../config/app_content.dart';
 import '../../../l10n/app_localizations.dart';
@@ -17,22 +16,22 @@ const int _kFeaturedLogoPages = 3; // 15 / 5
 class StorySection extends StatelessWidget {
   const StorySection({super.key});
 
-  /// Phrases to highlight in story body (matched in order; works across locales where present).
-  static const List<String> _bodyHighlightPhrases = [
-    'partner',
-    'Khmer, English, and Chinese',
-    'Tell us your idea',
-  ];
-
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final bodyHighlightPhrases = [
+      l10n.sectionStoryHighlight1,
+      l10n.sectionStoryHighlight2,
+      l10n.sectionStoryHighlight3,
+    ];
     final width = MediaQuery.sizeOf(context).width;
     final textTheme = Theme.of(context).textTheme;
     final isMobile = Breakpoints.isMobile(width);
 
-    // Body: Lora with optional phrase highlights
-    final bodyBase = GoogleFonts.exo2(
+    // Body: locale-aware font (EN: Exo 2, KM: Siemreap, ZH: Noto Sans SC)
+    final bodyBase = textStyleWithLocale(
+      context,
+      isHeading: false,
       fontSize: isMobile ? 18 : 20,
       height: 1.7,
       color: AppColors.onPrimary.withValues(alpha: 0.92),
@@ -65,21 +64,21 @@ class StorySection extends StatelessWidget {
         RichText(
           text: TextSpan(
             style: bodyBase,
-            children: _highlightPhrases(para1, _bodyHighlightPhrases, bodyBase, bodyHighlight),
+            children: _highlightPhrases(para1, bodyHighlightPhrases, bodyBase, bodyHighlight),
           ),
         ),
         SizedBox(height: bodyGap),
         RichText(
           text: TextSpan(
             style: bodyBase,
-            children: _highlightPhrases(para2, _bodyHighlightPhrases, bodyBase, bodyHighlight),
+            children: _highlightPhrases(para2, bodyHighlightPhrases, bodyBase, bodyHighlight),
           ),
         ),
         SizedBox(height: bodyGap),
         RichText(
           text: TextSpan(
             style: bodyBase,
-            children: _highlightPhrases(para3, _bodyHighlightPhrases, bodyBase, bodyHighlight),
+            children: _highlightPhrases(para3, bodyHighlightPhrases, bodyBase, bodyHighlight),
           ),
         ),
         SizedBox(height: bottomGap),
@@ -89,7 +88,12 @@ class StorySection extends StatelessWidget {
             foregroundColor: AppColors.onPrimary,
             side: const BorderSide(color: AppColors.accent, width: 1.5),
             padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 16),
-            textStyle: GoogleFonts.exo2(fontSize: isMobile ? 17 : 19, fontWeight: FontWeight.w600),
+            textStyle: textStyleWithLocale(
+              context,
+              isHeading: false,
+              fontSize: isMobile ? 17 : 19,
+              fontWeight: FontWeight.w600,
+            ),
           ),
           child: Text(l10n.sectionStoryCtaButton),
         ),

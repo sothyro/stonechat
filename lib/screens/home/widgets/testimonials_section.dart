@@ -35,116 +35,27 @@ class TestimonialsSection extends StatefulWidget {
 }
 
 class _TestimonialsSectionState extends State<TestimonialsSection> {
-  static final _placeholders = [
-    const TestimonialItem(
-      quote: 'កូនសិស្ស មានកត្តិយសណាស់ បានចូលរួម កម្មវិធី ម្សិលមិញ 🙏🩵\nសង្ឃឹមថា បានស្គាល់លោកគ្រូ ប្អូន នឹងបាន កែប្រែ វាសនា 🙏',
-      name: 'Panha Leakhena',
-      location: 'Phnom Penh',
-      imagePath: AppContent.assetTestimonial,
-    ),
-    const TestimonialItem(
-      quote: 'អរគុណ លោកគ្រូ សិស្សនៅខាងពេជនិល ទៅចូលរួមកម្មពីធី លោកគ្រូដែលកាលយប់31 អរគុណ លោកគ្រូ 🙏🏻🙏🏻🙏🏻',
-      name: 'Moon Pichnil',
-      location: 'Preah Sihanouk',
-      imagePath: AppContent.assetTestimonial,
-    ),
-    const TestimonialItem(
-      quote: 'សូមគោរពអរគុណលោកគ្រូ ដែលចែកកាដូរពិសេសដល់ទៅពីរមុខក្នុងថ្ងៃជួបជុំ 🙏🙏🙏💙',
-      name: 'Sereyrath Aumrith',
-      location: 'International',
-      imagePath: AppContent.assetTestimonial,
-    ),
-    const TestimonialItem(
-      quote: 'អរគុណលោកគ្រូ បើកមុខឲ្យខ្ញុំលក់ដីដាច់! ខ្ញុំលែងលំបាកហើយ',
-      name: 'Sieng Vanna',
-      location: 'Kandal',
-      imagePath: AppContent.assetTestimonial,
-    ),
-    const TestimonialItem(
-      quote: 'Caishen🙏🙏🙏❤️',
-      name: 'Phum Thida',
-      location: 'N/A',
-      imagePath: AppContent.assetTestimonial,
-    ),
-    const TestimonialItem(
-      quote: '🙏🙏🙏❤️ Stonechat',
-      name: 'Zeii Tey',
-      location: 'N/A',
-      imagePath: AppContent.assetTestimonial,
-    ),
-    const TestimonialItem(
-      quote: 'Yes sure master. អរគុណលោកគ្រូណាស់. Always by my side 🙏🏻🙏🏻🙏🏻. Am so Lucky to know you master is the big gift in my life 🙏🏻🙏🏻🙏🏻🙏🏻💸💰💵🎁🎉',
-      name: 'Ya Nara',
-      location: 'Takhmao, Cambodia',
-      imagePath: AppContent.assetTestimonial,
-    ),
-    const TestimonialItem(
-      quote: 'ពេលបានអានសំណេរលោកគ្រូរួចធូរចិត្តច្រើន លោកគ្រូពិតជាពូកែខ្លាំងមែនទែន តាមដានតាំងពីដើមដល់ឥឡូវ',
-      name: 'Phart Sanit',
-      location: 'Siem Reap, Cambodia',
-      imagePath: AppContent.assetTestimonial,
-    ),
-    const TestimonialItem(
-      quote: 'តាមដានគាត់ច្បាស់ៗម៉ង',
-      name: 'Ah Pich',
-      location: 'Poipet, Cambodia',
-      imagePath: AppContent.assetTestimonial,
-    ),
-    const TestimonialItem(
-      quote: 'អោយតែឃើញផុសលោកគ្រូភាពតានតឹងបាត់អស់អរគុណលោកគ្រូ',
-      name: 'Sreylin Khan',
-      location: 'Siem Reap, Cambodia',
-      imagePath: AppContent.assetTestimonial,
-    ),
-    const TestimonialItem(
-      quote: 'ចាំតែអានការវិភាគរបស់លោកគ្រូ អានលើកណាក៏ជក់ចិត្តដែរ',
-      name: 'Juary Mith',
-      location: 'Phnom Penh, Cambodia',
-      imagePath: AppContent.assetTestimonial,
-    ),
-    const TestimonialItem(
-      quote: 'I love you I like to read ពេលលោកគ្រូមិះមានអារម្មណ៍កក់ក្ដៅ',
-      name: 'Veth Raksmey',
-      location: 'Phnom Penh, Cambodia',
-      imagePath: AppContent.assetTestimonial,
-    ),
-    const TestimonialItem(
-      quote: 'តាមដានលោកគ្រូហុដស៊ុយហើយក្លាយជាការពិតទាំអស់សប្បាយចិត្ត',
-      name: 'Taa',
-      location: 'Phnom Penh, Cambodia',
-      imagePath: AppContent.assetTestimonial,
-    ),
-    const TestimonialItem(
-      quote: 'តាមដានលោកគ្រូគ្រប់ផុសមិះមិនដែលខុសទេ',
-      name: 'Da Na',
-      location: 'Phnom Penh, Cambodia',
-      imagePath: AppContent.assetTestimonial,
-    ),
-    const TestimonialItem(
-      quote: 'ខ្ញុំជឿជាក់លើលោកគ្រូ លោកគ្រូមិះក់មិនដែលខុសទេ',
-      name: 'Mo Ly',
-      location: 'Phnom Penh, Cambodia',
-      imagePath: AppContent.assetTestimonial,
-    ),
-    const TestimonialItem(
-      quote: 'ខ្ញុំតាមដានផុសលោកគ្រូរហូតពិតជាឆុតមែន',
-      name: 'Mey In',
-      location: 'Siem Reap, Cambodia',
-      imagePath: AppContent.assetTestimonial,
-    ),
-    const TestimonialItem(
-      quote: 'Stonechat និយាយបាន១ថ្ងៃផ្ទុះពេញfb',
-      name: 'Chantrea Smile',
-      location: 'Tbong khmoum, Cambodia',
-      imagePath: AppContent.assetTestimonial,
-    ),
-    const TestimonialItem(
-      quote: 'Thank you Master, for sharing the most powerful Qi Men Dun Jia strategy.',
-      name: 'Suon Mardy',
-      location: 'Phnom Penh, Cambodia',
-      imagePath: AppContent.assetTestimonial,
-    ),
+  static List<TestimonialItem> _buildTestimonials(AppLocalizations l10n) => [
+    TestimonialItem(quote: l10n.testimonial1Quote, name: l10n.testimonial1Name, location: l10n.testimonial1Location, imagePath: AppContent.assetTestimonial),
+    TestimonialItem(quote: l10n.testimonial2Quote, name: l10n.testimonial2Name, location: l10n.testimonial2Location, imagePath: AppContent.assetTestimonial),
+    TestimonialItem(quote: l10n.testimonial3Quote, name: l10n.testimonial3Name, location: l10n.testimonial3Location, imagePath: AppContent.assetTestimonial),
+    TestimonialItem(quote: l10n.testimonial4Quote, name: l10n.testimonial4Name, location: l10n.testimonial4Location, imagePath: AppContent.assetTestimonial),
+    TestimonialItem(quote: l10n.testimonial5Quote, name: l10n.testimonial5Name, location: l10n.testimonial5Location, imagePath: AppContent.assetTestimonial),
+    TestimonialItem(quote: l10n.testimonial6Quote, name: l10n.testimonial6Name, location: l10n.testimonial6Location, imagePath: AppContent.assetTestimonial),
+    TestimonialItem(quote: l10n.testimonial7Quote, name: l10n.testimonial7Name, location: l10n.testimonial7Location, imagePath: AppContent.assetTestimonial),
+    TestimonialItem(quote: l10n.testimonial8Quote, name: l10n.testimonial8Name, location: l10n.testimonial8Location, imagePath: AppContent.assetTestimonial),
+    TestimonialItem(quote: l10n.testimonial9Quote, name: l10n.testimonial9Name, location: l10n.testimonial9Location, imagePath: AppContent.assetTestimonial),
+    TestimonialItem(quote: l10n.testimonial10Quote, name: l10n.testimonial10Name, location: l10n.testimonial10Location, imagePath: AppContent.assetTestimonial),
+    TestimonialItem(quote: l10n.testimonial11Quote, name: l10n.testimonial11Name, location: l10n.testimonial11Location, imagePath: AppContent.assetTestimonial),
+    TestimonialItem(quote: l10n.testimonial12Quote, name: l10n.testimonial12Name, location: l10n.testimonial12Location, imagePath: AppContent.assetTestimonial),
+    TestimonialItem(quote: l10n.testimonial13Quote, name: l10n.testimonial13Name, location: l10n.testimonial13Location, imagePath: AppContent.assetTestimonial),
+    TestimonialItem(quote: l10n.testimonial14Quote, name: l10n.testimonial14Name, location: l10n.testimonial14Location, imagePath: AppContent.assetTestimonial),
+    TestimonialItem(quote: l10n.testimonial15Quote, name: l10n.testimonial15Name, location: l10n.testimonial15Location, imagePath: AppContent.assetTestimonial),
+    TestimonialItem(quote: l10n.testimonial16Quote, name: l10n.testimonial16Name, location: l10n.testimonial16Location, imagePath: AppContent.assetTestimonial),
+    TestimonialItem(quote: l10n.testimonial17Quote, name: l10n.testimonial17Name, location: l10n.testimonial17Location, imagePath: AppContent.assetTestimonial),
+    TestimonialItem(quote: l10n.testimonial18Quote, name: l10n.testimonial18Name, location: l10n.testimonial18Location, imagePath: AppContent.assetTestimonial),
   ];
+
 
   static const double _cardGap = 20;
   static const double _cardMaxWidth = 340;
@@ -155,8 +66,8 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
   static const Duration _pageDisplayDuration = Duration(seconds: 6);
   static const Duration _pageTransitionDuration = Duration(milliseconds: 500);
 
-  /// Shuffled copy of [_placeholders] so order is random on each load (desktop and mobile).
-  late final List<TestimonialItem> _shuffledItems;
+  /// Shuffled copy of localized testimonials so order is random on each load (desktop and mobile).
+  List<TestimonialItem>? _shuffledItems;
 
   final PageController _pageController = PageController();
   int _currentPage = 0;
@@ -164,11 +75,19 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
   int _flipScheduleId = 0;
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_shuffledItems == null) {
+      final l10n = AppLocalizations.of(context)!;
+      _shuffledItems = _buildTestimonials(l10n)..shuffle(math.Random());
+    }
+  }
+
+  @override
   void initState() {
     super.initState();
-    _shuffledItems = List<TestimonialItem>.from(_placeholders)..shuffle(math.Random());
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted) return;
+      if (!mounted || _shuffledItems == null) return;
       final w = MediaQuery.sizeOf(context).width;
       final cardsPerPage = Breakpoints.isMobile(w) ? 1 : 3;
       Future<void>.delayed(const Duration(milliseconds: 200), () {
@@ -191,8 +110,8 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
 
   void _startAutoLoop(int cardsPerPage) {
     Future<void>.delayed(_pageDisplayDuration, () {
-      if (!mounted) return;
-      final totalPages = (_shuffledItems.length / cardsPerPage).ceil();
+      if (!mounted || _shuffledItems == null) return;
+      final totalPages = (_shuffledItems!.length / cardsPerPage).ceil();
       if (totalPages == 0) return;
       final nextPage = (_currentPage + 1) % totalPages;
       _flipScheduleId++;
@@ -214,7 +133,8 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
   }
 
   void _goToPage(int page, int cardsPerPage) {
-    final totalPages = (_shuffledItems.length / cardsPerPage).ceil();
+    if (_shuffledItems == null) return;
+    final totalPages = (_shuffledItems!.length / cardsPerPage).ceil();
     if (totalPages == 0) return;
     final target = ((page % totalPages) + totalPages) % totalPages;
     if (target == _currentPage) return;
@@ -230,6 +150,7 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
 
   @override
   Widget build(BuildContext context) {
+    if (_shuffledItems == null) return const SizedBox.shrink();
     final l10n = AppLocalizations.of(context)!;
     final width = MediaQuery.sizeOf(context).width;
     final isMobile = Breakpoints.isMobile(width);
@@ -341,10 +262,10 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
                     setState(() => _currentPage = p);
                     _scheduleFadeAfterTransition(p);
                   },
-                  itemCount: (_shuffledItems.length / cardsPerPage).ceil(),
+                  itemCount: (_shuffledItems!.length / cardsPerPage).ceil(),
                   itemBuilder: (context, pageIndex) {
                     final start = pageIndex * cardsPerPage;
-                    final end = math.min(start + cardsPerPage, _shuffledItems.length);
+                    final end = math.min(start + cardsPerPage, _shuffledItems!.length);
                     final isVisible = _pageReadyForFlip != null && pageIndex == _pageReadyForFlip;
                     return Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -363,12 +284,12 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
                                     delay: Duration(milliseconds: 50 * (i - start)),
                                     duration: _fadeDuration,
                                     child: _TestimonialCard(
-                                      quote: _shuffledItems[i].quote,
-                                      name: _shuffledItems[i].name,
-                                      location: _shuffledItems[i].location,
+                                      quote: _shuffledItems![i].quote,
+                                      name: _shuffledItems![i].name,
+                                      location: _shuffledItems![i].location,
                                       imageIndex: i,
-                                      imagePath: _shuffledItems[i].imagePath,
-                                      isBlank: _shuffledItems[i].isBlank,
+                                      imagePath: _shuffledItems![i].imagePath,
+                                      isBlank: _shuffledItems![i].isBlank,
                                     ),
                                   ),
                                 ),

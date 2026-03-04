@@ -355,7 +355,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appFeatureAdvancedFeatures => 'Advanced Features';
 
   @override
-  String get newsAndEvents => 'News & Events';
+  String get newsAndEvents => 'News & Trainings';
 
   @override
   String get mediaAndPosts => 'News & Media';
@@ -365,7 +365,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get mediaPostsFacebookBody =>
-      'Our latest posts, event updates and news are on our Facebook page. Follow us for updates.';
+      'Our latest posts, training updates and news are on our Facebook page. Follow us for updates.';
 
   @override
   String get mediaPostsFacebookLink => 'facebook.com/stonechat.vip';
@@ -409,10 +409,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get ourMethod => 'What we do';
 
   @override
-  String get events => 'Workshops & Events';
+  String get events => 'Trainings';
 
   @override
-  String get eventsCalendar => 'Event Calendar';
+  String get eventsCalendar => 'Training Calendar';
 
   @override
   String get blog => 'Blog';
@@ -490,7 +490,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get limitedSeats => 'Limited seats';
 
   @override
-  String get viewEvent => 'View Event';
+  String get viewEvent => 'View Training';
 
   @override
   String get exploreCourses => 'Explore';
@@ -520,16 +520,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sectionExperienceHeading =>
-      'Hands-on workshops. Clear skills. Real impact.';
+      'Hands-on trainings. Clear skills. Real impact.';
 
   @override
-  String get sectionExperienceHeadingPrefix => 'Hands-on workshops. ';
+  String get sectionExperienceHeadingPrefix => 'Hands-on trainings. ';
 
   @override
   String get sectionExperienceHeadingHighlight => 'Clear skills. Real impact.';
 
   @override
-  String get sectionExperienceOverline => 'Workshops';
+  String get sectionExperienceOverline => 'Trainings';
 
   @override
   String get sectionServicesHeading => 'What we offer';
@@ -567,7 +567,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get serviceCommunicationsTrainingDesc =>
-      'Workshops and training that build clear, practical skills.';
+      'Trainings that build clear, practical skills.';
 
   @override
   String get serviceCustomProject => 'Custom Project';
@@ -594,7 +594,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sectionKnowledgeBody =>
-      'Communications Training is one of our six core services. We run human-centered and AI-enhanced workshops so you build clear, practical skills—no jargon. Custom sessions for your team or organization.';
+      'Communications Training is one of our six core services. We run human-centered and AI-enhanced trainings so you build clear, practical skills—no jargon. Custom sessions for your team or organization.';
 
   @override
   String get sectionKnowledgeBody2 =>
@@ -604,14 +604,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sectionKnowledgeStat => '3+ languages';
 
   @override
-  String get sectionMapHeading => 'You don\'t need jargon. You need a partner.';
+  String get sectionMapHeading =>
+      'Book a consultation—we\'ll match you to the right service.';
 
   @override
-  String get sectionMapOverline => 'Consultations';
+  String get sectionMapOverline => 'Book a consultation';
 
   @override
   String get sectionMapIntro =>
-      'Pick a service that fits: App Development, Responsive Web, AI Agent, Book Creation, Communications Training, or Custom Project. We\'ll guide you to the next step.';
+      'Pick a service below, book a slot. We\'ll discuss your needs and plan next steps—plain language, no jargon.';
 
   @override
   String get sectionStoryHeading => 'Who we are.';
@@ -760,7 +761,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get academyMoreCoursesNote =>
-      'Workshops and events across our six services. Contact us for schedules or custom group sessions.';
+      'Trainings across our six services. Contact us for schedules or custom group sessions.';
 
   @override
   String get eventCourseAppDevelopmentDesc =>
@@ -768,7 +769,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get eventCourseAppDevelopmentAbout =>
-      'Join workshops and demos on modern app development. Clean architecture, clear interfaces, and practical tips. Suitable for teams and individuals exploring our App Development service.';
+      'Join trainings and demos on modern app development. Clean architecture, clear interfaces, and practical tips. Suitable for teams and individuals exploring our App Development service.';
 
   @override
   String get eventCourseAppDevelopmentTopics =>
@@ -780,7 +781,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get eventCourseResponsiveWebAbout =>
-      'Workshops on responsive design, performance, and deployment. See live demos and get guidance on your Responsive Web projects. From concept to launch.';
+      'Trainings on responsive design, performance, and deployment. See live demos and get guidance on your Responsive Web projects. From concept to launch.';
 
   @override
   String get eventCourseResponsiveWebTopics =>
@@ -800,7 +801,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get eventCourseBookCreationDesc =>
-      'From idea to published book. Writing, design, and publishing workshops.';
+      'From idea to published book. Writing, design, and publishing trainings.';
 
   @override
   String get eventCourseBookCreationAbout =>
@@ -816,7 +817,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get eventCourseCommunicationsTrainingAbout =>
-      'Our Communications Training in action. Workshops on clear speaking, writing, and using AI to communicate better. Human-centered and AI-enhanced. Khmer, English, Chinese.';
+      'Our Communications Training in action. Trainings on clear speaking, writing, and using AI to communicate better. Human-centered and AI-enhanced. Khmer, English, Chinese.';
 
   @override
   String get eventCourseCommunicationsTrainingTopics =>
@@ -950,30 +951,30 @@ class AppLocalizationsEn extends AppLocalizations {
   String get subscribeOr => 'or';
 
   @override
-  String get eventsCalendarTitle => 'Workshops & events';
+  String get eventsCalendarTitle => 'Trainings';
 
   @override
-  String get eventsHeroHeadline => 'Workshops and events';
+  String get eventsHeroHeadline => 'Trainings';
 
   @override
-  String get eventsHeroOverline => 'Events';
+  String get eventsHeroOverline => 'Trainings';
 
   @override
   String get eventsHeroSubline =>
-      'Communications Training, workshops, and community. Clear and practical.';
+      'Communications Training and more. Clear and practical.';
 
   @override
   String get eventsSubline => 'Where learning meets doing.';
 
   @override
   String get eventsDescription =>
-      'Our events support Communications Training and our other services—app demos, book launches, workshops. Clear and practical. Khmer, English, and Chinese supported.';
+      'Our trainings support Communications Training and our other services—app demos, book launches, and sessions. Clear and practical. Khmer, English, and Chinese supported.';
 
   @override
   String get eventsDescriptionHighlight => 'Communications Training';
 
   @override
-  String get eventsWhyAttendTitle => 'Why join our events';
+  String get eventsWhyAttendTitle => 'Why join our trainings';
 
   @override
   String get eventsWhyAttendLead =>
@@ -1002,16 +1003,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get secureYourSeat => 'Book your seat';
 
   @override
-  String get searchEvent => 'Search event…';
+  String get searchEvent => 'Search training…';
 
   @override
   String get registerForEvent => 'Register';
 
   @override
-  String get eventColumn => 'Event';
+  String get eventColumn => 'Training';
 
   @override
-  String get eventRegTitle => 'Event Registration';
+  String get eventRegTitle => 'Training Registration';
 
   @override
   String get eventRegFor => 'Registering for';
@@ -1033,10 +1034,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get eventRegSuccessNote =>
-      'We will confirm your seat by email or phone. See you at the event!';
+      'We will confirm your seat by email or phone. See you at the training!';
 
   @override
-  String get noEventsMatch => 'No events match your search.';
+  String get noEventsMatch => 'No trainings match your search.';
 
   @override
   String get dateColumn => 'Date';
@@ -1451,6 +1452,234 @@ class AppLocalizationsEn extends AppLocalizations {
   String get close => 'Close';
 
   @override
+  String get loading => 'Loading…';
+
+  @override
+  String get academiesAppsWebAiTitle => 'Apps, Web & AI that work together.';
+
+  @override
+  String get academiesBody1 =>
+      'We combine three core services—App Development, Responsive Web, and AI Agent—so your app, website, and automation work as one system.';
+
+  @override
+  String get academiesBody2 =>
+      'From idea to interface, we help you choose the right mix, then design, build, and launch with one partner and one clear process.';
+
+  @override
+  String get eventsAudienceIntro =>
+      'Our trainings are designed for different types of clients. See where you fit below.';
+
+  @override
+  String get eventsAudienceGovernmentTitle => 'Government & Ministry teams';
+
+  @override
+  String get eventsAudienceGovernmentDesc =>
+      'Support for policy, communications and technical units that need clear, practical training without heavy jargon.';
+
+  @override
+  String get eventsAudienceBusinessTitle => 'Businesses & Startups';
+
+  @override
+  String get eventsAudienceBusinessDesc =>
+      'Trainings to help founders and teams present ideas, write for customers and use AI tools in daily work.';
+
+  @override
+  String get eventsAudienceNgoTitle => 'NGOs & Training Centers';
+
+  @override
+  String get eventsAudienceNgoDesc =>
+      'Programs designed for NGOs, universities and training centers that need practical skills and local examples.';
+
+  @override
+  String get sectionStoryHighlight1 => 'partner';
+
+  @override
+  String get sectionStoryHighlight2 => 'Khmer, English, and Chinese';
+
+  @override
+  String get sectionStoryHighlight3 => 'Tell us your goal';
+
+  @override
+  String get testimonial1Quote =>
+      'Stonechat turned our policy messages into clear stories that citizens understand in both Khmer and English.';
+
+  @override
+  String get testimonial1Name => 'Panha Leakhena – Senate of Cambodia';
+
+  @override
+  String get testimonial1Location => 'Phnom Penh';
+
+  @override
+  String get testimonial2Quote =>
+      'The workshop gave our team simple structures for speeches, reports and social media that fit our daily work.';
+
+  @override
+  String get testimonial2Name => 'Moon Pichnil – Palimentary of Cambodia';
+
+  @override
+  String get testimonial2Location => 'Preah Sihanouk';
+
+  @override
+  String get testimonial3Quote =>
+      'Our young professionals now speak and write with more confidence after Stonechat\'s practical, human‑centered coaching.';
+
+  @override
+  String get testimonial3Name => 'Sereyrath Aumrith – PC Asia';
+
+  @override
+  String get testimonial3Location => 'International';
+
+  @override
+  String get testimonial4Quote =>
+      'Stonechat built a simple clinic app our front‑desk can use easily. Daily work at N.22 Beauty Klinik is faster now.';
+
+  @override
+  String get testimonial4Name => 'Sieng Vanna – N.22 Beauty Klinik';
+
+  @override
+  String get testimonial4Location => 'Kandal';
+
+  @override
+  String get testimonial5Quote =>
+      'They helped us turn ideas into clear lesson plans, slides and tools for our students, on time and not too technical.';
+
+  @override
+  String get testimonial5Name => 'Phum Thida – Master Elf';
+
+  @override
+  String get testimonial5Location => 'N/A';
+
+  @override
+  String get testimonial6Quote =>
+      'Stonechat supported DAAD in Cambodia with bilingual copy and materials that feel natural for local and international audiences.';
+
+  @override
+  String get testimonial6Name => 'Zeii Tey – DAAD in Cambodia';
+
+  @override
+  String get testimonial6Location => 'N/A';
+
+  @override
+  String get testimonial7Quote =>
+      'Our students became more willing to present after a gentle workshop that used both Cambodian English and Khmer.';
+
+  @override
+  String get testimonial7Name => 'Ya Nara – Royal University of Agriculture';
+
+  @override
+  String get testimonial7Location => 'Takhmao, Cambodia';
+
+  @override
+  String get testimonial8Quote =>
+      'Their Communications Training showed us how to make long documents shorter and clearer with simple templates.';
+
+  @override
+  String get testimonial8Name => 'Phart Sanit – Senate of Cambodia';
+
+  @override
+  String get testimonial8Location => 'Siem Reap, Cambodia';
+
+  @override
+  String get testimonial9Quote =>
+      'For our public forum, Stonechat prepared talking points and slides that felt professional and close to local people.';
+
+  @override
+  String get testimonial9Name => 'Ah Pich – Palimentary of Cambodia';
+
+  @override
+  String get testimonial9Location => 'Poipet, Cambodia';
+
+  @override
+  String get testimonial10Quote =>
+      'They turned technical findings into short stories with clear visuals and many real Cambodian examples.';
+
+  @override
+  String get testimonial10Name => 'Sreylin Khan – PC Asia';
+
+  @override
+  String get testimonial10Location => 'Siem Reap, Cambodia';
+
+  @override
+  String get testimonial11Quote =>
+      'Stonechat guided our content, booking flow and SMS, so our clinic app and website now feel modern but still simple.';
+
+  @override
+  String get testimonial11Name => 'Juary Mith – N.22 Beauty Klinik';
+
+  @override
+  String get testimonial11Location => 'Phnom Penh, Cambodia';
+
+  @override
+  String get testimonial12Quote =>
+      'They explain AI and digital tools in plain words, so even non‑technical colleagues can use them in real work.';
+
+  @override
+  String get testimonial12Name => 'Veth Raksmey – Master Elf';
+
+  @override
+  String get testimonial12Location => 'Phnom Penh, Cambodia';
+
+  @override
+  String get testimonial13Quote =>
+      'Stonechat helped us draft friendly but accurate emails, posters and scripts for our scholarship communication.';
+
+  @override
+  String get testimonial13Name => 'Taa – DAAD in Cambodia';
+
+  @override
+  String get testimonial13Location => 'Phnom Penh, Cambodia';
+
+  @override
+  String get testimonial14Quote =>
+      'They designed a special session that connects communication, apps and books with practical, local case studies.';
+
+  @override
+  String get testimonial14Name => 'Da Na – Royal University of Agriculture';
+
+  @override
+  String get testimonial14Location => 'Phnom Penh, Cambodia';
+
+  @override
+  String get testimonial15Quote =>
+      'From day one they listened, then suggested the right mix of app, website and training instead of pushing everything.';
+
+  @override
+  String get testimonial15Name => 'Mo Ly – Senate of Cambodia';
+
+  @override
+  String get testimonial15Location => 'Phnom Penh, Cambodia';
+
+  @override
+  String get testimonial16Quote =>
+      'We saw clearly how AI can support, not replace, the human voice through live examples from our public sector reality.';
+
+  @override
+  String get testimonial16Name => 'Mey In – Palimentary of Cambodia';
+
+  @override
+  String get testimonial16Location => 'Siem Reap, Cambodia';
+
+  @override
+  String get testimonial17Quote =>
+      'Stonechat responds fast and delivers materials early, with explanations that make it easy for our team to adjust.';
+
+  @override
+  String get testimonial17Name => 'Chantrea Smile – PC Asia';
+
+  @override
+  String get testimonial17Location => 'Tbong khmoum, Cambodia';
+
+  @override
+  String get testimonial18Quote =>
+      'Our online presence is now more professional, and our team can maintain the app and website by ourselves.';
+
+  @override
+  String get testimonial18Name => 'Suon Mardy – N.22 Beauty Klinik';
+
+  @override
+  String get testimonial18Location => 'Phnom Penh, Cambodia';
+
+  @override
   String get forecastYearBingWu => '2026 Bing Wu, Year of Fire Horse';
 
   @override
@@ -1504,13 +1733,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get event3Description =>
-      'Workshop on the full journey from concept to manuscript: structure, writing, and editing. For authors and teams. One of our Book Creation Suite trainings.';
+      'Training on the full journey from concept to manuscript: structure, writing, and editing. For authors and teams. One of our Book Creation Suite trainings.';
 
   @override
   String get event3Location => 'In-house or on-site (by arrangement)';
 
   @override
-  String get event4Title => 'App Development & Responsive Web: Intro Workshop';
+  String get event4Title => 'App Development & Responsive Web: Intro Training';
 
   @override
   String get event4Date => '15 Feb 2026';
@@ -1883,7 +2112,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get loadingJustAMoment => 'Just a moment…';
 
   @override
-  String get eventRegEmailSubjectPrefix => 'Event Registration: ';
+  String get eventRegEmailSubjectPrefix => 'Training Registration: ';
 
   @override
   String get eventRegEmailBodyRegistrant => 'Registrant';

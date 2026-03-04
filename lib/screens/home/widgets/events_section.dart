@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lucide_icons/lucide_icons.dart';
 
 import '../../../config/app_content.dart';
 import '../../../config/events_data.dart';
@@ -55,7 +56,7 @@ class EventsSection extends StatelessWidget {
                       child: FilledButton(
                         onPressed: () => context.push('/events'),
                         style: FilledButton.styleFrom(
-                          backgroundColor: AppColors.accent,
+                          backgroundColor: AppColors.serviceCommunicationsTraining,
                           foregroundColor: AppColors.onAccent,
                           padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
                           shape: RoundedRectangleBorder(
@@ -94,6 +95,9 @@ class EventsSection extends StatelessWidget {
                     ),
                   ],
                 ),
+              const SizedBox(height: 40),
+              // Description + horizontal audience strip showing who our trainings are for.
+              const _EventsAudienceIntro(),
             ],
           ),
         ),
@@ -212,7 +216,7 @@ class EventsSection extends StatelessWidget {
           child: FilledButton(
             onPressed: () => context.push('/events'),
             style: FilledButton.styleFrom(
-              backgroundColor: AppColors.accent,
+              backgroundColor: AppColors.serviceCommunicationsTraining,
               foregroundColor: AppColors.onAccent,
               padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
               shape: RoundedRectangleBorder(
@@ -229,6 +233,169 @@ class EventsSection extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+/// Description + horizontal audience strip below the event cards.
+class _EventsAudienceIntro extends StatelessWidget {
+  const _EventsAudienceIntro();
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final width = MediaQuery.sizeOf(context).width;
+    final isNarrow = Breakpoints.isMobile(width);
+    final titleStyle = Theme.of(context).textTheme.titleSmall?.copyWith(
+          color: AppColors.onPrimary,
+          fontWeight: FontWeight.w600,
+        );
+    final bodyStyle = Theme.of(context).textTheme.bodySmall?.copyWith(
+          color: AppColors.onSurfaceVariantDark,
+          height: 1.55,
+        );
+
+    final cards = [
+      _AudienceItem(
+        icon: LucideIcons.building2,
+        title: l10n.eventsAudienceGovernmentTitle,
+        description: l10n.eventsAudienceGovernmentDesc,
+      ),
+      _AudienceItem(
+        icon: LucideIcons.briefcase,
+        title: l10n.eventsAudienceBusinessTitle,
+        description: l10n.eventsAudienceBusinessDesc,
+      ),
+      _AudienceItem(
+        icon: LucideIcons.users,
+        title: l10n.eventsAudienceNgoTitle,
+        description: l10n.eventsAudienceNgoDesc,
+      ),
+    ];
+
+    if (isNarrow) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            l10n.eventsAudienceIntro,
+            style: bodyStyle,
+            textAlign: TextAlign.left,
+          ),
+          const SizedBox(height: 16),
+          for (var i = 0; i < cards.length; i++) ...[
+            _AudienceCard(item: cards[i], titleStyle: titleStyle, bodyStyle: bodyStyle),
+            if (i != cards.length - 1) const SizedBox(height: 12),
+          ],
+        ],
+      );
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          l10n.eventsAudienceIntro,
+          style: bodyStyle,
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: 20),
+        SizedBox(
+          height: 120,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                child: SizedBox.expand(
+                  child: _AudienceCard(item: cards[0], titleStyle: titleStyle, bodyStyle: bodyStyle),
+                ),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: SizedBox.expand(
+                  child: _AudienceCard(item: cards[1], titleStyle: titleStyle, bodyStyle: bodyStyle),
+                ),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: SizedBox.expand(
+                  child: _AudienceCard(item: cards[2], titleStyle: titleStyle, bodyStyle: bodyStyle),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _AudienceItem {
+  const _AudienceItem({
+    required this.icon,
+    required this.title,
+    required this.description,
+  });
+
+  final IconData icon;
+  final String title;
+  final String description;
+}
+
+class _AudienceCard extends StatelessWidget {
+  const _AudienceCard({
+    required this.item,
+    required this.titleStyle,
+    required this.bodyStyle,
+  });
+
+  final _AudienceItem item;
+  final TextStyle? titleStyle;
+  final TextStyle? bodyStyle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: AppColors.backgroundDark.withValues(alpha: 0.85),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: AppColors.serviceCommunicationsTraining.withValues(alpha: 0.6),
+          width: 1,
+        ),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: AppColors.serviceCommunicationsTraining.withValues(alpha: 0.25),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Icon(
+              item.icon,
+              size: 18,
+              color: AppColors.serviceCommunicationsTraining,
+            ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(item.title, style: titleStyle),
+                const SizedBox(height: 4),
+                Text(
+                  item.description,
+                  style: bodyStyle,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -448,11 +615,11 @@ class _FeaturedEventCardState extends State<_FeaturedEventCard> {
                                 vertical: 12,
                               ),
                               decoration: BoxDecoration(
-                                color: AppColors.accent,
+                                color: AppColors.serviceCommunicationsTraining,
                                 borderRadius: BorderRadius.circular(24),
                                 boxShadow: AppShadows.accentButton,
                                 border: Border.all(
-                                  color: AppColors.accentLight.withValues(alpha: 0.4),
+                                  color: AppColors.serviceCommunicationsTraining.withValues(alpha: 0.6),
                                   width: 1,
                                 ),
                               ),
@@ -531,11 +698,11 @@ class _CompactEventCardState extends State<_CompactEventCard> {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
           decoration: BoxDecoration(
-            color: AppColors.accent,
+            color: AppColors.serviceCommunicationsTraining,
             borderRadius: BorderRadius.circular(20),
             boxShadow: AppShadows.accentButton,
             border: Border.all(
-              color: AppColors.accentLight.withValues(alpha: 0.35),
+              color: AppColors.serviceCommunicationsTraining.withValues(alpha: 0.6),
               width: 1,
             ),
           ),
@@ -708,10 +875,6 @@ class _CompactEventCardState extends State<_CompactEventCard> {
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                             ),
-                            if (!isMobile) ...[
-                              const SizedBox(height: 12),
-                              _buildViewEventChip(context, l10n),
-                            ],
                           ],
                         ),
                       ),
@@ -821,7 +984,6 @@ class _CompactEventCardState extends State<_CompactEventCard> {
                                 ],
                               ),
                               const SizedBox(height: 10),
-                              _buildViewEventChip(context, l10n),
                             ],
                           ),
                         ),

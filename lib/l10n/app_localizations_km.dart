@@ -63,34 +63,34 @@ class AppLocalizationsKm extends AppLocalizations {
   String get talismanStore => 'ហាងសៀវភៅ';
 
   @override
-  String get appsPageTitle => 'កម្មវិធីមិះ ស្តេចយ័ន្ត និង សៀវភៅ សម្រាប់ជាវ';
+  String get appsPageTitle => 'កម្មវិធី និងហាង';
 
   @override
-  String get appsPageOverline => 'Apps';
+  String get appsPageOverline => 'កម្មវិធី';
 
   @override
   String get appsPageSubline =>
-      'ប៉ាជឺទេវតា ថ្លឹងឆ្អឹង ថ្លឹងវាសនាពេញលេញរបស់អ្នក';
+      'ការអភិវឌ្ឍកម្មវិធី វ៉ែបឆបឧបករណ៍ AI Agent ការបង្កើតសៀវភៅ វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនង និងគម្រោងផ្ទាល់—ទាំងអស់នៅកន្លែងតែមួយ។';
 
   @override
   String get appsPageDescription =>
-      'ចូលប្រើប្រព័ន្ធកម្មវធី Stonechat —មើលប៉ាជឺ ដោនឡូតកម្មវិធីយុគ9 និងទទួលស្តេចយ័ន្តទេវតា —មាននៅទីនេះទាំងអស់។';
+      'Stonechat ផ្តល់សេវាកម្មចម្បង៦៖ ការអភិវឌ្ឍកម្មវិធី វ៉ែបឆបឧបករណ៍ AI Agent ការបង្កើតសៀវភៅ វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនង និងគម្រោងផ្ទាល់។ ស្វែងរកអ្វីដែលសមនឹង ហើយទាក់ទងយើង។';
 
   @override
-  String get appsPageDescriptionHighlight => 'ប្រព័ន្ធកម្មវិធី Stonechat';
+  String get appsPageDescriptionHighlight => 'សេវាកម្មចម្បង៦';
 
   @override
-  String get appsFeatureShowcaseHeading => 'ឧបករណ៍ដែលប្រែការយល់ឃើញទៅជាសកម្មភាព';
+  String get appsFeatureShowcaseHeading => 'អ្វីដែលយើងផ្តល់';
 
   @override
-  String get appsFeatureShowcaseOverline => 'Marketplace';
+  String get appsFeatureShowcaseOverline => 'ទីផ្សារ';
 
   @override
   String get appsFeatureShowcaseMarketingDesc =>
-      'ពីការអានប្រចាំថ្ងៃទៅជាការសម្រេចចិត្តដែលផ្លាស់ប្តូរជីវិតអ្នក—មានមនុស្សជាច្រើនបានប្រើឧបករណ៍ទាំងនេះដើម្បីជ្រើសរើសពេលាល្អ និងបោះជំហានទៅមុខដោយជឿជាក់។';
+      'សេវាកម្មយើងទាំង៦—ការអភិវឌ្ឍកម្មវិធី វ៉ែបឆបឧបករណ៍ AI Agent ការបង្កើតសៀវភៅ វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនង និងគម្រោងផ្ទាល់—រក្សាអ្វីៗច្បាស់ និងងាយ។ ដៃគូតែមួយសម្រាប់គោលដៅរបស់អ្នក។';
 
   @override
-  String get appsFeatureShowcaseMarketingHighlight => 'ផ្លាស់ប្តូរជីវិត';
+  String get appsFeatureShowcaseMarketingHighlight => 'សេវាកម្មទាំង៦';
 
   @override
   String get marketplaceCategoryDigital => 'ឌីជីថល';
@@ -102,11 +102,11 @@ class AppLocalizationsKm extends AppLocalizations {
   String get marketplaceCategoryTalismans => 'ហាងសៀវភៅ';
 
   @override
-  String get stonechatSpotlightTitle => 'ប្រព័ន្ធកម្មវិធី Stonechat';
+  String get stonechatSpotlightTitle => 'ការអភិវឌ្ឍកម្មវិធី និងវ៉ែបឆបឧបករណ៍';
 
   @override
   String get stonechatSpotlightDesc =>
-      'យើងបង្កើតកម្មវិធីគំរូ ស្អាត និងថ្លៃអាចទទួលយកបានសម្រាប់ Web, Desktop, macOS, iOS និង Android។ ស្ថាបនាកម្មវិធីរឹងមាំ ចំណុចប្រទាក់អារម្មណ៍—ផលិតផលគុណភាពខ្ពស់ដោយមិនចាយច្រើន។';
+      'យើងបង្កើតកម្មវិធីទំនើបសម្រាប់ Web, Desktop, iOS និង Android និងរចនាវ៉ែបឆបឧបករណ៍។ កូដស្អាត ចំណុចប្រទាក់ច្បាស់—គុណភាពដោយមិនចាយច្រើន។';
 
   @override
   String get openStonechatCta => 'ស្វែងយល់តម្លៃ';
@@ -248,40 +248,38 @@ class AppLocalizationsKm extends AppLocalizations {
   String get talismanStoreSpotlightTaglineHighlight => 'ធ្នើរ';
 
   @override
-  String get bookStoreSectionHeading => 'ហាងសៀវភៅ Stonechat';
+  String get bookStoreSectionHeading => 'ការបង្កើតសៀវភៅ';
 
   @override
-  String get bookStoreSectionOverline => 'Book Store';
+  String get bookStoreSectionOverline => 'ហាងសៀវភៅ';
 
   @override
-  String get bookStoreSectionTagline =>
-      'ចម្លើយទេវតាដែលអ្នកអាចកាន់បាន។ ចំណេះដឹងដែលនៅអស់កាលជាយូរ។';
+  String get bookStoreSectionTagline => 'ពីគំនិតទៅសៀវភៅរួច។ នៅកន្លែងតែមួយ។';
 
   @override
-  String get bookStoreSectionTaglineHighlight => 'ចម្លើយទេវតា';
+  String get bookStoreSectionTaglineHighlight => 'កន្លែងតែមួយ';
 
   @override
   String get bookStoreSectionMarketing =>
-      'តោះយើងចូលឲ្យជ្រៅទៅក្នុងហុងស៊ុយយុគ៩ និងក្បួនតម្រាចិនបុរាណជាច្រើនទៀត ជាមួយសៀវភៅដែលយើងជ្រើសរើស។ ល្អសម្រាប់អ្នកអនុវត្ត និងអ្នកចូលចិត្ត—ជាវឥឡូវ ហើយផ្លាស់ប្តូរការយល់ឃើញរបស់អ្នក។';
+      'ការបង្កើតសៀវភៅគឺជាសេវាកម្មចម្បងមួយក្នុងចំណោម៦របស់យើង។ យើងគាំទ្រអ្នកនិពន្ធ និងអង្គការពីគំនិត ការសរសេរ ការកែសម្រួល ការរចនា និងការបោះពុម្ភ។ អ្វីដែលអ្នកត្រូវការពីគំនិតទៅសៀវភៅបោះពុម្ភ។';
 
   @override
-  String get bookStoreSectionMarketingHighlight =>
-      'ផ្លាស់ប្តូរការយល់ឃើញរបស់អ្នក';
+  String get bookStoreSectionMarketingHighlight => 'ការបង្កើតសៀវភៅ';
 
   @override
-  String get bookStoreBook1Title => 'ហុងស៊ុយយុគ៩ — ភាគ ១';
+  String get bookStoreBook1Title => 'ពីគំនិតទៅសៀវភៅរួច';
 
   @override
-  String get bookStoreBook1Subtitle => 'មូលដ្ឋាន និងតារាហោះហើរ';
+  String get bookStoreBook1Subtitle => 'ការសរសេរ កែសម្រួល និងបោះពុម្ភ';
 
   @override
   String get bookStoreBook1Price => '24.99';
 
   @override
-  String get bookStoreBook2Title => 'ហុងស៊ុយយុគ៩ — ភាគ ២';
+  String get bookStoreBook2Title => 'ការទំនាក់ទំនងច្បាស់នៅការងារ';
 
   @override
-  String get bookStoreBook2Subtitle => 'កម្មវិធីកម្រិតខ្ពស់';
+  String get bookStoreBook2Subtitle => 'ជំនាញជាក់ស្តែងសម្រាប់ក្រុម';
 
   @override
   String get bookStoreBook2Price => '24.99';
@@ -327,10 +325,10 @@ class AppLocalizationsKm extends AppLocalizations {
   String get appFeatureBaziLife => 'ប៉ាជឺ ជីវិត';
 
   @override
-  String get appFeatureBaziReport => 'របាយការណ៍ប៉ាជឺ ';
+  String get appFeatureBaziReport => 'របាយការណ៍ប៉ាជឺ';
 
   @override
-  String get appFeatureBaziAge => 'អាយុប៉ាជឺ ';
+  String get appFeatureBaziAge => 'អាយុប៉ាជឺ';
 
   @override
   String get appFeatureBaziStars => 'តារាប៉ាជឺ';
@@ -354,7 +352,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get appFeatureAdvancedFeatures => 'មុខងារកម្រិតខ្ពស់';
 
   @override
-  String get newsAndEvents => 'ព័ត៌មាន និងព្រឹត្តិការណ៍';
+  String get newsAndEvents => 'ព័ត៌មាន និងវគ្គបណ្តុះបណ្តាល';
 
   @override
   String get mediaAndPosts => 'ព័ត៌មាន និងមេឌៀ';
@@ -364,7 +362,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get mediaPostsFacebookBody =>
-      'សេចក្ដីជូនដំណឹង អាប់ដេតព្រឹត្តិការណ៍ និងព័ត៌មានចុងក្រោយរបស់យើងនៅលើទំព័រ Facebook។ តាមដានយើងដើម្បីអាប់ដេត។';
+      'សេចក្ដីជូនដំណឹង អាប់ដេតវគ្គបណ្តុះបណ្តាល និងព័ត៌មានចុងក្រោយរបស់យើងនៅលើទំព័រ Facebook។ តាមដានយើងដើម្បីអាប់ដេត។';
 
   @override
   String get mediaPostsFacebookLink => 'facebook.com/stonechat';
@@ -408,10 +406,10 @@ class AppLocalizationsKm extends AppLocalizations {
   String get ourMethod => 'វិធីសាស្រ្តរបស់ពួកយើង';
 
   @override
-  String get events => 'សិក្ខាសាលា និងព្រឹត្តិការណ៍';
+  String get events => 'វគ្គបណ្តុះបណ្តាល';
 
   @override
-  String get eventsCalendar => 'ប្រតិទិនព្រឹត្តិការណ៍';
+  String get eventsCalendar => 'ប្រតិទិនវគ្គបណ្តុះបណ្តាល';
 
   @override
   String get blog => 'ព័ត៌មានខ្លីៗ';
@@ -456,40 +454,41 @@ class AppLocalizationsKm extends AppLocalizations {
   String get backToHome => 'ត្រលប់ទៅទំព័រដើម';
 
   @override
-  String get heroHeadline1 => 'ការយល់ដឹងតែងតែមកមុនលទ្ធផល។';
+  String get heroHeadline1 => 'កម្មវិធី និងវគ្គបណ្តុះបណ្តាលគុណភាព។ ថ្លៃសមរម្យ។';
 
   @override
   String get heroHeadline1Prefix => '';
 
   @override
-  String get heroHeadline1Highlight => 'ការយល់ដឹង';
+  String get heroHeadline1Highlight => 'កម្មវិធីគុណភាព';
 
   @override
-  String get heroHeadline1Suffix => 'តែងតែមកមុនលទ្ធផល។';
+  String get heroHeadline1Suffix => ' និងវគ្គបណ្តុះបណ្តាល។';
 
   @override
-  String get heroHeadline2Prefix => 'តម្លៃពិតរបស់វាគឺការចង្អុលបង្ហាញជម្រើស ';
+  String get heroHeadline2Prefix => 'Web, desktop, iOS និង Android។ ';
 
   @override
-  String get heroHeadline2Highlight => 'ដ៏ល្អប្រសើរ។';
+  String get heroHeadline2Highlight => 'ថ្លៃសមរម្យ។';
 
   @override
-  String get heroSubline => 'សេវាហុងស៊ុយ និងរៀបចំជីវិត';
+  String get heroSubline =>
+      'យើងបង្កើតកម្មវិធី រចនាសៀវភៅ និងផ្តល់វគ្គបណ្តុះបណ្តាល។';
 
   @override
-  String get exploreAllEvents => 'ស្វែងរកព្រឹត្តិការណ៍ទាំងអស់';
+  String get exploreAllEvents => 'ស្វែងរកវគ្គបណ្តុះបណ្តាលទាំងអស់';
 
   @override
   String get comingUpNext => 'នឹងមកដល់ឆាប់ៗនេះ!';
 
   @override
-  String get allUpcomingEvents => 'ព្រឹត្តិការណ៍ដែលនឹងមកដល់ទាំងអស់ ';
+  String get allUpcomingEvents => 'វគ្គបណ្តុះបណ្តាលដែលនឹងមកដល់ទាំងអស់';
 
   @override
   String get limitedSeats => 'កៅអីមានកំណត់';
 
   @override
-  String get viewEvent => 'មើលព្រឹត្តិការណ៍';
+  String get viewEvent => 'មើលវគ្គបណ្តុះបណ្តាល';
 
   @override
   String get exploreCourses => 'ស្វែងរក';
@@ -498,164 +497,163 @@ class AppLocalizationsKm extends AppLocalizations {
   String get getConsultation => 'ទទួលការពិគ្រោះ';
 
   @override
-  String get finalCtaHeading => 'រងចាំការចាប់ផ្តើម?';
+  String get finalCtaHeading => 'រួមបានចាប់ផ្តើមហើយឬនៅ?';
 
   @override
-  String get finalCtaOverline => 'Get started';
+  String get finalCtaOverline => 'ចាប់ផ្តើម';
 
   @override
   String get finalCtaBody =>
-      'គ្រាន់តែតេលេខទូរស័ព្ទ ផ្ញើសារទៅទំព័រ Facebook របស់យើង ឬមកជួបយើងផ្ទាល់។';
+      'ប្រាប់យើងថាអ្នកត្រូវការសេវាកម្មណា—ការអភិវឌ្ឍកម្មវិធី វ៉ែបឆបឧបករណ៍ AI Agent ការបង្កើតសៀវភៅ វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនង ឬគម្រោងផ្ទាល់។ យើងនឹងឆ្លើយតបជាពាក្យច្បាស់។';
 
   @override
   String get notSureWhereToStart => 'មិនដឹងថាចាប់ផ្តើមពីត្រង់ណា?';
 
   @override
   String get notSureBody =>
-      'យើងនៅទីនេះដើម្បីជួយ គ្រាន់តែទាក់ទងយើង យើងនឹងណែនាំអ្នកទៅជំហានបន្ទាប់ដ៏ល្អបំផុត វាជាការពិគ្រោះ វគ្គសិក្សា ឬសហគមន៍គាំទ្រ។';
+      'យើងផ្តល់សេវាកម្មចម្បង៦៖ ការអភិវឌ្ឍកម្មវិធី វ៉ែបឆបឧបករណ៍ AI Agent ការបង្កើតសៀវភៅ វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនង និងគម្រោងផ្ទាល់។ ប្រាប់យើងពីគោលដៅរបស់អ្នក យើងនឹងចង្អុលអ្នកទៅអ្វីដែលត្រឹមត្រូវ។';
 
   @override
   String get language => 'ភាសា';
 
   @override
   String get sectionExperienceHeading =>
-      'អនុវត្តដ៏ល្អណែនាំ ការផ្លាស់ប្តូរលទ្ធផល។';
+      'វគ្គបណ្តុះបណ្តាលជាក់ស្តែង។ ជំនាញច្បាស់។ ផលប៉ះពាល់ពិត។';
 
   @override
-  String get sectionExperienceHeadingPrefix => 'អនុវត្តការណែនាំដ៏ល្អ ';
+  String get sectionExperienceHeadingPrefix => 'វគ្គបណ្តុះបណ្តាលជាក់ស្តែង។ ';
 
   @override
-  String get sectionExperienceHeadingHighlight => 'ការផ្លាស់ប្តូរលទ្ធផល។';
+  String get sectionExperienceHeadingHighlight => 'ជំនាញច្បាស់។ ផលប៉ះពាល់ពិត។';
 
   @override
-  String get sectionExperienceOverline => 'Workshops';
+  String get sectionExperienceOverline => 'វគ្គបណ្តុះបណ្តាល';
 
   @override
-  String get sectionServicesHeading => 'What we offer';
+  String get sectionServicesHeading => 'អ្វីដែលយើងផ្តល់';
 
   @override
-  String get sectionServicesOverline => 'Services';
+  String get sectionServicesOverline => 'សេវាកម្ម';
 
   @override
   String get sectionServicesSubline =>
-      'App Development, Responsive Web, AI Agent, Book Creation Suite, Communications Training, and Custom Project—one partner for all.';
+      'ការអភិវឌ្ឍកម្មវិធី វ៉ែបឆបឧបករណ៍ AI Agent ការបង្កើតសៀវភៅ វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនង និងគម្រោងផ្ទាល់—ដៃគូតែមួយសម្រាប់ទាំងអស់។';
 
   @override
   String get serviceAiAgent => 'AI Agent';
 
   @override
   String get serviceAiAgentDesc =>
-      'Smart automation and AI-powered solutions for your workflows.';
+      'ភាពស្វ័យប្រវត្តិឆ្លាត និងដំណោះស្រាយដោយ AI សម្រាប់លំហូរការងាររបស់អ្នក។';
 
   @override
-  String get serviceAppDevelopment => 'App Development';
+  String get serviceAppDevelopment => 'ការអភិវឌ្ឍកម្មវិធី';
 
   @override
   String get serviceAppDevelopmentDesc =>
-      'Modern apps for Web, Desktop, iOS and Android.';
+      'កម្មវិធីទំនើបសម្រាប់ Web, Desktop, iOS និង Android។';
 
   @override
-  String get serviceBookCreation => 'Book Creation Suite';
+  String get serviceBookCreation => 'ការបង្កើតសៀវភៅ';
 
   @override
   String get serviceBookCreationDesc =>
-      'From idea to published book—writing, design, and publishing.';
+      'ពីគំនិតទៅសៀវភៅបោះពុម្ភ—ការសរសេរ ការរចនា និងការបោះពុម្ភ។';
 
   @override
-  String get serviceCommunicationsTraining => 'Communications Training';
+  String get serviceCommunicationsTraining => 'វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនង';
 
   @override
   String get serviceCommunicationsTrainingDesc =>
-      'Workshops and training that build clear, practical skills.';
+      'វគ្គបណ្តុះបណ្តាលដែលបង្កើតជំនាញច្បាស់ ជាក់ស្តែង។';
 
   @override
-  String get serviceCustomProject => 'Custom Project';
+  String get serviceCustomProject => 'គម្រោងផ្ទាល់';
 
   @override
   String get serviceCustomProjectDesc =>
-      'Tailored solutions for your unique needs and goals.';
+      'ដំណោះស្រាយផ្ទាល់សម្រាប់តម្រូវការ និងគោលដៅពិសេសរបស់អ្នក។';
 
   @override
-  String get serviceResponsiveWeb => 'Responsive Web';
+  String get serviceResponsiveWeb => 'វ៉ែបឆបឧបករណ៍';
 
   @override
   String get serviceResponsiveWebDesc =>
-      'Beautiful, fast websites that work on every device.';
+      'វ៉ែបស៊ីតស្អាត លឿន ដែលដំណើរការលើគ្រឿងរាយគ្រឿងរៀបគ្រប់ប្រភេទ។';
 
   @override
-  String get serviceLearnMore => 'Learn more';
+  String get serviceLearnMore => 'ស្វែងយល់បន្ថែម';
 
   @override
   String get sectionKnowledgeHeading =>
-      'វាមិនមែនជាការបង្រៀនធម្មតាទេ វាជាគោលការណ៍ជាក់ស្តែងសម្រាប់ការផ្លាស់ប្តូរដ៏ពិតប្រាកដ។';
+      'វគ្គបណ្តុះបណ្តាលដែលសមនឹងគោលដៅរបស់អ្នក។';
 
   @override
-  String get sectionKnowledgeOverline => 'Training';
+  String get sectionKnowledgeOverline => 'វគ្គបណ្តុះបណ្តាល';
 
   @override
   String get sectionKnowledgeBody =>
-      'មនុស្សច្រើនជាង ៤៤,០០០ នាក់បានប្រើកម្មវិធីនេះ។ ជោគជ័យជាក់ច្បាស់នៅពេលអ្នកសម្របខ្លួនជាមួយមនុស្ស កន្លែង និងពេលវេលាត្រឹមត្រូវ។';
+      'វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនងគឺជាសេវាកម្មចម្បងមួយក្នុងចំណោម៦របស់យើង។ យើងដំណើរវគ្គបណ្តុះបណ្តាលផ្តោតមនុស្ស និងបន្ថែមដោយ AI ដើម្បីឱ្យអ្នកបង្កើតជំនាញច្បាស់ ជាក់ស្តែង—គ្មានពាក្យពេចន៍។ វគ្គផ្ទាល់សម្រាប់ក្រុម ឬអង្គការរបស់អ្នក។';
 
   @override
   String get sectionKnowledgeBody2 =>
-      'ជោគជ័យមិនមកពីធ្វើការលំបាកជាង វាមកពីការធ្វើជំហានត្រឹមត្រូវ នៅពេលវេលាត្រឹមត្រូវ ជាមួយកម្មវិធីត្រឹមត្រូវ។';
+      'យើងគាំទ្រភាសាខ្មែរ អង់គ្លេស និងចិន។ រហ័ស ដើម្បីឱ្យអ្នកទទួលលទ្ធផលដោយមិនរងចាំយូរ។';
 
   @override
-  String get sectionKnowledgeStat => 'មនុស្សច្រើនជាង ៤៤,០០០ នាក់តាមដាន';
+  String get sectionKnowledgeStat => 'ភាសា ៣+';
 
   @override
-  String get sectionMapHeading =>
-      'អ្នកមិនត្រូវការដំបូន្មានបន្ថែមទេ អ្នកត្រូវការផែនទី\nឱ្យមេឃចង្អុលអ្នកទៅផ្លូរត្រឹមត្រូវ។';
+  String get sectionMapHeading => 'ការណាត់ជួប—យើងជួយជ្រើសរើសសេវាកម្មដែលសមអ្នក។';
 
   @override
-  String get sectionMapOverline => 'Consultations';
+  String get sectionMapOverline => 'ការណាត់ជួប';
 
   @override
   String get sectionMapIntro =>
-      'ត្រៀមខ្លួន… យើងដឹងវិធីដ៏ល្អបំផុតដើម្បីជួយអ្នកសម្របពេលវេលា និងបង្កើតផ្លូវច្បាស់បើកមុខ!';
+      'ជ្រើសរើសសេវាកម្មខាងក្រោម ណាត់ជួប។ យើងនឹងពិភាក្សាតម្រូវការ និងជំហានបន្ទាប់—ភាសាសាមញ្ញ។';
 
   @override
-  String get sectionStoryHeading => 'អំពី Stonechat។';
+  String get sectionStoryHeading => 'យើងជានរណា។';
 
   @override
-  String get sectionStoryOverline => 'About';
+  String get sectionStoryOverline => 'អំពី';
 
   @override
   String get sectionStoryPara1 =>
-      'Stonechat រៀបចំអ្នកសម្រាប់ ៥០% ដំបូងនៃភាពជោគជ័យ បន្ទាប់មកណែនាំអ្នកជាមួយ ៥០% ទៀតដើម្បីទទួលប្រយោជន៍ដល់អ្នក។';
+      'Stonechat Communications ផ្តល់សេវាកម្មចម្បង៦៖ ការអភិវឌ្ឍកម្មវិធី វ៉ែបឆបឧបករណ៍ AI Agent ការបង្កើតសៀវភៅ វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនង និងគម្រោងផ្ទាល់។ ដៃគូតែមួយសម្រាប់កម្មវិធី វ៉ែបស៊ីត សៀវភៅ និងវគ្គបណ្តុះបណ្តាល។';
 
   @override
   String get sectionStoryPara2 =>
-      'តាមរយៈការសិក្សា សាកល្បង និងបង្កើតវិធីសាស្រ្តបញ្ជាក់ច្បាស់ដែលមានឫសគល់ពីរូបវិទ្យាចិនជាច្រើនឆ្នាំ។';
+      'យើងធ្វើការជាភាសាខ្មែរ អង់គ្លេស និងចិន ហើយផ្តោតលើការឆ្លើយតបរហ័ស និងការទំនាក់ទំនងច្បាស់។ ថ្វីត្បិតតែអ្នកត្រូវការកម្មវិធី វ៉ែបស៊ីត សៀវភៅ ឬវគ្គបណ្តុះបណ្តាល—យើងរក្សាវាឱ្យងាយ។';
 
   @override
   String get sectionStoryPara3 =>
-      'ថ្ងៃនេះ វិធីសាស្រ្តនោះបានជួយមនុស្សច្រើនជាង ៤៤,០០០ នាក់បង្កើតលទ្ធផលល្អប្រសើរសម្រាប់ខ្លួន និងអ្នកដទៃ។';
+      'ប្រាប់យើងពីគោលដៅរបស់អ្នក។ យើងនឹងផ្គូផ្គងអ្នកទៅសេវាកម្មដែលត្រឹមត្រូវ និងជំហានបន្ទាប់—ជាភាសាសាមញ្ញ។';
 
   @override
   String get sectionStoryPara1Short =>
-      'យើងបង្កើតកម្មវិធីទំនើប ថ្លៃសមរម្យ សម្រាប់ Web, Desktop, iOS និង Android។';
+      'សេវាកម្ម៦៖ ការអភិវឌ្ឍកម្មវិធី វ៉ែបឆបឧបករណ៍ AI Agent ការបង្កើតសៀវភៅ វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនង គម្រោងផ្ទាល់។';
 
   @override
   String get sectionStoryPara2Short =>
-      'រចនាសម្ព័ន្ធស្អាត ចំណុចប្រទាក់អារម្មណ៍។ ខ្មែរ អង់គ្លេស ចិន។';
+      'ខ្មែរ អង់គ្លេស និងចិន។ ឆ្លើយតបរហ័ស។ ច្បាស់ និងងាយ។';
 
   @override
   String get sectionStoryPara3Short =>
-      'រហ័ស។ ការទំនាក់ទំនងច្បាស់។ សុភាពរាក់ទាក់។';
+      'ប្រាប់យើងពីគោលដៅរបស់អ្នក—យើងនឹងចង្អុលអ្នកទៅសេវាកម្មដែលត្រឹមត្រូវ។';
 
   @override
-  String get sectionStoryCtaButton => 'ការខិតខំរបស់ Stonechat';
+  String get sectionStoryCtaButton => 'រឿងរបស់យើង';
 
   @override
-  String get sectionTestimonialsHeading => 'ការយល់ដឹងពិត លទ្ធផលពិត។';
+  String get sectionTestimonialsHeading => 'ការយល់ដឹងពិត។ លទ្ធផលពិត។';
 
   @override
-  String get sectionTestimonialsOverline => 'Testimonials';
+  String get sectionTestimonialsOverline => 'ការអיד។';
 
   @override
   String get sectionTestimonialsSub1 =>
-      'ពួកគេមិនគ្រាន់តែចូលរួមព្រឹត្តិការណ៍ទេ! ពួកគេបានឃើញយុទ្ធសាស្រ្តពិត។';
+      'ពួកគេមិនគ្រាន់តែចូលរួមវគ្គបណ្តុះបណ្តាលទេ! ពួកគេបានឃើញយុទ្ធសាស្រ្តពិត។';
 
   @override
   String get sectionTestimonialsSub2 => 'ពីអ្នកដឹកនាំអាជីវកម្មដល់បុគ្គល។';
@@ -758,156 +756,157 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get academyMoreCoursesNote =>
-      'វគ្គសិក្សា និងកាលវិភាគបន្ថែមនឹងប្រកាសនៅទីនេះ។ ទាក់ទងយើងសម្រាប់ការព៍ត៌មានបន្ថែម។';
+      'វគ្គបណ្តុះបណ្តាលនៅសេវាទាំងប្រាំមួយរបស់យើង។ ទាក់ទងយើងសម្រាប់កាលវិភាគ ឬវគ្គផ្ទាល់ខ្លួន។';
 
   @override
   String get eventCourseAppDevelopmentDesc =>
-      'Hands-on sessions on building apps for Web, Desktop, iOS & Android.';
+      'វគ្គជាក់ស្តែងលើការបង្កើតកម្មវិធីសម្រាប់ Web, Desktop, iOS និង Android។';
 
   @override
   String get eventCourseAppDevelopmentAbout =>
-      'Join workshops and demos on modern app development. Clean architecture, clear interfaces, and practical tips. Suitable for teams and individuals exploring our App Development service.';
+      'ចូលរួមវគ្គបណ្តុះបណ្តាល និងការបង្ហាញអំពីការអភិវឌ្ឍកម្មវិធីទំនើប។ រចនាសម្ព័ន្ធស្អាត ចំណុចប្រទាក់ច្បាស់ និងគន្លឹះជាក់ស្តែង។ សមរម្យសម្រាប់ក្រុម និងបុគ្គលរុករកសេវាការអភិវឌ្ឍកម្មវិធីរបស់យើង។';
 
   @override
   String get eventCourseAppDevelopmentTopics =>
-      'Cross-platform • Clean code • UI/UX • Demos & Q&A';
+      'ឆ្លងវេទិកា • កូដស្អាត • UI/UX • ការបង្ហាញ និងសំណួរ';
 
   @override
   String get eventCourseResponsiveWebDesc =>
-      'Learn to design and deliver websites that work on every device.';
+      'រៀនរចនា និងផ្តល់វ៉ែបស៊ីតដែលដំណើរការលើគ្រឿងរាយគ្រឿងរៀបគ្រប់ប្រភេទ។';
 
   @override
   String get eventCourseResponsiveWebAbout =>
-      'Workshops on responsive design, performance, and deployment. See live demos and get guidance on your Responsive Web projects. From concept to launch.';
+      'វគ្គបណ្តុះបណ្តាលអំពីការរចនាឆបឧបករណ៍ ការអនុវត្ត និងការចាកចេញ។ មើលការបង្ហាញផ្ទាល់ និងទទួលការណែនាំលើគម្រោងវ៉ែបឆបឧបករណ៍របស់អ្នក។ ពីគំនិតទៅចាកចេញ។';
 
   @override
   String get eventCourseResponsiveWebTopics =>
-      'Responsive layout • Performance • Accessibility • Real projects';
+      'ប្លង់ឆបឧបករណ៍ • ការអនុវត្ត • ភាពអាចចូលប្រើបាន • គម្រោងពិត';
 
   @override
   String get eventCourseAiAgentDesc =>
-      'Smart automation and AI-powered solutions—see them in action.';
+      'ភាពស្វ័យប្រវត្តិឆ្លាត និងដំណោះស្រាយដោយ AI—មើលពួកវាក្នុងសកម្មភាព។';
 
   @override
   String get eventCourseAiAgentAbout =>
-      'Demos and sessions on AI agents and workflow automation. Understand how our AI Agent service can fit your needs. No heavy jargon—clear, practical insights.';
+      'ការបង្ហាញ និងវគ្គសិក្សាអំពី AI agents និងភាពស្វ័យប្រវត្តិលំហូរការងារ។ យល់ពីរបៀបសេវា AI Agent របស់យើងអាចសមនឹងតម្រូវការរបស់អ្នក។ គ្មានពាក្យពេចន៍—ការយល់ឃើញច្បាស់ ជាក់ស្តែង។';
 
   @override
   String get eventCourseAiAgentTopics =>
-      'Automation • AI tools • Use cases • Integration';
+      'ភាពស្វ័យប្រវត្តិ • ឧបករណ៍ AI • ករណីប្រើប្រាស់ • ការរួមបញ្ចូល';
 
   @override
   String get eventCourseBookCreationDesc =>
-      'From idea to published book. Writing, design, and publishing workshops.';
+      'ពីគំនិតទៅសៀវភៅបោះពុម្ភ។ វគ្គបណ្តុះបណ្តាលការសរសេរ រចនា និងបោះពុម្ភ។';
 
   @override
   String get eventCourseBookCreationAbout =>
-      'Sessions on the full book-creation journey: concept, writing, editing, design, and publishing. Part of our Book Creation Suite. For authors and organizations.';
+      'វគ្គសិក្សាលើដំណើរការបង្កើតសៀវភៅពេញលេញ៖ គំនិត ការសរសេរ កែសម្រួល រចនា និងបោះពុម្ភ។ ផ្នែកនៃការបង្កើតសៀវភៅរបស់យើង។ សម្រាប់អ្នកនិពន្ធ និងអង្គការ។';
 
   @override
   String get eventCourseBookCreationTopics =>
-      'Writing • Editing • Design • Publishing pipeline';
+      'ការសរសេរ • កែសម្រួល • រចនា • ខ្សែការបោះពុម្ភ';
 
   @override
   String get eventCourseCommunicationsTrainingDesc =>
-      'Human-centered and AI-enhanced communication skills. Clear, practical.';
+      'ជំនាញការទំនាក់ទំនងផ្តោតមនុស្ស និងបន្ថែមដោយ AI។ ច្បាស់ ជាក់ស្តែង។';
 
   @override
   String get eventCourseCommunicationsTrainingAbout =>
-      'Our Communications Training in action. Workshops on clear speaking, writing, and using AI to communicate better. Human-centered and AI-enhanced. Khmer, English, Chinese.';
+      'វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនងរបស់យើងក្នុងសកម្មភាព។ វគ្គបណ្តុះបណ្តាលអំពីការនិយាយ សរសេរ និងប្រើ AI ដើម្បីទំនាក់ទំនងកាន់តែល្អ។ ផ្តោតមនុស្ស និងបន្ថែមដោយ AI។ ខ្មែរ អង់គ្លេស ចិន។';
 
   @override
   String get eventCourseCommunicationsTrainingTopics =>
-      'Clear messaging • AI tools • Team skills • Practice sessions';
+      'សារច្បាស់ • ឧបករណ៍ AI • ជំនាញក្រុម • វគ្គអនុវត្ត';
 
   @override
   String get eventCourseCustomProjectDesc =>
-      'Tailored solutions: mix and match our services for your goals.';
+      'ដំណោះស្រាយផ្ទាល់៖ លាយ និងផ្គូផ្គងសេវាកម្មរបស់យើងសម្រាប់គោលដៅរបស់អ្នក។';
 
   @override
   String get eventCourseCustomProjectAbout =>
-      'Sessions and consultations on custom projects that combine App Development, Web, AI, Books, or Training. We help you scope and plan. One partner, flexible delivery.';
+      'វគ្គសិក្សា និងការពិគ្រោះអំពីគម្រោងផ្ទាល់ដែលរួមបញ្ចូលការអភិវឌ្ឍកម្មវិធី វ៉ែប AI សៀវភៅ ឬវគ្គបណ្តុះបណ្តាល។ យើងជួយអ្នកវិស័យ និងរៀបចំ។ ដៃគូតែមួយ ការផ្តល់អនុវត្តរបស់។';
 
   @override
   String get eventCourseCustomProjectTopics =>
-      'Scoping • Planning • Multi-service • Your goals';
+      'វិស័យ • ការរៀបចំ • សេវាច្រើន • គោលដៅរបស់អ្នក';
 
   @override
-  String get consult1Category => 'ការអាន BaZi';
+  String get consult1Category => 'ការអភិវឌ្ឍកម្មវិធី';
 
   @override
-  String get consult1Method => 'BaZi';
+  String get consult1Method => 'ការអភិវឌ្ឍ';
 
   @override
-  String get consult1Question => 'ក្លាយជាអ្នកដែលអ្នកកើតមកជាមួយ…';
+  String get consult1Question => 'ត្រូវការកម្មវិធីទំនើប?';
 
   @override
-  String get consult1Desc => 'បង្ហាញអំណាចពិតរបស់អ្នកនៅខាងក្នុង។';
+  String get consult1Desc =>
+      'យើងបង្កើតកម្មវិធីសម្រាប់ Web, Desktop, iOS និង Android។ រចនាសម្ព័ន្ធស្អាត ចំណុចប្រទាក់ច្បាស់ ថ្លៃសមរម្យ។ សេវាកម្មចម្បងមួយក្នុងចំណោម៦របស់យើង។';
 
   @override
-  String get consult2Category => 'សេវាកម្មហុងស៊ុយ';
+  String get consult2Category => 'វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនង';
 
   @override
-  String get consult2Method => 'ហុងស៊ុយ ';
+  String get consult2Method => 'វគ្គបណ្តុះបណ្តាល';
 
   @override
-  String get consult2Question => 'រៀបចំកន្លែងរបស់អ្នក កំណត់ជីវិតរបស់អ្នក...';
+  String get consult2Question => 'ចង់ប្រឹងជំនាញការទំនាក់ទំនង?';
 
   @override
   String get consult2Desc =>
-      'យល់ពីរបៀបប្រើប្រាស់ថាមពលវិជ្ជមាននៃបរិស្ថានជុំវិញអ្នក។';
+      'វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនងគឺជាសេវាកម្មចម្បង។ វគ្គសិក្ខាសាលាផ្តោតមនុស្ស និងបន្ថែមដោយ AI។ ជំនាញច្បាស់ ជាក់ស្តែងសម្រាប់អ្នក ឬក្រុមរបស់អ្នក។';
 
   @override
-  String get consult3Category => 'ការជ្រើសរើសពេលា';
+  String get consult3Category => 'ការបង្កើតសៀវភៅ';
 
   @override
-  String get consult3Method => 'Xuan Kong';
+  String get consult3Method => 'ការបោះពុម្ភ';
 
   @override
-  String get consult3Question =>
-      'ពេលណាជាពេលវេលាល្អបំផុតដើម្បីជ្រើសរើសអ្វីៗដោយឆ្លាត?';
+  String get consult3Question => 'រួមបានបោះពុម្ភសៀវភៅរបស់អ្នក?';
 
   @override
   String get consult3Desc =>
-      'ជ្រើសរើសពេលវេលា និងពេលារបស់អ្នកដើម្បីលទ្ធផលល្អបំផុត។';
+      'ពីគំនិតទៅសៀវភៅរួច—ការសរសេរ កែសម្រួល រចនា និងបោះពុម្ភ។ ការបង្កើតសៀវភៅគ្របដណ្តប់។ យើងគាំទ្រអ្នកនិពន្ធ និងអង្គការរាល់ជំហាន។';
 
   @override
-  String get consult4Category => 'ឈីមិន និង អ៊ីជីង';
+  String get consult4Category => 'គម្រោងផ្ទាល់';
 
   @override
-  String get consult4Method => 'ឈីមិន និង អ៊ីជីង';
+  String get consult4Method => 'ផ្ទាល់';
 
   @override
-  String get consult4Question => 'រៀបចំជំហានដ៏ឆ្លាតវៃរបស់អ្នក...';
+  String get consult4Question => 'មានអ្វីផ្សេងក្នុងចិត្ត?';
 
   @override
-  String get consult4Desc => 'ឈ្នះសត្រូវ និងបង្កើនប្រយោជន៍របស់អ្នក។';
+  String get consult4Desc =>
+      'គម្រោងផ្ទាល់សម្រាប់គោលដៅដែលលាយសេវាកម្មរបស់យើង ឬត្រូវការផែនការផ្ទាល់។ ប្រាប់យើងពីគំនិតរបស់អ្នក យើងនឹងផ្គូផ្គងអ្នកទៅដំណោះស្រាយដែលត្រឹមត្រូវ។';
 
   @override
-  String get consult5Category => 'ពិធីការម៉ៅសាន';
+  String get consult5Category => 'វ៉ែបឆបឧបករណ៍';
 
   @override
-  String get consult5Method => 'ម៉ៅសាន';
+  String get consult5Method => 'វ៉ែប';
 
   @override
-  String get consult5Question =>
-      'បែបបទតាវនៃពិធីការ និងការអនុវត្តសម្រាប់ការផ្លាស់ប្តូរ។';
+  String get consult5Question => 'ត្រូវការវ៉ែបស៊ីត?';
 
   @override
-  String get consult5Desc => 'វិធីសាស្រ្ត និងពិធីការម៉ៅសានក្នុងក្បួនបុរាណចិន។';
+  String get consult5Desc =>
+      'វ៉ែបឆបឧបករណ៍៖ វ៉ែបស៊ីតស្អាត លឿន ដែលដំណើរការលើគ្រឿងរាយគ្រឿងរៀបគ្រប់ប្រភេទ។ សេវាកម្មមួយក្នុងចំណោម៦របស់យើង។ ទាក់ទងយើងដើម្បីស្វែងយល់តម្លៃ។';
 
   @override
-  String get consult6Category => 'វណ្ណកម្មស្នាដៃ Stonechat';
+  String get consult6Category => 'AI Agent';
 
   @override
-  String get consult6Method => 'ការបោះពុម្ភផ្សាយ';
+  String get consult6Method => 'AI';
 
   @override
-  String get consult6Question => 'សៀវភៅ និងវណ្ណកម្មនានាពី Stonechat។';
+  String get consult6Question => 'ចាប់អារម្មណ៍ភាពស្វ័យប្រវត្តិ AI?';
 
   @override
   String get consult6Desc =>
-      'ស្វែងយល់ពីស្នាដៃរបស់យើងអំពីហុងស៊ុយ និងក្បួនចិនបុរាណ។';
+      'AI Agent គ្របដណ្តប់ភាពស្វ័យប្រវត្តិឆ្លាត និងដំណោះស្រាយដោយ AI។ សេវាកម្មចម្បងមួយក្នុងចំណោម៦របស់យើង។ យើងនឹងជួយអ្នករកអ្វីដែលសម។';
 
   @override
   String get stickyCtaText => 'ចុះឈ្មោះ';
@@ -919,8 +918,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get popupTitle2 => 'ព័ត៌មាន និងធ្វើបច្ចុប្បន្នភាព';
 
   @override
-  String get popupDescription =>
-      'ទទួលព័ត៌មាន ព្រឹត្តិការណ៍ និងធ្វើបច្ចុប្បន្នភាពពី Stonechat។';
+  String get popupDescription => 'នៅក្នុងវដ្ត។';
 
   @override
   String get readFullArticles => 'អានអត្ថបទពេញ';
@@ -948,31 +946,30 @@ class AppLocalizationsKm extends AppLocalizations {
   String get subscribeOr => 'ឬ';
 
   @override
-  String get eventsCalendarTitle => 'ប្រតិទិនព្រឹត្តិការណ៍របស់ Stonechat';
+  String get eventsCalendarTitle => 'វគ្គបណ្តុះបណ្តាល';
 
   @override
-  String get eventsHeroHeadline => 'ព្រឹត្តិការណ៍ឆ្នាំនេះ—កុំខកខាន!';
+  String get eventsHeroHeadline => 'វគ្គបណ្តុះបណ្តាល';
 
   @override
-  String get eventsHeroOverline => 'Events';
+  String get eventsHeroOverline => 'វគ្គបណ្តុះបណ្តាល';
 
   @override
   String get eventsHeroSubline =>
-      'ការបង្រៀនផ្ទាល់។ អ្នកជំនាញ។ សហគមន៍ដែលផ្លាស់ប្តូរ។';
+      'វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនង និងច្រើនទៀត។ ច្បាស់ និងជាក់ស្តែង។';
 
   @override
   String get eventsSubline => 'កន្លែងដែលការពិភាក្សាក្លាយជាចំណេះដឹងពិត។';
 
   @override
   String get eventsDescription =>
-      'ជួបបទពិសោធហុងស៊ុយ ក្បួនចិនបុរាណ និងក្បួនតារាសាស្រ្ដដែលល្អបំផុតនៅកម្ពុជា—ការបង្រៀនផ្ទាល់ ការយល់ដឹងអ្នកជំនាញ និងសហគមន៍ត្រៀមរួចរីកចម្រើនជាមួយអ្នក។';
+      'វគ្គបណ្តុះបណ្តាលរបស់យើងគាំទ្រវគ្គបណ្តុះបណ្តាលការទំនាក់ទំនង និងសេវាកម្មផ្សេងទៀត—ការបង្ហាញកម្មវិធី ការចេញផ្សាយសៀវភៅ និងវគ្គសិក្សា។ ច្បាស់ ជាក់ស្តែង។ គាំទ្រភាសាខ្មែរ អង់គ្លេស និងចិន។';
 
   @override
-  String get eventsDescriptionHighlight =>
-      'ព្រឹត្តិការណ៍ហុងស៊ុយ ក្បួនចិនបុរាណ និងក្បួនតារាសាស្រ្ដ ដ៏ល្អបំផុតនៅកម្ពុជា';
+  String get eventsDescriptionHighlight => 'វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនង';
 
   @override
-  String get eventsWhyAttendTitle => 'ហេតុអ្វីព្រឹត្តិការណ៍នេះជាល្អបំផុត?';
+  String get eventsWhyAttendTitle => 'ហេតុអ្វីគួរចូលរួមវគ្គបណ្តុះបណ្តាល?';
 
   @override
   String get eventsWhyAttendLead =>
@@ -988,30 +985,29 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get eventsWhyAttend3 =>
-      'កៅអីមានកំណត់។ កក់កន្លែងរបស់អ្នក និងចូលរួមព្រឹត្តិការណ៍ពិសេស!';
+      'កៅអីមានកំណត់។ កក់កន្លែងរបស់អ្នក និងចូលរួមវគ្គបណ្តុះបណ្តាល!';
 
   @override
-  String get eventsUpcomingHeadline =>
-      'ព្រឹត្តិការណ៍ផ្សេងៗនឹងមកដល់ជាបន្តបន្ទាប់';
+  String get eventsUpcomingHeadline => 'វគ្គបណ្តុះបណ្តាលដែលនឹងមកដល់';
 
   @override
   String get eventsUpcomingSubline =>
-      'ជ្រើសរើសព្រឹត្តិការណ៍របស់អ្នក និងកក់កៅអីរបស់អ្នក។ យើងនឹងរង់ចាំជួបអ្នក។';
+      'ជ្រើសរើសវគ្គបណ្តុះបណ្តាល និងកក់កៅអីរបស់អ្នក។ យើងនឹងរង់ចាំជួបអ្នក។';
 
   @override
   String get secureYourSeat => 'កក់កៅអីរបស់អ្នក';
 
   @override
-  String get searchEvent => 'ស្វែងរកព្រឹត្តិការណ៍…';
+  String get searchEvent => 'ស្វែងរកវគ្គបណ្តុះបណ្តាល…';
 
   @override
   String get registerForEvent => 'ចុះឈ្មោះ';
 
   @override
-  String get eventColumn => 'ព្រឹត្តិការណ៍';
+  String get eventColumn => 'វគ្គបណ្តុះបណ្តាល';
 
   @override
-  String get eventRegTitle => 'ការចុះឈ្មោះចូលរួមព្រឹត្តិការណ៍';
+  String get eventRegTitle => 'ការចុះឈ្មោះវគ្គបណ្តុះបណ្តាល';
 
   @override
   String get eventRegFor => 'ចុះឈ្មោះសម្រាប់';
@@ -1033,10 +1029,11 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get eventRegSuccessNote =>
-      'យើងនឹងបញ្ជាក់កៅអីរបស់អ្នកតាមអ៉ីមែល ឬទូរស័ព្ទ។ ជួបគ្នានៅព្រឹត្តិការណ៍!';
+      'យើងនឹងបញ្ជាក់កៅអីរបស់អ្នកតាមអ៉ីមែល ឬទូរស័ព្ទ។ ជួបគ្នានៅវគ្គបណ្តុះបណ្តាល!';
 
   @override
-  String get noEventsMatch => 'គ្មានព្រឹត្តិការណ៍ត្រូវនឹងការស្វែងរករបស់អ្នក។';
+  String get noEventsMatch =>
+      'គ្មានវគ្គបណ្តុះបណ្តាលត្រូវនឹងការស្វែងរករបស់អ្នក។';
 
   @override
   String get dateColumn => 'កាលបរិច្ឆេទ';
@@ -1045,25 +1042,30 @@ class AppLocalizationsKm extends AppLocalizations {
   String get locationColumn => 'ទីតាំង';
 
   @override
-  String get aboutPageTitle => 'Stonechat | ការកើនឡើងរបស់មយូរ៉ា';
+  String get aboutPageTitle => 'Stonechat Communications | អំពីយើង';
 
   @override
   String get aboutBreadcrumb => 'អំពី Stonechat។';
 
   @override
-  String get aboutHeroHeadline => 'ធ្វើឱ្យជីវិតសម្បូរតាមចំណេះដឹងមេឃ។';
+  String get aboutHeroHeadline =>
+      'ដៃគូរបស់អ្នកសម្រាប់សេវាកម្មចម្បង៦៖ កម្មវិធី វ៉ែប AI សៀវភៅ វគ្គបណ្តុះបណ្តាល និងគម្រោងផ្ទាល់។';
 
   @override
-  String get aboutBullet1 => 'វាចាប់ផ្តើមពីជំនឿ។';
+  String get aboutBullet1 =>
+      'ការអភិវឌ្ឍកម្មវិធី និងវ៉ែបឆបឧបករណ៍—កម្មវិធី និងវ៉ែបស៊ីតទំនើបសម្រាប់គ្រឿងរាយគ្រឿងរៀបគ្រប់ប្រភេទ។';
 
   @override
-  String get aboutBullet2 => 'បេសកកម្មដែលមេឃប្រគល់អោយ។';
+  String get aboutBullet2 =>
+      'AI Agent—ភាពស្វ័យប្រវត្តិឆ្លាត និងដំណោះស្រាយដោយ AI។';
 
   @override
-  String get aboutBullet3 => 'ណែនាំអ្នកដោយក្បួនទៅរកលទ្ធផលដ៏ល្អ។';
+  String get aboutBullet3 =>
+      'ការបង្កើតសៀវភៅ—ពីគំនិតទៅសៀវភៅបោះពុម្ភ។ វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនង—វគ្គសិក្ខាសាលាច្បាស់ ជាក់ស្តែង។';
 
   @override
-  String get aboutBullet4 => 'ការសម្រេចពិត។ លទ្ធផលពិត។';
+  String get aboutBullet4 =>
+      'គម្រោងផ្ទាល់—ដំណោះស្រាយផ្ទាល់។ ការទំនាក់ទំនងច្បាស់ ឆ្លើយតបរហ័ស។ ខ្មែរ អង់គ្លេស និងចិន។';
 
   @override
   String get journeyPageHeadline => 'ការខិតខំរបស់ខ្ញុំ';
@@ -1384,22 +1386,19 @@ class AppLocalizationsKm extends AppLocalizations {
       'មានបញ្ហាកើតឡើង។ សូមព្យាយាមម្តងទៀត ឬអ៉ីមែលយើងដោយផ្ទាល់។';
 
   @override
-  String get contactSubjectDestiny => 'វាសនា / ការអានផ្ទាល់ខ្លួន (Bazi)';
+  String get contactSubjectDestiny => 'ការអភិវឌ្ឍកម្មវិធី ឬវ៉ែបស៊ីត';
 
   @override
-  String get contactSubjectBusiness =>
-      'ការរៀបចំអាជីវកម្ម និងយុទ្ធសាស្រ្ត (Qi Men / ការជ្រើសរើសកាលបរិច្ឆេទអាជីវកម្ម)';
+  String get contactSubjectBusiness => 'វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនង';
 
   @override
-  String get contactSubjectFengShui => 'Feng Shui (ការសម្របផ្ទះ / ការិយាល័យ)';
+  String get contactSubjectFengShui => 'ការបោះពុម្ភសៀវភៅ';
 
   @override
-  String get contactSubjectDateSelection =>
-      'Date Selection (ព័ត៌មានលម្អិតបណ្តុះបណ្តល់)';
+  String get contactSubjectDateSelection => 'ការសាកសួរទូទៅ';
 
   @override
-  String get contactSubjectUnsure =>
-      'មិនច្បាស់ - ខ្ញុំត្រូវការការណែនាំរបស់អ្នក';
+  String get contactSubjectUnsure => 'មិនច្បាស់—ណែនាំអ្វីមួយឱ្យខ្ញុំ';
 
   @override
   String get forecastAuspiciousStars => 'តារាសំណាង';
@@ -1447,6 +1446,236 @@ class AppLocalizationsKm extends AppLocalizations {
   String get close => 'បិទ';
 
   @override
+  String get loading => 'កំពុងផ្ទុក…';
+
+  @override
+  String get academiesAppsWebAiTitle =>
+      'កម្មវិធី វ៉ែប និង AI ដែលដំណើរការរួមគ្នា។';
+
+  @override
+  String get academiesBody1 =>
+      'យើងរួមបញ្ចូលសេវាកម្មចម្បងបី—ការអភិវឌ្ឍកម្មវិធី វ៉ែបឆបឧបករណ៍ និង AI Agent—ដើម្បីឱ្យកម្មវិធី វ៉ែបស៊ីត និងភាពស្វ័យប្រវត្តិរបស់អ្នកដំណើរការជាប្រព័ន្ធតែមួយ។';
+
+  @override
+  String get academiesBody2 =>
+      'ពីគំនិតទៅចំណុចប្រទាក់ យើងជួយអ្នកជ្រើសរើសល្បាយដែលត្រឹមត្រូវ បន្ទាប់មករចនា សាងសង់ និងចាកចេញជាមួយដៃគូតែមួយ និងដំណើរការច្បាស់មួយ។';
+
+  @override
+  String get eventsAudienceIntro =>
+      'វគ្គបណ្តុះបណ្តាលរបស់យើងរចនាសម្រាប់ប្រភេទអតិថិជនផ្សេងៗ។ មើលថាអ្នកសមនឹងនៅខាងក្រោម។';
+
+  @override
+  String get eventsAudienceGovernmentTitle => 'ក្រុមរដ្ឋាភិបាល និងក្រសួង';
+
+  @override
+  String get eventsAudienceGovernmentDesc =>
+      'គាំទ្រសម្រាប់គោលការណ៍ ការទំនាក់ទំនង និងអង្គភាពបច្ចេកទេសដែលត្រូវការវគ្គបណ្តុះបណ្តាលច្បាស់ ជាក់ស្តែង គ្មានពាក្យពេចន៍។';
+
+  @override
+  String get eventsAudienceBusinessTitle => 'អាជីវកម្ម និងអាជីវកម្មចាប់ផ្តើម';
+
+  @override
+  String get eventsAudienceBusinessDesc =>
+      'វគ្គបណ្តុះបណ្តាលដើម្បីជួយអ្នកបង្កើត និងក្រុមបង្ហាញគំនិត សរសេរឱ្យអតិថិជន និងប្រើឧបករណ៍ AI ក្នុងការងារប្រចាំថ្ងៃ។';
+
+  @override
+  String get eventsAudienceNgoTitle =>
+      'អង្គការក្រៅរដ្ឋាភិបាល និងមជ្ឈមណ្ឌលបណ្តុះបណ្តាល';
+
+  @override
+  String get eventsAudienceNgoDesc =>
+      'កម្មវិធីរចនាសម្រាប់អង្គការ NGO សាកលវិទ្យាល័យ និងមជ្ឈមណ្ឌលបណ្តុះបណ្តាលដែលត្រូវការជំនាញជាក់ស្តែង និងឧទាហរណ៍ក្នុងតំបន់។';
+
+  @override
+  String get sectionStoryHighlight1 => 'ដៃគូ';
+
+  @override
+  String get sectionStoryHighlight2 => 'ខ្មែរ អង់គ្លេស និងចិន';
+
+  @override
+  String get sectionStoryHighlight3 => 'ប្រាប់យើងពីគោលដៅរបស់អ្នក';
+
+  @override
+  String get testimonial1Quote =>
+      'Stonechat បានប្តូរសារគោលការណ៍របស់យើងទៅជារឿងច្បាស់ដែលប្រជាពលរដ្ឋយល់ជាភាសាខ្មែរ និងអង់គ្លេស។';
+
+  @override
+  String get testimonial1Name => 'Panha Leakhena – Senate of Cambodia';
+
+  @override
+  String get testimonial1Location => 'ភ្នំពេញ';
+
+  @override
+  String get testimonial2Quote =>
+      'វគ្គសិក្ខាសាលាបានផ្តល់ឱ្យក្រុមយើងនូវរចនាសម្ព័ន្ធសាមញ្ញសម្រាប់សុន្ទរកថា របាយការណ៍ និងបណ្តាញសង្គមដែលសមនឹងការងារប្រចាំថ្ងៃរបស់យើង។';
+
+  @override
+  String get testimonial2Name => 'Moon Pichnil – Palimentary of Cambodia';
+
+  @override
+  String get testimonial2Location => 'ព្រះសីហនុ';
+
+  @override
+  String get testimonial3Quote =>
+      'អ្នកវិជ្ជាជីវៈវ័យក្មេងរបស់យើងឥឡូវនិយាយ និងសរសេរដោយជឿជាក់បន្ថែមបន្ទាប់ពីការណែនាំជាក់ស្តែង ផ្តោតមនុស្សរបស់ Stonechat។';
+
+  @override
+  String get testimonial3Name => 'Sereyrath Aumrith – PC Asia';
+
+  @override
+  String get testimonial3Location => 'អន្តរជាតិ';
+
+  @override
+  String get testimonial4Quote =>
+      'Stonechat បានសាងសង់កម្មវិធីគ្លីនិកសាមញ្ញដែលផ្នែករបស់យើងអាចប្រើបានងាយ។ ការងារប្រចាំថ្ងៃនៅ N.22 Beauty Klinik លឿនជាងមុន។';
+
+  @override
+  String get testimonial4Name => 'Sieng Vanna – N.22 Beauty Klinik';
+
+  @override
+  String get testimonial4Location => 'កណ្តាល';
+
+  @override
+  String get testimonial5Quote =>
+      'ពួកគេបានជួយយើងប្តូរគំនិតទៅជាផែនការមេរៀន ស្លាយ និងឧបករណ៍ច្បាស់សម្រាប់និស្សិត ទាន់ពេល និងមិនបច្ចេកទេសពេក។';
+
+  @override
+  String get testimonial5Name => 'Phum Thida – Master Elf';
+
+  @override
+  String get testimonial5Location => 'N/A';
+
+  @override
+  String get testimonial6Quote =>
+      'Stonechat បានគាំទ្រ DAAD នៅកម្ពុជាជាមួយអត្ថបទភាសាពីរ និងសម្ភារៈដែលធម្មជាតិសម្រាប់ទស្សនិកជនក្នុងតំបន់ និងអន្តរជាតិ។';
+
+  @override
+  String get testimonial6Name => 'Zeii Tey – DAAD in Cambodia';
+
+  @override
+  String get testimonial6Location => 'N/A';
+
+  @override
+  String get testimonial7Quote =>
+      'និស្សិតរបស់យើងកាន់តែរួមចំណែកបង្ហាញបន្ទាប់ពីវគ្គសិក្ខាសាលាស្លូវៗដែលប្រើភាសាអង់គ្លេសខ្មែរ និងខ្មែរ។';
+
+  @override
+  String get testimonial7Name => 'Ya Nara – Royal University of Agriculture';
+
+  @override
+  String get testimonial7Location => 'តាខ្មៅ កម្ពុជា';
+
+  @override
+  String get testimonial8Quote =>
+      'វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនងរបស់ពួកគេបានបង្ហាញយើងពីរបៀបធ្វើឱ្យឯកសារវែងៗខ្លី និងច្បាស់ជាងដោយគំរូសាមញ្ញ។';
+
+  @override
+  String get testimonial8Name => 'Phart Sanit – Senate of Cambodia';
+
+  @override
+  String get testimonial8Location => 'សៀមរាប កម្ពុជា';
+
+  @override
+  String get testimonial9Quote =>
+      'សម្រាប់វ forum សាធារណៈរបស់យើង Stonechat បានរៀបចំចំណុចនិយាយ និងស្លាយដែលមានវិជ្ជាជីវៈ និងជិតស្និទ្ធប្រជាជនក្នុងតំបន់។';
+
+  @override
+  String get testimonial9Name => 'Ah Pich – Palimentary of Cambodia';
+
+  @override
+  String get testimonial9Location => 'ប៉ោយប៉ែត កម្ពុជា';
+
+  @override
+  String get testimonial10Quote =>
+      'ពួកគេបានប្តូរការរកឃើញបច្ចេកទេសទៅជារឿងខ្លីៗជាមួយរូបភាពច្បាស់ និងឧទាហរណ៍ខ្មែរពិតជាច្រើន។';
+
+  @override
+  String get testimonial10Name => 'Sreylin Khan – PC Asia';
+
+  @override
+  String get testimonial10Location => 'សៀមរាប កម្ពុជា';
+
+  @override
+  String get testimonial11Quote =>
+      'Stonechat បានណែនាំមាតិកា លំហូរកក់ និង SMS របស់យើង ដើម្បីឱ្យកម្មវិធីគ្លីនិក និងវ៉ែបស៊ីតរបស់យើងមានអារម្មណ៍ទំនើប ប៉ុន្តែនៅតែសាមញ្ញ។';
+
+  @override
+  String get testimonial11Name => 'Juary Mith – N.22 Beauty Klinik';
+
+  @override
+  String get testimonial11Location => 'ភ្នំពេញ កម្ពុជា';
+
+  @override
+  String get testimonial12Quote =>
+      'ពួកគេពន្យល់ AI និងឧបករណ៍ឌីជីថលជាពាក្យសាមញ្ញ ដើម្បីឱ្យសហការីមិនបច្ចេកទេសក៏អាចប្រើពួកវាក្នុងការងារពិតបាន។';
+
+  @override
+  String get testimonial12Name => 'Veth Raksmey – Master Elf';
+
+  @override
+  String get testimonial12Location => 'ភ្នំពេញ កម្ពុជា';
+
+  @override
+  String get testimonial13Quote =>
+      'Stonechat បានជួយយើងរៀបចំអ៉ីមែល បោះពុម្ភ និងស្គ្រីបរួសរាយ ត្រឹមត្រូវសម្រាប់ការទំនាក់ទំនងអាហារូបករណ៍របស់យើង។';
+
+  @override
+  String get testimonial13Name => 'Taa – DAAD in Cambodia';
+
+  @override
+  String get testimonial13Location => 'ភ្នំពេញ កម្ពុជា';
+
+  @override
+  String get testimonial14Quote =>
+      'ពួកគេបានរចនាវគ្គពិសេសដែលភ្ជាប់ការទំនាក់ទំនង កម្មវិធី និងសៀវភៅជាមួយករណីវិភាគជាក់ស្តែង ក្នុងតំបន់។';
+
+  @override
+  String get testimonial14Name => 'Da Na – Royal University of Agriculture';
+
+  @override
+  String get testimonial14Location => 'ភ្នំពេញ កម្ពុជា';
+
+  @override
+  String get testimonial15Quote =>
+      'ពីថ្ងៃទីមួយពួកគេស្តាប់ បន្ទាប់មកណែនាំល្បាយកម្មវិធី វ៉ែបស៊ីត និងវគ្គបណ្តុះបណ្តាលដែលត្រឹមត្រូវ ជាជាងរុញអ្វីៗទាំងអស់។';
+
+  @override
+  String get testimonial15Name => 'Mo Ly – Senate of Cambodia';
+
+  @override
+  String get testimonial15Location => 'ភ្នំពេញ កម្ពុជា';
+
+  @override
+  String get testimonial16Quote =>
+      'យើងបានឃើញច្បាស់ពីរបៀប AI អាចគាំទ្រ មិនជំនួស សំឡេងមនុស្ស តាមរយៈឧទាហរណ៍ផ្ទាល់ពីភាពជាក់ស្តែងផ្នែកសាធារណៈរបស់យើង។';
+
+  @override
+  String get testimonial16Name => 'Mey In – Palimentary of Cambodia';
+
+  @override
+  String get testimonial16Location => 'សៀមរាប កម្ពុជា';
+
+  @override
+  String get testimonial17Quote =>
+      'Stonechat ឆ្លើយតបរហ័ស និងផ្តល់សម្ភារៈមុនពេល ជាមួយការពន្យល់ដែលធ្វើឱ្យក្រុមយើងងាយកែលម្អ។';
+
+  @override
+  String get testimonial17Name => 'Chantrea Smile – PC Asia';
+
+  @override
+  String get testimonial17Location => 'ត្បូងឃ្មុំ កម្ពុជា';
+
+  @override
+  String get testimonial18Quote =>
+      'វត្តមានអនឡាញរបស់យើងឥឡូវមានវិជ្ជាជីវៈជាង ហើយក្រុមយើងអាចថែទាំកម្មវិធី និងវ៉ែបស៊ីតដោយខ្លួនឯង។';
+
+  @override
+  String get testimonial18Name => 'Suon Mardy – N.22 Beauty Klinik';
+
+  @override
+  String get testimonial18Location => 'ភ្នំពេញ កម្ពុជា';
+
+  @override
   String get forecastYearBingWu => '២០២៦ ប៊ីង អ៊ូ ឆ្នាំសេះភ្លើង';
 
   @override
@@ -1467,54 +1696,56 @@ class AppLocalizationsKm extends AppLocalizations {
   String get sampleFeature => 'អត្ថបទពិសេសគំរូ';
 
   @override
-  String get event1Title => 'Stonechat - The Rise of Phoenix 2026';
+  String get event1Title => 'វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនង៖ ជំនាញផ្តោតមនុស្ស';
 
   @override
-  String get event1Date => '31 Jan 2026';
+  String get event1Date => '៣១ មករា ២០២៦';
 
   @override
-  String get event1Description => 'ការបង្ហាញរបស់ Master។';
+  String get event1Description =>
+      'បង្កើតការស្តាប់យល់ ភាពច្បាស់ និងការយល់ឃើញ ដើម្បីឱ្យការទំនាក់ទំនងប្រចាំថ្ងៃធម្មជាតិ និងជឿជាក់។ វគ្គសំខាន់នៃសេវាវគ្គបណ្តុះបណ្តាលការទំនាក់ទំនងរបស់យើង។ ច្បាស់ ជាក់ស្តែង គ្មានពាក្យពេចន៍។';
 
   @override
-  String get event1Location => 'ភ្នំពេញ';
+  String get event1Location => 'ភ្នំពេញ និងអនឡាញ (Zoom)';
 
   @override
-  String get event2Title => 'ហ្វងស៊ី និងហាស្ត្រូឡូហ្គី ២០២៦';
+  String get event2Title => 'វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនង៖ ជំនាញបន្ថែមដោយ AI';
 
   @override
-  String get event2Date => '31 Jan 2026';
+  String get event2Date => '៣១ មករា ២០២៦';
 
   @override
   String get event2Description =>
-      'កម្មវិធីផ្ទាល់របស់ហ្វងស៊ី និងហាស្ត្រូឡូហ្គី ២០២៦ នៅសិង្ហបុរី។';
+      'ប្រើឧបករណ៍ AI ដើម្បីរៀបចំ ពង្រីក និងកែលម្អអ៉ីមែល ការបង្ហោះ និងស្គ្រីប—ដោយមិនបាត់សំឡេងរបស់អ្នក។ ផ្នែកនៃការផ្តល់ AI Agent និងវគ្គបណ្តុះបណ្តាលការទំនាក់ទំនងរបស់យើង។ ជាក់ស្តែង និងជាក់ស្តែង។';
 
   @override
-  String get event2Location => 'Resorts World Sentosa, Singapore';
+  String get event2Location => 'អនឡាញ (Zoom)';
 
   @override
-  String get event3Title => 'សេះភ្លើង ឈីមិន';
+  String get event3Title => 'ការបង្កើតសៀវភៅ៖ ពីគំនិតទៅអក្សរដ្ឋាន';
 
   @override
-  String get event3Date => '1 – 2 Feb 2026';
+  String get event3Date => '១–២ កុម្ភៈ ២០២៦';
 
   @override
-  String get event3Description => 'សិល្បៈសង្គ្រាមក្នុងឆ្នាំសេះភ្លើង';
+  String get event3Description =>
+      'វគ្គបណ្តុះបណ្តាលលើដំណើរការពេញលេញពីគំនិតទៅអក្សរដ្ឋាន៖ រចនាសម្ព័ន្ធ ការសរសេរ និងការកែសម្រួល។ សម្រាប់អ្នកនិពន្ធ និងក្រុម។ វគ្គបណ្តុះបណ្តាលមួយក្នុងចំណោមការបង្កើតសៀវភៅរបស់យើង។';
 
   @override
-  String get event3Location => 'Resorts World Singapore';
+  String get event3Location => 'ក្នុងអគារ ឬនៅកន្លែង (តាមការរៀបចំ)';
 
   @override
-  String get event4Title => 'App Development & Responsive Web: Intro Workshop';
+  String get event4Title => 'ការអភិវឌ្ឍកម្មវិធី និងវ៉ែបឆបឧបករណ៍៖ វគ្គស៊ុមណែនាំ';
 
   @override
-  String get event4Date => '15 Feb 2026';
+  String get event4Date => '១៥ កុម្ភៈ ២០២៦';
 
   @override
   String get event4Description =>
-      'See how we build apps and responsive sites. Demos, Q&A, and a hands-on intro to modern development. For teams exploring our App Development or Responsive Web services.';
+      'មើលរបៀបយើងបង្កើតកម្មវិធី និងវ៉ែបឆបឧបករណ៍។ ការបង្ហាញ សំណួរ និងស៊ុមណែនាំជាក់ស្តែងចំពោះការអភិវឌ្ឍទំនើប។ សម្រាប់ក្រុមរុករកសេវាការអភិវឌ្ឍកម្មវិធី ឬវ៉ែបឆបឧបករណ៍របស់យើង។';
 
   @override
-  String get event4Location => 'Phnom Penh & Online (Zoom)';
+  String get event4Location => 'ភ្នំពេញ និងអនឡាញ (Zoom)';
 
   @override
   String get loginSectionTitle => 'ការចូលប្រើប្រាស់បុគ្គលិក / រដ្ឋាភិបាល';
@@ -1876,7 +2107,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get loadingJustAMoment => 'ចាំមួយភ្លែត…';
 
   @override
-  String get eventRegEmailSubjectPrefix => 'ការចុះឈ្មោះព្រឹត្តិការណ៍៖ ';
+  String get eventRegEmailSubjectPrefix => 'ការចុះឈ្មោះវគ្គបណ្តុះបណ្តាល៖ ';
 
   @override
   String get eventRegEmailBodyRegistrant => 'អ្នកចុះឈ្មោះ';

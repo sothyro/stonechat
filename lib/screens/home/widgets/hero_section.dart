@@ -100,6 +100,10 @@ class _HeroSectionState extends State<HeroSection> {
     const double titleToRule = 20;
     const double ruleToSubline = 16;
 
+    final locale = Localizations.localeOf(context);
+    final isKhmer = locale.languageCode == 'km';
+    final homeLabel = isKhmer ? l10n.home : l10n.home.toUpperCase();
+
     final baseStyle = (Theme.of(context).textTheme.headlineMedium ?? const TextStyle()).copyWith(
       color: AppColors.onPrimary,
       fontWeight: FontWeight.w700,
@@ -118,14 +122,14 @@ class _HeroSectionState extends State<HeroSection> {
     return [
       // Overline: section-style label (matches section headers)
       Text(
-        l10n.home.toUpperCase(),
+        homeLabel,
         style: Theme.of(context).textTheme.labelLarge?.copyWith(
-          color: AppColors.accent,
-          fontWeight: FontWeight.w600,
-          fontSize: 11,
-          letterSpacing: 3.2,
-          height: 1.2,
-        ),
+              color: AppColors.accent,
+              fontWeight: FontWeight.w600,
+              fontSize: 11,
+              letterSpacing: isKhmer ? 0 : 3.2,
+              height: 1.2,
+            ),
       ),
       SizedBox(height: overlineToTitle),
       // Line 1: one short highlight ("Quality apps") + rest in white

@@ -757,7 +757,7 @@ abstract class AppLocalizations {
   /// No description provided for @newsAndEvents.
   ///
   /// In en, this message translates to:
-  /// **'News & Events'**
+  /// **'News & Trainings'**
   String get newsAndEvents;
 
   /// No description provided for @mediaAndPosts.
@@ -775,7 +775,7 @@ abstract class AppLocalizations {
   /// No description provided for @mediaPostsFacebookBody.
   ///
   /// In en, this message translates to:
-  /// **'Our latest posts, event updates and news are on our Facebook page. Follow us for updates.'**
+  /// **'Our latest posts, training updates and news are on our Facebook page. Follow us for updates.'**
   String get mediaPostsFacebookBody;
 
   /// No description provided for @mediaPostsFacebookLink.
@@ -859,13 +859,13 @@ abstract class AppLocalizations {
   /// No description provided for @events.
   ///
   /// In en, this message translates to:
-  /// **'Workshops & Events'**
+  /// **'Trainings'**
   String get events;
 
   /// No description provided for @eventsCalendar.
   ///
   /// In en, this message translates to:
-  /// **'Event Calendar'**
+  /// **'Training Calendar'**
   String get eventsCalendar;
 
   /// No description provided for @blog.
@@ -1015,7 +1015,7 @@ abstract class AppLocalizations {
   /// No description provided for @viewEvent.
   ///
   /// In en, this message translates to:
-  /// **'View Event'**
+  /// **'View Training'**
   String get viewEvent;
 
   /// No description provided for @exploreCourses.
@@ -1069,13 +1069,13 @@ abstract class AppLocalizations {
   /// No description provided for @sectionExperienceHeading.
   ///
   /// In en, this message translates to:
-  /// **'Hands-on workshops. Clear skills. Real impact.'**
+  /// **'Hands-on trainings. Clear skills. Real impact.'**
   String get sectionExperienceHeading;
 
   /// No description provided for @sectionExperienceHeadingPrefix.
   ///
   /// In en, this message translates to:
-  /// **'Hands-on workshops. '**
+  /// **'Hands-on trainings. '**
   String get sectionExperienceHeadingPrefix;
 
   /// No description provided for @sectionExperienceHeadingHighlight.
@@ -1087,7 +1087,7 @@ abstract class AppLocalizations {
   /// No description provided for @sectionExperienceOverline.
   ///
   /// In en, this message translates to:
-  /// **'Workshops'**
+  /// **'Trainings'**
   String get sectionExperienceOverline;
 
   /// No description provided for @sectionServicesHeading.
@@ -1153,7 +1153,7 @@ abstract class AppLocalizations {
   /// No description provided for @serviceCommunicationsTrainingDesc.
   ///
   /// In en, this message translates to:
-  /// **'Workshops and training that build clear, practical skills.'**
+  /// **'Trainings that build clear, practical skills.'**
   String get serviceCommunicationsTrainingDesc;
 
   /// No description provided for @serviceCustomProject.
@@ -1201,7 +1201,7 @@ abstract class AppLocalizations {
   /// No description provided for @sectionKnowledgeBody.
   ///
   /// In en, this message translates to:
-  /// **'Communications Training is one of our six core services. We run human-centered and AI-enhanced workshops so you build clear, practical skills—no jargon. Custom sessions for your team or organization.'**
+  /// **'Communications Training is one of our six core services. We run human-centered and AI-enhanced trainings so you build clear, practical skills—no jargon. Custom sessions for your team or organization.'**
   String get sectionKnowledgeBody;
 
   /// No description provided for @sectionKnowledgeBody2.
@@ -1219,19 +1219,19 @@ abstract class AppLocalizations {
   /// No description provided for @sectionMapHeading.
   ///
   /// In en, this message translates to:
-  /// **'You don\'t need jargon. You need a partner.'**
+  /// **'Book a consultation—we\'ll match you to the right service.'**
   String get sectionMapHeading;
 
   /// No description provided for @sectionMapOverline.
   ///
   /// In en, this message translates to:
-  /// **'Consultations'**
+  /// **'Book a consultation'**
   String get sectionMapOverline;
 
   /// No description provided for @sectionMapIntro.
   ///
   /// In en, this message translates to:
-  /// **'Pick a service that fits: App Development, Responsive Web, AI Agent, Book Creation, Communications Training, or Custom Project. We\'ll guide you to the next step.'**
+  /// **'Pick a service below, book a slot. We\'ll discuss your needs and plan next steps—plain language, no jargon.'**
   String get sectionMapIntro;
 
   /// No description provided for @sectionStoryHeading.
@@ -1477,7 +1477,7 @@ abstract class AppLocalizations {
   /// No description provided for @academyMoreCoursesNote.
   ///
   /// In en, this message translates to:
-  /// **'Workshops and events across our six services. Contact us for schedules or custom group sessions.'**
+  /// **'Trainings across our six services. Contact us for schedules or custom group sessions.'**
   String get academyMoreCoursesNote;
 
   /// No description provided for @eventCourseAppDevelopmentDesc.
@@ -1489,7 +1489,7 @@ abstract class AppLocalizations {
   /// No description provided for @eventCourseAppDevelopmentAbout.
   ///
   /// In en, this message translates to:
-  /// **'Join workshops and demos on modern app development. Clean architecture, clear interfaces, and practical tips. Suitable for teams and individuals exploring our App Development service.'**
+  /// **'Join trainings and demos on modern app development. Clean architecture, clear interfaces, and practical tips. Suitable for teams and individuals exploring our App Development service.'**
   String get eventCourseAppDevelopmentAbout;
 
   /// No description provided for @eventCourseAppDevelopmentTopics.
@@ -1507,7 +1507,7 @@ abstract class AppLocalizations {
   /// No description provided for @eventCourseResponsiveWebAbout.
   ///
   /// In en, this message translates to:
-  /// **'Workshops on responsive design, performance, and deployment. See live demos and get guidance on your Responsive Web projects. From concept to launch.'**
+  /// **'Trainings on responsive design, performance, and deployment. See live demos and get guidance on your Responsive Web projects. From concept to launch.'**
   String get eventCourseResponsiveWebAbout;
 
   /// No description provided for @eventCourseResponsiveWebTopics.
@@ -1537,7 +1537,7 @@ abstract class AppLocalizations {
   /// No description provided for @eventCourseBookCreationDesc.
   ///
   /// In en, this message translates to:
-  /// **'From idea to published book. Writing, design, and publishing workshops.'**
+  /// **'From idea to published book. Writing, design, and publishing trainings.'**
   String get eventCourseBookCreationDesc;
 
   /// No description provided for @eventCourseBookCreationAbout.
@@ -1561,7 +1561,7 @@ abstract class AppLocalizations {
   /// No description provided for @eventCourseCommunicationsTrainingAbout.
   ///
   /// In en, this message translates to:
-  /// **'Our Communications Training in action. Workshops on clear speaking, writing, and using AI to communicate better. Human-centered and AI-enhanced. Khmer, English, Chinese.'**
+  /// **'Our Communications Training in action. Trainings on clear speaking, writing, and using AI to communicate better. Human-centered and AI-enhanced. Khmer, English, Chinese.'**
   String get eventCourseCommunicationsTrainingAbout;
 
   /// No description provided for @eventCourseCommunicationsTrainingTopics.
@@ -1807,25 +1807,25 @@ abstract class AppLocalizations {
   /// No description provided for @eventsCalendarTitle.
   ///
   /// In en, this message translates to:
-  /// **'Workshops & events'**
+  /// **'Trainings'**
   String get eventsCalendarTitle;
 
   /// No description provided for @eventsHeroHeadline.
   ///
   /// In en, this message translates to:
-  /// **'Workshops and events'**
+  /// **'Trainings'**
   String get eventsHeroHeadline;
 
   /// No description provided for @eventsHeroOverline.
   ///
   /// In en, this message translates to:
-  /// **'Events'**
+  /// **'Trainings'**
   String get eventsHeroOverline;
 
   /// No description provided for @eventsHeroSubline.
   ///
   /// In en, this message translates to:
-  /// **'Communications Training, workshops, and community. Clear and practical.'**
+  /// **'Communications Training and more. Clear and practical.'**
   String get eventsHeroSubline;
 
   /// No description provided for @eventsSubline.
@@ -1837,7 +1837,7 @@ abstract class AppLocalizations {
   /// No description provided for @eventsDescription.
   ///
   /// In en, this message translates to:
-  /// **'Our events support Communications Training and our other services—app demos, book launches, workshops. Clear and practical. Khmer, English, and Chinese supported.'**
+  /// **'Our trainings support Communications Training and our other services—app demos, book launches, and sessions. Clear and practical. Khmer, English, and Chinese supported.'**
   String get eventsDescription;
 
   /// No description provided for @eventsDescriptionHighlight.
@@ -1849,7 +1849,7 @@ abstract class AppLocalizations {
   /// No description provided for @eventsWhyAttendTitle.
   ///
   /// In en, this message translates to:
-  /// **'Why join our events'**
+  /// **'Why join our trainings'**
   String get eventsWhyAttendTitle;
 
   /// No description provided for @eventsWhyAttendLead.
@@ -1897,7 +1897,7 @@ abstract class AppLocalizations {
   /// No description provided for @searchEvent.
   ///
   /// In en, this message translates to:
-  /// **'Search event…'**
+  /// **'Search training…'**
   String get searchEvent;
 
   /// No description provided for @registerForEvent.
@@ -1909,13 +1909,13 @@ abstract class AppLocalizations {
   /// No description provided for @eventColumn.
   ///
   /// In en, this message translates to:
-  /// **'Event'**
+  /// **'Training'**
   String get eventColumn;
 
   /// No description provided for @eventRegTitle.
   ///
   /// In en, this message translates to:
-  /// **'Event Registration'**
+  /// **'Training Registration'**
   String get eventRegTitle;
 
   /// No description provided for @eventRegFor.
@@ -1957,13 +1957,13 @@ abstract class AppLocalizations {
   /// No description provided for @eventRegSuccessNote.
   ///
   /// In en, this message translates to:
-  /// **'We will confirm your seat by email or phone. See you at the event!'**
+  /// **'We will confirm your seat by email or phone. See you at the training!'**
   String get eventRegSuccessNote;
 
   /// No description provided for @noEventsMatch.
   ///
   /// In en, this message translates to:
-  /// **'No events match your search.'**
+  /// **'No trainings match your search.'**
   String get noEventsMatch;
 
   /// No description provided for @dateColumn.
@@ -2716,6 +2716,414 @@ abstract class AppLocalizations {
   /// **'Close'**
   String get close;
 
+  /// No description provided for @loading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading…'**
+  String get loading;
+
+  /// No description provided for @academiesAppsWebAiTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Apps, Web & AI that work together.'**
+  String get academiesAppsWebAiTitle;
+
+  /// No description provided for @academiesBody1.
+  ///
+  /// In en, this message translates to:
+  /// **'We combine three core services—App Development, Responsive Web, and AI Agent—so your app, website, and automation work as one system.'**
+  String get academiesBody1;
+
+  /// No description provided for @academiesBody2.
+  ///
+  /// In en, this message translates to:
+  /// **'From idea to interface, we help you choose the right mix, then design, build, and launch with one partner and one clear process.'**
+  String get academiesBody2;
+
+  /// No description provided for @eventsAudienceIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Our trainings are designed for different types of clients. See where you fit below.'**
+  String get eventsAudienceIntro;
+
+  /// No description provided for @eventsAudienceGovernmentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Government & Ministry teams'**
+  String get eventsAudienceGovernmentTitle;
+
+  /// No description provided for @eventsAudienceGovernmentDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Support for policy, communications and technical units that need clear, practical training without heavy jargon.'**
+  String get eventsAudienceGovernmentDesc;
+
+  /// No description provided for @eventsAudienceBusinessTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Businesses & Startups'**
+  String get eventsAudienceBusinessTitle;
+
+  /// No description provided for @eventsAudienceBusinessDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Trainings to help founders and teams present ideas, write for customers and use AI tools in daily work.'**
+  String get eventsAudienceBusinessDesc;
+
+  /// No description provided for @eventsAudienceNgoTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'NGOs & Training Centers'**
+  String get eventsAudienceNgoTitle;
+
+  /// No description provided for @eventsAudienceNgoDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Programs designed for NGOs, universities and training centers that need practical skills and local examples.'**
+  String get eventsAudienceNgoDesc;
+
+  /// No description provided for @sectionStoryHighlight1.
+  ///
+  /// In en, this message translates to:
+  /// **'partner'**
+  String get sectionStoryHighlight1;
+
+  /// No description provided for @sectionStoryHighlight2.
+  ///
+  /// In en, this message translates to:
+  /// **'Khmer, English, and Chinese'**
+  String get sectionStoryHighlight2;
+
+  /// No description provided for @sectionStoryHighlight3.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell us your goal'**
+  String get sectionStoryHighlight3;
+
+  /// No description provided for @testimonial1Quote.
+  ///
+  /// In en, this message translates to:
+  /// **'Stonechat turned our policy messages into clear stories that citizens understand in both Khmer and English.'**
+  String get testimonial1Quote;
+
+  /// No description provided for @testimonial1Name.
+  ///
+  /// In en, this message translates to:
+  /// **'Panha Leakhena – Senate of Cambodia'**
+  String get testimonial1Name;
+
+  /// No description provided for @testimonial1Location.
+  ///
+  /// In en, this message translates to:
+  /// **'Phnom Penh'**
+  String get testimonial1Location;
+
+  /// No description provided for @testimonial2Quote.
+  ///
+  /// In en, this message translates to:
+  /// **'The workshop gave our team simple structures for speeches, reports and social media that fit our daily work.'**
+  String get testimonial2Quote;
+
+  /// No description provided for @testimonial2Name.
+  ///
+  /// In en, this message translates to:
+  /// **'Moon Pichnil – Palimentary of Cambodia'**
+  String get testimonial2Name;
+
+  /// No description provided for @testimonial2Location.
+  ///
+  /// In en, this message translates to:
+  /// **'Preah Sihanouk'**
+  String get testimonial2Location;
+
+  /// No description provided for @testimonial3Quote.
+  ///
+  /// In en, this message translates to:
+  /// **'Our young professionals now speak and write with more confidence after Stonechat\'s practical, human‑centered coaching.'**
+  String get testimonial3Quote;
+
+  /// No description provided for @testimonial3Name.
+  ///
+  /// In en, this message translates to:
+  /// **'Sereyrath Aumrith – PC Asia'**
+  String get testimonial3Name;
+
+  /// No description provided for @testimonial3Location.
+  ///
+  /// In en, this message translates to:
+  /// **'International'**
+  String get testimonial3Location;
+
+  /// No description provided for @testimonial4Quote.
+  ///
+  /// In en, this message translates to:
+  /// **'Stonechat built a simple clinic app our front‑desk can use easily. Daily work at N.22 Beauty Klinik is faster now.'**
+  String get testimonial4Quote;
+
+  /// No description provided for @testimonial4Name.
+  ///
+  /// In en, this message translates to:
+  /// **'Sieng Vanna – N.22 Beauty Klinik'**
+  String get testimonial4Name;
+
+  /// No description provided for @testimonial4Location.
+  ///
+  /// In en, this message translates to:
+  /// **'Kandal'**
+  String get testimonial4Location;
+
+  /// No description provided for @testimonial5Quote.
+  ///
+  /// In en, this message translates to:
+  /// **'They helped us turn ideas into clear lesson plans, slides and tools for our students, on time and not too technical.'**
+  String get testimonial5Quote;
+
+  /// No description provided for @testimonial5Name.
+  ///
+  /// In en, this message translates to:
+  /// **'Phum Thida – Master Elf'**
+  String get testimonial5Name;
+
+  /// No description provided for @testimonial5Location.
+  ///
+  /// In en, this message translates to:
+  /// **'N/A'**
+  String get testimonial5Location;
+
+  /// No description provided for @testimonial6Quote.
+  ///
+  /// In en, this message translates to:
+  /// **'Stonechat supported DAAD in Cambodia with bilingual copy and materials that feel natural for local and international audiences.'**
+  String get testimonial6Quote;
+
+  /// No description provided for @testimonial6Name.
+  ///
+  /// In en, this message translates to:
+  /// **'Zeii Tey – DAAD in Cambodia'**
+  String get testimonial6Name;
+
+  /// No description provided for @testimonial6Location.
+  ///
+  /// In en, this message translates to:
+  /// **'N/A'**
+  String get testimonial6Location;
+
+  /// No description provided for @testimonial7Quote.
+  ///
+  /// In en, this message translates to:
+  /// **'Our students became more willing to present after a gentle workshop that used both Cambodian English and Khmer.'**
+  String get testimonial7Quote;
+
+  /// No description provided for @testimonial7Name.
+  ///
+  /// In en, this message translates to:
+  /// **'Ya Nara – Royal University of Agriculture'**
+  String get testimonial7Name;
+
+  /// No description provided for @testimonial7Location.
+  ///
+  /// In en, this message translates to:
+  /// **'Takhmao, Cambodia'**
+  String get testimonial7Location;
+
+  /// No description provided for @testimonial8Quote.
+  ///
+  /// In en, this message translates to:
+  /// **'Their Communications Training showed us how to make long documents shorter and clearer with simple templates.'**
+  String get testimonial8Quote;
+
+  /// No description provided for @testimonial8Name.
+  ///
+  /// In en, this message translates to:
+  /// **'Phart Sanit – Senate of Cambodia'**
+  String get testimonial8Name;
+
+  /// No description provided for @testimonial8Location.
+  ///
+  /// In en, this message translates to:
+  /// **'Siem Reap, Cambodia'**
+  String get testimonial8Location;
+
+  /// No description provided for @testimonial9Quote.
+  ///
+  /// In en, this message translates to:
+  /// **'For our public forum, Stonechat prepared talking points and slides that felt professional and close to local people.'**
+  String get testimonial9Quote;
+
+  /// No description provided for @testimonial9Name.
+  ///
+  /// In en, this message translates to:
+  /// **'Ah Pich – Palimentary of Cambodia'**
+  String get testimonial9Name;
+
+  /// No description provided for @testimonial9Location.
+  ///
+  /// In en, this message translates to:
+  /// **'Poipet, Cambodia'**
+  String get testimonial9Location;
+
+  /// No description provided for @testimonial10Quote.
+  ///
+  /// In en, this message translates to:
+  /// **'They turned technical findings into short stories with clear visuals and many real Cambodian examples.'**
+  String get testimonial10Quote;
+
+  /// No description provided for @testimonial10Name.
+  ///
+  /// In en, this message translates to:
+  /// **'Sreylin Khan – PC Asia'**
+  String get testimonial10Name;
+
+  /// No description provided for @testimonial10Location.
+  ///
+  /// In en, this message translates to:
+  /// **'Siem Reap, Cambodia'**
+  String get testimonial10Location;
+
+  /// No description provided for @testimonial11Quote.
+  ///
+  /// In en, this message translates to:
+  /// **'Stonechat guided our content, booking flow and SMS, so our clinic app and website now feel modern but still simple.'**
+  String get testimonial11Quote;
+
+  /// No description provided for @testimonial11Name.
+  ///
+  /// In en, this message translates to:
+  /// **'Juary Mith – N.22 Beauty Klinik'**
+  String get testimonial11Name;
+
+  /// No description provided for @testimonial11Location.
+  ///
+  /// In en, this message translates to:
+  /// **'Phnom Penh, Cambodia'**
+  String get testimonial11Location;
+
+  /// No description provided for @testimonial12Quote.
+  ///
+  /// In en, this message translates to:
+  /// **'They explain AI and digital tools in plain words, so even non‑technical colleagues can use them in real work.'**
+  String get testimonial12Quote;
+
+  /// No description provided for @testimonial12Name.
+  ///
+  /// In en, this message translates to:
+  /// **'Veth Raksmey – Master Elf'**
+  String get testimonial12Name;
+
+  /// No description provided for @testimonial12Location.
+  ///
+  /// In en, this message translates to:
+  /// **'Phnom Penh, Cambodia'**
+  String get testimonial12Location;
+
+  /// No description provided for @testimonial13Quote.
+  ///
+  /// In en, this message translates to:
+  /// **'Stonechat helped us draft friendly but accurate emails, posters and scripts for our scholarship communication.'**
+  String get testimonial13Quote;
+
+  /// No description provided for @testimonial13Name.
+  ///
+  /// In en, this message translates to:
+  /// **'Taa – DAAD in Cambodia'**
+  String get testimonial13Name;
+
+  /// No description provided for @testimonial13Location.
+  ///
+  /// In en, this message translates to:
+  /// **'Phnom Penh, Cambodia'**
+  String get testimonial13Location;
+
+  /// No description provided for @testimonial14Quote.
+  ///
+  /// In en, this message translates to:
+  /// **'They designed a special session that connects communication, apps and books with practical, local case studies.'**
+  String get testimonial14Quote;
+
+  /// No description provided for @testimonial14Name.
+  ///
+  /// In en, this message translates to:
+  /// **'Da Na – Royal University of Agriculture'**
+  String get testimonial14Name;
+
+  /// No description provided for @testimonial14Location.
+  ///
+  /// In en, this message translates to:
+  /// **'Phnom Penh, Cambodia'**
+  String get testimonial14Location;
+
+  /// No description provided for @testimonial15Quote.
+  ///
+  /// In en, this message translates to:
+  /// **'From day one they listened, then suggested the right mix of app, website and training instead of pushing everything.'**
+  String get testimonial15Quote;
+
+  /// No description provided for @testimonial15Name.
+  ///
+  /// In en, this message translates to:
+  /// **'Mo Ly – Senate of Cambodia'**
+  String get testimonial15Name;
+
+  /// No description provided for @testimonial15Location.
+  ///
+  /// In en, this message translates to:
+  /// **'Phnom Penh, Cambodia'**
+  String get testimonial15Location;
+
+  /// No description provided for @testimonial16Quote.
+  ///
+  /// In en, this message translates to:
+  /// **'We saw clearly how AI can support, not replace, the human voice through live examples from our public sector reality.'**
+  String get testimonial16Quote;
+
+  /// No description provided for @testimonial16Name.
+  ///
+  /// In en, this message translates to:
+  /// **'Mey In – Palimentary of Cambodia'**
+  String get testimonial16Name;
+
+  /// No description provided for @testimonial16Location.
+  ///
+  /// In en, this message translates to:
+  /// **'Siem Reap, Cambodia'**
+  String get testimonial16Location;
+
+  /// No description provided for @testimonial17Quote.
+  ///
+  /// In en, this message translates to:
+  /// **'Stonechat responds fast and delivers materials early, with explanations that make it easy for our team to adjust.'**
+  String get testimonial17Quote;
+
+  /// No description provided for @testimonial17Name.
+  ///
+  /// In en, this message translates to:
+  /// **'Chantrea Smile – PC Asia'**
+  String get testimonial17Name;
+
+  /// No description provided for @testimonial17Location.
+  ///
+  /// In en, this message translates to:
+  /// **'Tbong khmoum, Cambodia'**
+  String get testimonial17Location;
+
+  /// No description provided for @testimonial18Quote.
+  ///
+  /// In en, this message translates to:
+  /// **'Our online presence is now more professional, and our team can maintain the app and website by ourselves.'**
+  String get testimonial18Quote;
+
+  /// No description provided for @testimonial18Name.
+  ///
+  /// In en, this message translates to:
+  /// **'Suon Mardy – N.22 Beauty Klinik'**
+  String get testimonial18Name;
+
+  /// No description provided for @testimonial18Location.
+  ///
+  /// In en, this message translates to:
+  /// **'Phnom Penh, Cambodia'**
+  String get testimonial18Location;
+
   /// No description provided for @forecastYearBingWu.
   ///
   /// In en, this message translates to:
@@ -2815,7 +3223,7 @@ abstract class AppLocalizations {
   /// No description provided for @event3Description.
   ///
   /// In en, this message translates to:
-  /// **'Workshop on the full journey from concept to manuscript: structure, writing, and editing. For authors and teams. One of our Book Creation Suite trainings.'**
+  /// **'Training on the full journey from concept to manuscript: structure, writing, and editing. For authors and teams. One of our Book Creation Suite trainings.'**
   String get event3Description;
 
   /// No description provided for @event3Location.
@@ -2827,7 +3235,7 @@ abstract class AppLocalizations {
   /// No description provided for @event4Title.
   ///
   /// In en, this message translates to:
-  /// **'App Development & Responsive Web: Intro Workshop'**
+  /// **'App Development & Responsive Web: Intro Training'**
   String get event4Title;
 
   /// No description provided for @event4Date.
@@ -3535,7 +3943,7 @@ abstract class AppLocalizations {
   /// No description provided for @eventRegEmailSubjectPrefix.
   ///
   /// In en, this message translates to:
-  /// **'Event Registration: '**
+  /// **'Training Registration: '**
   String get eventRegEmailSubjectPrefix;
 
   /// No description provided for @eventRegEmailBodyRegistrant.

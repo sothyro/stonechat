@@ -29,20 +29,23 @@ class SectionHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final narrow = isNarrow ?? width < 600;
+    final locale = Localizations.localeOf(context);
+    final isKhmer = locale.languageCode == 'km';
+    final displayOverline = isKhmer ? overline : overline.toUpperCase();
 
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
-          overline.toUpperCase(),
+          displayOverline,
           style: Theme.of(context).textTheme.labelLarge?.copyWith(
-            color: AppColors.accent,
-            fontWeight: FontWeight.w600,
-            fontSize: 12,
-            letterSpacing: 3.2,
-            height: 1.2,
-          ),
+                color: AppColors.accent,
+                fontWeight: FontWeight.w600,
+                fontSize: 12,
+                letterSpacing: isKhmer ? 0 : 3.2,
+                height: 1.2,
+              ),
         ),
         SizedBox(height: narrow ? 12 : 16),
         Text(

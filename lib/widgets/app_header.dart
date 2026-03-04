@@ -44,7 +44,11 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
         color: Colors.transparent,
         child: isMobile
-            ? _MobileHeader(l10n: l10n, onOpenDrawer: onOpenDrawer)
+            ? _MobileHeader(
+                l10n: l10n,
+                onOpenDrawer: onOpenDrawer,
+                localeNotifier: localeNotifier,
+              )
             : _DesktopHeader(l10n: l10n, localeNotifier: localeNotifier),
       ),
     );
@@ -55,10 +59,15 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
 const double _kLogoLeftInsetDesktop = 28.0;
 
 class _MobileHeader extends StatelessWidget {
-  const _MobileHeader({required this.l10n, this.onOpenDrawer});
+  const _MobileHeader({
+    required this.l10n,
+    this.onOpenDrawer,
+    required this.localeNotifier,
+  });
 
   final AppLocalizations l10n;
   final VoidCallback? onOpenDrawer;
+  final LocaleNotifier localeNotifier;
 
   /// Match desktop: bar 72, stack 240, logo 154×184.
   static void _mobileDimensions(void Function(double barHeight, double logoHeight, double logoSlotWidth, double stackHeight) fn) {
@@ -123,6 +132,11 @@ class _MobileHeader extends StatelessWidget {
                 ],
               ),
             ),
+          ),
+          Positioned(
+            right: 28,
+            top: barHeight + 8,
+            child: _LocaleFlagsRow(notifier: localeNotifier),
           ),
           Positioned(
             left: _kLogoLeftInsetDesktop,
@@ -200,7 +214,6 @@ class _DesktopHeader extends StatelessWidget {
       _NavLink(label: l10n.publications, path: '/book'),
       _NavLink(label: l10n.consultations, path: '/consultations'),
       if (isTablet) const SizedBox(width: 24) else const Spacer(),
-      _LocaleSwitcher(notifier: localeNotifier),
       const SizedBox(width: 20),
       _ContactUsButton(l10n: l10n),
     ];
@@ -241,6 +254,11 @@ class _DesktopHeader extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 10),
                 child: content,
               ),
+            ),
+            Positioned(
+              right: 36,
+              top: barHeight + 8,
+              child: _LocaleFlagsRow(notifier: localeNotifier),
             ),
             Positioned(
               left: _kLogoLeftInsetDesktop,
@@ -536,102 +554,50 @@ class _DropdownItem extends StatelessWidget {
   }
 }
 
-class _LocaleSwitcher extends StatelessWidget {
-  const _LocaleSwitcher({required this.notifier});
+class _LocaleFlagsRow extends StatelessWidget {
+  const _LocaleFlagsRow({required this.notifier});
 
   final LocaleNotifier notifier;
 
   static const _locales = [
-    ('en', 'EN'),
-    ('km', 'KM'),
-    ('zh', 'ZH'),
+    ('en', '🇬🇧'),
+    ('km', '🇰🇭'),
+    ('zh', '🇨🇳'),
   ];
-
-  static const _itemHeight = 44.0;
-
-  Future<void> _showLocaleMenu(BuildContext context, RenderBox button) async {
-    final code = notifier.locale.languageCode;
-    final offset = button.localToGlobal(Offset.zero);
-    final size = MediaQuery.sizeOf(context);
-    final selected = await showMenu<String>(
-      context: context,
-      position: RelativeRect.fromLTRB(
-        offset.dx,
-        offset.dy + button.size.height + 6,
-        size.width - offset.dx,
-        size.height - offset.dy - button.size.height - 6,
-      ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-        side: const BorderSide(color: _MenuColors.barBorder, width: 1.5),
-      ),
-      color: AppColors.overlayDark.withValues(alpha: 0.92),
-      elevation: 12,
-      items: _locales
-          .map((e) => PopupMenuItem<String>(
-                value: e.$1,
-                height: _itemHeight,
-                padding: EdgeInsets.zero,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Row(
-                    children: [
-                      Icon(
-                        LucideIcons.languages,
-                        size: 18,
-                        color: code == e.$1 ? AppColors.accent : Colors.white70,
-                      ),
-                      const SizedBox(width: 10),
-                      Text(
-                        e.$2,
-                        style: TextStyle(
-                          color: code == e.$1 ? AppColors.accent : Colors.white,
-                          fontWeight: code == e.$1 ? FontWeight.w600 : FontWeight.w500,
-                          fontSize: 14,
-                        ),
-                      ),
-                      if (code == e.$1) ...[
-                        const Spacer(),
-                        const Icon(LucideIcons.check, size: 16, color: AppColors.accent),
-                      ],
-                    ],
-                  ),
-                ),
-              ))
-          .toList(),
-    );
-    if (selected != null) notifier.setLocaleFromCode(selected);
-  }
 
   @override
   Widget build(BuildContext context) {
     final code = notifier.locale.languageCode;
-    final isMobile = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
-    return Builder(
-      builder: (context) => InkWell(
-        onTap: () {
-          final box = context.findRenderObject() as RenderBox?;
-          if (box != null) _showLocaleMenu(context, box);
-        },
-        borderRadius: BorderRadius.circular(8),
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: 10,
-            vertical: isMobile ? 14 : 6,
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(LucideIcons.languages, size: 16, color: _MenuColors.linkText),
-              const SizedBox(width: 4),
-              Text(
-                code.toUpperCase(),
-                style: const TextStyle(color: _MenuColors.linkText, fontSize: 12),
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: _locales.map((e) {
+        final isSelected = code == e.$1;
+        return Padding(
+          padding: const EdgeInsets.only(left: 6),
+          child: InkWell(
+            onTap: () => notifier.setLocaleFromCode(e.$1),
+            borderRadius: BorderRadius.circular(14),
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 160),
+              padding: const EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: isSelected
+                    ? AppColors.accent.withValues(alpha: 0.35)
+                    : Colors.white.withValues(alpha: 0.10),
+                border: Border.all(
+                  color: isSelected ? AppColors.accent : Colors.white24,
+                  width: isSelected ? 1.6 : 1,
+                ),
               ),
-            ],
+              child: Text(
+                e.$2,
+                style: const TextStyle(fontSize: 14),
+              ),
+            ),
           ),
-        ),
-      ),
+        );
+      }).toList(),
     );
   }
 }
