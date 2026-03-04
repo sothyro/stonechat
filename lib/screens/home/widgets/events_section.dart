@@ -6,6 +6,7 @@ import '../../../config/events_data.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../theme/app_theme.dart';
 import '../../../utils/breakpoints.dart';
+import '../../../widgets/section_header.dart';
 
 /// Green bullet for "Coming Up Next".
 const Color _bulletGreen = Color(0xFF2E7D32);
@@ -18,8 +19,6 @@ class EventsSection extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     final width = MediaQuery.sizeOf(context).width;
     final isNarrow = Breakpoints.isMobile(width);
-    final headlinePrefix = l10n.sectionExperienceHeadingPrefix;
-    final headlineHighlight = l10n.sectionExperienceHeadingHighlight;
 
     final events = getLocalizedEvents(l10n);
     final featuredEvent = events.isNotEmpty ? events.first : null;
@@ -37,32 +36,13 @@ class EventsSection extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               RepaintBoundary(
-                child: RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      color: AppColors.accent,
-                      fontWeight: FontWeight.w600,
-                      fontSize: width < 600 ? 24 : (width < 900 ? 28 : 34),
-                      height: 1.2,
-                    ),
-                    children: [
-                      TextSpan(text: headlinePrefix),
-                      if (headlineHighlight.isNotEmpty)
-                        TextSpan(
-                          text: headlineHighlight,
-                          style: highlightStyleForLocale(
-                            context,
-                            color: AppColors.accent,
-                            fontWeight: FontWeight.bold,
-                            fontSize: width < 600 ? 28 : (width < 900 ? 34 : 42),
-                          ),
-                        ),
-                    ],
-                  ),
+                child: SectionHeader(
+                  overline: l10n.sectionExperienceOverline,
+                  title: l10n.sectionExperienceHeading,
+                  isNarrow: isNarrow,
                 ),
               ),
-              const SizedBox(height: 48),
+              SizedBox(height: isNarrow ? 32 : 48),
               if (isNarrow)
                 Column(
                   mainAxisSize: MainAxisSize.min,
@@ -154,12 +134,14 @@ class EventsSection extends StatelessWidget {
         if (featured != null)
           RepaintBoundary(
             child: _FeaturedEventCard(
-            title: featured.title,
-            date: featured.date,
-            location: featured.location,
-            description: featured.description,
-            limitedSeats: featured.limitedSeats,
-            onViewEvent: () => context.push('/events'),
+              title: featured.title,
+              date: featured.date,
+              location: featured.location,
+              description: featured.description,
+              limitedSeats: featured.limitedSeats,
+              onViewEvent: () => context.push('/events'),
+              imageAsset: featured.imageAsset,
+              accentColor: featured.accentColor,
             ),
           )
         else
@@ -217,6 +199,8 @@ class EventsSection extends StatelessWidget {
                   description: e.description,
                   limitedSeats: e.limitedSeats,
                   onViewEvent: () => context.push('/events'),
+                  imageAsset: e.imageAsset,
+                  accentColor: e.accentColor,
                 ),
               );
             },
@@ -258,6 +242,8 @@ class _FeaturedEventCard extends StatefulWidget {
     required this.description,
     required this.limitedSeats,
     required this.onViewEvent,
+    this.imageAsset,
+    this.accentColor,
   });
 
   final String title;
@@ -266,6 +252,8 @@ class _FeaturedEventCard extends StatefulWidget {
   final String description;
   final bool limitedSeats;
   final VoidCallback onViewEvent;
+  final String? imageAsset;
+  final Color? accentColor;
 
   @override
   State<_FeaturedEventCard> createState() => _FeaturedEventCardState();
@@ -274,14 +262,17 @@ class _FeaturedEventCard extends StatefulWidget {
 class _FeaturedEventCardState extends State<_FeaturedEventCard> {
   bool _hovered = false;
 
+  Color get _accent => widget.accentColor ?? AppColors.accent;
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final isMobile = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
     final borderColor = _hovered
-        ? AppColors.borderLight.withValues(alpha: 0.6)
+        ? _accent.withValues(alpha: 0.6)
         : AppColors.borderDark;
     final shadow = _hovered ? AppShadows.eventCardHover : AppShadows.eventCard;
+    final imageAsset = widget.imageAsset ?? AppContent.assetEventMain;
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
@@ -315,7 +306,7 @@ class _FeaturedEventCardState extends State<_FeaturedEventCard> {
                         Positioned.fill(
                           child: RepaintBoundary(
                             child: Image.asset(
-                              AppContent.assetEventMain,
+                              imageAsset,
                               fit: BoxFit.cover,
                               alignment: Alignment.center,
                               cacheWidth: 800,
@@ -350,11 +341,11 @@ class _FeaturedEventCardState extends State<_FeaturedEventCard> {
                                 vertical: 6,
                               ),
                               decoration: BoxDecoration(
-                                color: AppColors.accent.withValues(alpha: 0.95),
+                                color: _accent.withValues(alpha: 0.95),
                                 borderRadius: BorderRadius.circular(20),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: AppColors.accentGlow.withValues(alpha: 0.35),
+                                    color: _accent.withValues(alpha: 0.35),
                                     blurRadius: 8,
                                     offset: const Offset(0, 2),
                                   ),
@@ -509,6 +500,8 @@ class _CompactEventCard extends StatefulWidget {
     required this.description,
     required this.limitedSeats,
     required this.onViewEvent,
+    this.imageAsset,
+    this.accentColor,
   });
 
   final String title;
@@ -517,6 +510,8 @@ class _CompactEventCard extends StatefulWidget {
   final String description;
   final bool limitedSeats;
   final VoidCallback onViewEvent;
+  final String? imageAsset;
+  final Color? accentColor;
 
   @override
   State<_CompactEventCard> createState() => _CompactEventCardState();
@@ -524,6 +519,8 @@ class _CompactEventCard extends StatefulWidget {
 
 class _CompactEventCardState extends State<_CompactEventCard> {
   bool _hovered = false;
+
+  Color get _accent => widget.accentColor ?? AppColors.accent;
 
   Widget _buildViewEventChip(BuildContext context, AppLocalizations l10n) {
     return Material(
@@ -566,11 +563,11 @@ class _CompactEventCardState extends State<_CompactEventCard> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        color: AppColors.accent.withValues(alpha: 0.95),
+        color: _accent.withValues(alpha: 0.95),
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: AppColors.accentGlow.withValues(alpha: 0.3),
+            color: _accent.withValues(alpha: 0.3),
             blurRadius: 6,
             offset: const Offset(0, 1),
           ),
@@ -592,9 +589,10 @@ class _CompactEventCardState extends State<_CompactEventCard> {
     final l10n = AppLocalizations.of(context)!;
     final isMobile = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
     final borderColor = _hovered
-        ? AppColors.borderLight.withValues(alpha: 0.5)
+        ? _accent.withValues(alpha: 0.55)
         : AppColors.borderDark;
     final shadow = _hovered ? AppShadows.eventCardHover : AppShadows.eventCard;
+    final imageAsset = widget.imageAsset ?? AppContent.assetEventCard;
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
@@ -629,7 +627,7 @@ class _CompactEventCardState extends State<_CompactEventCard> {
                               Positioned.fill(
                                 child: RepaintBoundary(
                                   child: Image.asset(
-                                    AppContent.assetEventCard,
+                                    imageAsset,
                                     fit: BoxFit.cover,
                                     alignment: Alignment.center,
                                     cacheWidth: 640,
@@ -733,7 +731,7 @@ class _CompactEventCardState extends State<_CompactEventCard> {
                               Positioned.fill(
                                 child: RepaintBoundary(
                                   child: Image.asset(
-                                    AppContent.assetEventCard,
+                                    imageAsset,
                                     fit: BoxFit.cover,
                                     alignment: Alignment.center,
                                     cacheWidth: 640,

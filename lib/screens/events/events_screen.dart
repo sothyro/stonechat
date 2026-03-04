@@ -9,6 +9,7 @@ import '../../l10n/app_localizations.dart';
 import '../../theme/app_theme.dart';
 import '../../utils/breakpoints.dart';
 import '../../widgets/glass_container.dart';
+import '../../widgets/section_header.dart';
 import '../home/widgets/testimonials_section.dart';
 
 class EventsScreen extends StatefulWidget {
@@ -200,69 +201,81 @@ class _EventsScreenState extends State<EventsScreen> {
 
   static List<Widget> _buildCoursesCards(BuildContext context, AppLocalizations l10n, bool isNarrow) {
     final onExplore = () => context.push('/consultations');
+    // Six services: App Development (Red), Responsive Web (Yellow), AI Agent (Teal), Book Creation (Green), Communications Training (Purple), Custom Project (Black).
+    const gap = SizedBox(height: 24);
+    const gapW = SizedBox(width: 24);
+    final cards = [
+      _CoursesDisciplineCard(
+        imageAsset: AppContent.assetServiceAppDevelopment,
+        icon: LucideIcons.smartphone,
+        title: l10n.serviceAppDevelopment,
+        description: l10n.eventCourseAppDevelopmentDesc,
+        about: l10n.eventCourseAppDevelopmentAbout,
+        topics: l10n.eventCourseAppDevelopmentTopics,
+        onExplore: onExplore,
+        accentColor: AppColors.serviceAppDevelopment,
+        imageAlignment: Alignment.center,
+      ),
+      _CoursesDisciplineCard(
+        imageAsset: AppContent.assetServiceResponsiveWeb,
+        icon: LucideIcons.globe,
+        title: l10n.serviceResponsiveWeb,
+        description: l10n.eventCourseResponsiveWebDesc,
+        about: l10n.eventCourseResponsiveWebAbout,
+        topics: l10n.eventCourseResponsiveWebTopics,
+        onExplore: onExplore,
+        accentColor: AppColors.serviceResponsiveWeb,
+        imageAlignment: Alignment.center,
+      ),
+      _CoursesDisciplineCard(
+        imageAsset: AppContent.assetServiceAiAgent,
+        icon: LucideIcons.cpu,
+        title: l10n.serviceAiAgent,
+        description: l10n.eventCourseAiAgentDesc,
+        about: l10n.eventCourseAiAgentAbout,
+        topics: l10n.eventCourseAiAgentTopics,
+        onExplore: onExplore,
+        accentColor: AppColors.serviceAiAgent,
+        imageAlignment: Alignment.center,
+      ),
+      _CoursesDisciplineCard(
+        imageAsset: AppContent.assetServiceBookCreation,
+        icon: LucideIcons.bookOpen,
+        title: l10n.serviceBookCreation,
+        description: l10n.eventCourseBookCreationDesc,
+        about: l10n.eventCourseBookCreationAbout,
+        topics: l10n.eventCourseBookCreationTopics,
+        onExplore: onExplore,
+        accentColor: AppColors.serviceBookCreation,
+        imageAlignment: Alignment.center,
+      ),
+      _CoursesDisciplineCard(
+        imageAsset: AppContent.assetServiceCommunicationsTraining,
+        icon: LucideIcons.messageCircle,
+        title: l10n.serviceCommunicationsTraining,
+        description: l10n.eventCourseCommunicationsTrainingDesc,
+        about: l10n.eventCourseCommunicationsTrainingAbout,
+        topics: l10n.eventCourseCommunicationsTrainingTopics,
+        onExplore: onExplore,
+        accentColor: AppColors.serviceCommunicationsTraining,
+        imageAlignment: Alignment.center,
+      ),
+      _CoursesDisciplineCard(
+        imageAsset: AppContent.assetServiceCustomProject,
+        icon: LucideIcons.layers,
+        title: l10n.serviceCustomProject,
+        description: l10n.eventCourseCustomProjectDesc,
+        about: l10n.eventCourseCustomProjectAbout,
+        topics: l10n.eventCourseCustomProjectTopics,
+        onExplore: onExplore,
+        accentColor: AppColors.serviceCustomProject,
+        imageAlignment: Alignment.center,
+      ),
+    ];
     if (isNarrow) {
       return [
-        _CoursesDisciplineCard(
-          imageAsset: AppContent.assetAcademyQiMen,
-          icon: LucideIcons.compass,
-          title: l10n.academyQiMen,
-          description: l10n.academyQiMenDesc,
-          about: l10n.academyQiMenAbout,
-          topics: l10n.academyQiMenTopics,
-          onExplore: onExplore,
-          imageAlignment: Alignment.center,
-        ),
-        const SizedBox(height: 24),
-        _CoursesDisciplineCard(
-          imageAsset: AppContent.assetBaziHarmony,
-          icon: LucideIcons.user,
-          title: l10n.academyBaZi,
-          description: l10n.academyBaZiDesc,
-          about: l10n.academyBaZiAbout,
-          topics: l10n.academyBaZiTopics,
-          onExplore: onExplore,
-          imageAlignment: Alignment.center,
-        ),
-        const SizedBox(height: 24),
-        _CoursesDisciplineCard(
-          imageAsset: AppContent.assetAcademyFengShui,
-          icon: LucideIcons.home,
-          title: l10n.academyFengShui,
-          description: l10n.academyFengShuiDesc,
-          about: l10n.academyFengShuiAbout,
-          topics: l10n.academyFengShuiTopics,
-          onExplore: onExplore,
-        ),
-        const SizedBox(height: 24),
-        _CoursesDisciplineCard(
-          imageAsset: AppContent.assetEventCard,
-          icon: LucideIcons.calendarDays,
-          title: l10n.academyDateSelection,
-          description: l10n.academyDateSelectionDesc,
-          about: l10n.academyDateSelectionAbout,
-          topics: l10n.academyDateSelectionTopics,
-          onExplore: onExplore,
-        ),
-        const SizedBox(height: 24),
-        _CoursesDisciplineCard(
-          imageAsset: AppContent.assetAppsHero,
-          icon: LucideIcons.bookOpen,
-          title: l10n.academyIChing,
-          description: l10n.academyIChingDesc,
-          about: l10n.academyIChingAbout,
-          topics: l10n.academyIChingTopics,
-          onExplore: onExplore,
-        ),
-        const SizedBox(height: 24),
-        _CoursesDisciplineCard(
-          imageAsset: AppContent.assetEventMain,
-          icon: LucideIcons.mountain,
-          title: l10n.academyMaoShan,
-          description: l10n.academyMaoShanDesc,
-          about: l10n.academyMaoShanAbout,
-          topics: l10n.academyMaoShanTopics,
-          onExplore: onExplore,
-        ),
+        cards[0], gap, cards[1], gap, cards[2], gap,
+        cards[3], gap, cards[4], gap, cards[5],
       ];
     }
     return [
@@ -270,118 +283,28 @@ class _EventsScreenState extends State<EventsScreen> {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Expanded(
-              child: _CoursesDisciplineCard(
-                imageAsset: AppContent.assetAcademyQiMen,
-                icon: LucideIcons.compass,
-                title: l10n.academyQiMen,
-                description: l10n.academyQiMenDesc,
-                about: l10n.academyQiMenAbout,
-                topics: l10n.academyQiMenTopics,
-                onExplore: onExplore,
-                imageAlignment: Alignment.center,
-              ),
-            ),
-            const SizedBox(width: 24),
-            Expanded(
-              child: _CoursesDisciplineCard(
-                imageAsset: AppContent.assetBaziHarmony,
-                icon: LucideIcons.user,
-                title: l10n.academyBaZi,
-                description: l10n.academyBaZiDesc,
-                about: l10n.academyBaZiAbout,
-                topics: l10n.academyBaZiTopics,
-                onExplore: onExplore,
-                imageAlignment: Alignment.center,
-              ),
-            ),
-            const SizedBox(width: 24),
-            Expanded(
-              child: _CoursesDisciplineCard(
-                imageAsset: AppContent.assetAcademyFengShui,
-                icon: LucideIcons.home,
-                title: l10n.academyFengShui,
-                description: l10n.academyFengShuiDesc,
-                about: l10n.academyFengShuiAbout,
-                topics: l10n.academyFengShuiTopics,
-                onExplore: onExplore,
-              ),
-            ),
+            Expanded(child: cards[0]),
+            gapW,
+            Expanded(child: cards[1]),
+            gapW,
+            Expanded(child: cards[2]),
           ],
         ),
       ),
-      const SizedBox(height: 24),
+      gap,
       IntrinsicHeight(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Expanded(
-              child: _CoursesDisciplineCard(
-                imageAsset: AppContent.assetEventCard,
-                icon: LucideIcons.calendarDays,
-                title: l10n.academyDateSelection,
-                description: l10n.academyDateSelectionDesc,
-                about: l10n.academyDateSelectionAbout,
-                topics: l10n.academyDateSelectionTopics,
-                onExplore: onExplore,
-              ),
-            ),
-            const SizedBox(width: 24),
-            Expanded(
-              child: _CoursesDisciplineCard(
-                imageAsset: AppContent.assetAppsHero,
-                icon: LucideIcons.bookOpen,
-                title: l10n.academyIChing,
-                description: l10n.academyIChingDesc,
-                about: l10n.academyIChingAbout,
-                topics: l10n.academyIChingTopics,
-                onExplore: onExplore,
-              ),
-            ),
-            const SizedBox(width: 24),
-            Expanded(
-              child: _CoursesDisciplineCard(
-                imageAsset: AppContent.assetEventMain,
-                icon: LucideIcons.mountain,
-                title: l10n.academyMaoShan,
-                description: l10n.academyMaoShanDesc,
-                about: l10n.academyMaoShanAbout,
-                topics: l10n.academyMaoShanTopics,
-                onExplore: onExplore,
-              ),
-            ),
+            Expanded(child: cards[3]),
+            gapW,
+            Expanded(child: cards[4]),
+            gapW,
+            Expanded(child: cards[5]),
           ],
         ),
       ),
     ];
-  }
-
-  static Widget _buildCoursesHeadingWithHighlight(BuildContext context, String heading) {
-    const String highlightPhrase = 'Real Change';
-    final theme = Theme.of(context).textTheme.headlineMedium;
-    final baseStyle = theme?.copyWith(
-      color: AppColors.onPrimary,
-      fontWeight: FontWeight.w600,
-    ) ?? const TextStyle(color: AppColors.onPrimary, fontWeight: FontWeight.w600);
-    final highlightStyle = highlightStyleForLocale(
-      context,
-      color: AppColors.accent,
-      fontWeight: FontWeight.bold,
-      fontSize: (theme?.fontSize ?? 28) * 1.1,
-      height: theme?.height ?? 1.3,
-    );
-    final idx = heading.indexOf(highlightPhrase);
-    if (idx < 0) return Text(heading, style: baseStyle);
-    return RichText(
-      text: TextSpan(
-        style: baseStyle,
-        children: [
-          TextSpan(text: heading.substring(0, idx)),
-          TextSpan(text: highlightPhrase, style: highlightStyle),
-          TextSpan(text: heading.substring(idx + highlightPhrase.length)),
-        ],
-      ),
-    );
   }
 
   static Widget _buildCoursesMethodologySection(BuildContext context, AppLocalizations l10n) {
@@ -405,7 +328,11 @@ class _EventsScreenState extends State<EventsScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildCoursesHeadingWithHighlight(context, l10n.sectionKnowledgeHeading),
+          SectionHeader(
+            overline: l10n.sectionKnowledgeOverline,
+            title: l10n.sectionKnowledgeHeading,
+            isNarrow: isNarrow,
+          ),
           const SizedBox(height: 16),
           Text(
             l10n.sectionKnowledgeBody,
@@ -725,24 +652,11 @@ class _EventsHeroState extends State<_EventsHero> {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    l10n.eventsHeroHeadline,
-                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                          color: AppColors.onPrimary,
-                          fontWeight: FontWeight.w700,
-                          letterSpacing: -0.5,
-                        ),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(height: isNarrow ? 10 : 14),
-                  Text(
-                    l10n.eventsHeroSubline,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: AppColors.accent,
-                          fontWeight: FontWeight.w600,
-                          height: 1.3,
-                        ),
-                    textAlign: TextAlign.center,
+                  SectionHeader(
+                    overline: l10n.eventsHeroOverline,
+                    title: l10n.eventsHeroHeadline,
+                    subline: l10n.eventsHeroSubline,
+                    isNarrow: isNarrow,
                   ),
                   SizedBox(height: isNarrow ? 16 : 20),
                   ConstrainedBox(
@@ -900,13 +814,15 @@ class _EventCard extends StatefulWidget {
 class _EventCardState extends State<_EventCard> {
   bool _hovered = false;
 
+  Color get _accent => widget.event.accentColor ?? AppColors.accent;
+
   @override
   Widget build(BuildContext context) {
     final e = widget.event;
     final l10n = AppLocalizations.of(context)!;
     final shadow = _hovered ? AppShadows.eventCardHover : AppShadows.eventCard;
     final borderColor = _hovered
-        ? AppColors.borderLight.withValues(alpha: 0.6)
+        ? _accent.withValues(alpha: 0.65)
         : AppColors.borderDark;
 
     return MouseRegion(
@@ -932,12 +848,12 @@ class _EventCardState extends State<_EventCard> {
                   child: AspectRatio(
                     aspectRatio: 16 / 9,
                     child: Image.asset(
-                      widget.useMainImage ? AppContent.assetEventMain : AppContent.assetEventCard,
+                      e.imageAsset ?? (widget.useMainImage ? AppContent.assetEventMain : AppContent.assetEventCard),
                       fit: BoxFit.cover,
                       alignment: Alignment.center,
                       errorBuilder: (_, __, ___) => Container(
-                        color: AppColors.accent.withValues(alpha: 0.15),
-                        child: Icon(LucideIcons.calendarDays, size: 48, color: AppColors.accent),
+                        color: _accent.withValues(alpha: 0.15),
+                        child: Icon(LucideIcons.calendarDays, size: 48, color: _accent),
                       ),
                     ),
                   ),
@@ -949,11 +865,11 @@ class _EventCardState extends State<_EventCard> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                       decoration: BoxDecoration(
-                        color: AppColors.accent.withValues(alpha: 0.95),
+                        color: _accent.withValues(alpha: 0.95),
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
-                            color: AppColors.accentGlow.withValues(alpha: 0.35),
+                            color: _accent.withValues(alpha: 0.35),
                             blurRadius: 8,
                             offset: const Offset(0, 2),
                           ),
@@ -990,7 +906,7 @@ class _EventCardState extends State<_EventCard> {
                   const SizedBox(height: 14),
                   Row(
                     children: [
-                      Icon(LucideIcons.calendar, size: 18, color: AppColors.onSurfaceVariantDark),
+                      Icon(LucideIcons.calendar, size: 18, color: _accent.withValues(alpha: 0.9)),
                       const SizedBox(width: 8),
                       Expanded(
                         child: Text(
@@ -1008,7 +924,7 @@ class _EventCardState extends State<_EventCard> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(LucideIcons.mapPin, size: 18, color: AppColors.onSurfaceVariantDark),
+                      Icon(LucideIcons.mapPin, size: 18, color: _accent.withValues(alpha: 0.8)),
                       const SizedBox(width: 8),
                       Expanded(
                         child: Text(
@@ -1327,7 +1243,7 @@ class _EventRegistrationDialogState extends State<_EventRegistrationDialog> {
   }
 }
 
-/// Course discipline card (from former Academy page).
+/// Course discipline card: one of the six services with event/workshop copy and accent color.
 class _CoursesDisciplineCard extends StatefulWidget {
   const _CoursesDisciplineCard({
     required this.imageAsset,
@@ -1338,6 +1254,7 @@ class _CoursesDisciplineCard extends StatefulWidget {
     required this.topics,
     required this.onExplore,
     this.imageAlignment,
+    this.accentColor,
   });
 
   final String imageAsset;
@@ -1348,6 +1265,8 @@ class _CoursesDisciplineCard extends StatefulWidget {
   final String topics;
   final VoidCallback onExplore;
   final Alignment? imageAlignment;
+  /// Service accent color (e.g. AppColors.serviceAppDevelopment). When null, uses AppColors.accent.
+  final Color? accentColor;
 
   @override
   State<_CoursesDisciplineCard> createState() => _CoursesDisciplineCardState();
@@ -1356,12 +1275,14 @@ class _CoursesDisciplineCard extends StatefulWidget {
 class _CoursesDisciplineCardState extends State<_CoursesDisciplineCard> {
   bool _isHovered = false;
 
+  Color get _accent => widget.accentColor ?? AppColors.accent;
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final shadow = _isHovered ? AppShadows.cardHover : AppShadows.card;
     final borderColor =
-        _isHovered ? AppColors.borderLight.withValues(alpha: 0.5) : AppColors.borderDark;
+        _isHovered ? _accent.withValues(alpha: 0.6) : AppColors.borderDark;
     final scale = _isHovered ? 1.02 : 1.0;
 
     return MouseRegion(
@@ -1400,8 +1321,8 @@ class _CoursesDisciplineCardState extends State<_CoursesDisciplineCard> {
                             fit: BoxFit.cover,
                             alignment: widget.imageAlignment ?? Alignment.topCenter,
                             errorBuilder: (_, __, ___) => Container(
-                              color: AppColors.accent.withValues(alpha: 0.15),
-                              child: Icon(widget.icon, size: 48, color: AppColors.accent),
+                              color: _accent.withValues(alpha: 0.15),
+                              child: Icon(widget.icon, size: 48, color: _accent),
                             ),
                           ),
                         ),
@@ -1414,9 +1335,9 @@ class _CoursesDisciplineCardState extends State<_CoursesDisciplineCard> {
                           decoration: BoxDecoration(
                             color: AppColors.backgroundDark.withValues(alpha: 0.75),
                             borderRadius: BorderRadius.circular(8),
-                            border: Border.all(color: AppColors.borderLight.withValues(alpha: 0.4)),
+                            border: Border.all(color: _accent.withValues(alpha: 0.5)),
                           ),
-                          child: Icon(widget.icon, size: 20, color: AppColors.accent),
+                          child: Icon(widget.icon, size: 20, color: _accent),
                         ),
                       ),
                     ],
@@ -1448,7 +1369,7 @@ class _CoursesDisciplineCardState extends State<_CoursesDisciplineCard> {
                           child: Text(
                             widget.description,
                             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                  color: AppColors.accentLight.withValues(alpha: 0.9),
+                                  color: _accent.withValues(alpha: 0.95),
                                   height: 1.4,
                                   fontSize: 13,
                                 ),
@@ -1476,7 +1397,7 @@ class _CoursesDisciplineCardState extends State<_CoursesDisciplineCard> {
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Icon(LucideIcons.sparkles, size: 12, color: AppColors.accent),
+                              Icon(LucideIcons.sparkles, size: 12, color: _accent),
                               const SizedBox(width: 4),
                               Expanded(
                                 child: Text(
@@ -1502,11 +1423,11 @@ class _CoursesDisciplineCardState extends State<_CoursesDisciplineCard> {
                               Text(
                                 l10n.exploreCourses,
                                 style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                                      color: AppColors.accent,
+                                      color: _accent,
                                       fontWeight: FontWeight.w600,
                                     ),
                               ),
-                              const Icon(Icons.arrow_forward, size: 16, color: AppColors.accent),
+                              Icon(Icons.arrow_forward, size: 16, color: _accent),
                             ],
                           ),
                         ),

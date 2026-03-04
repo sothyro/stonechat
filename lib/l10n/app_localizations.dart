@@ -214,22 +214,28 @@ abstract class AppLocalizations {
   /// **'Apps & Store'**
   String get appsPageTitle;
 
+  /// No description provided for @appsPageOverline.
+  ///
+  /// In en, this message translates to:
+  /// **'Apps'**
+  String get appsPageOverline;
+
   /// No description provided for @appsPageSubline.
   ///
   /// In en, this message translates to:
-  /// **'Digital tools, apps, training, and books—all in one place.'**
+  /// **'App Development, Responsive Web, AI Agent, Book Creation, Communications Training, and Custom Project—all in one place.'**
   String get appsPageSubline;
 
   /// No description provided for @appsPageDescription.
   ///
   /// In en, this message translates to:
-  /// **'We build modern apps and digital solutions. Browse our development services, communication training, and book publishing. Get in touch and we\'ll help you find the right fit.'**
+  /// **'Stonechat offers six core services: App Development, Responsive Web, AI Agent, Book Creation Suite, Communications Training, and Custom Project. Find the right fit and get in touch.'**
   String get appsPageDescription;
 
   /// No description provided for @appsPageDescriptionHighlight.
   ///
   /// In en, this message translates to:
-  /// **'modern apps'**
+  /// **'six core services'**
   String get appsPageDescriptionHighlight;
 
   /// No description provided for @appsFeatureShowcaseHeading.
@@ -238,16 +244,22 @@ abstract class AppLocalizations {
   /// **'What we offer'**
   String get appsFeatureShowcaseHeading;
 
+  /// No description provided for @appsFeatureShowcaseOverline.
+  ///
+  /// In en, this message translates to:
+  /// **'Marketplace'**
+  String get appsFeatureShowcaseOverline;
+
   /// No description provided for @appsFeatureShowcaseMarketingDesc.
   ///
   /// In en, this message translates to:
-  /// **'App and website development, communication skills training, and book publishing. We use clear, human language so you stay informed and confident.'**
+  /// **'Our six services—App Development, Responsive Web, AI Agent, Book Creation, Communications Training, and Custom Project—keep everything clear and intuitive. One partner for your goals.'**
   String get appsFeatureShowcaseMarketingDesc;
 
   /// No description provided for @appsFeatureShowcaseMarketingHighlight.
   ///
   /// In en, this message translates to:
-  /// **'clear, human language'**
+  /// **'six services'**
   String get appsFeatureShowcaseMarketingHighlight;
 
   /// No description provided for @marketplaceCategoryDigital.
@@ -271,13 +283,13 @@ abstract class AppLocalizations {
   /// No description provided for @stonechatSpotlightTitle.
   ///
   /// In en, this message translates to:
-  /// **'App & website development'**
+  /// **'App Development & Responsive Web'**
   String get stonechatSpotlightTitle;
 
   /// No description provided for @stonechatSpotlightDesc.
   ///
   /// In en, this message translates to:
-  /// **'We develop modern, beautiful, affordable apps for Web, Desktop, macOS, iOS, and Android. Clean architectures, elegant interfaces—high-quality products without breaking the bank.'**
+  /// **'We build modern apps for Web, Desktop, iOS, and Android and design responsive websites. Clean code, clear interfaces—quality without breaking the bank.'**
   String get stonechatSpotlightDesc;
 
   /// No description provided for @openStonechatCta.
@@ -541,8 +553,14 @@ abstract class AppLocalizations {
   /// No description provided for @bookStoreSectionHeading.
   ///
   /// In en, this message translates to:
-  /// **'Book publishing & authoring'**
+  /// **'Book Creation Suite'**
   String get bookStoreSectionHeading;
+
+  /// No description provided for @bookStoreSectionOverline.
+  ///
+  /// In en, this message translates to:
+  /// **'Book Store'**
+  String get bookStoreSectionOverline;
 
   /// No description provided for @bookStoreSectionTagline.
   ///
@@ -559,13 +577,13 @@ abstract class AppLocalizations {
   /// No description provided for @bookStoreSectionMarketing.
   ///
   /// In en, this message translates to:
-  /// **'We support authors and organizations from concept development to writing, editing, book design (layout and cover), and final publishing. Everything you need to go from idea to published book, smoothly and efficiently.'**
+  /// **'Book Creation Suite is one of our six core services. We support authors and organizations from concept to writing, editing, design, and publishing. Everything you need to go from idea to published book.'**
   String get bookStoreSectionMarketing;
 
   /// No description provided for @bookStoreSectionMarketingHighlight.
   ///
   /// In en, this message translates to:
-  /// **'idea to published book'**
+  /// **'Book Creation Suite'**
   String get bookStoreSectionMarketingHighlight;
 
   /// No description provided for @bookStoreBook1Title.
@@ -931,7 +949,7 @@ abstract class AppLocalizations {
   /// No description provided for @heroHeadline1.
   ///
   /// In en, this message translates to:
-  /// **'Quality apps, training & publishing—without breaking the bank.'**
+  /// **'Quality apps & training. Affordable.'**
   String get heroHeadline1;
 
   /// No description provided for @heroHeadline1Prefix.
@@ -943,31 +961,31 @@ abstract class AppLocalizations {
   /// No description provided for @heroHeadline1Highlight.
   ///
   /// In en, this message translates to:
-  /// **'Quality apps, training & publishing'**
+  /// **'Quality apps'**
   String get heroHeadline1Highlight;
 
   /// No description provided for @heroHeadline1Suffix.
   ///
   /// In en, this message translates to:
-  /// **'—without breaking the bank.'**
+  /// **' & training.'**
   String get heroHeadline1Suffix;
 
   /// No description provided for @heroHeadline2Prefix.
   ///
   /// In en, this message translates to:
-  /// **'Modern, beautiful, affordable apps for '**
+  /// **'Web, desktop, iOS & Android. '**
   String get heroHeadline2Prefix;
 
   /// No description provided for @heroHeadline2Highlight.
   ///
   /// In en, this message translates to:
-  /// **'Web, Desktop, iOS & Android.'**
+  /// **'Affordable.'**
   String get heroHeadline2Highlight;
 
   /// No description provided for @heroSubline.
   ///
   /// In en, this message translates to:
-  /// **'Apps, workshops & books—clear, human, and affordable.'**
+  /// **'We build Apps, design Books & provide Trainings.'**
   String get heroSubline;
 
   /// No description provided for @exploreAllEvents.
@@ -1018,10 +1036,16 @@ abstract class AppLocalizations {
   /// **'Ready to get started?'**
   String get finalCtaHeading;
 
+  /// No description provided for @finalCtaOverline.
+  ///
+  /// In en, this message translates to:
+  /// **'Get started'**
+  String get finalCtaOverline;
+
   /// No description provided for @finalCtaBody.
   ///
   /// In en, this message translates to:
-  /// **'Tell us what you need—an app, training, or a book. We\'ll reply in clear, human terms.'**
+  /// **'Tell us which service you need—App Development, Responsive Web, AI Agent, Book Creation, Communications Training, or a Custom Project. We\'ll reply in clear terms.'**
   String get finalCtaBody;
 
   /// No description provided for @notSureWhereToStart.
@@ -1033,7 +1057,7 @@ abstract class AppLocalizations {
   /// No description provided for @notSureBody.
   ///
   /// In en, this message translates to:
-  /// **'We\'re here to help. Tell us what you need—an app, a website, training, or a book—and we\'ll guide you in clear, human terms. No technical runaround.'**
+  /// **'We offer six core services: App Development, Responsive Web, AI Agent, Book Creation Suite, Communications Training, and Custom Project. Tell us your goal and we\'ll point you to the right one.'**
   String get notSureBody;
 
   /// No description provided for @language.
@@ -1060,22 +1084,130 @@ abstract class AppLocalizations {
   /// **'Clear skills. Real impact.'**
   String get sectionExperienceHeadingHighlight;
 
+  /// No description provided for @sectionExperienceOverline.
+  ///
+  /// In en, this message translates to:
+  /// **'Workshops'**
+  String get sectionExperienceOverline;
+
+  /// No description provided for @sectionServicesHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'What we offer'**
+  String get sectionServicesHeading;
+
+  /// No description provided for @sectionServicesOverline.
+  ///
+  /// In en, this message translates to:
+  /// **'Services'**
+  String get sectionServicesOverline;
+
+  /// No description provided for @sectionServicesSubline.
+  ///
+  /// In en, this message translates to:
+  /// **'App Development, Responsive Web, AI Agent, Book Creation Suite, Communications Training, and Custom Project—one partner for all.'**
+  String get sectionServicesSubline;
+
+  /// No description provided for @serviceAiAgent.
+  ///
+  /// In en, this message translates to:
+  /// **'AI Agent'**
+  String get serviceAiAgent;
+
+  /// No description provided for @serviceAiAgentDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart automation and AI-powered solutions for your workflows.'**
+  String get serviceAiAgentDesc;
+
+  /// No description provided for @serviceAppDevelopment.
+  ///
+  /// In en, this message translates to:
+  /// **'App Development'**
+  String get serviceAppDevelopment;
+
+  /// No description provided for @serviceAppDevelopmentDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Modern apps for Web, Desktop, iOS and Android.'**
+  String get serviceAppDevelopmentDesc;
+
+  /// No description provided for @serviceBookCreation.
+  ///
+  /// In en, this message translates to:
+  /// **'Book Creation Suite'**
+  String get serviceBookCreation;
+
+  /// No description provided for @serviceBookCreationDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'From idea to published book—writing, design, and publishing.'**
+  String get serviceBookCreationDesc;
+
+  /// No description provided for @serviceCommunicationsTraining.
+  ///
+  /// In en, this message translates to:
+  /// **'Communications Training'**
+  String get serviceCommunicationsTraining;
+
+  /// No description provided for @serviceCommunicationsTrainingDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Workshops and training that build clear, practical skills.'**
+  String get serviceCommunicationsTrainingDesc;
+
+  /// No description provided for @serviceCustomProject.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom Project'**
+  String get serviceCustomProject;
+
+  /// No description provided for @serviceCustomProjectDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Tailored solutions for your unique needs and goals.'**
+  String get serviceCustomProjectDesc;
+
+  /// No description provided for @serviceResponsiveWeb.
+  ///
+  /// In en, this message translates to:
+  /// **'Responsive Web'**
+  String get serviceResponsiveWeb;
+
+  /// No description provided for @serviceResponsiveWebDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Beautiful, fast websites that work on every device.'**
+  String get serviceResponsiveWebDesc;
+
+  /// No description provided for @serviceLearnMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn more'**
+  String get serviceLearnMore;
+
   /// No description provided for @sectionKnowledgeHeading.
   ///
   /// In en, this message translates to:
   /// **'Training that fits your goals.'**
   String get sectionKnowledgeHeading;
 
+  /// No description provided for @sectionKnowledgeOverline.
+  ///
+  /// In en, this message translates to:
+  /// **'Training'**
+  String get sectionKnowledgeOverline;
+
   /// No description provided for @sectionKnowledgeBody.
   ///
   /// In en, this message translates to:
-  /// **'We offer communication training: human-centered and AI-enhanced workshops. Build clear, practical skills—no jargon. Custom sessions for your team or organization.'**
+  /// **'Communications Training is one of our six core services. We run human-centered and AI-enhanced workshops so you build clear, practical skills—no jargon. Custom sessions for your team or organization.'**
   String get sectionKnowledgeBody;
 
   /// No description provided for @sectionKnowledgeBody2.
   ///
   /// In en, this message translates to:
-  /// **'We support Khmer, English, and Chinese and can add more languages. Fast turnaround so you get results without long waits.'**
+  /// **'We support Khmer, English, and Chinese. Fast turnaround so you get results without long waits.'**
   String get sectionKnowledgeBody2;
 
   /// No description provided for @sectionKnowledgeStat.
@@ -1090,10 +1222,16 @@ abstract class AppLocalizations {
   /// **'You don\'t need jargon. You need a partner.'**
   String get sectionMapHeading;
 
+  /// No description provided for @sectionMapOverline.
+  ///
+  /// In en, this message translates to:
+  /// **'Consultations'**
+  String get sectionMapOverline;
+
   /// No description provided for @sectionMapIntro.
   ///
   /// In en, this message translates to:
-  /// **'Choose a service below. We\'ll guide you to the right option and next steps.'**
+  /// **'Pick a service that fits: App Development, Responsive Web, AI Agent, Book Creation, Communications Training, or Custom Project. We\'ll guide you to the next step.'**
   String get sectionMapIntro;
 
   /// No description provided for @sectionStoryHeading.
@@ -1102,40 +1240,46 @@ abstract class AppLocalizations {
   /// **'Who we are.'**
   String get sectionStoryHeading;
 
+  /// No description provided for @sectionStoryOverline.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get sectionStoryOverline;
+
   /// No description provided for @sectionStoryPara1.
   ///
   /// In en, this message translates to:
-  /// **'Stonechat Communications is your partner for apps, communication training, and book publishing. We develop modern, affordable applications and run clear, practical workshops.'**
+  /// **'Stonechat Communications delivers six core services: App Development, Responsive Web, AI Agent, Book Creation Suite, Communications Training, and Custom Project. One partner for apps, websites, books, and training.'**
   String get sectionStoryPara1;
 
   /// No description provided for @sectionStoryPara2.
   ///
   /// In en, this message translates to:
-  /// **'We work in Khmer, English, and Chinese and can add more languages. We prioritize fast turnaround and clear communication—so you stay informed and confident.'**
+  /// **'We work in Khmer, English, and Chinese and focus on fast turnaround and clear communication. Whether you need an app, a site, a book, or training—we keep it intuitive.'**
   String get sectionStoryPara2;
 
   /// No description provided for @sectionStoryPara3.
   ///
   /// In en, this message translates to:
-  /// **'Tell us your idea. We\'ll help you get there in plain language, without the runaround.'**
+  /// **'Tell us your goal. We\'ll match you to the right service and next steps—in plain language.'**
   String get sectionStoryPara3;
 
   /// No description provided for @sectionStoryPara1Short.
   ///
   /// In en, this message translates to:
-  /// **'Your partner for apps, training & publishing. Modern, affordable, clear.'**
+  /// **'Six services: App Development, Responsive Web, AI Agent, Book Creation, Communications Training, Custom Project.'**
   String get sectionStoryPara1Short;
 
   /// No description provided for @sectionStoryPara2Short.
   ///
   /// In en, this message translates to:
-  /// **'Khmer, English & Chinese. Fast turnaround. Human tone.'**
+  /// **'Khmer, English & Chinese. Fast turnaround. Clear and intuitive.'**
   String get sectionStoryPara2Short;
 
   /// No description provided for @sectionStoryPara3Short.
   ///
   /// In en, this message translates to:
-  /// **'Tell us your idea—we\'ll help you get there.'**
+  /// **'Tell us your goal—we\'ll point you to the right service.'**
   String get sectionStoryPara3Short;
 
   /// No description provided for @sectionStoryCtaButton.
@@ -1149,6 +1293,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Real Insights. Real Outcomes.'**
   String get sectionTestimonialsHeading;
+
+  /// No description provided for @sectionTestimonialsOverline.
+  ///
+  /// In en, this message translates to:
+  /// **'Testimonials'**
+  String get sectionTestimonialsOverline;
 
   /// No description provided for @sectionTestimonialsSub1.
   ///
@@ -1327,13 +1477,121 @@ abstract class AppLocalizations {
   /// No description provided for @academyMoreCoursesNote.
   ///
   /// In en, this message translates to:
-  /// **'More courses and schedules will be announced here. Contact us for early access or custom group sessions.'**
+  /// **'Workshops and events across our six services. Contact us for schedules or custom group sessions.'**
   String get academyMoreCoursesNote;
+
+  /// No description provided for @eventCourseAppDevelopmentDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Hands-on sessions on building apps for Web, Desktop, iOS & Android.'**
+  String get eventCourseAppDevelopmentDesc;
+
+  /// No description provided for @eventCourseAppDevelopmentAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'Join workshops and demos on modern app development. Clean architecture, clear interfaces, and practical tips. Suitable for teams and individuals exploring our App Development service.'**
+  String get eventCourseAppDevelopmentAbout;
+
+  /// No description provided for @eventCourseAppDevelopmentTopics.
+  ///
+  /// In en, this message translates to:
+  /// **'Cross-platform • Clean code • UI/UX • Demos & Q&A'**
+  String get eventCourseAppDevelopmentTopics;
+
+  /// No description provided for @eventCourseResponsiveWebDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn to design and deliver websites that work on every device.'**
+  String get eventCourseResponsiveWebDesc;
+
+  /// No description provided for @eventCourseResponsiveWebAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'Workshops on responsive design, performance, and deployment. See live demos and get guidance on your Responsive Web projects. From concept to launch.'**
+  String get eventCourseResponsiveWebAbout;
+
+  /// No description provided for @eventCourseResponsiveWebTopics.
+  ///
+  /// In en, this message translates to:
+  /// **'Responsive layout • Performance • Accessibility • Real projects'**
+  String get eventCourseResponsiveWebTopics;
+
+  /// No description provided for @eventCourseAiAgentDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart automation and AI-powered solutions—see them in action.'**
+  String get eventCourseAiAgentDesc;
+
+  /// No description provided for @eventCourseAiAgentAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'Demos and sessions on AI agents and workflow automation. Understand how our AI Agent service can fit your needs. No heavy jargon—clear, practical insights.'**
+  String get eventCourseAiAgentAbout;
+
+  /// No description provided for @eventCourseAiAgentTopics.
+  ///
+  /// In en, this message translates to:
+  /// **'Automation • AI tools • Use cases • Integration'**
+  String get eventCourseAiAgentTopics;
+
+  /// No description provided for @eventCourseBookCreationDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'From idea to published book. Writing, design, and publishing workshops.'**
+  String get eventCourseBookCreationDesc;
+
+  /// No description provided for @eventCourseBookCreationAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'Sessions on the full book-creation journey: concept, writing, editing, design, and publishing. Part of our Book Creation Suite. For authors and organizations.'**
+  String get eventCourseBookCreationAbout;
+
+  /// No description provided for @eventCourseBookCreationTopics.
+  ///
+  /// In en, this message translates to:
+  /// **'Writing • Editing • Design • Publishing pipeline'**
+  String get eventCourseBookCreationTopics;
+
+  /// No description provided for @eventCourseCommunicationsTrainingDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Human-centered and AI-enhanced communication skills. Clear, practical.'**
+  String get eventCourseCommunicationsTrainingDesc;
+
+  /// No description provided for @eventCourseCommunicationsTrainingAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'Our Communications Training in action. Workshops on clear speaking, writing, and using AI to communicate better. Human-centered and AI-enhanced. Khmer, English, Chinese.'**
+  String get eventCourseCommunicationsTrainingAbout;
+
+  /// No description provided for @eventCourseCommunicationsTrainingTopics.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear messaging • AI tools • Team skills • Practice sessions'**
+  String get eventCourseCommunicationsTrainingTopics;
+
+  /// No description provided for @eventCourseCustomProjectDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Tailored solutions: mix and match our services for your goals.'**
+  String get eventCourseCustomProjectDesc;
+
+  /// No description provided for @eventCourseCustomProjectAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'Sessions and consultations on custom projects that combine App Development, Web, AI, Books, or Training. We help you scope and plan. One partner, flexible delivery.'**
+  String get eventCourseCustomProjectAbout;
+
+  /// No description provided for @eventCourseCustomProjectTopics.
+  ///
+  /// In en, this message translates to:
+  /// **'Scoping • Planning • Multi-service • Your goals'**
+  String get eventCourseCustomProjectTopics;
 
   /// No description provided for @consult1Category.
   ///
   /// In en, this message translates to:
-  /// **'App & website development'**
+  /// **'App Development'**
   String get consult1Category;
 
   /// No description provided for @consult1Method.
@@ -1345,19 +1603,19 @@ abstract class AppLocalizations {
   /// No description provided for @consult1Question.
   ///
   /// In en, this message translates to:
-  /// **'Need a modern app or website?'**
+  /// **'Need a modern app?'**
   String get consult1Question;
 
   /// No description provided for @consult1Desc.
   ///
   /// In en, this message translates to:
-  /// **'We build for Web, Desktop, macOS, iOS, and Android. Clean architectures, elegant interfaces, affordable pricing. Get in touch and we\'ll find the right solution for you.'**
+  /// **'We build apps for Web, Desktop, iOS, and Android. Clean architectures, clear interfaces, affordable. One of our six core services.'**
   String get consult1Desc;
 
   /// No description provided for @consult2Category.
   ///
   /// In en, this message translates to:
-  /// **'Communication training'**
+  /// **'Communications Training'**
   String get consult2Category;
 
   /// No description provided for @consult2Method.
@@ -1369,19 +1627,19 @@ abstract class AppLocalizations {
   /// No description provided for @consult2Question.
   ///
   /// In en, this message translates to:
-  /// **'Want to sharpen your communication skills?'**
+  /// **'Want to sharpen communication skills?'**
   String get consult2Question;
 
   /// No description provided for @consult2Desc.
   ///
   /// In en, this message translates to:
-  /// **'We offer The Art of Human-Centered Communication for general skills and The Art of AI-Enhanced Communication for working effectively with AI tools. Clear, practical training.'**
+  /// **'Communications Training is a core service. Human-centered and AI-enhanced workshops. Clear, practical skills for you or your team.'**
   String get consult2Desc;
 
   /// No description provided for @consult3Category.
   ///
   /// In en, this message translates to:
-  /// **'Book publishing & authoring'**
+  /// **'Book Creation Suite'**
   String get consult3Category;
 
   /// No description provided for @consult3Method.
@@ -1399,13 +1657,13 @@ abstract class AppLocalizations {
   /// No description provided for @consult3Desc.
   ///
   /// In en, this message translates to:
-  /// **'From concept to finished book—writing, editing, design (layout and cover), and publishing. We support authors and organizations every step of the way. Everything in one place.'**
+  /// **'From idea to finished book—writing, editing, design, and publishing. Book Creation Suite covers it. We support authors and organizations every step.'**
   String get consult3Desc;
 
   /// No description provided for @consult4Category.
   ///
   /// In en, this message translates to:
-  /// **'Custom project'**
+  /// **'Custom Project'**
   String get consult4Category;
 
   /// No description provided for @consult4Method.
@@ -1423,55 +1681,55 @@ abstract class AppLocalizations {
   /// No description provided for @consult4Desc.
   ///
   /// In en, this message translates to:
-  /// **'We\'re flexible. Whether it\'s a blend of development, training, or publishing—or something new—tell us your idea and we\'ll help you get there in clear, human terms.'**
+  /// **'Custom Project is for goals that mix our services or need a tailored plan. Tell us your idea and we\'ll match you to the right solution.'**
   String get consult4Desc;
 
   /// No description provided for @consult5Category.
   ///
   /// In en, this message translates to:
-  /// **'Training workshops'**
+  /// **'Responsive Web'**
   String get consult5Category;
 
   /// No description provided for @consult5Method.
   ///
   /// In en, this message translates to:
-  /// **'Workshops'**
+  /// **'Web'**
   String get consult5Method;
 
   /// No description provided for @consult5Question.
   ///
   /// In en, this message translates to:
-  /// **'Team or group training?'**
+  /// **'Need a website?'**
   String get consult5Question;
 
   /// No description provided for @consult5Desc.
   ///
   /// In en, this message translates to:
-  /// **'We run workshops on communication skills and AI-enhanced communication. We can tailor sessions for your organization and schedule. Fast turnaround.'**
+  /// **'Responsive Web: beautiful, fast sites that work on every device. One of our six services. Get in touch for a quote.'**
   String get consult5Desc;
 
   /// No description provided for @consult6Category.
   ///
   /// In en, this message translates to:
-  /// **'Books & resources'**
+  /// **'AI Agent'**
   String get consult6Category;
 
   /// No description provided for @consult6Method.
   ///
   /// In en, this message translates to:
-  /// **'Resources'**
+  /// **'AI'**
   String get consult6Method;
 
   /// No description provided for @consult6Question.
   ///
   /// In en, this message translates to:
-  /// **'Books and resources from Stonechat.'**
+  /// **'Interested in AI automation?'**
   String get consult6Question;
 
   /// No description provided for @consult6Desc.
   ///
   /// In en, this message translates to:
-  /// **'Our’ publishing and authoring services help you go from idea to finished book. We also offer training materials and resources. Get in touch for more.'**
+  /// **'AI Agent covers smart automation and AI-powered solutions. One of our six core services. We\'ll help you find the right fit.'**
   String get consult6Desc;
 
   /// No description provided for @stickyCtaText.
@@ -1558,10 +1816,16 @@ abstract class AppLocalizations {
   /// **'Workshops and events'**
   String get eventsHeroHeadline;
 
+  /// No description provided for @eventsHeroOverline.
+  ///
+  /// In en, this message translates to:
+  /// **'Events'**
+  String get eventsHeroOverline;
+
   /// No description provided for @eventsHeroSubline.
   ///
   /// In en, this message translates to:
-  /// **'Training, launches, and community. Clear and practical.'**
+  /// **'Communications Training, workshops, and community. Clear and practical.'**
   String get eventsHeroSubline;
 
   /// No description provided for @eventsSubline.
@@ -1573,13 +1837,13 @@ abstract class AppLocalizations {
   /// No description provided for @eventsDescription.
   ///
   /// In en, this message translates to:
-  /// **'Join our workshops on communication skills, app demos, or publishing. We keep things clear and practical. Khmer, English, and Chinese supported.'**
+  /// **'Our events support Communications Training and our other services—app demos, book launches, workshops. Clear and practical. Khmer, English, and Chinese supported.'**
   String get eventsDescription;
 
   /// No description provided for @eventsDescriptionHighlight.
   ///
   /// In en, this message translates to:
-  /// **'communication skills, app demos, or publishing'**
+  /// **'Communications Training'**
   String get eventsDescriptionHighlight;
 
   /// No description provided for @eventsWhyAttendTitle.
@@ -1591,7 +1855,7 @@ abstract class AppLocalizations {
   /// No description provided for @eventsWhyAttendLead.
   ///
   /// In en, this message translates to:
-  /// **'Hands-on training in human-centered and AI-enhanced communication. App and publishing insights. A friendly, no-jargon environment.'**
+  /// **'Hands-on Communications Training: human-centered and AI-enhanced. Plus app and Book Creation insights. A friendly, no-jargon environment.'**
   String get eventsWhyAttendLead;
 
   /// No description provided for @eventsWhyAttend1.
@@ -1729,31 +1993,31 @@ abstract class AppLocalizations {
   /// No description provided for @aboutHeroHeadline.
   ///
   /// In en, this message translates to:
-  /// **'Your partner for apps, training & publishing.'**
+  /// **'Your partner for six core services: apps, web, AI, books, training & custom projects.'**
   String get aboutHeroHeadline;
 
   /// No description provided for @aboutBullet1.
   ///
   /// In en, this message translates to:
-  /// **'Modern, affordable apps for Web, Desktop, macOS, iOS & Android.'**
+  /// **'App Development & Responsive Web—modern apps and websites for every device.'**
   String get aboutBullet1;
 
   /// No description provided for @aboutBullet2.
   ///
   /// In en, this message translates to:
-  /// **'Communication training: human-centered and AI-enhanced workshops.'**
+  /// **'AI Agent—smart automation and AI-powered solutions.'**
   String get aboutBullet2;
 
   /// No description provided for @aboutBullet3.
   ///
   /// In en, this message translates to:
-  /// **'Book publishing from idea to finished book—writing, design, and distribution.'**
+  /// **'Book Creation Suite—from idea to published book. Communications Training—clear, practical workshops.'**
   String get aboutBullet3;
 
   /// No description provided for @aboutBullet4.
   ///
   /// In en, this message translates to:
-  /// **'Clear communication, fast turnaround. Khmer, English & Chinese.'**
+  /// **'Custom Project—tailored solutions. Clear communication, fast turnaround. Khmer, English & Chinese.'**
   String get aboutBullet4;
 
   /// No description provided for @journeyPageHeadline.
@@ -1765,7 +2029,7 @@ abstract class AppLocalizations {
   /// No description provided for @journeyHeroSubline.
   ///
   /// In en, this message translates to:
-  /// **'A handy apps and digital solutions studio. Modern, beautiful, affordable.'**
+  /// **'Six services, one partner: App Development, Responsive Web, AI Agent, Book Creation, Communications Training, Custom Project.'**
   String get journeyHeroSubline;
 
   /// No description provided for @journeySectionTheStory.
@@ -1783,7 +2047,7 @@ abstract class AppLocalizations {
   /// No description provided for @journeyHeroSpotlightDesc.
   ///
   /// In en, this message translates to:
-  /// **'We develop apps and digital solutions, offer communication training, and support book publishing. Discover more below.'**
+  /// **'We deliver App Development, Responsive Web, AI Agent, Book Creation Suite, Communications Training, and Custom Project. Discover more below.'**
   String get journeyHeroSpotlightDesc;
 
   /// No description provided for @journeyHeroSpotlightCta.
@@ -1795,43 +2059,43 @@ abstract class AppLocalizations {
   /// No description provided for @journeyStory1.
   ///
   /// In en, this message translates to:
-  /// **'Stonechat Communications is a handy apps and digital solutions studio. We develop modern, beautiful, affordable applications for Web, Desktop, macOS, iOS, and Android.'**
+  /// **'Stonechat Communications delivers six core services: App Development, Responsive Web, AI Agent, Book Creation Suite, Communications Training, and Custom Project. We build modern apps and websites, design books, and run clear, practical training.'**
   String get journeyStory1;
 
   /// No description provided for @journeyStory2.
   ///
   /// In en, this message translates to:
-  /// **'We focus on clean, solid-standard architectures and elegant, user-friendly interfaces at a low cost—so individuals and businesses can get high-quality products without breaking the bank. We support Khmer, English, and Chinese, and we\'re flexible to add more languages.'**
+  /// **'We focus on clean architectures and clear interfaces at a fair cost. We support Khmer, English, and Chinese and are flexible to add more languages. Every service is designed to be intuitive.'**
   String get journeyStory2;
 
   /// No description provided for @journeyStory3.
   ///
   /// In en, this message translates to:
-  /// **'We value fast turnaround so our clients don\'t get stuck waiting for months; we prioritize speed without sacrificing quality. In every interaction we use a clear, human tone so non-technical clients feel comfortable, informed, and confident.'**
+  /// **'We value fast turnaround and a clear, human tone—so you stay informed and confident. Tell us your goal and we\'ll match you to the right service.'**
   String get journeyStory3;
 
   /// No description provided for @journeyPeriod9Title.
   ///
   /// In en, this message translates to:
-  /// **'Communication training'**
+  /// **'Communications Training'**
   String get journeyPeriod9Title;
 
   /// No description provided for @journeyPeriod9Body.
   ///
   /// In en, this message translates to:
-  /// **'We provide communication skills training: The Art of Human-Centered Communication for general skills, and The Art of AI-Enhanced Communication for communicating effectively with and through AI tools. Clear, practical, no jargon.'**
+  /// **'Communications Training is one of our six services. Human-centered and AI-enhanced workshops. Clear, practical skills—no jargon.'**
   String get journeyPeriod9Body;
 
   /// No description provided for @journeyPhoenixTitle.
   ///
   /// In en, this message translates to:
-  /// **'Book publishing & authoring'**
+  /// **'Book Creation Suite'**
   String get journeyPhoenixTitle;
 
   /// No description provided for @journeyPhoenixBody.
   ///
   /// In en, this message translates to:
-  /// **'We\'re also experts in book publishing and authoring. We support authors and organizations from concept development to writing, editing, book design (layout and cover), and final publishing. Everything in one place—from idea to finished book, smoothly and efficiently.'**
+  /// **'Book Creation Suite: from idea to finished book. We support authors and organizations with writing, editing, design, and publishing. Everything in one place.'**
   String get journeyPhoenixBody;
 
   /// No description provided for @methodPageHeadline.
@@ -1843,43 +2107,43 @@ abstract class AppLocalizations {
   /// No description provided for @methodIntro.
   ///
   /// In en, this message translates to:
-  /// **'We offer three main areas: app and website development, communication skills training, and book publishing. Below is how we work and what you can expect. We keep our language clear and human so you stay informed.'**
+  /// **'We offer six core services: App Development, Responsive Web, AI Agent, Book Creation Suite, Communications Training, and Custom Project. Below is how we work and what you can expect. Clear and intuitive.'**
   String get methodIntro;
 
   /// No description provided for @methodBaZiTitle.
   ///
   /// In en, this message translates to:
-  /// **'App & website development'**
+  /// **'App Development & Responsive Web'**
   String get methodBaZiTitle;
 
   /// No description provided for @methodBaZiBody.
   ///
   /// In en, this message translates to:
-  /// **'We develop modern, beautiful, affordable apps for Web, Desktop, macOS, iOS, and Android. We focus on clean, solid-standard architectures and elegant, user-friendly interfaces at a low cost so individuals and businesses get high-quality products without breaking the bank.'**
+  /// **'We build modern apps for Web, Desktop, iOS, and Android and design responsive websites. Clean code, clear interfaces, quality at a fair price.'**
   String get methodBaZiBody;
 
   /// No description provided for @methodQimenTitle.
   ///
   /// In en, this message translates to:
-  /// **'Communication training'**
+  /// **'Communications Training'**
   String get methodQimenTitle;
 
   /// No description provided for @methodQimenBody.
   ///
   /// In en, this message translates to:
-  /// **'We offer two main courses: The Art of Human-Centered Communication for general communication skills, and The Art of AI-Enhanced Communication for communicating effectively with and through AI tools. We use clear, human language—no jargon—so you feel comfortable and confident.'**
+  /// **'Communications Training: human-centered and AI-enhanced workshops. Clear, practical skills so you and your team communicate with confidence. No jargon.'**
   String get methodQimenBody;
 
   /// No description provided for @methodIChingTitle.
   ///
   /// In en, this message translates to:
-  /// **'Book publishing & authoring'**
+  /// **'Book Creation Suite'**
   String get methodIChingTitle;
 
   /// No description provided for @methodIChingBody.
   ///
   /// In en, this message translates to:
-  /// **'We support authors and organizations from concept development to writing, editing, book design (layout and cover), and final publishing. Everything in one place so you can go from idea to finished, published book smoothly and efficiently.'**
+  /// **'From idea to published book—writing, editing, design, and publishing. We support authors and organizations every step of the way.'**
   String get methodIChingBody;
 
   /// No description provided for @methodDateSelectionTitle.
@@ -2491,13 +2755,19 @@ abstract class AppLocalizations {
   /// No description provided for @event1Title.
   ///
   /// In en, this message translates to:
-  /// **'The Art of Human-Centered Communication (Core Training)'**
+  /// **'Communications Training: Human-Centered Skills'**
   String get event1Title;
+
+  /// No description provided for @event1Date.
+  ///
+  /// In en, this message translates to:
+  /// **'31 Jan 2026'**
+  String get event1Date;
 
   /// No description provided for @event1Description.
   ///
   /// In en, this message translates to:
-  /// **'A practical core training on listening, clarity, and empathy so everyday communication feels natural, confident, and human.'**
+  /// **'Build listening, clarity, and empathy so everyday communication feels natural and confident. Core session of our Communications Training service. Clear, practical, no jargon.'**
   String get event1Description;
 
   /// No description provided for @event1Location.
@@ -2509,13 +2779,19 @@ abstract class AppLocalizations {
   /// No description provided for @event2Title.
   ///
   /// In en, this message translates to:
-  /// **'The Art of AI-Enhanced Communication (Applied Training)'**
+  /// **'Communications Training: AI-Enhanced Skills'**
   String get event2Title;
+
+  /// No description provided for @event2Date.
+  ///
+  /// In en, this message translates to:
+  /// **'31 Jan 2026'**
+  String get event2Date;
 
   /// No description provided for @event2Description.
   ///
   /// In en, this message translates to:
-  /// **'Learn how to work with AI tools to plan, draft, and refine your emails, posts, scripts, and more—without losing your own voice.'**
+  /// **'Use AI tools to plan, draft, and refine emails, posts, and scripts—without losing your voice. Part of our AI Agent and Communications Training offerings. Hands-on and practical.'**
   String get event2Description;
 
   /// No description provided for @event2Location.
@@ -2527,13 +2803,19 @@ abstract class AppLocalizations {
   /// No description provided for @event3Title.
   ///
   /// In en, this message translates to:
-  /// **'Facilitation & Presentation Skills Lab'**
+  /// **'Book Creation Suite: From Idea to Manuscript'**
   String get event3Title;
+
+  /// No description provided for @event3Date.
+  ///
+  /// In en, this message translates to:
+  /// **'1 – 2 Feb 2026'**
+  String get event3Date;
 
   /// No description provided for @event3Description.
   ///
   /// In en, this message translates to:
-  /// **'Hands-on practice for trainers, team leads, and speakers who want to run engaging sessions, keep energy high, and land clear messages.'**
+  /// **'Workshop on the full journey from concept to manuscript: structure, writing, and editing. For authors and teams. One of our Book Creation Suite trainings.'**
   String get event3Description;
 
   /// No description provided for @event3Location.
@@ -2541,6 +2823,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'In-house or on-site (by arrangement)'**
   String get event3Location;
+
+  /// No description provided for @event4Title.
+  ///
+  /// In en, this message translates to:
+  /// **'App Development & Responsive Web: Intro Workshop'**
+  String get event4Title;
+
+  /// No description provided for @event4Date.
+  ///
+  /// In en, this message translates to:
+  /// **'15 Feb 2026'**
+  String get event4Date;
+
+  /// No description provided for @event4Description.
+  ///
+  /// In en, this message translates to:
+  /// **'See how we build apps and responsive sites. Demos, Q&A, and a hands-on intro to modern development. For teams exploring our App Development or Responsive Web services.'**
+  String get event4Description;
+
+  /// No description provided for @event4Location.
+  ///
+  /// In en, this message translates to:
+  /// **'Phnom Penh & Online (Zoom)'**
+  String get event4Location;
 
   /// No description provided for @loginSectionTitle.
   ///

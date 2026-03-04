@@ -8,6 +8,7 @@ import '../../../config/app_content.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../theme/app_theme.dart';
 import '../../../utils/breakpoints.dart';
+import '../../../widgets/section_header.dart';
 
 /// Number of logo placeholders in the Featured in section (15 = 3 pages × 5 logos).
 const int _kLogosPerLine = 5;
@@ -29,39 +30,6 @@ class StorySection extends StatelessWidget {
     final width = MediaQuery.sizeOf(context).width;
     final textTheme = Theme.of(context).textTheme;
     final isMobile = Breakpoints.isMobile(width);
-
-    // Heading: new font + highlight "Story"
-    final heading = l10n.sectionStoryHeading;
-    final highlightWord = 'Story';
-    final highlightIndex = heading.toLowerCase().indexOf(highlightWord.toLowerCase());
-    final hasHighlight = highlightIndex >= 0;
-
-    final headingStyle = GoogleFonts.exo2(
-      color: AppColors.onPrimary,
-      fontWeight: FontWeight.w700,
-      fontSize: isMobile ? 30 : 40,
-      height: 1.25,
-    );
-    final headingHighlightStyle = highlightStyleForLocale(
-      context,
-      color: AppColors.accent,
-      fontWeight: FontWeight.bold,
-      fontSize: (isMobile ? 38 : 52),
-      height: 1.25,
-    );
-
-    final titleWidget = hasHighlight
-        ? RichText(
-            text: TextSpan(
-              style: headingStyle,
-              children: [
-                TextSpan(text: heading.substring(0, highlightIndex)),
-                TextSpan(text: heading.substring(highlightIndex, highlightIndex + highlightWord.length), style: headingHighlightStyle),
-                TextSpan(text: heading.substring(highlightIndex + highlightWord.length)),
-              ],
-            ),
-          )
-        : Text(heading, style: headingStyle);
 
     // Body: Lora with optional phrase highlights
     final bodyBase = GoogleFonts.exo2(
@@ -88,7 +56,11 @@ class StorySection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        titleWidget,
+        SectionHeader(
+          overline: l10n.sectionStoryOverline,
+          title: l10n.sectionStoryHeading,
+          isNarrow: isMobile,
+        ),
         SizedBox(height: isMobile ? 20 : 28),
         RichText(
           text: TextSpan(

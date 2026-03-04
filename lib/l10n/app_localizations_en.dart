@@ -66,25 +66,31 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appsPageTitle => 'Apps & Store';
 
   @override
+  String get appsPageOverline => 'Apps';
+
+  @override
   String get appsPageSubline =>
-      'Digital tools, apps, training, and books—all in one place.';
+      'App Development, Responsive Web, AI Agent, Book Creation, Communications Training, and Custom Project—all in one place.';
 
   @override
   String get appsPageDescription =>
-      'We build modern apps and digital solutions. Browse our development services, communication training, and book publishing. Get in touch and we\'ll help you find the right fit.';
+      'Stonechat offers six core services: App Development, Responsive Web, AI Agent, Book Creation Suite, Communications Training, and Custom Project. Find the right fit and get in touch.';
 
   @override
-  String get appsPageDescriptionHighlight => 'modern apps';
+  String get appsPageDescriptionHighlight => 'six core services';
 
   @override
   String get appsFeatureShowcaseHeading => 'What we offer';
 
   @override
-  String get appsFeatureShowcaseMarketingDesc =>
-      'App and website development, communication skills training, and book publishing. We use clear, human language so you stay informed and confident.';
+  String get appsFeatureShowcaseOverline => 'Marketplace';
 
   @override
-  String get appsFeatureShowcaseMarketingHighlight => 'clear, human language';
+  String get appsFeatureShowcaseMarketingDesc =>
+      'Our six services—App Development, Responsive Web, AI Agent, Book Creation, Communications Training, and Custom Project—keep everything clear and intuitive. One partner for your goals.';
+
+  @override
+  String get appsFeatureShowcaseMarketingHighlight => 'six services';
 
   @override
   String get marketplaceCategoryDigital => 'Digital';
@@ -96,11 +102,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get marketplaceCategoryTalismans => 'Book Store';
 
   @override
-  String get stonechatSpotlightTitle => 'App & website development';
+  String get stonechatSpotlightTitle => 'App Development & Responsive Web';
 
   @override
   String get stonechatSpotlightDesc =>
-      'We develop modern, beautiful, affordable apps for Web, Desktop, macOS, iOS, and Android. Clean architectures, elegant interfaces—high-quality products without breaking the bank.';
+      'We build modern apps for Web, Desktop, iOS, and Android and design responsive websites. Clean code, clear interfaces—quality without breaking the bank.';
 
   @override
   String get openStonechatCta => 'Get a quote';
@@ -244,7 +250,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get talismanStoreSpotlightTaglineHighlight => 'shelf';
 
   @override
-  String get bookStoreSectionHeading => 'Book publishing & authoring';
+  String get bookStoreSectionHeading => 'Book Creation Suite';
+
+  @override
+  String get bookStoreSectionOverline => 'Book Store';
 
   @override
   String get bookStoreSectionTagline =>
@@ -255,10 +264,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get bookStoreSectionMarketing =>
-      'We support authors and organizations from concept development to writing, editing, book design (layout and cover), and final publishing. Everything you need to go from idea to published book, smoothly and efficiently.';
+      'Book Creation Suite is one of our six core services. We support authors and organizations from concept to writing, editing, design, and publishing. Everything you need to go from idea to published book.';
 
   @override
-  String get bookStoreSectionMarketingHighlight => 'idea to published book';
+  String get bookStoreSectionMarketingHighlight => 'Book Creation Suite';
 
   @override
   String get bookStoreBook1Title => 'From Idea to Finished Book';
@@ -448,27 +457,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get backToHome => 'Back to Home';
 
   @override
-  String get heroHeadline1 =>
-      'Quality apps, training & publishing—without breaking the bank.';
+  String get heroHeadline1 => 'Quality apps & training. Affordable.';
 
   @override
   String get heroHeadline1Prefix => '';
 
   @override
-  String get heroHeadline1Highlight => 'Quality apps, training & publishing';
+  String get heroHeadline1Highlight => 'Quality apps';
 
   @override
-  String get heroHeadline1Suffix => '—without breaking the bank.';
+  String get heroHeadline1Suffix => ' & training.';
 
   @override
-  String get heroHeadline2Prefix => 'Modern, beautiful, affordable apps for ';
+  String get heroHeadline2Prefix => 'Web, desktop, iOS & Android. ';
 
   @override
-  String get heroHeadline2Highlight => 'Web, Desktop, iOS & Android.';
+  String get heroHeadline2Highlight => 'Affordable.';
 
   @override
-  String get heroSubline =>
-      'Apps, workshops & books—clear, human, and affordable.';
+  String get heroSubline => 'We build Apps, design Books & provide Trainings.';
 
   @override
   String get exploreAllEvents => 'Explore All Trainings';
@@ -495,15 +502,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get finalCtaHeading => 'Ready to get started?';
 
   @override
+  String get finalCtaOverline => 'Get started';
+
+  @override
   String get finalCtaBody =>
-      'Tell us what you need—an app, training, or a book. We\'ll reply in clear, human terms.';
+      'Tell us which service you need—App Development, Responsive Web, AI Agent, Book Creation, Communications Training, or a Custom Project. We\'ll reply in clear terms.';
 
   @override
   String get notSureWhereToStart => 'Not sure where to start?';
 
   @override
   String get notSureBody =>
-      'We\'re here to help. Tell us what you need—an app, a website, training, or a book—and we\'ll guide you in clear, human terms. No technical runaround.';
+      'We offer six core services: App Development, Responsive Web, AI Agent, Book Creation Suite, Communications Training, and Custom Project. Tell us your goal and we\'ll point you to the right one.';
 
   @override
   String get language => 'Language';
@@ -519,15 +529,76 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sectionExperienceHeadingHighlight => 'Clear skills. Real impact.';
 
   @override
+  String get sectionExperienceOverline => 'Workshops';
+
+  @override
+  String get sectionServicesHeading => 'What we offer';
+
+  @override
+  String get sectionServicesOverline => 'Services';
+
+  @override
+  String get sectionServicesSubline =>
+      'App Development, Responsive Web, AI Agent, Book Creation Suite, Communications Training, and Custom Project—one partner for all.';
+
+  @override
+  String get serviceAiAgent => 'AI Agent';
+
+  @override
+  String get serviceAiAgentDesc =>
+      'Smart automation and AI-powered solutions for your workflows.';
+
+  @override
+  String get serviceAppDevelopment => 'App Development';
+
+  @override
+  String get serviceAppDevelopmentDesc =>
+      'Modern apps for Web, Desktop, iOS and Android.';
+
+  @override
+  String get serviceBookCreation => 'Book Creation Suite';
+
+  @override
+  String get serviceBookCreationDesc =>
+      'From idea to published book—writing, design, and publishing.';
+
+  @override
+  String get serviceCommunicationsTraining => 'Communications Training';
+
+  @override
+  String get serviceCommunicationsTrainingDesc =>
+      'Workshops and training that build clear, practical skills.';
+
+  @override
+  String get serviceCustomProject => 'Custom Project';
+
+  @override
+  String get serviceCustomProjectDesc =>
+      'Tailored solutions for your unique needs and goals.';
+
+  @override
+  String get serviceResponsiveWeb => 'Responsive Web';
+
+  @override
+  String get serviceResponsiveWebDesc =>
+      'Beautiful, fast websites that work on every device.';
+
+  @override
+  String get serviceLearnMore => 'Learn more';
+
+  @override
   String get sectionKnowledgeHeading => 'Training that fits your goals.';
 
   @override
+  String get sectionKnowledgeOverline => 'Training';
+
+  @override
   String get sectionKnowledgeBody =>
-      'We offer communication training: human-centered and AI-enhanced workshops. Build clear, practical skills—no jargon. Custom sessions for your team or organization.';
+      'Communications Training is one of our six core services. We run human-centered and AI-enhanced workshops so you build clear, practical skills—no jargon. Custom sessions for your team or organization.';
 
   @override
   String get sectionKnowledgeBody2 =>
-      'We support Khmer, English, and Chinese and can add more languages. Fast turnaround so you get results without long waits.';
+      'We support Khmer, English, and Chinese. Fast turnaround so you get results without long waits.';
 
   @override
   String get sectionKnowledgeStat => '3+ languages';
@@ -536,41 +607,50 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sectionMapHeading => 'You don\'t need jargon. You need a partner.';
 
   @override
+  String get sectionMapOverline => 'Consultations';
+
+  @override
   String get sectionMapIntro =>
-      'Choose a service below. We\'ll guide you to the right option and next steps.';
+      'Pick a service that fits: App Development, Responsive Web, AI Agent, Book Creation, Communications Training, or Custom Project. We\'ll guide you to the next step.';
 
   @override
   String get sectionStoryHeading => 'Who we are.';
 
   @override
+  String get sectionStoryOverline => 'About';
+
+  @override
   String get sectionStoryPara1 =>
-      'Stonechat Communications is your partner for apps, communication training, and book publishing. We develop modern, affordable applications and run clear, practical workshops.';
+      'Stonechat Communications delivers six core services: App Development, Responsive Web, AI Agent, Book Creation Suite, Communications Training, and Custom Project. One partner for apps, websites, books, and training.';
 
   @override
   String get sectionStoryPara2 =>
-      'We work in Khmer, English, and Chinese and can add more languages. We prioritize fast turnaround and clear communication—so you stay informed and confident.';
+      'We work in Khmer, English, and Chinese and focus on fast turnaround and clear communication. Whether you need an app, a site, a book, or training—we keep it intuitive.';
 
   @override
   String get sectionStoryPara3 =>
-      'Tell us your idea. We\'ll help you get there in plain language, without the runaround.';
+      'Tell us your goal. We\'ll match you to the right service and next steps—in plain language.';
 
   @override
   String get sectionStoryPara1Short =>
-      'Your partner for apps, training & publishing. Modern, affordable, clear.';
+      'Six services: App Development, Responsive Web, AI Agent, Book Creation, Communications Training, Custom Project.';
 
   @override
   String get sectionStoryPara2Short =>
-      'Khmer, English & Chinese. Fast turnaround. Human tone.';
+      'Khmer, English & Chinese. Fast turnaround. Clear and intuitive.';
 
   @override
   String get sectionStoryPara3Short =>
-      'Tell us your idea—we\'ll help you get there.';
+      'Tell us your goal—we\'ll point you to the right service.';
 
   @override
   String get sectionStoryCtaButton => 'Our story';
 
   @override
   String get sectionTestimonialsHeading => 'Real Insights. Real Outcomes.';
+
+  @override
+  String get sectionTestimonialsOverline => 'Testimonials';
 
   @override
   String get sectionTestimonialsSub1 =>
@@ -680,36 +760,108 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get academyMoreCoursesNote =>
-      'More courses and schedules will be announced here. Contact us for early access or custom group sessions.';
+      'Workshops and events across our six services. Contact us for schedules or custom group sessions.';
 
   @override
-  String get consult1Category => 'App & website development';
+  String get eventCourseAppDevelopmentDesc =>
+      'Hands-on sessions on building apps for Web, Desktop, iOS & Android.';
+
+  @override
+  String get eventCourseAppDevelopmentAbout =>
+      'Join workshops and demos on modern app development. Clean architecture, clear interfaces, and practical tips. Suitable for teams and individuals exploring our App Development service.';
+
+  @override
+  String get eventCourseAppDevelopmentTopics =>
+      'Cross-platform • Clean code • UI/UX • Demos & Q&A';
+
+  @override
+  String get eventCourseResponsiveWebDesc =>
+      'Learn to design and deliver websites that work on every device.';
+
+  @override
+  String get eventCourseResponsiveWebAbout =>
+      'Workshops on responsive design, performance, and deployment. See live demos and get guidance on your Responsive Web projects. From concept to launch.';
+
+  @override
+  String get eventCourseResponsiveWebTopics =>
+      'Responsive layout • Performance • Accessibility • Real projects';
+
+  @override
+  String get eventCourseAiAgentDesc =>
+      'Smart automation and AI-powered solutions—see them in action.';
+
+  @override
+  String get eventCourseAiAgentAbout =>
+      'Demos and sessions on AI agents and workflow automation. Understand how our AI Agent service can fit your needs. No heavy jargon—clear, practical insights.';
+
+  @override
+  String get eventCourseAiAgentTopics =>
+      'Automation • AI tools • Use cases • Integration';
+
+  @override
+  String get eventCourseBookCreationDesc =>
+      'From idea to published book. Writing, design, and publishing workshops.';
+
+  @override
+  String get eventCourseBookCreationAbout =>
+      'Sessions on the full book-creation journey: concept, writing, editing, design, and publishing. Part of our Book Creation Suite. For authors and organizations.';
+
+  @override
+  String get eventCourseBookCreationTopics =>
+      'Writing • Editing • Design • Publishing pipeline';
+
+  @override
+  String get eventCourseCommunicationsTrainingDesc =>
+      'Human-centered and AI-enhanced communication skills. Clear, practical.';
+
+  @override
+  String get eventCourseCommunicationsTrainingAbout =>
+      'Our Communications Training in action. Workshops on clear speaking, writing, and using AI to communicate better. Human-centered and AI-enhanced. Khmer, English, Chinese.';
+
+  @override
+  String get eventCourseCommunicationsTrainingTopics =>
+      'Clear messaging • AI tools • Team skills • Practice sessions';
+
+  @override
+  String get eventCourseCustomProjectDesc =>
+      'Tailored solutions: mix and match our services for your goals.';
+
+  @override
+  String get eventCourseCustomProjectAbout =>
+      'Sessions and consultations on custom projects that combine App Development, Web, AI, Books, or Training. We help you scope and plan. One partner, flexible delivery.';
+
+  @override
+  String get eventCourseCustomProjectTopics =>
+      'Scoping • Planning • Multi-service • Your goals';
+
+  @override
+  String get consult1Category => 'App Development';
 
   @override
   String get consult1Method => 'Development';
 
   @override
-  String get consult1Question => 'Need a modern app or website?';
+  String get consult1Question => 'Need a modern app?';
 
   @override
   String get consult1Desc =>
-      'We build for Web, Desktop, macOS, iOS, and Android. Clean architectures, elegant interfaces, affordable pricing. Get in touch and we\'ll find the right solution for you.';
+      'We build apps for Web, Desktop, iOS, and Android. Clean architectures, clear interfaces, affordable. One of our six core services.';
 
   @override
-  String get consult2Category => 'Communication training';
+  String get consult2Category => 'Communications Training';
 
   @override
   String get consult2Method => 'Training';
 
   @override
-  String get consult2Question => 'Want to sharpen your communication skills?';
+  String get consult2Question => 'Want to sharpen communication skills?';
 
   @override
   String get consult2Desc =>
-      'We offer The Art of Human-Centered Communication for general skills and The Art of AI-Enhanced Communication for working effectively with AI tools. Clear, practical training.';
+      'Communications Training is a core service. Human-centered and AI-enhanced workshops. Clear, practical skills for you or your team.';
 
   @override
-  String get consult3Category => 'Book publishing & authoring';
+  String get consult3Category => 'Book Creation Suite';
 
   @override
   String get consult3Method => 'Publishing';
@@ -719,10 +871,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get consult3Desc =>
-      'From concept to finished book—writing, editing, design (layout and cover), and publishing. We support authors and organizations every step of the way. Everything in one place.';
+      'From idea to finished book—writing, editing, design, and publishing. Book Creation Suite covers it. We support authors and organizations every step.';
 
   @override
-  String get consult4Category => 'Custom project';
+  String get consult4Category => 'Custom Project';
 
   @override
   String get consult4Method => 'Custom';
@@ -732,33 +884,33 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get consult4Desc =>
-      'We\'re flexible. Whether it\'s a blend of development, training, or publishing—or something new—tell us your idea and we\'ll help you get there in clear, human terms.';
+      'Custom Project is for goals that mix our services or need a tailored plan. Tell us your idea and we\'ll match you to the right solution.';
 
   @override
-  String get consult5Category => 'Training workshops';
+  String get consult5Category => 'Responsive Web';
 
   @override
-  String get consult5Method => 'Workshops';
+  String get consult5Method => 'Web';
 
   @override
-  String get consult5Question => 'Team or group training?';
+  String get consult5Question => 'Need a website?';
 
   @override
   String get consult5Desc =>
-      'We run workshops on communication skills and AI-enhanced communication. We can tailor sessions for your organization and schedule. Fast turnaround.';
+      'Responsive Web: beautiful, fast sites that work on every device. One of our six services. Get in touch for a quote.';
 
   @override
-  String get consult6Category => 'Books & resources';
+  String get consult6Category => 'AI Agent';
 
   @override
-  String get consult6Method => 'Resources';
+  String get consult6Method => 'AI';
 
   @override
-  String get consult6Question => 'Books and resources from Stonechat.';
+  String get consult6Question => 'Interested in AI automation?';
 
   @override
   String get consult6Desc =>
-      'Our’ publishing and authoring services help you go from idea to finished book. We also offer training materials and resources. Get in touch for more.';
+      'AI Agent covers smart automation and AI-powered solutions. One of our six core services. We\'ll help you find the right fit.';
 
   @override
   String get stickyCtaText => 'Subscribe';
@@ -804,26 +956,28 @@ class AppLocalizationsEn extends AppLocalizations {
   String get eventsHeroHeadline => 'Workshops and events';
 
   @override
+  String get eventsHeroOverline => 'Events';
+
+  @override
   String get eventsHeroSubline =>
-      'Training, launches, and community. Clear and practical.';
+      'Communications Training, workshops, and community. Clear and practical.';
 
   @override
   String get eventsSubline => 'Where learning meets doing.';
 
   @override
   String get eventsDescription =>
-      'Join our workshops on communication skills, app demos, or publishing. We keep things clear and practical. Khmer, English, and Chinese supported.';
+      'Our events support Communications Training and our other services—app demos, book launches, workshops. Clear and practical. Khmer, English, and Chinese supported.';
 
   @override
-  String get eventsDescriptionHighlight =>
-      'communication skills, app demos, or publishing';
+  String get eventsDescriptionHighlight => 'Communications Training';
 
   @override
   String get eventsWhyAttendTitle => 'Why join our events';
 
   @override
   String get eventsWhyAttendLead =>
-      'Hands-on training in human-centered and AI-enhanced communication. App and publishing insights. A friendly, no-jargon environment.';
+      'Hands-on Communications Training: human-centered and AI-enhanced. Plus app and Book Creation insights. A friendly, no-jargon environment.';
 
   @override
   String get eventsWhyAttend1 =>
@@ -898,30 +1052,30 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aboutHeroHeadline =>
-      'Your partner for apps, training & publishing.';
+      'Your partner for six core services: apps, web, AI, books, training & custom projects.';
 
   @override
   String get aboutBullet1 =>
-      'Modern, affordable apps for Web, Desktop, macOS, iOS & Android.';
+      'App Development & Responsive Web—modern apps and websites for every device.';
 
   @override
   String get aboutBullet2 =>
-      'Communication training: human-centered and AI-enhanced workshops.';
+      'AI Agent—smart automation and AI-powered solutions.';
 
   @override
   String get aboutBullet3 =>
-      'Book publishing from idea to finished book—writing, design, and distribution.';
+      'Book Creation Suite—from idea to published book. Communications Training—clear, practical workshops.';
 
   @override
   String get aboutBullet4 =>
-      'Clear communication, fast turnaround. Khmer, English & Chinese.';
+      'Custom Project—tailored solutions. Clear communication, fast turnaround. Khmer, English & Chinese.';
 
   @override
   String get journeyPageHeadline => 'Our story';
 
   @override
   String get journeyHeroSubline =>
-      'A handy apps and digital solutions studio. Modern, beautiful, affordable.';
+      'Six services, one partner: App Development, Responsive Web, AI Agent, Book Creation, Communications Training, Custom Project.';
 
   @override
   String get journeySectionTheStory => 'The story';
@@ -931,64 +1085,64 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get journeyHeroSpotlightDesc =>
-      'We develop apps and digital solutions, offer communication training, and support book publishing. Discover more below.';
+      'We deliver App Development, Responsive Web, AI Agent, Book Creation Suite, Communications Training, and Custom Project. Discover more below.';
 
   @override
   String get journeyHeroSpotlightCta => 'Read the story';
 
   @override
   String get journeyStory1 =>
-      'Stonechat Communications is a handy apps and digital solutions studio. We develop modern, beautiful, affordable applications for Web, Desktop, macOS, iOS, and Android.';
+      'Stonechat Communications delivers six core services: App Development, Responsive Web, AI Agent, Book Creation Suite, Communications Training, and Custom Project. We build modern apps and websites, design books, and run clear, practical training.';
 
   @override
   String get journeyStory2 =>
-      'We focus on clean, solid-standard architectures and elegant, user-friendly interfaces at a low cost—so individuals and businesses can get high-quality products without breaking the bank. We support Khmer, English, and Chinese, and we\'re flexible to add more languages.';
+      'We focus on clean architectures and clear interfaces at a fair cost. We support Khmer, English, and Chinese and are flexible to add more languages. Every service is designed to be intuitive.';
 
   @override
   String get journeyStory3 =>
-      'We value fast turnaround so our clients don\'t get stuck waiting for months; we prioritize speed without sacrificing quality. In every interaction we use a clear, human tone so non-technical clients feel comfortable, informed, and confident.';
+      'We value fast turnaround and a clear, human tone—so you stay informed and confident. Tell us your goal and we\'ll match you to the right service.';
 
   @override
-  String get journeyPeriod9Title => 'Communication training';
+  String get journeyPeriod9Title => 'Communications Training';
 
   @override
   String get journeyPeriod9Body =>
-      'We provide communication skills training: The Art of Human-Centered Communication for general skills, and The Art of AI-Enhanced Communication for communicating effectively with and through AI tools. Clear, practical, no jargon.';
+      'Communications Training is one of our six services. Human-centered and AI-enhanced workshops. Clear, practical skills—no jargon.';
 
   @override
-  String get journeyPhoenixTitle => 'Book publishing & authoring';
+  String get journeyPhoenixTitle => 'Book Creation Suite';
 
   @override
   String get journeyPhoenixBody =>
-      'We\'re also experts in book publishing and authoring. We support authors and organizations from concept development to writing, editing, book design (layout and cover), and final publishing. Everything in one place—from idea to finished book, smoothly and efficiently.';
+      'Book Creation Suite: from idea to finished book. We support authors and organizations with writing, editing, design, and publishing. Everything in one place.';
 
   @override
   String get methodPageHeadline => 'What we do';
 
   @override
   String get methodIntro =>
-      'We offer three main areas: app and website development, communication skills training, and book publishing. Below is how we work and what you can expect. We keep our language clear and human so you stay informed.';
+      'We offer six core services: App Development, Responsive Web, AI Agent, Book Creation Suite, Communications Training, and Custom Project. Below is how we work and what you can expect. Clear and intuitive.';
 
   @override
-  String get methodBaZiTitle => 'App & website development';
+  String get methodBaZiTitle => 'App Development & Responsive Web';
 
   @override
   String get methodBaZiBody =>
-      'We develop modern, beautiful, affordable apps for Web, Desktop, macOS, iOS, and Android. We focus on clean, solid-standard architectures and elegant, user-friendly interfaces at a low cost so individuals and businesses get high-quality products without breaking the bank.';
+      'We build modern apps for Web, Desktop, iOS, and Android and design responsive websites. Clean code, clear interfaces, quality at a fair price.';
 
   @override
-  String get methodQimenTitle => 'Communication training';
+  String get methodQimenTitle => 'Communications Training';
 
   @override
   String get methodQimenBody =>
-      'We offer two main courses: The Art of Human-Centered Communication for general communication skills, and The Art of AI-Enhanced Communication for communicating effectively with and through AI tools. We use clear, human language—no jargon—so you feel comfortable and confident.';
+      'Communications Training: human-centered and AI-enhanced workshops. Clear, practical skills so you and your team communicate with confidence. No jargon.';
 
   @override
-  String get methodIChingTitle => 'Book publishing & authoring';
+  String get methodIChingTitle => 'Book Creation Suite';
 
   @override
   String get methodIChingBody =>
-      'We support authors and organizations from concept development to writing, editing, book design (layout and cover), and final publishing. Everything in one place so you can go from idea to finished, published book smoothly and efficiently.';
+      'From idea to published book—writing, editing, design, and publishing. We support authors and organizations every step of the way.';
 
   @override
   String get methodDateSelectionTitle => 'Fast turnaround';
@@ -1317,36 +1471,56 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sampleFeature => 'Sample feature';
 
   @override
-  String get event1Title =>
-      'The Art of Human-Centered Communication (Core Training)';
+  String get event1Title => 'Communications Training: Human-Centered Skills';
+
+  @override
+  String get event1Date => '31 Jan 2026';
 
   @override
   String get event1Description =>
-      'A practical core training on listening, clarity, and empathy so everyday communication feels natural, confident, and human.';
+      'Build listening, clarity, and empathy so everyday communication feels natural and confident. Core session of our Communications Training service. Clear, practical, no jargon.';
 
   @override
   String get event1Location => 'Phnom Penh & Online (Zoom)';
 
   @override
-  String get event2Title =>
-      'The Art of AI-Enhanced Communication (Applied Training)';
+  String get event2Title => 'Communications Training: AI-Enhanced Skills';
+
+  @override
+  String get event2Date => '31 Jan 2026';
 
   @override
   String get event2Description =>
-      'Learn how to work with AI tools to plan, draft, and refine your emails, posts, scripts, and more—without losing your own voice.';
+      'Use AI tools to plan, draft, and refine emails, posts, and scripts—without losing your voice. Part of our AI Agent and Communications Training offerings. Hands-on and practical.';
 
   @override
   String get event2Location => 'Online (Zoom)';
 
   @override
-  String get event3Title => 'Facilitation & Presentation Skills Lab';
+  String get event3Title => 'Book Creation Suite: From Idea to Manuscript';
+
+  @override
+  String get event3Date => '1 – 2 Feb 2026';
 
   @override
   String get event3Description =>
-      'Hands-on practice for trainers, team leads, and speakers who want to run engaging sessions, keep energy high, and land clear messages.';
+      'Workshop on the full journey from concept to manuscript: structure, writing, and editing. For authors and teams. One of our Book Creation Suite trainings.';
 
   @override
   String get event3Location => 'In-house or on-site (by arrangement)';
+
+  @override
+  String get event4Title => 'App Development & Responsive Web: Intro Workshop';
+
+  @override
+  String get event4Date => '15 Feb 2026';
+
+  @override
+  String get event4Description =>
+      'See how we build apps and responsive sites. Demos, Q&A, and a hands-on intro to modern development. For teams exploring our App Development or Responsive Web services.';
+
+  @override
+  String get event4Location => 'Phnom Penh & Online (Zoom)';
 
   @override
   String get loginSectionTitle => 'Staff / Admin Login';

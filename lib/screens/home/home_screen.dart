@@ -3,6 +3,7 @@ import 'package:flutter/scheduler.dart';
 
 import '../../theme/app_theme.dart';
 import 'widgets/hero_section.dart';
+import 'widgets/services_section.dart';
 import 'widgets/events_section.dart';
 import 'widgets/academies_section.dart';
 import 'widgets/consultations_section.dart';
@@ -11,6 +12,7 @@ import 'widgets/testimonials_section.dart';
 import 'widgets/cta_section.dart';
 
 /// Placeholder heights so scroll extent is correct before below-the-fold sections build.
+const double _placeholderServices = 720;
 const double _placeholderEvents = 520;
 const double _placeholderAcademies = 820;
 const double _placeholderConsultations = 520;
@@ -18,8 +20,8 @@ const double _placeholderStory = 580;
 const double _placeholderTestimonials = 480;
 const double _placeholderCta = 360;
 
-/// Number of below-the-fold sections (Events, Academies, …, CTA).
-const int _kBelowFoldSectionCount = 6;
+/// Number of below-the-fold sections (Services, Events, Academies, …, CTA).
+const int _kBelowFoldSectionCount = 7;
 
 /// Delay between revealing each section so the main thread can paint and the hero
 /// video keeps playing smoothly instead of freezing.
@@ -105,31 +107,36 @@ class _HomeScreenState extends State<HomeScreen> {
         const RepaintBoundary(child: HeroSection()),
         RepaintBoundary(
           child: _visibleSectionCount > 0
+              ? const ServicesSection()
+              : const SizedBox(height: _placeholderServices),
+        ),
+        RepaintBoundary(
+          child: _visibleSectionCount > 1
               ? const EventsSection()
               : const SizedBox(height: _placeholderEvents),
         ),
         RepaintBoundary(
-          child: _visibleSectionCount > 1
+          child: _visibleSectionCount > 2
               ? const AcademiesSection()
               : const SizedBox(height: _placeholderAcademies),
         ),
         RepaintBoundary(
-          child: _visibleSectionCount > 2
+          child: _visibleSectionCount > 3
               ? const ConsultationsSection()
               : const SizedBox(height: _placeholderConsultations),
         ),
         RepaintBoundary(
-          child: _visibleSectionCount > 3
+          child: _visibleSectionCount > 4
               ? const StorySection()
               : const SizedBox(height: _placeholderStory),
         ),
         RepaintBoundary(
-          child: _visibleSectionCount > 4
+          child: _visibleSectionCount > 5
               ? const TestimonialsSection()
               : const SizedBox(height: _placeholderTestimonials),
         ),
         RepaintBoundary(
-          child: _visibleSectionCount > 5
+          child: _visibleSectionCount > 6
               ? const CtaSection()
               : const SizedBox(height: _placeholderCta),
         ),

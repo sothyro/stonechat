@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../theme/app_theme.dart';
 import '../../../utils/breakpoints.dart';
+import '../../../widgets/section_header.dart';
 
 class CtaSection extends StatefulWidget {
   const CtaSection({super.key});
@@ -112,37 +113,12 @@ class _CtaSectionState extends State<CtaSection> with SingleTickerProviderStateM
                   ),
                 );
               },
-              child: Text(
-                l10n.finalCtaHeading,
-                style: (textTheme.headlineMedium ?? textTheme.headlineSmall)?.copyWith(
-                  color: AppColors.onPrimary,
-                  fontWeight: FontWeight.w600,
-                  fontSize: isMobile ? 24 : 32,
-                  height: 1.25,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            const SizedBox(height: 16),
-            AnimatedBuilder(
-              animation: _controller,
-              builder: (context, child) {
-                return Opacity(
-                  opacity: _bodyOpacity.value,
-                  child: Transform.translate(
-                    offset: Offset(0, _bodySlide.value),
-                    child: child,
-                  ),
-                );
-              },
-              child: Text(
-                l10n.finalCtaBody,
-                style: textTheme.bodyLarge?.copyWith(
-                  color: AppColors.onPrimary.withValues(alpha: 0.9),
-                  height: 1.5,
-                  fontSize: isMobile ? 16 : 19,
-                ),
-                textAlign: TextAlign.center,
+              child: SectionHeader(
+                overline: l10n.finalCtaOverline,
+                title: l10n.finalCtaHeading,
+                subline: l10n.finalCtaBody,
+                isNarrow: isMobile,
+                maxSublineWidth: 700,
               ),
             ),
             const SizedBox(height: 28),

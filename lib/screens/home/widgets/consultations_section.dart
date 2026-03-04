@@ -7,6 +7,7 @@ import '../../../config/app_content.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../theme/app_theme.dart';
 import '../../../utils/breakpoints.dart';
+import '../../../widgets/section_header.dart';
 
 class ConsultationsSection extends StatelessWidget {
   const ConsultationsSection({super.key});
@@ -113,7 +114,11 @@ class ConsultationsSection extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  _buildSectionHeading(context, l10n),
+                  SectionHeader(
+                    overline: l10n.sectionMapOverline,
+                    title: l10n.sectionMapHeading,
+                    isNarrow: isMobile,
+                  ),
                   const SizedBox(height: 20),
                   Text(
                     l10n.sectionMapIntro,
@@ -170,65 +175,6 @@ class ConsultationsSection extends StatelessWidget {
         ),
       ],
     );
-  }
-
-  Widget _buildSectionHeading(BuildContext context, AppLocalizations l10n) {
-    final width = MediaQuery.sizeOf(context).width;
-    final size = width < 600 ? 22.0 : (width < 900 ? 26.0 : 32.0);
-    final normal = GoogleFonts.exo2(
-      color: AppColors.onPrimary,
-      fontWeight: FontWeight.w600,
-      fontSize: size,
-      height: 1.3,
-    );
-    final highlight = highlightStyleForLocale(
-      context,
-      color: AppColors.accent,
-      fontWeight: FontWeight.bold,
-      fontSize: size * 1.12,
-      height: 1.3,
-    );
-    final s = l10n.sectionMapHeading;
-    final phrases = ['partner.', 'partner', 'jargon.'];
-    final spans = _highlightPhrases(s, phrases, normal, highlight);
-    return Center(
-      child: RichText(
-        textAlign: TextAlign.center,
-        text: TextSpan(children: spans),
-      ),
-    );
-  }
-
-  static List<InlineSpan> _highlightPhrases(
-    String text,
-    List<String> phrases,
-    TextStyle normal,
-    TextStyle highlight,
-  ) {
-    final List<InlineSpan> result = [];
-    int start = 0;
-    while (start < text.length) {
-      int nextIndex = -1;
-      String? matched;
-      for (final phrase in phrases) {
-        if (phrase.isEmpty) continue;
-        final idx = text.indexOf(phrase, start);
-        if (idx >= 0 && (nextIndex < 0 || idx < nextIndex)) {
-          nextIndex = idx;
-          matched = phrase;
-        }
-      }
-      if (nextIndex < 0) {
-        result.add(TextSpan(text: text.substring(start), style: normal));
-        break;
-      }
-      if (nextIndex > start) {
-        result.add(TextSpan(text: text.substring(start, nextIndex), style: normal));
-      }
-      result.add(TextSpan(text: matched, style: highlight));
-      start = nextIndex + (matched?.length ?? 0);
-    }
-    return result;
   }
 }
 

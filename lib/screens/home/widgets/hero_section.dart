@@ -90,77 +90,103 @@ class _HeroSectionState extends State<HeroSection> {
     double width,
   ) {
     final isMobile = width < Breakpoints.mobile;
-    final baseFontSize = width < 600 ? 20.0 : (width < 900 ? 26.0 : 32.0);
-    final highlightFontSize = width < 600 ? 28.0 : (width < 900 ? 46.0 : 56.0);
-    // On mobile use larger line height so large highlight text doesn't overlap the next line.
-    final lineHeight = isMobile ? 1.22 : 0.88;
-    final headlineSpacing = isMobile ? 16.0 : 10.0;
-    final sublineTopSpacing = isMobile ? 20.0 : 28.0;
+    // Base: white bold sans-serif (section-title style)
+    final baseFontSize = width < 600 ? 22.0 : (width < 900 ? 28.0 : 34.0);
+    // Highlight: teal cursive (Condiment/Dangrek) — larger and more prominent
+    final highlightFontSize = width < 600 ? 30.0 : (width < 900 ? 42.0 : 52.0);
+    final lineHeight = isMobile ? 1.28 : 1.15;
+    const double overlineToTitle = 12;
+    const double titleLineGap = 6;
+    const double titleToRule = 20;
+    const double ruleToSubline = 16;
+
+    final baseStyle = (Theme.of(context).textTheme.headlineMedium ?? const TextStyle()).copyWith(
+      color: AppColors.onPrimary,
+      fontWeight: FontWeight.w700,
+      fontSize: baseFontSize,
+      height: lineHeight,
+      letterSpacing: -0.3,
+    );
+    final highlightStyle = highlightStyleForLocale(
+      context,
+      color: AppColors.accentLight,
+      fontWeight: FontWeight.w700,
+      fontSize: highlightFontSize,
+      height: lineHeight,
+    );
 
     return [
+      // Overline: section-style label (matches section headers)
+      Text(
+        l10n.home.toUpperCase(),
+        style: Theme.of(context).textTheme.labelLarge?.copyWith(
+          color: AppColors.accent,
+          fontWeight: FontWeight.w600,
+          fontSize: 11,
+          letterSpacing: 3.2,
+          height: 1.2,
+        ),
+      ),
+      SizedBox(height: overlineToTitle),
+      // Line 1: one short highlight ("Quality apps") + rest in white
       Semantics(
         header: true,
         child: RichText(
           textAlign: textAlign,
           softWrap: true,
           text: TextSpan(
-            style: (Theme.of(context).textTheme.headlineLarge ?? const TextStyle()).copyWith(
-              color: AppColors.onPrimary,
-              fontWeight: FontWeight.w600,
-              fontSize: baseFontSize,
-              height: lineHeight,
-            ),
+            style: baseStyle,
             children: [
               TextSpan(text: l10n.heroHeadline1Prefix),
-              TextSpan(
-                text: l10n.heroHeadline1Highlight,
-                style: highlightStyleForLocale(
-                  context,
-                  color: AppColors.accent,
-                  fontWeight: FontWeight.bold,
-                  fontSize: highlightFontSize,
-                  height: lineHeight,
+              if (l10n.heroHeadline1Highlight.isNotEmpty)
+                TextSpan(
+                  text: l10n.heroHeadline1Highlight,
+                  style: highlightStyle,
                 ),
-              ),
               TextSpan(text: l10n.heroHeadline1Suffix),
             ],
           ),
         ),
       ),
-      SizedBox(height: headlineSpacing),
+      SizedBox(height: titleLineGap),
+      // Line 2: all base text (no highlight when heroHeadline2Highlight is empty)
       RichText(
         textAlign: textAlign,
         softWrap: true,
         text: TextSpan(
-          style: (Theme.of(context).textTheme.headlineLarge ?? const TextStyle()).copyWith(
-            color: AppColors.onPrimary,
-            fontWeight: FontWeight.w600,
-            fontSize: baseFontSize,
-            height: lineHeight,
-          ),
+          style: baseStyle,
           children: [
             TextSpan(text: l10n.heroHeadline2Prefix),
-            TextSpan(
-              text: l10n.heroHeadline2Highlight,
-              style: highlightStyleForLocale(
-                context,
-                color: AppColors.accent,
-                fontWeight: FontWeight.bold,
-                fontSize: highlightFontSize,
-                height: lineHeight,
+            if (l10n.heroHeadline2Highlight.isNotEmpty)
+              TextSpan(
+                text: l10n.heroHeadline2Highlight,
+                style: highlightStyle,
               ),
-            ),
           ],
         ),
       ),
-      SizedBox(height: sublineTopSpacing),
+      SizedBox(height: titleToRule),
+      // Accent line (section-title style)
+      Align(
+        alignment: textAlign == TextAlign.center ? Alignment.center : Alignment.centerLeft,
+        child: Container(
+          width: 48,
+          height: 3,
+          decoration: BoxDecoration(
+            color: AppColors.accent,
+            borderRadius: BorderRadius.circular(2),
+          ),
+        ),
+      ),
+      SizedBox(height: ruleToSubline),
       Text(
         l10n.heroSubline,
         textAlign: textAlign,
-        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-          color: AppColors.onPrimary.withValues(alpha: 0.9),
-          height: isMobile ? 1.2 : 0.9,
-          fontSize: width < 600 ? 13 : (width < 900 ? 15 : 17),
+        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+          color: AppColors.onPrimary.withValues(alpha: 0.88),
+          height: 1.45,
+          fontSize: width < 600 ? 15 : (width < 900 ? 17 : 19),
+          fontWeight: FontWeight.w500,
         ),
       ),
     ];

@@ -27,6 +27,24 @@ class AppColors {
 
   /// Muted text on dark backgrounds (WCAG AA–compliant on surfaceDark/backgroundDark).
   static const Color onSurfaceVariantDark = Color(0xFFB5B5B5);
+
+  /// Six core service colors (pill chips, hover borders, accents). Order: App Development, Responsive Web, AI Agent, Book Creation Suite, Communications Training, Custom Project.
+  static const Color serviceAppDevelopment = Color(0xFFC62828);   // Red
+  static const Color serviceResponsiveWeb = Color(0xFFF9A825);   // Yellow/Amber
+  static const Color serviceAiAgent = Color(0xFF00A9B8);         // Teal (primary accent)
+  static const Color serviceBookCreation = Color(0xFF2E7D32);    // Green
+  static const Color serviceCommunicationsTraining = Color(0xFF7B1FA2); // Purple
+  static const Color serviceCustomProject = Color(0xFF263238);    // Black/Dark
+
+  /// All six service colors in display order (row 1: App Dev, Responsive Web, AI Agent; row 2: Book Creation, Communications Training, Custom Project).
+  static const List<Color> serviceColors = [
+    serviceAppDevelopment,
+    serviceResponsiveWeb,
+    serviceAiAgent,
+    serviceBookCreation,
+    serviceCommunicationsTraining,
+    serviceCustomProject,
+  ];
 }
 
 /// Layered shadow system for cards, header, dialogs, and accent CTAs.

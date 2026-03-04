@@ -63,34 +63,19 @@ class AppContent {
   /// Events section cards and main banner.
   static const String assetEventCard = 'assets/images/students.jpg';
   static const String assetEventMain = 'assets/images/students.jpg';
+  /// Communications Training: AI-Enhanced event card.
+  static const String assetEventAEnhanced = 'assets/images/Students2.jpg';
   /// Contact page hero background.
   static const String assetContactHero = 'assets/images/hero_background.jpg';
   /// Journey page hero background.
   static const String assetJourneyHero = 'assets/images/training_presentation.jpg';
   /// Story section image (portrait).
   static const String assetStoryBackground = 'assets/images/female_assistant2.jpg';
-  /// Testimonials: profile and participant (used when no per-testimonial image).
-  static const String assetTestimonialProfile = 'assets/images/CEO.jpg';
-  static const String assetTestimonialParticipant = 'assets/images/female_assistant2.jpg';
-  /// Testimonial images (using available team/assistant images).
-  static const String assetTestimonialPanhaLeakhena = 'assets/images/female_assistant.jpg';
-  static const String assetTestimonialMoon = 'assets/images/female_assistant2.jpg';
-  static const String assetTestimonialRithy = 'assets/images/CEO.jpg';
-  static const String assetTestimonialVanna = 'assets/images/female_assistant.jpg';
-  static const String assetTestimonialThida = 'assets/images/female_assistant2.jpg';
-  static const String assetTestimonialZeiitey = 'assets/images/CEO.jpg';
-  static const String assetTestimonial7 = 'assets/images/female_assistant.jpg';
-  static const String assetTestimonial8 = 'assets/images/female_assistant2.jpg';
-  static const String assetTestimonial9 = 'assets/images/CEO.jpg';
-  static const String assetTestimonial10 = 'assets/images/female_assistant.jpg';
-  static const String assetTestimonial11 = 'assets/images/female_assistant2.jpg';
-  static const String assetTestimonial12 = 'assets/images/CEO.jpg';
-  static const String assetTestimonial13 = 'assets/images/female_assistant.jpg';
-  static const String assetTestimonial14 = 'assets/images/female_assistant2.jpg';
-  static const String assetTestimonial15 = 'assets/images/CEO.jpg';
-  static const String assetTestimonial16 = 'assets/images/female_assistant.jpg';
-  static const String assetTestimonial17 = 'assets/images/female_assistant2.jpg';
-  static const String assetTestimonial18 = 'assets/images/CEO.jpg';
+  /// Testimonials: single image for all testimonial cards (main page and events).
+  static const String assetTestimonial = 'assets/images/testimonials/testimonials.jpg';
+  /// Fallbacks when no per-testimonial image (now same as [assetTestimonial]).
+  static const String assetTestimonialProfile = 'assets/images/testimonials/testimonials.jpg';
+  static const String assetTestimonialParticipant = 'assets/images/testimonials/testimonials.jpg';
   /// Academy / training card image.
   static const String assetAcademy = 'assets/images/training_image.jpg';
   /// Consultation / appointments page (Smart Move cards).
@@ -100,6 +85,14 @@ class AppContent {
   static const String assetAcademyQiMen = 'assets/icons/mainicon.png';
   /// Feng Shui card image on main page.
   static const String assetAcademyFengShui = 'assets/images/hero_background.jpg';
+
+  /// Home page services section (6 cards). Service order: App Development (Red), Responsive Web (Yellow), AI Agent (Teal), Book Creation Suite (Green), Communications Training (Purple), Custom Project (Black). Colors in AppColors.service*.
+  static const String assetServiceAiAgent = 'assets/images/placeholders/Ai_agent.jpg';
+  static const String assetServiceAppDevelopment = 'assets/images/placeholders/app_development.jpg';
+  static const String assetServiceBookCreation = 'assets/images/placeholders/book_creation_suite.jpg';
+  static const String assetServiceCommunicationsTraining = 'assets/images/placeholders/communications_training.jpg';
+  static const String assetServiceCustomProject = 'assets/images/placeholders/custom_project.jpg';
+  static const String assetServiceResponsiveWeb = 'assets/images/placeholders/responsive_web.jpg';
 
   // Apps page showcase
   /// Apps page hero banner.

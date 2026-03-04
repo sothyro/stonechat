@@ -66,6 +66,9 @@ class AppLocalizationsKm extends AppLocalizations {
   String get appsPageTitle => 'កម្មវិធីមិះ ស្តេចយ័ន្ត និង សៀវភៅ សម្រាប់ជាវ';
 
   @override
+  String get appsPageOverline => 'Apps';
+
+  @override
   String get appsPageSubline =>
       'ប៉ាជឺទេវតា ថ្លឹងឆ្អឹង ថ្លឹងវាសនាពេញលេញរបស់អ្នក';
 
@@ -78,6 +81,9 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get appsFeatureShowcaseHeading => 'ឧបករណ៍ដែលប្រែការយល់ឃើញទៅជាសកម្មភាព';
+
+  @override
+  String get appsFeatureShowcaseOverline => 'Marketplace';
 
   @override
   String get appsFeatureShowcaseMarketingDesc =>
@@ -243,6 +249,9 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get bookStoreSectionHeading => 'ហាងសៀវភៅ Stonechat';
+
+  @override
+  String get bookStoreSectionOverline => 'Book Store';
 
   @override
   String get bookStoreSectionTagline =>
@@ -492,6 +501,9 @@ class AppLocalizationsKm extends AppLocalizations {
   String get finalCtaHeading => 'រងចាំការចាប់ផ្តើម?';
 
   @override
+  String get finalCtaOverline => 'Get started';
+
+  @override
   String get finalCtaBody =>
       'គ្រាន់តែតេលេខទូរស័ព្ទ ផ្ញើសារទៅទំព័រ Facebook របស់យើង ឬមកជួបយើងផ្ទាល់។';
 
@@ -516,8 +528,69 @@ class AppLocalizationsKm extends AppLocalizations {
   String get sectionExperienceHeadingHighlight => 'ការផ្លាស់ប្តូរលទ្ធផល។';
 
   @override
+  String get sectionExperienceOverline => 'Workshops';
+
+  @override
+  String get sectionServicesHeading => 'What we offer';
+
+  @override
+  String get sectionServicesOverline => 'Services';
+
+  @override
+  String get sectionServicesSubline =>
+      'App Development, Responsive Web, AI Agent, Book Creation Suite, Communications Training, and Custom Project—one partner for all.';
+
+  @override
+  String get serviceAiAgent => 'AI Agent';
+
+  @override
+  String get serviceAiAgentDesc =>
+      'Smart automation and AI-powered solutions for your workflows.';
+
+  @override
+  String get serviceAppDevelopment => 'App Development';
+
+  @override
+  String get serviceAppDevelopmentDesc =>
+      'Modern apps for Web, Desktop, iOS and Android.';
+
+  @override
+  String get serviceBookCreation => 'Book Creation Suite';
+
+  @override
+  String get serviceBookCreationDesc =>
+      'From idea to published book—writing, design, and publishing.';
+
+  @override
+  String get serviceCommunicationsTraining => 'Communications Training';
+
+  @override
+  String get serviceCommunicationsTrainingDesc =>
+      'Workshops and training that build clear, practical skills.';
+
+  @override
+  String get serviceCustomProject => 'Custom Project';
+
+  @override
+  String get serviceCustomProjectDesc =>
+      'Tailored solutions for your unique needs and goals.';
+
+  @override
+  String get serviceResponsiveWeb => 'Responsive Web';
+
+  @override
+  String get serviceResponsiveWebDesc =>
+      'Beautiful, fast websites that work on every device.';
+
+  @override
+  String get serviceLearnMore => 'Learn more';
+
+  @override
   String get sectionKnowledgeHeading =>
       'វាមិនមែនជាការបង្រៀនធម្មតាទេ វាជាគោលការណ៍ជាក់ស្តែងសម្រាប់ការផ្លាស់ប្តូរដ៏ពិតប្រាកដ។';
+
+  @override
+  String get sectionKnowledgeOverline => 'Training';
 
   @override
   String get sectionKnowledgeBody =>
@@ -535,11 +608,17 @@ class AppLocalizationsKm extends AppLocalizations {
       'អ្នកមិនត្រូវការដំបូន្មានបន្ថែមទេ អ្នកត្រូវការផែនទី\nឱ្យមេឃចង្អុលអ្នកទៅផ្លូរត្រឹមត្រូវ។';
 
   @override
+  String get sectionMapOverline => 'Consultations';
+
+  @override
   String get sectionMapIntro =>
       'ត្រៀមខ្លួន… យើងដឹងវិធីដ៏ល្អបំផុតដើម្បីជួយអ្នកសម្របពេលវេលា និងបង្កើតផ្លូវច្បាស់បើកមុខ!';
 
   @override
   String get sectionStoryHeading => 'អំពី Stonechat។';
+
+  @override
+  String get sectionStoryOverline => 'About';
 
   @override
   String get sectionStoryPara1 =>
@@ -570,6 +649,9 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get sectionTestimonialsHeading => 'ការយល់ដឹងពិត លទ្ធផលពិត។';
+
+  @override
+  String get sectionTestimonialsOverline => 'Testimonials';
 
   @override
   String get sectionTestimonialsSub1 =>
@@ -677,6 +759,78 @@ class AppLocalizationsKm extends AppLocalizations {
   @override
   String get academyMoreCoursesNote =>
       'វគ្គសិក្សា និងកាលវិភាគបន្ថែមនឹងប្រកាសនៅទីនេះ។ ទាក់ទងយើងសម្រាប់ការព៍ត៌មានបន្ថែម។';
+
+  @override
+  String get eventCourseAppDevelopmentDesc =>
+      'Hands-on sessions on building apps for Web, Desktop, iOS & Android.';
+
+  @override
+  String get eventCourseAppDevelopmentAbout =>
+      'Join workshops and demos on modern app development. Clean architecture, clear interfaces, and practical tips. Suitable for teams and individuals exploring our App Development service.';
+
+  @override
+  String get eventCourseAppDevelopmentTopics =>
+      'Cross-platform • Clean code • UI/UX • Demos & Q&A';
+
+  @override
+  String get eventCourseResponsiveWebDesc =>
+      'Learn to design and deliver websites that work on every device.';
+
+  @override
+  String get eventCourseResponsiveWebAbout =>
+      'Workshops on responsive design, performance, and deployment. See live demos and get guidance on your Responsive Web projects. From concept to launch.';
+
+  @override
+  String get eventCourseResponsiveWebTopics =>
+      'Responsive layout • Performance • Accessibility • Real projects';
+
+  @override
+  String get eventCourseAiAgentDesc =>
+      'Smart automation and AI-powered solutions—see them in action.';
+
+  @override
+  String get eventCourseAiAgentAbout =>
+      'Demos and sessions on AI agents and workflow automation. Understand how our AI Agent service can fit your needs. No heavy jargon—clear, practical insights.';
+
+  @override
+  String get eventCourseAiAgentTopics =>
+      'Automation • AI tools • Use cases • Integration';
+
+  @override
+  String get eventCourseBookCreationDesc =>
+      'From idea to published book. Writing, design, and publishing workshops.';
+
+  @override
+  String get eventCourseBookCreationAbout =>
+      'Sessions on the full book-creation journey: concept, writing, editing, design, and publishing. Part of our Book Creation Suite. For authors and organizations.';
+
+  @override
+  String get eventCourseBookCreationTopics =>
+      'Writing • Editing • Design • Publishing pipeline';
+
+  @override
+  String get eventCourseCommunicationsTrainingDesc =>
+      'Human-centered and AI-enhanced communication skills. Clear, practical.';
+
+  @override
+  String get eventCourseCommunicationsTrainingAbout =>
+      'Our Communications Training in action. Workshops on clear speaking, writing, and using AI to communicate better. Human-centered and AI-enhanced. Khmer, English, Chinese.';
+
+  @override
+  String get eventCourseCommunicationsTrainingTopics =>
+      'Clear messaging • AI tools • Team skills • Practice sessions';
+
+  @override
+  String get eventCourseCustomProjectDesc =>
+      'Tailored solutions: mix and match our services for your goals.';
+
+  @override
+  String get eventCourseCustomProjectAbout =>
+      'Sessions and consultations on custom projects that combine App Development, Web, AI, Books, or Training. We help you scope and plan. One partner, flexible delivery.';
+
+  @override
+  String get eventCourseCustomProjectTopics =>
+      'Scoping • Planning • Multi-service • Your goals';
 
   @override
   String get consult1Category => 'ការអាន BaZi';
@@ -798,6 +952,9 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get eventsHeroHeadline => 'ព្រឹត្តិការណ៍ឆ្នាំនេះ—កុំខកខាន!';
+
+  @override
+  String get eventsHeroOverline => 'Events';
 
   @override
   String get eventsHeroSubline =>
@@ -1313,6 +1470,9 @@ class AppLocalizationsKm extends AppLocalizations {
   String get event1Title => 'Stonechat - The Rise of Phoenix 2026';
 
   @override
+  String get event1Date => '31 Jan 2026';
+
+  @override
   String get event1Description => 'ការបង្ហាញរបស់ Master។';
 
   @override
@@ -1320,6 +1480,9 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get event2Title => 'ហ្វងស៊ី និងហាស្ត្រូឡូហ្គី ២០២៦';
+
+  @override
+  String get event2Date => '31 Jan 2026';
 
   @override
   String get event2Description =>
@@ -1332,10 +1495,26 @@ class AppLocalizationsKm extends AppLocalizations {
   String get event3Title => 'សេះភ្លើង ឈីមិន';
 
   @override
+  String get event3Date => '1 – 2 Feb 2026';
+
+  @override
   String get event3Description => 'សិល្បៈសង្គ្រាមក្នុងឆ្នាំសេះភ្លើង';
 
   @override
   String get event3Location => 'Resorts World Singapore';
+
+  @override
+  String get event4Title => 'App Development & Responsive Web: Intro Workshop';
+
+  @override
+  String get event4Date => '15 Feb 2026';
+
+  @override
+  String get event4Description =>
+      'See how we build apps and responsive sites. Demos, Q&A, and a hands-on intro to modern development. For teams exploring our App Development or Responsive Web services.';
+
+  @override
+  String get event4Location => 'Phnom Penh & Online (Zoom)';
 
   @override
   String get loginSectionTitle => 'ការចូលប្រើប្រាស់បុគ្គលិក / រដ្ឋាភិបាល';

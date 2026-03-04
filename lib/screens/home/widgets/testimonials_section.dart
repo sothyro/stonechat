@@ -7,6 +7,7 @@ import '../../../config/app_content.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../theme/app_theme.dart';
 import '../../../utils/breakpoints.dart';
+import '../../../widgets/section_header.dart';
 
 /// Placeholder testimonial (from INFORMATION_NEEDED §8.5).
 class TestimonialItem {
@@ -39,109 +40,109 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
       quote: 'កូនសិស្ស មានកត្តិយសណាស់ បានចូលរួម កម្មវិធី ម្សិលមិញ 🙏🩵\nសង្ឃឹមថា បានស្គាល់លោកគ្រូ ប្អូន នឹងបាន កែប្រែ វាសនា 🙏',
       name: 'Panha Leakhena',
       location: 'Phnom Penh',
-      imagePath: AppContent.assetTestimonialPanhaLeakhena,
+      imagePath: AppContent.assetTestimonial,
     ),
     const TestimonialItem(
       quote: 'អរគុណ លោកគ្រូ សិស្សនៅខាងពេជនិល ទៅចូលរួមកម្មពីធី លោកគ្រូដែលកាលយប់31 អរគុណ លោកគ្រូ 🙏🏻🙏🏻🙏🏻',
       name: 'Moon Pichnil',
       location: 'Preah Sihanouk',
-      imagePath: AppContent.assetTestimonialMoon,
+      imagePath: AppContent.assetTestimonial,
     ),
     const TestimonialItem(
       quote: 'សូមគោរពអរគុណលោកគ្រូ ដែលចែកកាដូរពិសេសដល់ទៅពីរមុខក្នុងថ្ងៃជួបជុំ 🙏🙏🙏💙',
       name: 'Sereyrath Aumrith',
       location: 'International',
-      imagePath: AppContent.assetTestimonialRithy,
+      imagePath: AppContent.assetTestimonial,
     ),
     const TestimonialItem(
       quote: 'អរគុណលោកគ្រូ បើកមុខឲ្យខ្ញុំលក់ដីដាច់! ខ្ញុំលែងលំបាកហើយ',
       name: 'Sieng Vanna',
       location: 'Kandal',
-      imagePath: AppContent.assetTestimonialVanna,
+      imagePath: AppContent.assetTestimonial,
     ),
     const TestimonialItem(
       quote: 'Caishen🙏🙏🙏❤️',
       name: 'Phum Thida',
       location: 'N/A',
-      imagePath: AppContent.assetTestimonialThida,
+      imagePath: AppContent.assetTestimonial,
     ),
     const TestimonialItem(
       quote: '🙏🙏🙏❤️ Stonechat',
       name: 'Zeii Tey',
       location: 'N/A',
-      imagePath: AppContent.assetTestimonialZeiitey,
+      imagePath: AppContent.assetTestimonial,
     ),
     const TestimonialItem(
       quote: 'Yes sure master. អរគុណលោកគ្រូណាស់. Always by my side 🙏🏻🙏🏻🙏🏻. Am so Lucky to know you master is the big gift in my life 🙏🏻🙏🏻🙏🏻🙏🏻💸💰💵🎁🎉',
       name: 'Ya Nara',
       location: 'Takhmao, Cambodia',
-      imagePath: AppContent.assetTestimonial7,
+      imagePath: AppContent.assetTestimonial,
     ),
     const TestimonialItem(
       quote: 'ពេលបានអានសំណេរលោកគ្រូរួចធូរចិត្តច្រើន លោកគ្រូពិតជាពូកែខ្លាំងមែនទែន តាមដានតាំងពីដើមដល់ឥឡូវ',
       name: 'Phart Sanit',
       location: 'Siem Reap, Cambodia',
-      imagePath: AppContent.assetTestimonial8,
+      imagePath: AppContent.assetTestimonial,
     ),
     const TestimonialItem(
       quote: 'តាមដានគាត់ច្បាស់ៗម៉ង',
       name: 'Ah Pich',
       location: 'Poipet, Cambodia',
-      imagePath: AppContent.assetTestimonial9,
+      imagePath: AppContent.assetTestimonial,
     ),
     const TestimonialItem(
       quote: 'អោយតែឃើញផុសលោកគ្រូភាពតានតឹងបាត់អស់អរគុណលោកគ្រូ',
       name: 'Sreylin Khan',
       location: 'Siem Reap, Cambodia',
-      imagePath: AppContent.assetTestimonial10,
+      imagePath: AppContent.assetTestimonial,
     ),
     const TestimonialItem(
       quote: 'ចាំតែអានការវិភាគរបស់លោកគ្រូ អានលើកណាក៏ជក់ចិត្តដែរ',
       name: 'Juary Mith',
       location: 'Phnom Penh, Cambodia',
-      imagePath: AppContent.assetTestimonial11,
+      imagePath: AppContent.assetTestimonial,
     ),
     const TestimonialItem(
       quote: 'I love you I like to read ពេលលោកគ្រូមិះមានអារម្មណ៍កក់ក្ដៅ',
       name: 'Veth Raksmey',
       location: 'Phnom Penh, Cambodia',
-      imagePath: AppContent.assetTestimonial12,
+      imagePath: AppContent.assetTestimonial,
     ),
     const TestimonialItem(
       quote: 'តាមដានលោកគ្រូហុដស៊ុយហើយក្លាយជាការពិតទាំអស់សប្បាយចិត្ត',
       name: 'Taa',
       location: 'Phnom Penh, Cambodia',
-      imagePath: AppContent.assetTestimonial13,
+      imagePath: AppContent.assetTestimonial,
     ),
     const TestimonialItem(
       quote: 'តាមដានលោកគ្រូគ្រប់ផុសមិះមិនដែលខុសទេ',
       name: 'Da Na',
       location: 'Phnom Penh, Cambodia',
-      imagePath: AppContent.assetTestimonial14,
+      imagePath: AppContent.assetTestimonial,
     ),
     const TestimonialItem(
       quote: 'ខ្ញុំជឿជាក់លើលោកគ្រូ លោកគ្រូមិះក់មិនដែលខុសទេ',
       name: 'Mo Ly',
       location: 'Phnom Penh, Cambodia',
-      imagePath: AppContent.assetTestimonial15,
+      imagePath: AppContent.assetTestimonial,
     ),
     const TestimonialItem(
       quote: 'ខ្ញុំតាមដានផុសលោកគ្រូរហូតពិតជាឆុតមែន',
       name: 'Mey In',
       location: 'Siem Reap, Cambodia',
-      imagePath: AppContent.assetTestimonial16,
+      imagePath: AppContent.assetTestimonial,
     ),
     const TestimonialItem(
       quote: 'Stonechat និយាយបាន១ថ្ងៃផ្ទុះពេញfb',
       name: 'Chantrea Smile',
       location: 'Tbong khmoum, Cambodia',
-      imagePath: AppContent.assetTestimonial17,
+      imagePath: AppContent.assetTestimonial,
     ),
     const TestimonialItem(
       quote: 'Thank you Master, for sharing the most powerful Qi Men Dun Jia strategy.',
       name: 'Suon Mardy',
       location: 'Phnom Penh, Cambodia',
-      imagePath: AppContent.assetTestimonial18,
+      imagePath: AppContent.assetTestimonial,
     ),
   ];
 
@@ -235,48 +236,21 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
     final cardsPerPage = isMobile ? 1 : 3;
     final textTheme = Theme.of(context).textTheme;
 
-    final headingFontSize = isMobile ? 24.0 : 28.0;
-    final headingStyle = (textTheme.headlineMedium ?? textTheme.headlineSmall)?.copyWith(
-      color: AppColors.onPrimary,
-      fontWeight: FontWeight.bold,
-      height: 1.15,
-      fontSize: headingFontSize,
-    );
-    final realStyle = highlightStyleForLocale(
-      context,
-      color: AppColors.accent,
-      fontWeight: FontWeight.bold,
-      fontSize: isMobile ? 30 : 38,
-      height: 1.15,
-    );
-    final whiteItalicStyle = headingStyle?.copyWith(
-      fontStyle: FontStyle.italic,
-    );
-
     final introStyle = textTheme.bodyLarge?.copyWith(
       height: 1.55,
       color: AppColors.onPrimary.withValues(alpha: 0.9),
-    );
-
-    final headingWidget = RichText(
-      text: TextSpan(
-        style: headingStyle,
-        children: [
-          TextSpan(text: l10n.sectionTestimonialsPart1, style: realStyle),
-          TextSpan(text: l10n.sectionTestimonialsPart2),
-          TextSpan(text: l10n.sectionTestimonialsPart3, style: realStyle),
-          TextSpan(text: l10n.sectionTestimonialsPart4, style: whiteItalicStyle),
-        ],
-      ),
     );
 
     final headerContent = isMobile
         ? Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              headingWidget,
-              const SizedBox(height: 20),
-              Text(l10n.sectionTestimonialsSub1, style: introStyle),
+              SectionHeader(
+                overline: l10n.sectionTestimonialsOverline,
+                title: l10n.sectionTestimonialsHeading,
+                subline: l10n.sectionTestimonialsSub1,
+                isNarrow: true,
+              ),
               const SizedBox(height: 12),
               Text(l10n.sectionTestimonialsSub2, style: introStyle),
               const SizedBox(height: 24),
@@ -302,16 +276,11 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
                 flex: 2,
                 child: Padding(
                   padding: const EdgeInsets.only(right: 24),
-                  child: RichText(
-                    text: TextSpan(
-                      style: headingStyle,
-                      children: [
-                        TextSpan(text: l10n.sectionTestimonialsPart1, style: realStyle),
-                        TextSpan(text: l10n.sectionTestimonialsPart2),
-                        TextSpan(text: l10n.sectionTestimonialsPart3, style: realStyle),
-                        TextSpan(text: l10n.sectionTestimonialsPart4, style: whiteItalicStyle),
-                      ],
-                    ),
+                  child: SectionHeader(
+                    overline: l10n.sectionTestimonialsOverline,
+                    title: l10n.sectionTestimonialsHeading,
+                    subline: l10n.sectionTestimonialsSub1,
+                    isNarrow: false,
                   ),
                 ),
               ),
@@ -320,8 +289,6 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(l10n.sectionTestimonialsSub1, style: introStyle),
-                    const SizedBox(height: 12),
                     Text(l10n.sectionTestimonialsSub2, style: introStyle),
                     const SizedBox(height: 20),
                     Row(

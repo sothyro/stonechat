@@ -7,6 +7,7 @@ import '../../config/app_content.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/app_theme.dart';
 import '../../utils/breakpoints.dart';
+import '../../widgets/section_header.dart';
 import '../../utils/launcher_utils.dart';
 
 /// Fragment IDs for Apps & Store sections (used in /apps#fragment).
@@ -150,13 +151,10 @@ class _AppsScreenState extends State<AppsScreen> {
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          l10n.appsPageTitle,
-                          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                color: AppColors.onPrimary,
-                                fontWeight: FontWeight.w600,
-                              ),
-                          textAlign: TextAlign.center,
+                        SectionHeader(
+                          overline: l10n.appsPageOverline,
+                          title: l10n.appsPageTitle,
+                          isNarrow: isNarrow,
                         ),
                         SizedBox(height: isNarrow ? 20 : 24),
                         ConstrainedBox(
@@ -230,9 +228,11 @@ class _AppsScreenState extends State<AppsScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    _StoreSectionHeader(
-                      heading: l10n.appsFeatureShowcaseHeading,
+                    SectionHeader(
+                      overline: l10n.appsFeatureShowcaseOverline,
+                      title: l10n.appsFeatureShowcaseHeading,
                       subline: l10n.appsPageSubline,
+                      isNarrow: isNarrow,
                     ),
                     const SizedBox(height: 20),
                     Center(
@@ -345,43 +345,6 @@ class _MarketplaceCtaRow extends StatelessWidget {
               if (secondaryButton != null) secondaryButton!,
             ],
           );
-  }
-}
-
-/// Store section header with highlight typography.
-class _StoreSectionHeader extends StatelessWidget {
-  const _StoreSectionHeader({required this.heading, required this.subline});
-
-  final String heading;
-  final String subline;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          heading,
-          style: highlightStyleForLocale(
-            context,
-            fontSize: 36,
-            fontWeight: FontWeight.bold,
-            color: AppColors.accent,
-            height: 1.2,
-          ),
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 12),
-        Text(
-          subline,
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                color: AppColors.onSurfaceVariantDark,
-                height: 1.5,
-              ),
-          textAlign: TextAlign.center,
-        ),
-      ],
-    );
   }
 }
 
@@ -1100,21 +1063,11 @@ class _BookStoreSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          l10n.bookStoreSectionHeading,
-          style: highlightStyleForLocale(
-            context,
-            fontSize: isNarrow ? 28 : 34,
-            fontWeight: FontWeight.bold,
-            color: AppColors.accent,
-          ),
-        ),
-        const SizedBox(height: 8),
-        _AppsScreenState._buildDescriptionWithHighlight(
-          context,
-          l10n.bookStoreSectionTagline,
-          l10n.bookStoreSectionTaglineHighlight,
-          textAlign: TextAlign.left,
+        SectionHeader(
+          overline: l10n.bookStoreSectionOverline,
+          title: l10n.bookStoreSectionHeading,
+          subline: l10n.bookStoreSectionTagline,
+          isNarrow: isNarrow,
         ),
         const SizedBox(height: 16),
         _AppsScreenState._buildDescriptionWithHighlight(

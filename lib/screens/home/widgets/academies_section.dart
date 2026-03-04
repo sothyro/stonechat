@@ -7,6 +7,7 @@ import '../../../l10n/app_localizations.dart';
 import '../../../theme/app_theme.dart';
 import '../../../utils/breakpoints.dart';
 import '../../../widgets/academy_card.dart';
+import '../../../widgets/section_header.dart';
 
 /// Dark section with split heading/body and academy cards.
 class AcademiesSection extends StatelessWidget {
@@ -48,7 +49,11 @@ class AcademiesSection extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 if (isNarrow) ...[
-                  _buildHeading(context, l10n),
+                  SectionHeader(
+                    overline: l10n.sectionKnowledgeOverline,
+                    title: l10n.sectionKnowledgeHeading,
+                    isNarrow: true,
+                  ),
                   const SizedBox(height: 24),
                   _buildBody(context, l10n),
                 ] else
@@ -58,7 +63,11 @@ class AcademiesSection extends StatelessWidget {
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.only(right: 32),
-                          child: _buildHeading(context, l10n),
+                          child: SectionHeader(
+                            overline: l10n.sectionKnowledgeOverline,
+                            title: l10n.sectionKnowledgeHeading,
+                            isNarrow: false,
+                          ),
                         ),
                       ),
                       Expanded(
@@ -142,62 +151,6 @@ class AcademiesSection extends StatelessWidget {
           ),
         ),
     );
-  }
-
-  Widget _buildHeading(BuildContext context, AppLocalizations l10n) {
-    final width = MediaQuery.sizeOf(context).width;
-    final baseSize = width < 600 ? 22.0 : (width < 900 ? 26.0 : 32.0);
-    final normal = textStyleWithLocale(
-      context,
-      isHeading: true,
-      fontSize: baseSize,
-      fontWeight: FontWeight.w600,
-      color: _textLight,
-    ).copyWith(height: 1.3);
-    final highlight = highlightStyleForLocale(
-      context,
-      color: AppColors.accent,
-      fontWeight: FontWeight.bold,
-      fontSize: baseSize * 1.15,
-      height: 1.3,
-    );
-
-    final String s = l10n.sectionKnowledgeHeading;
-    final List<InlineSpan> spans = _highlightPhrases(
-      s,
-      ['Training', 'goals.', 'goals'],
-      normal,
-      highlight,
-    );
-    return RichText(
-      text: TextSpan(children: spans),
-    );
-  }
-
-  List<InlineSpan> _highlightPhrases(String text, List<String> phrases, TextStyle normal, TextStyle highlight) {
-    final List<InlineSpan> result = [];
-    int start = 0;
-    while (start < text.length) {
-      int nextIndex = -1;
-      String? matched;
-      for (final phrase in phrases) {
-        final idx = text.indexOf(phrase, start);
-        if (idx >= 0 && (nextIndex < 0 || idx < nextIndex)) {
-          nextIndex = idx;
-          matched = phrase;
-        }
-      }
-      if (nextIndex < 0) {
-        result.add(TextSpan(text: text.substring(start), style: normal));
-        break;
-      }
-      if (nextIndex > start) {
-        result.add(TextSpan(text: text.substring(start, nextIndex), style: normal));
-      }
-      result.add(TextSpan(text: matched, style: highlight));
-      start = nextIndex + (matched?.length ?? 0);
-    }
-    return result;
   }
 
   Widget _buildBody(BuildContext context, AppLocalizations l10n) {
