@@ -17,10 +17,16 @@
 # Optional: prevent directory listing
 Options -Indexes
 
-# Optional: cache static assets (adjust as needed)
+# Prevent caching of index.html and critical Flutter JS (ensures users get latest after deploy)
+<FilesMatch "^(index\.html|flutter_bootstrap\.js|main\.dart\.js|flutter\.js|flutter_service_worker\.js)$">
+  <IfModule mod_headers.c>
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </IfModule>
+</FilesMatch>
+
+# Cache static assets (images, fonts) – these change less often
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresByType application/javascript "access plus 1 year"
   ExpiresByType text/css "access plus 1 year"
   ExpiresByType image/png "access plus 1 year"
   ExpiresByType image/jpeg "access plus 1 year"

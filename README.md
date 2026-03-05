@@ -20,21 +20,39 @@ flutter pub get
 # Run on web (Chrome by default)
 flutter run -d chrome
 
-# Or build for production
+# Or build for production (run post-build for cache-busting)
 flutter build web
+node scripts/post-build-web.js
 ```
 
-Output is in `build/web/`. Serve with any static host or use `dart run webdev serve` for local preview.
+Output is in `build/web/`. The post-build script injects a cache-busting version into `index.html` so deployed updates are seen immediately instead of cached old versions. Serve with any static host or use `dart run webdev serve` for local preview.
 
 ### Direct links and 404 (SPA routing)
 
 The app uses path-based URLs (e.g. `/about`, `/contact`). So that **direct links, bookmarks, and refresh** work (and don’t show 404), the server must serve `index.html` for all routes and let the client router handle them.
 
 - **Namecheap (cPanel / Apache)**: `web/.htaccess` is included in the build. Upload the contents of `build/web/` to your hosting root (e.g. `public_html`). See [Deploying to Namecheap](#deploying-to-namecheap) below.
-- **Firebase Hosting**: `firebase.json` includes a `hosting` section with rewrites so unmatched paths serve `/index.html`. Deploy with `firebase deploy --only hosting` (after `flutter build web`).
+- **Firebase Hosting**: `firebase.json` includes a `hosting` section with rewrites so unmatched paths serve `/index.html`. Deploy with `firebase deploy --only hosting` (after `flutter build web` and `node scripts/post-build-web.js`).
 - **Netlify**: `web/_redirects` is copied into `build/web` and tells Netlify to serve `index.html` for every path (status 200).
-- **Vercel**: `vercel.json` has `rewrites` for the same behavior; set build to `flutter build web` and output to `build/web` in the project settings.
+- **Vercel**: `vercel.json` has `rewrites` and runs `flutter build web && node scripts/post-build-web.js`; output is `build/web`.
 - **Other hosts**: Configure the server so that requests that don’t match a file are served with `index.html` (e.g. nginx `try_files $uri $uri/ /index.html`).
+
+### Ensuring the web build is the latest version
+
+After deploy, users may see an old cached version. The project includes:
+
+1. **Post-build script** (`node scripts/post-build-web.js`) – injects a version query param into `flutter_bootstrap.js` in `index.html` so each build gets a unique URL.
+2. **Cache headers** – `firebase.json`, `vercel.json`, and `web/.htaccess` set `no-cache` for `index.html`, `flutter_bootstrap.js`, and `main.dart.js`.
+
+**Build and deploy (Firebase or manual upload):**
+
+```bash
+flutter build web
+node scripts/post-build-web.js
+# Then deploy build/web/ (e.g. firebase deploy --only hosting)
+```
+
+**Verify the deployed build:** Open `https://yoursite.com/version.json` – it shows `version` and `build_number` from `pubspec.yaml`. After a deploy, bump `version` or `build_number` in `pubspec.yaml` to confirm users receive updates.
 
 ### Tests
 
@@ -73,9 +91,10 @@ From the project root:
 ```bash
 flutter pub get
 flutter build web
+node scripts/post-build-web.js
 ```
 
-Output is in `build/web/`.
+Output is in `build/web/`. The post-build script ensures cache-busting so users see the latest version after deploy.
 
 ### 2. Upload to Namecheap
 
