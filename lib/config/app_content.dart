@@ -123,6 +123,10 @@ class AppContent {
   static const String assetCaishenClinic8 = 'assets/images/apps/Caishen Clinic (8).jpg';
   static const String assetCaishenClinic9 = 'assets/images/apps/Caishen Clinic (9).jpg';
 
+  /// Featured Mobile Apps cards (Period 9, Stonechat Bazi).
+  static const String assetFeaturedApp1 = 'assets/images/apps/iphoneapp.jpg';
+  static const String assetFeaturedApp2 = 'assets/images/apps/khmerai.jpg';
+
   /// Book store.
   static const String assetBook1 = 'assets/stores/books/period9book1.jpg';
   static const String assetBook2 = 'assets/stores/books/period9book2.jpg';

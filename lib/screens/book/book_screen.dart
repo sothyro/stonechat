@@ -100,15 +100,22 @@ class _BookScreenState extends State<BookScreen> {
     final width = MediaQuery.sizeOf(context).width;
     final isNarrow = Breakpoints.isMobile(width);
 
+    // Page copy is intentionally focused on publications & book services only.
+    const heroOverline = 'Publications & Book Services';
+    const heroTitle = 'From first idea to finished book';
+    const heroSubtitle =
+        'Turn your expertise into a beautiful, professionally published book. '
+        'Stonechat guides you from brainstorming and writing to design, printing, and launch.';
+
     return Container(
       width: double.infinity,
       color: AppColors.backgroundDark,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Hero: background image + title + subline + description + Stonechat system card.
+          // Hero: background image + title + subline + description + CTA (height matches Apps).
           SizedBox(
-            height: isNarrow ? 780 : 720,
+            height: isNarrow ? 560 : 520,
             width: double.infinity,
             child: Stack(
               fit: StackFit.expand,
@@ -138,70 +145,32 @@ class _BookScreenState extends State<BookScreen> {
                 Align(
                   alignment: const Alignment(0, 0.12),
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(
-                      isNarrow ? 16 : 24,
-                      isNarrow ? 148 : 120,
-                      isNarrow ? 16 : 24,
-                      isNarrow ? 48 : 56,
-                    ),
+                    padding: EdgeInsets.fromLTRB(isNarrow ? 16 : 24, isNarrow ? 148 : 120, isNarrow ? 16 : 24, isNarrow ? 40 : 48),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SectionHeader(
-                          overline: l10n.appsPageOverline,
-                          title: l10n.appsPageTitle,
+                          overline: heroOverline,
+                          title: heroTitle,
                           isNarrow: isNarrow,
                         ),
                         SizedBox(height: isNarrow ? 20 : 24),
                         ConstrainedBox(
                           constraints: const BoxConstraints(maxWidth: 640),
-                          child: _buildDescriptionWithHighlight(
-                            context,
-                            l10n.appsPageDescription,
-                            l10n.appsPageDescriptionHighlight,
+                          child: Text(
+                            heroSubtitle,
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                  color: AppColors.onPrimary.withValues(alpha: 0.9),
+                                  height: 1.6,
+                                ),
                           ),
                         ),
                         SizedBox(height: isNarrow ? 32 : 40),
                         ConstrainedBox(
                           constraints: const BoxConstraints(maxWidth: 1000),
-                          child: _SpotlightSection(
-                            icon: LucideIcons.cpu,
-                            title: l10n.stonechatSpotlightTitle,
-                            description: l10n.stonechatSpotlightDesc,
-                            transparent: true,
-                            child: _MarketplaceCtaRow(
-                              primaryButton: FilledButton.icon(
-                                onPressed: () => launchUrlExternal(AppContent.baziSystemUrl),
-                                icon: const Icon(LucideIcons.externalLink, size: 20),
-                                label: Text(l10n.openStonechatCta),
-                                style: FilledButton.styleFrom(
-                                  backgroundColor: AppColors.accent,
-                                  foregroundColor: AppColors.onAccent,
-                                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-                                ),
-                              ),
-                              secondaryLabel: '${l10n.bookStorePricePrefix}${l10n.spotlightSubscriptionPrice}${l10n.spotlightPricePerMonth}',
-                              secondaryButton: OutlinedButton.icon(
-                                onPressed: () {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(l10n.marketplaceAddedToCart),
-                                      behavior: SnackBarBehavior.floating,
-                                      backgroundColor: AppColors.surfaceElevatedDark,
-                                    ),
-                                  );
-                                },
-                                icon: const Icon(LucideIcons.creditCard, size: 18),
-                                label: Text(l10n.spotlightSubscribe),
-                                style: OutlinedButton.styleFrom(
-                                  foregroundColor: AppColors.accent,
-                                  side: const BorderSide(color: AppColors.accent),
-                                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-                                ),
-                              ),
-                            ),
-                            ),
+                          child: _HeroCtaRow(isNarrow: isNarrow),
                         ),
                       ],
                     ),
@@ -210,7 +179,7 @@ class _BookScreenState extends State<BookScreen> {
               ],
             ),
           ),
-          // Store section: vibrant product showcase below hero.
+          // Main content: services overview, process, pricing, and book catalogue.
           Padding(
             padding: EdgeInsets.only(
               top: isNarrow ? 40 : 56,
@@ -225,57 +194,19 @@ class _BookScreenState extends State<BookScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    SectionHeader(
-                      overline: l10n.appsFeatureShowcaseOverline,
-                      title: l10n.appsFeatureShowcaseHeading,
-                      subline: l10n.appsPageSubline,
-                      isNarrow: isNarrow,
-                    ),
-                    const SizedBox(height: 20),
-                    Center(
-                      child: ConstrainedBox(
-                        constraints: const BoxConstraints(maxWidth: 680),
-                        child: _buildDescriptionWithHighlight(
-                          context,
-                          l10n.appsFeatureShowcaseMarketingDesc,
-                          l10n.appsFeatureShowcaseMarketingHighlight,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 28),
-                    _MarketplaceCategoryStrip(l10n: l10n),
-                    const SizedBox(height: 48),
-                    _SectionAnchor(
-                      key: _keyStonechat,
-                      child: _FeaturedStonechatSection(l10n: l10n),
-                    ),
-                    const SizedBox(height: 56),
+                    const _BookServicesOverviewSection(),
+                    SizedBox(height: isNarrow ? 40 : 56),
+                    const _BookProcessSection(),
+                    SizedBox(height: isNarrow ? 40 : 56),
+                    const _BookPricingSection(),
+                    SizedBox(height: isNarrow ? 40 : 56),
                     _PersuasionBooksSection(l10n: l10n),
-                    const SizedBox(height: 56),
-                    _AppFeatureShowcase(
-                      features: [
-                        (AppContent.assetChapter1, l10n.talismanProduct1Title),
-                        (AppContent.assetChapter2, l10n.talismanProduct2Title),
-                        (AppContent.assetChapter3, l10n.talismanProduct3Title),
-                        (AppContent.assetChapter4, l10n.talismanProduct4Title),
-                        (AppContent.assetChapter5, l10n.talismanProduct5Title),
-                        (AppContent.assetChapter6, l10n.talismanProduct6Title),
-                        (AppContent.assetChapter7, l10n.talismanProduct7Title),
-                        (AppContent.assetChapter8, l10n.talismanProduct8Title),
-                        (AppContent.assetChapter9, l10n.talismanProduct9Title),
-                      ],
-                    ),
-                    const SizedBox(height: 56),
-                    _SectionAnchor(
-                      key: _keyPeriod9,
-                      child: _FeaturedPeriod9Section(l10n: l10n),
-                    ),
-                    const SizedBox(height: 56),
+                    SizedBox(height: isNarrow ? 40 : 56),
                     _SectionAnchor(
                       key: _keyBooks,
                       child: _BookStoreSection(l10n: l10n),
                     ),
-                    const SizedBox(height: 32),
+                    SizedBox(height: isNarrow ? 24 : 32),
                   ],
                 ),
               ),
@@ -295,6 +226,64 @@ class _SectionAnchor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => child;
+}
+
+/// Hero CTA row for Publications page: primary “Start your book” + secondary contact action.
+class _HeroCtaRow extends StatelessWidget {
+  const _HeroCtaRow({required this.isNarrow});
+
+  final bool isNarrow;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
+    final primary = FilledButton.icon(
+      onPressed: () => context.go('/consultations'),
+      icon: const Icon(LucideIcons.bookOpenCheck, size: 20),
+      label: const Text('Start your book project'),
+      style: FilledButton.styleFrom(
+        backgroundColor: AppColors.accent,
+        foregroundColor: AppColors.onAccent,
+        padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 16),
+        textStyle: Theme.of(context).textTheme.titleSmall?.copyWith(
+              fontWeight: FontWeight.w600,
+            ),
+      ),
+    );
+
+    final secondary = OutlinedButton.icon(
+      onPressed: () => context.go('/contact'),
+      icon: const Icon(LucideIcons.messageCircle, size: 18),
+      label: Text(l10n.contactUs),
+      style: OutlinedButton.styleFrom(
+        foregroundColor: AppColors.onPrimary,
+        side: const BorderSide(color: AppColors.borderLight, width: 1.3),
+        padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 14),
+      ),
+    );
+
+    if (isNarrow) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          primary,
+          const SizedBox(height: 12),
+          Center(child: secondary),
+        ],
+      );
+    }
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        primary,
+        const SizedBox(width: 18),
+        secondary,
+      ],
+    );
+  }
 }
 
 /// Row of primary CTA, optional price label, and secondary (e.g. Subscribe) for marketplace hero.
@@ -644,347 +633,770 @@ class _FeaturedStonechatSectionState extends State<_FeaturedStonechatSection> {
   }
 }
 
-/// Clinic App section with prominent download buttons.
-class _FeaturedPeriod9Section extends StatelessWidget {
-  const _FeaturedPeriod9Section({required this.l10n});
-
-  final AppLocalizations l10n;
+/// Services overview section: three core offerings for authors.
+class _BookServicesOverviewSection extends StatelessWidget {
+  const _BookServicesOverviewSection();
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final isNarrow = Breakpoints.isMobile(width);
-    final padding = isNarrow ? 20.0 : 32.0;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const SectionHeader(
+          overline: 'Book services',
+          title: 'Everything you need to publish with confidence',
+          isNarrow: false,
+        ),
+        const SizedBox(height: 18),
+        Text(
+          'Whether you are starting with a rough idea, a draft manuscript, or a finished book that needs design and printing, '
+          'Stonechat offers an end-to-end publication service tailored to busy leaders and experts.',
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                color: AppColors.onSurfaceVariantDark,
+                height: 1.6,
+              ),
+        ),
+        const SizedBox(height: 28),
+        LayoutBuilder(
+          builder: (context, constraints) {
+            final useColumn = isNarrow || constraints.maxWidth < 820;
+            final children = [
+              _ServiceCard(
+                icon: LucideIcons.brain,
+                title: 'Book strategy & structure',
+                body:
+                    'Clarify your core message, define who the book is for, and shape your ideas into a clear chapter outline. '
+                    'We help you decide what belongs in the book and what can stay out, so writing becomes faster and more focused.',
+                highlight: 'Ideal for leaders and experts who know what they want to say but are not sure how to organise it.',
+              ),
+              _ServiceCard(
+                icon: LucideIcons.fileText,
+                title: 'Writing, editing & translation',
+                body:
+                    'Through interviews, co-writing and careful editing, we turn your knowledge into polished, publication-ready chapters. '
+                    'Our editorial team writes in your voice in both English and Khmer, then refines every page for accuracy and flow.',
+                highlight: 'You stay the author and decision-maker; we do the heavy lifting on the page from first draft to final proof.',
+              ),
+              _ServiceCard(
+                icon: LucideIcons.layoutDashboard,
+                title: 'Design, layout & publishing',
+                body:
+                    'We create a professional cover, design clean interior pages, and prepare all print and digital files your printer needs. '
+                    'Our team coordinates specifications, quotations and test prints so your finished books look world-class on every shelf.',
+                highlight: 'One partner from design concept to printed books in your hands, ready for launch.',
+              ),
+            ];
+
+            if (useColumn) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  for (var i = 0; i < children.length; i++) ...[
+                    if (i > 0) const SizedBox(height: 18),
+                    children[i],
+                  ],
+                ],
+              );
+            }
+
+            // Desktop: keep all cards the same height by wrapping row in IntrinsicHeight.
+            return IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  for (var i = 0; i < children.length; i++) ...[
+                    if (i > 0) const SizedBox(width: 18),
+                    Expanded(child: children[i]),
+                  ],
+                ],
+              ),
+            );
+          },
+        ),
+      ],
+    );
+  }
+}
+
+class _ServiceCard extends StatefulWidget {
+  const _ServiceCard({
+    required this.icon,
+    required this.title,
+    required this.body,
+    required this.highlight,
+  });
+
+  final IconData icon;
+  final String title;
+  final String body;
+  final String highlight;
+
+  @override
+  State<_ServiceCard> createState() => _ServiceCardState();
+}
+
+class _ServiceCardState extends State<_ServiceCard> {
+  bool _hovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => setState(() => _hovered = true),
+      onExit: (_) => setState(() => _hovered = false),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 180),
+        curve: Curves.easeOut,
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: AppColors.surfaceElevatedDark,
+          borderRadius: BorderRadius.circular(18),
+          border: Border.all(
+            color: _hovered ? AppColors.accent.withValues(alpha: 0.5) : AppColors.borderDark,
+            width: _hovered ? 2 : 1,
+          ),
+          boxShadow: _hovered ? AppShadows.cardHover : AppShadows.card,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: AppColors.accent.withValues(alpha: 0.16),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: AppColors.accent.withValues(alpha: 0.6)),
+              ),
+              child: Icon(widget.icon, size: 26, color: AppColors.accent),
+            ),
+            const SizedBox(height: 14),
+            Text(
+              widget.title,
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color: AppColors.onPrimary,
+                    fontWeight: FontWeight.w600,
+                  ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              widget.body,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: AppColors.onSurfaceVariantDark,
+                    height: 1.55,
+                  ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              widget.highlight,
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: AppColors.accentLight,
+                    fontStyle: FontStyle.italic,
+                  ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Process section: communicates the end-to-end book journey in clear steps.
+class _BookProcessSection extends StatelessWidget {
+  const _BookProcessSection();
+
+  @override
+  Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+    final isNarrow = Breakpoints.isMobile(width);
+
+    final steps = [
+      (
+        LucideIcons.lightbulb,
+        '1. Discovery & brainstorming',
+        'We explore your story, goals, audience, and timeline, then shape them into a clear book concept and working outline.'
+      ),
+      (
+        LucideIcons.fileText,
+        '2. Writing & editorial',
+        'Through interviews, draft reviews, and editorial passes, we co-create chapters that sound like you and read like a pro.'
+      ),
+      (
+        LucideIcons.layoutTemplate,
+        '3. Design & production',
+        'We design the cover, lay out the pages, prepare print and digital files, and manage printers to agreed quality standards.'
+      ),
+      (
+        LucideIcons.rocket,
+        '4. Launch & beyond',
+        'You receive finished books and launch materials; we can also support events, media, and social content to amplify impact.'
+      ),
+    ];
 
     return Container(
-      padding: EdgeInsets.all(padding),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            AppColors.surfaceElevatedDark,
-            AppColors.surfaceElevatedDark.withValues(alpha: 0.95),
-            AppColors.backgroundDark.withValues(alpha: 0.5),
+            AppColors.surfaceElevatedDark.withValues(alpha: 0.96),
+            AppColors.backgroundDark,
           ],
         ),
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: AppColors.borderLight.withValues(alpha: 0.3), width: 1),
+        borderRadius: BorderRadius.circular(22),
+        border: Border.all(color: AppColors.borderLight.withValues(alpha: 0.28)),
         boxShadow: [
           ...AppShadows.card,
           BoxShadow(
-            color: AppColors.accentGlow.withValues(alpha: 0.08),
-            blurRadius: 24,
+            color: AppColors.accentGlow.withValues(alpha: 0.09),
+            blurRadius: 28,
             spreadRadius: 0,
           ),
         ],
       ),
-      child: isNarrow
-          ? Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Row(
+      padding: EdgeInsets.all(isNarrow ? 18 : 26),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            'How your book comes to life',
+            style: highlightStyleForLocale(
+              context,
+              fontSize: isNarrow ? 24 : 30,
+              fontWeight: FontWeight.bold,
+              color: AppColors.accent,
+            ),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            'A single, guided process from first conversation to printed books in your hands.',
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: AppColors.onSurfaceVariantDark,
+                  height: 1.6,
+                ),
+          ),
+          const SizedBox(height: 22),
+          LayoutBuilder(
+            builder: (context, constraints) {
+              final useColumn = isNarrow || constraints.maxWidth < 900;
+              if (useColumn) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text(
-                      l10n.period9SpotlightTitle,
-                      style: highlightStyleForLocale(
-                        context,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.accent,
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    _FreeBadge(l10n: l10n),
-                  ],
-                ),
-                const SizedBox(height: 6),
-                _BookScreenState._buildDescriptionWithHighlight(
-                  context,
-                  l10n.period9SpotlightTagline,
-                  l10n.period9SpotlightTaglineHighlight,
-                  textAlign: TextAlign.left,
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  l10n.period9SpotlightDesc,
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: AppColors.onSurfaceVariantDark,
-                        height: 1.5,
-                        fontSize: 15,
-                      ),
-                ),
-                const SizedBox(height: 20),
-                _Period9Screenshots(),
-                const SizedBox(height: 24),
-                _DownloadButtonsRow(l10n: l10n),
-                const SizedBox(height: 12),
-                Text(
-                  l10n.period9PremiumLabel,
-                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: AppColors.onSurfaceVariantDark,
-                        fontStyle: FontStyle.italic,
-                      ),
-                ),
-              ],
-            )
-          : Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  flex: 5,
-                  child: _Period9Screenshots(),
-                ),
-                const SizedBox(width: 40),
-                Expanded(
-                  flex: 4,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            l10n.period9SpotlightTitle,
-                            style: highlightStyleForLocale(
-                              context,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.accent,
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-                          _FreeBadge(l10n: l10n),
-                        ],
-                      ),
-                      const SizedBox(height: 6),
-                      _BookScreenState._buildDescriptionWithHighlight(
-                        context,
-                        l10n.period9SpotlightTagline,
-                        l10n.period9SpotlightTaglineHighlight,
-                        textAlign: TextAlign.left,
-                      ),
-                      const SizedBox(height: 12),
-                      Text(
-                        l10n.period9SpotlightDesc,
-                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                              color: AppColors.onSurfaceVariantDark,
-                              height: 1.5,
-                            ),
-                      ),
-                      const SizedBox(height: 28),
-                      _DownloadButtonsRow(l10n: l10n),
-                      const SizedBox(height: 12),
-                      Text(
-                        l10n.period9PremiumLabel,
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: AppColors.onSurfaceVariantDark,
-                              fontStyle: FontStyle.italic,
-                            ),
+                    for (var i = 0; i < steps.length; i++) ...[
+                      if (i > 0) const SizedBox(height: 14),
+                      _BookProcessStep(
+                        icon: steps[i].$1,
+                        title: steps[i].$2,
+                        body: steps[i].$3,
+                        index: i + 1,
+                        isLast: i == steps.length - 1,
                       ),
                     ],
+                  ],
+                );
+              }
+
+              return Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  for (var i = 0; i < steps.length; i++) ...[
+                    if (i > 0) const SizedBox(width: 18),
+                    Expanded(
+                      child: _BookProcessStep(
+                        icon: steps[i].$1,
+                        title: steps[i].$2,
+                        body: steps[i].$3,
+                        index: i + 1,
+                        isLast: i == steps.length - 1,
+                        horizontal: true,
+                      ),
+                    ),
+                  ],
+                ],
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _BookProcessStep extends StatelessWidget {
+  const _BookProcessStep({
+    required this.icon,
+    required this.title,
+    required this.body,
+    required this.index,
+    required this.isLast,
+    this.horizontal = false,
+  });
+
+  final IconData icon;
+  final String title;
+  final String body;
+  final int index;
+  final bool isLast;
+  final bool horizontal;
+
+  @override
+  Widget build(BuildContext context) {
+    final dot = Container(
+      width: 26,
+      height: 26,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: AppColors.accent,
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.accentGlow.withValues(alpha: 0.35),
+            blurRadius: 14,
+            spreadRadius: 0,
+          ),
+        ],
+      ),
+      child: Center(
+        child: Text(
+          '$index',
+          style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                color: AppColors.onAccent,
+                fontWeight: FontWeight.w700,
+              ),
+        ),
+      ),
+    );
+
+    if (horizontal) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              dot,
+              if (!isLast)
+                Expanded(
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 6),
+                    height: 1.4,
+                    color: AppColors.borderLight.withValues(alpha: 0.4),
                   ),
                 ),
-              ],
-            ),
-    );
-  }
-}
-
-/// Small "Free" badge for marketplace pricing.
-class _FreeBadge extends StatelessWidget {
-  const _FreeBadge({required this.l10n});
-
-  final AppLocalizations l10n;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-      decoration: BoxDecoration(
-        color: AppColors.accent.withValues(alpha: 0.2),
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: AppColors.accent.withValues(alpha: 0.5)),
-      ),
-      child: Text(
-        l10n.period9PriceFree,
-        style: Theme.of(context).textTheme.labelMedium?.copyWith(
-              color: AppColors.accent,
-              fontWeight: FontWeight.w700,
-            ),
-      ),
-    );
-  }
-}
-
-class _DownloadButtonsRow extends StatelessWidget {
-  const _DownloadButtonsRow({required this.l10n});
-
-  final AppLocalizations l10n;
-
-  @override
-  Widget build(BuildContext context) {
-    final isNarrow = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
-
-    return isNarrow
-        ? Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisSize: MainAxisSize.min,
+            ],
+          ),
+          const SizedBox(height: 12),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 56,
-                child: _ProminentStoreButton(
-                  imageAsset: AppContent.assetAppStoreIcon,
-                  url: AppContent.period9AppStoreUrl,
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: AppColors.surfaceElevatedDark.withValues(alpha: 0.9),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: AppColors.borderDark),
                 ),
+                child: Icon(icon, size: 20, color: AppColors.accentLight),
               ),
-              const SizedBox(height: 14),
-              SizedBox(
-                height: 56,
-                child: _ProminentStoreButton(
-                  imageAsset: AppContent.assetGooglePlayIcon,
-                  url: AppContent.period9PlayStoreUrl,
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                            color: AppColors.onPrimary,
+                            fontWeight: FontWeight.w600,
+                          ),
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      body,
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            color: AppColors.onSurfaceVariantDark,
+                            height: 1.55,
+                          ),
+                    ),
+                  ],
                 ),
               ),
             ],
-          )
-        : IntrinsicHeight(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 10),
-                    child: _ProminentStoreButton(
-                      imageAsset: AppContent.assetAppStoreIcon,
-                      url: AppContent.period9AppStoreUrl,
-                    ),
+          ),
+        ],
+      );
+    }
+
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Column(
+          children: [
+            dot,
+            if (!isLast)
+              Container(
+                width: 2,
+                height: 52,
+                margin: const EdgeInsets.only(top: 6),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      AppColors.accent.withValues(alpha: 0.5),
+                      AppColors.borderLight.withValues(alpha: 0.1),
+                    ],
                   ),
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: _ProminentStoreButton(
-                      imageAsset: AppContent.assetGooglePlayIcon,
-                      url: AppContent.period9PlayStoreUrl,
+              ),
+          ],
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: AppColors.surfaceElevatedDark.withValues(alpha: 0.9),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: AppColors.borderDark),
+                    ),
+                    child: Icon(icon, size: 20, color: AppColors.accentLight),
+                  ),
+                  const SizedBox(width: 10),
+                  Flexible(
+                    child: Text(
+                      title,
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                            color: AppColors.onPrimary,
+                            fontWeight: FontWeight.w600,
+                          ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          );
+                ],
+              ),
+              const SizedBox(height: 6),
+              Text(
+                body,
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: AppColors.onSurfaceVariantDark,
+                      height: 1.55,
+                    ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
   }
 }
 
-class _ProminentStoreButton extends StatefulWidget {
-  const _ProminentStoreButton({
-    required this.imageAsset,
-    required this.url,
-  });
-
-  final String imageAsset;
-  final String? url;
-
-  @override
-  State<_ProminentStoreButton> createState() => _ProminentStoreButtonState();
-}
-
-class _ProminentStoreButtonState extends State<_ProminentStoreButton> {
-  bool _hovered = false;
-
-  static final List<BoxShadow> _storeButtonShadow = [
-    BoxShadow(
-      color: Colors.black38,
-      blurRadius: 12,
-      offset: const Offset(0, 4),
-    ),
-    BoxShadow(
-      color: Colors.black26,
-      blurRadius: 6,
-      offset: const Offset(0, 2),
-    ),
-  ];
-
-  static final List<BoxShadow> _storeButtonShadowHover = [
-    BoxShadow(
-      color: Colors.black45,
-      blurRadius: 18,
-      offset: const Offset(0, 6),
-    ),
-    BoxShadow(
-      color: Colors.black26,
-      blurRadius: 8,
-      offset: const Offset(0, 3),
-    ),
-    BoxShadow(
-      color: AppColors.accentGlow.withValues(alpha: 0.3),
-      blurRadius: 16,
-      spreadRadius: -2,
-      offset: const Offset(0, 4),
-    ),
-  ];
+/// Pricing section: three clear packages with persuasive positioning.
+class _BookPricingSection extends StatelessWidget {
+  const _BookPricingSection();
 
   @override
   Widget build(BuildContext context) {
-    final enabled = widget.url != null && widget.url!.isNotEmpty;
-    final showHighlight = enabled && _hovered;
+    final width = MediaQuery.sizeOf(context).width;
+    final isNarrow = Breakpoints.isMobile(width);
+
+    const plans = [
+      (
+        'Author Starter',
+        'Ideal if you already have a draft or detailed notes.',
+        'From',
+        '1,500',
+        [
+          'Book concept and chapter outline workshop',
+          'Editorial review of manuscript (up to 40,000 words)',
+          'Line editing and proofreading',
+          'Simple interior layout and print-ready files',
+        ],
+        false,
+      ),
+      (
+        'Signature Book',
+        'Our most popular end-to-end package for leaders and experts.',
+        'From',
+        '3,500',
+        [
+          'Strategy, positioning and full chapter outline',
+          'Ghostwriting or co-writing based on interviews',
+          'Professional editing, proofreading and fact-checking',
+          'Custom cover design and premium interior layout',
+          'Print coordination (recommended specs and quotations)',
+        ],
+        true,
+      ),
+      (
+        'Launch & Legacy',
+        'For books that anchor your brand, organisation or campaign.',
+        'From',
+        '5,500',
+        [
+          'Everything in Signature Book',
+          'Launch event and media talking points pack',
+          'Social media launch kit (posts, visuals, captions)',
+          'Press-ready PDF and digital book formats (e.g. PDF/ePub)',
+          'Optional translation and bilingual editions',
+        ],
+        false,
+      ),
+    ];
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          'Transparent packages, customised to your book',
+          style: highlightStyleForLocale(
+            context,
+            fontSize: isNarrow ? 24 : 30,
+            fontWeight: FontWeight.bold,
+            color: AppColors.accent,
+          ),
+        ),
+        const SizedBox(height: 10),
+        Text(
+          'Every project begins with a conversation. These packages give you a clear starting point — we then tailor scope, timelines '
+          'and print quantities to match your goals and budget.',
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: AppColors.onSurfaceVariantDark,
+                height: 1.6,
+              ),
+        ),
+        const SizedBox(height: 26),
+        LayoutBuilder(
+          builder: (context, constraints) {
+            final useColumn = isNarrow || constraints.maxWidth < 900;
+            final cards = [
+              for (final p in plans)
+                _PricingCard(
+                  name: p.$1,
+                  strapline: p.$2,
+                  pricePrefix: p.$3,
+                  price: p.$4,
+                  bullets: p.$5,
+                  highlighted: p.$6,
+                ),
+            ];
+
+            if (useColumn) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  for (var i = 0; i < cards.length; i++) ...[
+                    if (i > 0) const SizedBox(height: 18),
+                    cards[i],
+                  ],
+                ],
+              );
+            }
+
+            // Desktop: ensure pricing cards share the same height.
+            return IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  for (var i = 0; i < cards.length; i++) ...[
+                    if (i > 0) const SizedBox(width: 18),
+                    Expanded(child: cards[i]),
+                  ],
+                ],
+              ),
+            );
+          },
+        ),
+      ],
+    );
+  }
+}
+
+class _PricingCard extends StatefulWidget {
+  const _PricingCard({
+    required this.name,
+    required this.strapline,
+    required this.pricePrefix,
+    required this.price,
+    required this.bullets,
+    this.highlighted = false,
+  });
+
+  final String name;
+  final String strapline;
+  final String pricePrefix;
+  final String price;
+  final List<String> bullets;
+  final bool highlighted;
+
+  @override
+  State<_PricingCard> createState() => _PricingCardState();
+}
+
+class _PricingCardState extends State<_PricingCard> {
+  bool _hovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final isNarrow = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
+
+    final accentColor = widget.highlighted ? AppColors.accent : AppColors.accentLight;
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
       onExit: (_) => setState(() => _hovered = false),
-      child: GestureDetector(
-        onTap: enabled ? () => launchUrlExternal(widget.url!) : null,
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          curve: Curves.easeOut,
-          height: 56,
-          padding: const EdgeInsets.all(6),
-          decoration: BoxDecoration(
-            color: enabled ? AppColors.surfaceElevatedDark : AppColors.surfaceElevatedDark.withValues(alpha: 0.6),
-            borderRadius: BorderRadius.circular(14),
-            border: Border.all(
-              color: showHighlight ? AppColors.accent : AppColors.borderDark,
-              width: showHighlight ? 3 : 1,
-            ),
-            boxShadow: enabled ? (showHighlight ? _storeButtonShadowHover : _storeButtonShadow) : null,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 180),
+        curve: Curves.easeOut,
+        padding: EdgeInsets.all(isNarrow ? 18 : 22),
+        decoration: BoxDecoration(
+          color: AppColors.surfaceElevatedDark.withValues(alpha: widget.highlighted ? 0.96 : 0.9),
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(
+            color: _hovered ? accentColor : AppColors.borderDark,
+            width: widget.highlighted || _hovered ? 2 : 1,
           ),
-          child: Center(
-            child: SizedBox(
-              width: double.infinity,
-              height: 44,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(
-                    color: AppColors.borderDark.withValues(alpha: 0.5),
-                    width: 1,
+          boxShadow: widget.highlighted || _hovered ? AppShadows.cardHover : AppShadows.card,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            // Header region (badge + name + strapline) with fixed height so
+            // prices and bullet lists align across all three cards.
+            SizedBox(
+              height: isNarrow ? 120 : 110,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // First row: badge (if any) + plan name on the same line.
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      if (widget.highlighted)
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                          decoration: BoxDecoration(
+                            color: accentColor.withValues(alpha: 0.2),
+                            borderRadius: BorderRadius.circular(999),
+                            border: Border.all(color: accentColor.withValues(alpha: 0.7)),
+                          ),
+                          child: Text(
+                            'Most popular',
+                            style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                                  color: accentColor,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                          ),
+                        ),
+                      if (widget.highlighted) const SizedBox(width: 8),
+                      Flexible(
+                        child: Text(
+                          widget.name,
+                          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                                color: AppColors.onPrimary,
+                                fontWeight: FontWeight.w600,
+                              ),
+                        ),
+                      ),
+                    ],
                   ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.25),
-                      blurRadius: 8,
-                      offset: const Offset(0, 2),
-                    ),
-                  ],
-                ),
-                clipBehavior: Clip.antiAlias,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                  child: Image.asset(
-                    widget.imageAsset,
-                    fit: BoxFit.contain,
-                    opacity: AlwaysStoppedAnimation(enabled ? 1.0 : 0.5),
-                    errorBuilder: (_, __, ___) => Icon(
-                      Icons.download,
-                      size: 28,
-                      color: enabled ? AppColors.onPrimary : AppColors.onSurfaceVariantDark,
+                  const SizedBox(height: 6),
+                  Expanded(
+                    child: Text(
+                      widget.strapline,
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            color: AppColors.onSurfaceVariantDark,
+                            height: 1.5,
+                          ),
                     ),
                   ),
-                ),
+                ],
               ),
             ),
-          ),
+            const SizedBox(height: 14),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  widget.pricePrefix,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: AppColors.onSurfaceVariantDark,
+                      ),
+                ),
+                const SizedBox(width: 4),
+                Text(
+                  widget.price,
+                  style: highlightStyleForLocale(
+                    context,
+                    fontSize: 26,
+                    fontWeight: FontWeight.bold,
+                    color: accentColor,
+                  ),
+                ),
+                const SizedBox(width: 4),
+                Text(
+                  l10n.spotlightPricePerMonth,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: AppColors.onSurfaceVariantDark,
+                      ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'Exact investment is confirmed after a scoping call.',
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: AppColors.onSurfaceVariantDark.withValues(alpha: 0.9),
+                    fontStyle: FontStyle.italic,
+                  ),
+            ),
+            const SizedBox(height: 14),
+            for (final bullet in widget.bullets) ...[
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Icon(LucideIcons.check, size: 16, color: AppColors.accentLight),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      bullet,
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            color: AppColors.onSurfaceVariantDark,
+                            height: 1.5,
+                          ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 6),
+            ],
+            const Spacer(),
+            const SizedBox(height: 10),
+            FilledButton.icon(
+              onPressed: () => context.go('/consultations'),
+              icon: const Icon(LucideIcons.calendarClock, size: 18),
+              label: Text('Book a project call'),
+              style: FilledButton.styleFrom(
+                backgroundColor: accentColor,
+                foregroundColor: AppColors.onAccent,
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              ),
+            ),
+          ],
         ),
       ),
     );

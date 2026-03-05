@@ -514,6 +514,54 @@ abstract class AppLocalizations {
   /// **'Settings & integration'**
   String get caishenClinicFeature9Title;
 
+  /// No description provided for @featuredAppsSectionOverline.
+  ///
+  /// In en, this message translates to:
+  /// **'Featured Mobile Apps'**
+  String get featuredAppsSectionOverline;
+
+  /// No description provided for @featuredAppsSectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'From idea to finished app. In one place.'**
+  String get featuredAppsSectionTitle;
+
+  /// No description provided for @featuredAppsSectionSubline.
+  ///
+  /// In en, this message translates to:
+  /// **'From Feng Shui to Khmer AI—discover what we\'ve shipped.'**
+  String get featuredAppsSectionSubline;
+
+  /// No description provided for @featuredAppsSectionBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Stonechat builds and publishes mobile apps for iOS and Android. Period 9 Feng Shui Guide and Stonechat Khmer AI are available on the App Store and Google Play.'**
+  String get featuredAppsSectionBody;
+
+  /// No description provided for @featuredApp1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Period 9 Feng Shui Guide'**
+  String get featuredApp1Title;
+
+  /// No description provided for @featuredApp1Subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Feng Shui for 2024–2043. iOS & Android.'**
+  String get featuredApp1Subtitle;
+
+  /// No description provided for @featuredApp2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Stonechat Khmer AI'**
+  String get featuredApp2Title;
+
+  /// No description provided for @featuredApp2Subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'AI-powered Khmer language & communication.'**
+  String get featuredApp2Subtitle;
+
   /// No description provided for @stonechatSpotlightTagline.
   ///
   /// In en, this message translates to:

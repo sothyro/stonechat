@@ -14,6 +14,7 @@ import '../../services/error_service.dart' show AppError, executeWithRetry;
 import '../../utils/validators.dart';
 import '../../widgets/error_display.dart' show ErrorDisplay, ErrorSnackbar;
 import '../../widgets/glass_container.dart';
+import '../../widgets/section_header.dart';
 
 /// Consultation type for booking.
 class _ConsultationOption {
@@ -275,6 +276,8 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final width = MediaQuery.sizeOf(context).width;
+    final isNarrow = Breakpoints.isMobile(width);
 
     return Container(
       width: double.infinity,
@@ -282,76 +285,101 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Stack(
-            children: [
-              Positioned.fill(
-                child: Image.asset(
-                  AppContent.assetAppsHero,
-                  fit: BoxFit.cover,
-                  errorBuilder: (_, __, ___) => const SizedBox.expand(),
+          // Hero: fixed height, Align(0, 0.12), SectionHeader (matches Apps page).
+          SizedBox(
+            height: isNarrow ? 560 : 520,
+            width: double.infinity,
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                Positioned.fill(
+                  child: Image.asset(
+                    AppContent.assetAppsHero,
+                    fit: BoxFit.cover,
+                    errorBuilder: (_, __, ___) => const SizedBox.expand(),
+                  ),
                 ),
-              ),
-              Positioned.fill(
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        AppColors.backgroundDark.withValues(alpha: 0.72),
-                        AppColors.backgroundDark.withValues(alpha: 0.88),
-                      ],
+                Positioned.fill(
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          AppColors.backgroundDark.withValues(alpha: 0.72),
+                          AppColors.backgroundDark.withValues(alpha: 0.88),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: Breakpoints.isMobile(MediaQuery.sizeOf(context).width) ? 148 : 120,
-                  bottom: (Breakpoints.isMobile(MediaQuery.sizeOf(context).width) ? 32 : 48) +
-                      MediaQuery.paddingOf(context).bottom,
-                  left: Breakpoints.isMobile(MediaQuery.sizeOf(context).width) ? 16 : 24,
-                  right: Breakpoints.isMobile(MediaQuery.sizeOf(context).width) ? 16 : 24,
-                ),
-                child: Center(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 560),
+                Align(
+                  alignment: const Alignment(0, 0.12),
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(
+                      isNarrow ? 16 : 24,
+                      isNarrow ? 148 : 120,
+                      isNarrow ? 16 : 24,
+                      isNarrow ? 40 : 48,
+                    ),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       mainAxisSize: MainAxisSize.min,
-                      key: _stepSectionKey,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          l10n.bookConsultation,
-                          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                color: AppColors.onPrimary,
-                                fontWeight: FontWeight.w600,
-                              ),
-                          textAlign: TextAlign.center,
+                        SectionHeader(
+                          overline: 'Consultations',
+                          title: l10n.bookConsultation,
+                          isNarrow: isNarrow,
                         ),
-                        const SizedBox(height: 12),
-                        Text(
-                          l10n.appointmentIntro,
-                          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                color: AppColors.onSurfaceVariantDark,
-                                height: 1.5,
-                              ),
-                          textAlign: TextAlign.center,
+                        SizedBox(height: isNarrow ? 20 : 24),
+                        ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 640),
+                          child: Text(
+                            l10n.appointmentIntro,
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                  color: AppColors.onPrimary.withValues(alpha: 0.9),
+                                  height: 1.6,
+                                ),
+                          ),
                         ),
-                        const SizedBox(height: 32),
-                        if (_step < _maxStep) _buildStepper(l10n),
-                        const SizedBox(height: 24),
-                        if (_step == 0) _buildStepService(l10n),
-                        if (_step == 1) _buildStepDateTime(l10n),
-                        if (_step == 2) _buildStepDetails(l10n),
-                        if (_step == 3) _buildStepConfirm(l10n),
-                        if (_step == _maxStep) _buildStepSuccess(l10n),
                       ],
                     ),
                   ),
                 ),
+              ],
+            ),
+          ),
+          // Form section below hero.
+          Padding(
+            padding: EdgeInsets.only(
+              top: isNarrow ? 40 : 56,
+              bottom: (isNarrow ? 32 : 48) + MediaQuery.paddingOf(context).bottom,
+              left: isNarrow ? 16 : 24,
+              right: isNarrow ? 16 : 24,
+            ),
+            child: Center(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: 560,
+                  minWidth: 0,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisSize: MainAxisSize.min,
+                  key: _stepSectionKey,
+                  children: [
+                    if (_step < _maxStep) _buildStepper(l10n),
+                    const SizedBox(height: 24),
+                    if (_step == 0) _buildStepService(l10n),
+                    if (_step == 1) _buildStepDateTime(l10n),
+                    if (_step == 2) _buildStepDetails(l10n),
+                    if (_step == 3) _buildStepConfirm(l10n),
+                    if (_step == _maxStep) _buildStepSuccess(l10n),
+                  ],
+                ),
               ),
-            ],
+            ),
           ),
           _BookingDashboardSection(
             phoneController: _dashboardPhoneController,

@@ -11,6 +11,7 @@ import '../../utils/launcher_utils.dart';
 import '../../utils/validators.dart';
 import '../../widgets/error_display.dart';
 import '../../widgets/glass_container.dart';
+import '../../widgets/section_header.dart';
 
 /// Contact page: hero banner + two-column layout (contact info left, form right).
 class ContactScreen extends StatefulWidget {
@@ -157,6 +158,7 @@ class _ContactScreenState extends State<ContactScreen> {
     final l10n = AppLocalizations.of(context)!;
     final width = MediaQuery.sizeOf(context).width;
     final isNarrow = Breakpoints.isMobile(width);
+    final useSingleColumn = Breakpoints.isNarrow(width);
 
     return Container(
       width: double.infinity,
@@ -164,81 +166,87 @@ class _ContactScreenState extends State<ContactScreen> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Hero: same structure as Consultations page — full-bleed image + gradient, content on top
-          Stack(
-            children: [
-              Positioned.fill(
-                child: Image.asset(
-                  AppContent.assetContactHero,
-                  fit: BoxFit.cover,
-                  errorBuilder: (_, __, ___) => const SizedBox.expand(),
+          // Hero: fixed height, Align(0, 0.12), SectionHeader (matches Apps page).
+          SizedBox(
+            height: isNarrow ? 560 : 520,
+            width: double.infinity,
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                Positioned.fill(
+                  child: Image.asset(
+                    AppContent.assetContactHero,
+                    fit: BoxFit.cover,
+                    errorBuilder: (_, __, ___) => const SizedBox.expand(),
+                  ),
                 ),
-              ),
-              Positioned.fill(
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        AppColors.backgroundDark.withValues(alpha: 0.72),
-                        AppColors.backgroundDark.withValues(alpha: 0.88),
-                      ],
+                Positioned.fill(
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          AppColors.backgroundDark.withValues(alpha: 0.72),
+                          AppColors.backgroundDark.withValues(alpha: 0.88),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: isNarrow ? 148 : 120,
-                  bottom: (isNarrow ? 32 : 48) + MediaQuery.paddingOf(context).bottom,
-                  left: isNarrow ? 16 : 24,
-                  right: isNarrow ? 16 : 24,
-                ),
-                child: Center(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 1100),
+                Align(
+                  alignment: const Alignment(0, 0.12),
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(
+                      isNarrow ? 16 : 24,
+                      isNarrow ? 148 : 120,
+                      isNarrow ? 16 : 24,
+                      isNarrow ? 40 : 48,
+                    ),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          l10n.contactUs,
-                          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                color: AppColors.onPrimary,
-                                fontWeight: FontWeight.w600,
-                              ),
-                          textAlign: TextAlign.center,
+                        SectionHeader(
+                          overline: 'Contact',
+                          title: l10n.contactUs,
+                          isNarrow: isNarrow,
                         ),
-                        const SizedBox(height: 12),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: isNarrow ? 20 : 48,
-                          ),
-                          child: Center(
-                            child: ConstrainedBox(
-                              constraints: const BoxConstraints(maxWidth: 560),
-                              child: Text(
-                                l10n.contactIntro,
-                                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                      color: AppColors.onSurfaceVariantDark,
-                                      height: 1.5,
-                                    ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
+                        SizedBox(height: isNarrow ? 20 : 24),
+                        ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 640),
+                          child: Text(
+                            l10n.contactIntro,
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                  color: AppColors.onPrimary.withValues(alpha: 0.9),
+                                  height: 1.6,
+                                ),
                           ),
                         ),
-                        const SizedBox(height: 48),
-                        isNarrow
-                            ? _buildSingleColumn(l10n)
-                            : _buildTwoColumns(l10n),
                       ],
                     ),
                   ),
                 ),
+              ],
+            ),
+          ),
+          // Form section below hero.
+          Padding(
+            padding: EdgeInsets.only(
+              top: isNarrow ? 40 : 56,
+              bottom: (isNarrow ? 32 : 48) + MediaQuery.paddingOf(context).bottom,
+              left: isNarrow ? 16 : 24,
+              right: isNarrow ? 16 : 24,
+            ),
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 1100),
+                child: useSingleColumn
+                    ? _buildSingleColumn(l10n)
+                    : _buildTwoColumns(l10n),
               ),
-            ],
+            ),
           ),
         ],
       ),

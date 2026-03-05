@@ -230,6 +230,33 @@ class AppLocalizationsKm extends AppLocalizations {
   String get caishenClinicFeature9Title => 'ការកំណត់ និងការរួមបញ្ចូល';
 
   @override
+  String get featuredAppsSectionOverline => 'កម្មវិធីចល័តពិសេស';
+
+  @override
+  String get featuredAppsSectionTitle => 'ពីគំនិតទៅកម្មវិធីរួច។ នៅកន្លែងតែមួយ។';
+
+  @override
+  String get featuredAppsSectionSubline =>
+      'ពី Feng Shui ទៅ Khmer AI—ស្វែងរកអ្វីដែលយើងបានចេញ។';
+
+  @override
+  String get featuredAppsSectionBody =>
+      'Stonechat បង្កើត និងបោះពុម្ភកម្មវិធីចល័តសម្រាប់ iOS និង Android។ Period 9 Feng Shui Guide និង Stonechat Khmer AI មានលើ App Store និង Google Play។';
+
+  @override
+  String get featuredApp1Title => 'Period 9 Feng Shui Guide';
+
+  @override
+  String get featuredApp1Subtitle =>
+      'Feng Shui សម្រាប់ ២០២៤–២០៤៣។ iOS និង Android។';
+
+  @override
+  String get featuredApp2Title => 'Stonechat Khmer AI';
+
+  @override
+  String get featuredApp2Subtitle => 'ភាសាខ្មែរ និងការទំនាក់ទំនងដោយ AI។';
+
+  @override
   String get stonechatSpotlightTagline => 'គុណភាពដោយថ្លៃសមរម្យ។';
 
   @override

@@ -245,7 +245,9 @@ class _HeroSectionState extends State<HeroSection> {
             if (_videoReady && _controller != null && _controller!.value.isInitialized)
               Positioned.fill(
                 child: FittedBox(
-                  fit: BoxFit.contain,
+                  // Use cover so the video stays fixed and doesn’t appear to “slide”
+                  // as the layout changes; this keeps it behaving like a full-bleed background.
+                  fit: BoxFit.cover,
                   child: SizedBox(
                     width: _controller!.value.size.width,
                     height: _controller!.value.size.height,

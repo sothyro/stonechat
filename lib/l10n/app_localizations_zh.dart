@@ -220,6 +220,31 @@ class AppLocalizationsZh extends AppLocalizations {
   String get caishenClinicFeature9Title => '设置与集成';
 
   @override
+  String get featuredAppsSectionOverline => '精选移动应用';
+
+  @override
+  String get featuredAppsSectionTitle => '从构思到成品应用。一站式完成。';
+
+  @override
+  String get featuredAppsSectionSubline => '从风水到高棉语 AI——探索我们已发布的应用。';
+
+  @override
+  String get featuredAppsSectionBody =>
+      'Stonechat 为 iOS 和 Android 开发并发布移动应用。Period 9 风水指南与 Stonechat 高棉语 AI 已在 App Store 和 Google Play 上架。';
+
+  @override
+  String get featuredApp1Title => 'Period 9 风水指南';
+
+  @override
+  String get featuredApp1Subtitle => '2024–2043 风水。支持 iOS 与 Android。';
+
+  @override
+  String get featuredApp2Title => 'Stonechat 高棉语 AI';
+
+  @override
+  String get featuredApp2Subtitle => 'AI 驱动的高棉语与沟通工具。';
+
+  @override
   String get stonechatSpotlightTagline => '品质不打折，价格更亲民。';
 
   @override

@@ -651,7 +651,7 @@ class _EventsHeroState extends State<_EventsHero> {
     final isNarrow = Breakpoints.isMobile(width);
 
     return SizedBox(
-      height: isNarrow ? 640 : 600,
+      height: isNarrow ? 640 : 520,
       width: double.infinity,
       child: Stack(
         fit: StackFit.expand,
@@ -680,9 +680,11 @@ class _EventsHeroState extends State<_EventsHero> {
           Align(
             alignment: const Alignment(0, 0.12),
             child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: isNarrow ? 16 : 24,
-                vertical: isNarrow ? 48 : 56,
+              padding: EdgeInsets.fromLTRB(
+                isNarrow ? 16 : 24,
+                isNarrow ? 148 : 120,
+                isNarrow ? 16 : 24,
+                isNarrow ? 40 : 48,
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,

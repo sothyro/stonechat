@@ -232,6 +232,34 @@ class AppLocalizationsEn extends AppLocalizations {
   String get caishenClinicFeature9Title => 'Settings & integration';
 
   @override
+  String get featuredAppsSectionOverline => 'Featured Mobile Apps';
+
+  @override
+  String get featuredAppsSectionTitle =>
+      'From idea to finished app. In one place.';
+
+  @override
+  String get featuredAppsSectionSubline =>
+      'From Feng Shui to Khmer AI—discover what we\'ve shipped.';
+
+  @override
+  String get featuredAppsSectionBody =>
+      'Stonechat builds and publishes mobile apps for iOS and Android. Period 9 Feng Shui Guide and Stonechat Khmer AI are available on the App Store and Google Play.';
+
+  @override
+  String get featuredApp1Title => 'Period 9 Feng Shui Guide';
+
+  @override
+  String get featuredApp1Subtitle => 'Feng Shui for 2024–2043. iOS & Android.';
+
+  @override
+  String get featuredApp2Title => 'Stonechat Khmer AI';
+
+  @override
+  String get featuredApp2Subtitle =>
+      'AI-powered Khmer language & communication.';
+
+  @override
   String get stonechatSpotlightTagline => 'Quality without the high price.';
 
   @override

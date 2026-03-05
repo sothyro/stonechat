@@ -8,15 +8,14 @@ import '../../l10n/app_localizations.dart';
 import '../../theme/app_theme.dart';
 import '../../utils/breakpoints.dart';
 import '../../widgets/section_header.dart';
+import '../../widgets/subscribe_dialog.dart';
 import '../../utils/launcher_utils.dart';
 
-/// Fragment IDs for Apps & Store sections (used in /apps#fragment).
+/// Fragment IDs for Apps page sections (used in /apps#fragment).
 const String _sectionStonechat = 'stonechat';
 const String _sectionPeriod9 = 'period9';
-const String _sectionBooks = 'books';
-const String _sectionTalisman = 'talisman';
 
-/// Apps & Store page: Stonechat system, Clinic App, Book Store.
+/// Apps page: app development services, process, pricing, and product showcases.
 class AppsScreen extends StatefulWidget {
   const AppsScreen({super.key});
 
@@ -27,8 +26,6 @@ class AppsScreen extends StatefulWidget {
 class _AppsScreenState extends State<AppsScreen> {
   final GlobalKey _keyStonechat = GlobalKey();
   final GlobalKey _keyPeriod9 = GlobalKey();
-  final GlobalKey _keyBooks = GlobalKey();
-  final GlobalKey _keyTalisman = GlobalKey();
 
   @override
   void didChangeDependencies() {
@@ -40,15 +37,12 @@ class _AppsScreenState extends State<AppsScreen> {
     final fragment = GoRouterState.of(context).uri.fragment;
     if (fragment.isEmpty) return;
     final width = MediaQuery.sizeOf(context).width;
-    // On mobile, skip scroll-to-section so the hero stays visible; desktop keeps section navigation.
     if (Breakpoints.isMobile(width)) return;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       final key = switch (fragment) {
         _sectionStonechat => _keyStonechat,
         _sectionPeriod9 => _keyPeriod9,
-        _sectionBooks => _keyBooks,
-        _sectionTalisman => _keyTalisman,
         _ => null,
       };
       if (key?.currentContext != null) {
@@ -109,9 +103,9 @@ class _AppsScreenState extends State<AppsScreen> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Hero: background image + title + subline + description + Stonechat system card.
+          // Hero: apps-focused headline and CTA.
           SizedBox(
-            height: isNarrow ? 780 : 720,
+            height: isNarrow ? 560 : 520,
             width: double.infinity,
             child: Stack(
               fit: StackFit.expand,
@@ -137,7 +131,6 @@ class _AppsScreenState extends State<AppsScreen> {
                     ),
                   ),
                 ),
-                // Content centered vertically with extra top clearance from the main menu (match Consultations page).
                 Align(
                   alignment: const Alignment(0, 0.12),
                   child: Padding(
@@ -145,67 +138,31 @@ class _AppsScreenState extends State<AppsScreen> {
                       isNarrow ? 16 : 24,
                       isNarrow ? 148 : 120,
                       isNarrow ? 16 : 24,
-                      isNarrow ? 48 : 56,
+                      isNarrow ? 40 : 48,
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SectionHeader(
-                          overline: l10n.appsPageOverline,
-                          title: l10n.appsPageTitle,
-                          isNarrow: isNarrow,
+                        const SectionHeader(
+                          overline: 'App Development',
+                          title: 'From idea to App Store and Play Store',
+                          isNarrow: false,
                         ),
                         SizedBox(height: isNarrow ? 20 : 24),
                         ConstrainedBox(
                           constraints: const BoxConstraints(maxWidth: 640),
-                          child: _buildDescriptionWithHighlight(
-                            context,
-                            l10n.appsPageDescription,
-                            l10n.appsPageDescriptionHighlight,
+                          child: Text(
+                            'Turn your vision into a polished mobile or web app. Stonechat guides you from concept and design through development, testing, and submission to the App Store and Google Play.',
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                  color: AppColors.onPrimary.withValues(alpha: 0.9),
+                                  height: 1.6,
+                                ),
                           ),
                         ),
                         SizedBox(height: isNarrow ? 32 : 40),
-                        ConstrainedBox(
-                          constraints: const BoxConstraints(maxWidth: 1000),
-                          child: _SpotlightSection(
-                            icon: LucideIcons.cpu,
-                            title: l10n.stonechatSpotlightTitle,
-                            description: l10n.stonechatSpotlightDesc,
-                            transparent: true,
-                            child: _MarketplaceCtaRow(
-                              primaryButton: FilledButton.icon(
-                                onPressed: () => launchUrlExternal(AppContent.baziSystemUrl),
-                                icon: const Icon(LucideIcons.externalLink, size: 20),
-                                label: Text(l10n.openStonechatCta),
-                                style: FilledButton.styleFrom(
-                                  backgroundColor: AppColors.accent,
-                                  foregroundColor: AppColors.onAccent,
-                                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-                                ),
-                              ),
-                              secondaryLabel: '${l10n.bookStorePricePrefix}${l10n.spotlightSubscriptionPrice}${l10n.spotlightPricePerMonth}',
-                              secondaryButton: OutlinedButton.icon(
-                                onPressed: () {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(l10n.marketplaceAddedToCart),
-                                      behavior: SnackBarBehavior.floating,
-                                      backgroundColor: AppColors.surfaceElevatedDark,
-                                    ),
-                                  );
-                                },
-                                icon: const Icon(LucideIcons.creditCard, size: 18),
-                                label: Text(l10n.spotlightSubscribe),
-                                style: OutlinedButton.styleFrom(
-                                  foregroundColor: AppColors.accent,
-                                  side: const BorderSide(color: AppColors.accent),
-                                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-                                ),
-                              ),
-                            ),
-                            ),
-                        ),
+                        _AppsHeroCtaRow(isNarrow: isNarrow),
                       ],
                     ),
                   ),
@@ -213,7 +170,7 @@ class _AppsScreenState extends State<AppsScreen> {
               ],
             ),
           ),
-          // Store section: vibrant product showcase below hero.
+          // Main content: services, process, pricing, then product showcases.
           Padding(
             padding: EdgeInsets.only(
               top: isNarrow ? 40 : 56,
@@ -228,48 +185,28 @@ class _AppsScreenState extends State<AppsScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    SectionHeader(
-                      overline: l10n.appsFeatureShowcaseOverline,
-                      title: l10n.appsFeatureShowcaseHeading,
-                      subline: l10n.appsPageSubline,
-                      isNarrow: isNarrow,
-                    ),
-                    const SizedBox(height: 20),
-                    Center(
-                      child: ConstrainedBox(
-                        constraints: const BoxConstraints(maxWidth: 680),
-                        child: _buildDescriptionWithHighlight(
-                          context,
-                          l10n.appsFeatureShowcaseMarketingDesc,
-                          l10n.appsFeatureShowcaseMarketingHighlight,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 28),
-                    _MarketplaceCategoryStrip(l10n: l10n),
-                    const SizedBox(height: 48),
+                    const _AppServicesOverviewSection(),
+                    SizedBox(height: isNarrow ? 40 : 56),
+                    const _AppProcessSection(),
+                    SizedBox(height: isNarrow ? 40 : 56),
+                    const _AppPricingSection(),
+                    SizedBox(height: isNarrow ? 40 : 56),
                     _SectionAnchor(
                       key: _keyStonechat,
                       child: _FeaturedStonechatSection(l10n: l10n),
                     ),
-                    const SizedBox(height: 56),
-                    _PersuasionBooksSection(l10n: l10n),
-                    const SizedBox(height: 56),
+                    SizedBox(height: isNarrow ? 40 : 56),
                     _SectionAnchor(
                       key: _keyPeriod9,
                       child: _FeaturedPeriod9Section(l10n: l10n),
                     ),
-                    const SizedBox(height: 56),
-                    _SectionAnchor(
-                      key: _keyBooks,
-                      child: _BookStoreSection(l10n: l10n),
-                    ),
-                    const SizedBox(height: 56),
-                    _SectionAnchor(
-                      key: _keyTalisman,
-                      child: _TalismanStoreSection(l10n: l10n),
-                    ),
-                    const SizedBox(height: 32),
+                    SizedBox(height: isNarrow ? 40 : 56),
+                    _FeaturedMobileAppsSection(l10n: l10n),
+                    SizedBox(height: isNarrow ? 40 : 56),
+                    _ClinicManagementSection(l10n: l10n),
+                    SizedBox(height: isNarrow ? 40 : 56),
+                    _SubscriptionContainer(l10n: l10n),
+                    SizedBox(height: isNarrow ? 24 : 32),
                   ],
                 ),
               ),
@@ -291,96 +228,617 @@ class _SectionAnchor extends StatelessWidget {
   Widget build(BuildContext context) => child;
 }
 
-/// Row of primary CTA, optional price label, and secondary (e.g. Subscribe) for marketplace hero.
-class _MarketplaceCtaRow extends StatelessWidget {
-  const _MarketplaceCtaRow({
-    required this.primaryButton,
-    this.secondaryLabel,
-    this.secondaryButton,
-  });
+/// Hero CTA row for Apps page.
+class _AppsHeroCtaRow extends StatelessWidget {
+  const _AppsHeroCtaRow({required this.isNarrow});
 
-  final Widget primaryButton;
-  final String? secondaryLabel;
-  final Widget? secondaryButton;
+  final bool isNarrow;
 
   @override
   Widget build(BuildContext context) {
-    final isNarrow = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
-    if (secondaryButton == null) return primaryButton;
-    return isNarrow
-        ? Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              primaryButton,
-              if (secondaryLabel != null) ...[
-                const SizedBox(height: 12),
-                Text(
-                  secondaryLabel!,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: AppColors.onSurfaceVariantDark,
-                      ),
-                  textAlign: TextAlign.center,
-                ),
-              ],
-              const SizedBox(height: 12),
-              secondaryButton!,
-            ],
-          )
-        : Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              primaryButton,
-              if (secondaryLabel != null) ...[
-                const SizedBox(width: 16),
-                Text(
-                  secondaryLabel!,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: AppColors.onSurfaceVariantDark,
-                      ),
-                ),
-                const SizedBox(width: 16),
-              ],
-              if (secondaryButton != null) secondaryButton!,
-            ],
-          );
+    final l10n = AppLocalizations.of(context)!;
+    final primary = FilledButton.icon(
+      onPressed: () => context.go('/consultations'),
+      icon: const Icon(LucideIcons.smartphone, size: 20),
+      label: const Text('Start your app project'),
+      style: FilledButton.styleFrom(
+        backgroundColor: AppColors.accent,
+        foregroundColor: AppColors.onAccent,
+        padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 16),
+        textStyle: Theme.of(context).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
+      ),
+    );
+    final secondary = OutlinedButton.icon(
+      onPressed: () => context.go('/contact'),
+      icon: const Icon(LucideIcons.messageCircle, size: 18),
+      label: Text(l10n.contactUs),
+      style: OutlinedButton.styleFrom(
+        foregroundColor: AppColors.onPrimary,
+        side: const BorderSide(color: AppColors.borderLight, width: 1.3),
+        padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 14),
+      ),
+    );
+    if (isNarrow) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [primary, const SizedBox(height: 12), Center(child: secondary)],
+      );
+    }
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [primary, const SizedBox(width: 18), secondary],
+    );
   }
 }
 
-/// Category pills for marketplace: Digital, Books, Book Store — tap to scroll to section.
-class _MarketplaceCategoryStrip extends StatelessWidget {
-  const _MarketplaceCategoryStrip({required this.l10n});
+/// App services overview: three core offerings.
+class _AppServicesOverviewSection extends StatelessWidget {
+  const _AppServicesOverviewSection();
 
+  @override
+  Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+    final isNarrow = Breakpoints.isMobile(width);
+    final children = [
+      _AppServiceCard(
+        icon: LucideIcons.lightbulb,
+        title: 'Strategy & discovery',
+        body:
+            'We clarify your app idea, define core features, and map user flows. '
+            'Together we decide what to build first so you launch faster and stay within budget.',
+        highlight: 'Ideal when you have a vision but need a clear roadmap to execute it.',
+      ),
+      _AppServiceCard(
+        icon: LucideIcons.terminal,
+        title: 'Design & development',
+        body:
+            'Our team designs intuitive interfaces and builds native or cross-platform apps '
+            'for iOS, Android, and web. We use modern stacks and follow best practices for performance and security.',
+        highlight: 'You get a production-ready app that feels fast and looks professional.',
+      ),
+      _AppServiceCard(
+        icon: LucideIcons.rocket,
+        title: 'Testing & store submission',
+        body:
+            'We test on real devices, fix bugs, and handle App Store and Google Play submission. '
+            'From screenshots and descriptions to compliance checks, we get your app live.',
+        highlight: 'One partner from final build to published app in both stores.',
+      ),
+    ];
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const SectionHeader(
+          overline: 'App services',
+          title: 'Everything you need to ship a great app',
+          isNarrow: false,
+        ),
+        const SizedBox(height: 18),
+        Text(
+          'Whether you need a simple MVP or a full-featured product, Stonechat delivers end-to-end app development. '
+          'We work with startups, enterprises, and organisations who want to move fast without cutting corners.',
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                color: AppColors.onSurfaceVariantDark,
+                height: 1.6,
+              ),
+        ),
+        const SizedBox(height: 28),
+        LayoutBuilder(
+          builder: (context, constraints) {
+            final useColumn = isNarrow || constraints.maxWidth < 820;
+            if (useColumn) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  for (var i = 0; i < children.length; i++) ...[
+                    if (i > 0) const SizedBox(height: 18),
+                    children[i],
+                  ],
+                ],
+              );
+            }
+            return IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  for (var i = 0; i < children.length; i++) ...[
+                    if (i > 0) const SizedBox(width: 18),
+                    Expanded(child: children[i]),
+                  ],
+                ],
+              ),
+            );
+          },
+        ),
+      ],
+    );
+  }
+}
+
+class _AppServiceCard extends StatefulWidget {
+  const _AppServiceCard({
+    required this.icon,
+    required this.title,
+    required this.body,
+    required this.highlight,
+  });
+
+  final IconData icon;
+  final String title;
+  final String body;
+  final String highlight;
+
+  @override
+  State<_AppServiceCard> createState() => _AppServiceCardState();
+}
+
+class _AppServiceCardState extends State<_AppServiceCard> {
+  bool _hovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => setState(() => _hovered = true),
+      onExit: (_) => setState(() => _hovered = false),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 180),
+        curve: Curves.easeOut,
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: AppColors.surfaceElevatedDark,
+          borderRadius: BorderRadius.circular(18),
+          border: Border.all(
+            color: _hovered ? AppColors.accent.withValues(alpha: 0.5) : AppColors.borderDark,
+            width: _hovered ? 2 : 1,
+          ),
+          boxShadow: _hovered ? AppShadows.cardHover : AppShadows.card,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: AppColors.accent.withValues(alpha: 0.16),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: AppColors.accent.withValues(alpha: 0.6)),
+              ),
+              child: Icon(widget.icon, size: 26, color: AppColors.accent),
+            ),
+            const SizedBox(height: 14),
+            Text(
+              widget.title,
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color: AppColors.onPrimary,
+                    fontWeight: FontWeight.w600,
+                  ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              widget.body,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: AppColors.onSurfaceVariantDark,
+                    height: 1.55,
+                  ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              widget.highlight,
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: AppColors.accentLight,
+                    fontStyle: FontStyle.italic,
+                  ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// App process: brainstorm to App Store and Play Store.
+class _AppProcessSection extends StatelessWidget {
+  const _AppProcessSection();
+
+  @override
+  Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+    final isNarrow = Breakpoints.isMobile(width);
+    final steps = [
+      (LucideIcons.lightbulb, '1. Discovery & concept', 'We explore your goals, users, and constraints, then define a clear scope and feature set for your first release.'),
+      (LucideIcons.layoutDashboard, '2. Design & prototyping', 'We create wireframes and high-fidelity designs, test flows with you, and finalise the look and feel before development.'),
+      (LucideIcons.terminal, '3. Development & testing', 'We build the app, run automated and manual tests, and iterate until it meets your quality bar and performance targets.'),
+      (LucideIcons.smartphone, '4. Store submission & launch', 'We prepare store assets, submit to App Store and Google Play, and support you through review until your app goes live.'),
+    ];
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            AppColors.surfaceElevatedDark.withValues(alpha: 0.96),
+            AppColors.backgroundDark,
+          ],
+        ),
+        borderRadius: BorderRadius.circular(22),
+        border: Border.all(color: AppColors.borderLight.withValues(alpha: 0.28)),
+        boxShadow: [
+          ...AppShadows.card,
+          BoxShadow(
+            color: AppColors.accentGlow.withValues(alpha: 0.09),
+            blurRadius: 28,
+            spreadRadius: 0,
+          ),
+        ],
+      ),
+      padding: EdgeInsets.all(isNarrow ? 18 : 26),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            'How your app gets built and published',
+            style: highlightStyleForLocale(
+              context,
+              fontSize: isNarrow ? 24 : 30,
+              fontWeight: FontWeight.bold,
+              color: AppColors.accent,
+            ),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            'A single, guided process from first conversation to live apps on the App Store and Google Play.',
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: AppColors.onSurfaceVariantDark,
+                  height: 1.6,
+                ),
+          ),
+          const SizedBox(height: 22),
+          LayoutBuilder(
+            builder: (context, constraints) {
+              final useColumn = isNarrow || constraints.maxWidth < 900;
+              if (useColumn) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    for (var i = 0; i < steps.length; i++) ...[
+                      if (i > 0) const SizedBox(height: 14),
+                      _AppProcessStep(icon: steps[i].$1, title: steps[i].$2, body: steps[i].$3, index: i + 1, isLast: i == steps.length - 1),
+                    ],
+                  ],
+                );
+              }
+              return Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  for (var i = 0; i < steps.length; i++) ...[
+                    if (i > 0) const SizedBox(width: 18),
+                    Expanded(
+                      child: _AppProcessStep(icon: steps[i].$1, title: steps[i].$2, body: steps[i].$3, index: i + 1, isLast: i == steps.length - 1, horizontal: true),
+                    ),
+                  ],
+                ],
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _AppProcessStep extends StatelessWidget {
+  const _AppProcessStep({
+    required this.icon,
+    required this.title,
+    required this.body,
+    required this.index,
+    required this.isLast,
+    this.horizontal = false,
+  });
+
+  final IconData icon;
+  final String title;
+  final String body;
+  final int index;
+  final bool isLast;
+  final bool horizontal;
+
+  @override
+  Widget build(BuildContext context) {
+    final dot = Container(
+      width: 26,
+      height: 26,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: AppColors.accent,
+        boxShadow: [BoxShadow(color: AppColors.accentGlow.withValues(alpha: 0.35), blurRadius: 14, spreadRadius: 0)],
+      ),
+      child: Center(
+        child: Text('$index', style: Theme.of(context).textTheme.labelMedium?.copyWith(color: AppColors.onAccent, fontWeight: FontWeight.w700)),
+      ),
+    );
+    if (horizontal) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              dot,
+              if (!isLast) Expanded(child: Container(margin: const EdgeInsets.symmetric(horizontal: 6), height: 1.4, color: AppColors.borderLight.withValues(alpha: 0.4))),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: AppColors.surfaceElevatedDark.withValues(alpha: 0.9),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: AppColors.borderDark),
+                ),
+                child: Icon(icon, size: 20, color: AppColors.accentLight),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(title, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: AppColors.onPrimary, fontWeight: FontWeight.w600)),
+                    const SizedBox(height: 6),
+                    Text(body, style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariantDark, height: 1.55)),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      );
+    }
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Column(
+          children: [
+            dot,
+            if (!isLast)
+              Container(
+                width: 2,
+                height: 52,
+                margin: const EdgeInsets.only(top: 6),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [AppColors.accent.withValues(alpha: 0.5), AppColors.borderLight.withValues(alpha: 0.1)]),
+                ),
+              ),
+          ],
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(color: AppColors.surfaceElevatedDark.withValues(alpha: 0.9), borderRadius: BorderRadius.circular(12), border: Border.all(color: AppColors.borderDark)),
+                    child: Icon(icon, size: 20, color: AppColors.accentLight),
+                  ),
+                  const SizedBox(width: 10),
+                  Flexible(child: Text(title, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: AppColors.onPrimary, fontWeight: FontWeight.w600))),
+                ],
+              ),
+              const SizedBox(height: 6),
+              Text(body, style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariantDark, height: 1.55)),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/// App pricing section.
+class _AppPricingSection extends StatelessWidget {
+  const _AppPricingSection();
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final isNarrow = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
+    const plans = [
+      ('MVP Launch', 'Ideal for a simple app with core features only.', 'From', '3,500', [
+        'Discovery workshop and feature scope',
+        'UI/UX design (up to 8 screens)',
+        'Cross-platform development (Flutter)',
+        'Basic testing and bug fixes',
+      ], false),
+      ('Full Product', 'Our most popular package for complete apps.', 'From', '8,500', [
+        'Strategy, design system and full UX',
+        'Native or cross-platform development',
+        'Backend and API integration',
+        'QA, performance tuning and store prep',
+        'App Store and Play Store submission',
+      ], true),
+      ('Enterprise', 'For complex apps with custom integrations.', 'From', '15,000', [
+        'Everything in Full Product',
+        'Custom backend and admin dashboard',
+        'Third-party integrations (payments, auth)',
+        'Ongoing support and maintenance',
+        'Dedicated project manager',
+      ], false),
+    ];
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          'Transparent pricing, tailored to your scope',
+          style: highlightStyleForLocale(context, fontSize: isNarrow ? 24 : 30, fontWeight: FontWeight.bold, color: AppColors.accent),
+        ),
+        const SizedBox(height: 10),
+        Text(
+          'Every project starts with a scoping call. These packages give you a clear starting point — we then adjust scope, timeline and deliverables to match your goals.',
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.onSurfaceVariantDark, height: 1.6),
+        ),
+        const SizedBox(height: 26),
+        LayoutBuilder(
+          builder: (context, constraints) {
+            final useColumn = isNarrow || constraints.maxWidth < 900;
+            final cards = [
+              for (final p in plans)
+                _AppPricingCard(name: p.$1, strapline: p.$2, pricePrefix: p.$3, price: p.$4, bullets: p.$5, highlighted: p.$6, l10n: l10n),
+            ];
+            if (useColumn) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [for (var i = 0; i < cards.length; i++) ...[if (i > 0) const SizedBox(height: 18), cards[i]]],
+              );
+            }
+            return IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [for (var i = 0; i < cards.length; i++) ...[if (i > 0) const SizedBox(width: 18), Expanded(child: cards[i])]],
+              ),
+            );
+          },
+        ),
+      ],
+    );
+  }
+}
+
+class _AppPricingCard extends StatefulWidget {
+  const _AppPricingCard({
+    required this.name,
+    required this.strapline,
+    required this.pricePrefix,
+    required this.price,
+    required this.bullets,
+    this.highlighted = false,
+    required this.l10n,
+  });
+
+  final String name;
+  final String strapline;
+  final String pricePrefix;
+  final String price;
+  final List<String> bullets;
+  final bool highlighted;
   final AppLocalizations l10n;
+
+  @override
+  State<_AppPricingCard> createState() => _AppPricingCardState();
+}
+
+class _AppPricingCardState extends State<_AppPricingCard> {
+  bool _hovered = false;
 
   @override
   Widget build(BuildContext context) {
     final isNarrow = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
-    final items = [
-      (l10n.marketplaceCategoryDigital, _sectionStonechat),
-      (l10n.marketplaceCategoryBooks, _sectionBooks),
-      (l10n.marketplaceCategoryTalismans, _sectionTalisman),
-    ];
-    return Wrap(
-      alignment: WrapAlignment.center,
-      spacing: 12,
-      runSpacing: 10,
-      children: items.map((e) {
-        return ActionChip(
-          label: Text(e.$1),
-          onPressed: () => context.go('/apps#${e.$2}'),
-          backgroundColor: AppColors.surfaceElevatedDark,
-          side: BorderSide(color: AppColors.borderLight.withValues(alpha: 0.4)),
-          labelStyle: Theme.of(context).textTheme.labelLarge?.copyWith(
-                color: AppColors.onPrimary,
+    final accentColor = widget.highlighted ? AppColors.accent : AppColors.accentLight;
+    return MouseRegion(
+      onEnter: (_) => setState(() => _hovered = true),
+      onExit: (_) => setState(() => _hovered = false),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 180),
+        curve: Curves.easeOut,
+        padding: EdgeInsets.all(isNarrow ? 18 : 22),
+        decoration: BoxDecoration(
+          color: AppColors.surfaceElevatedDark.withValues(alpha: widget.highlighted ? 0.96 : 0.9),
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: _hovered ? accentColor : AppColors.borderDark, width: widget.highlighted || _hovered ? 2 : 1),
+          boxShadow: widget.highlighted || _hovered ? AppShadows.cardHover : AppShadows.card,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            SizedBox(
+              height: isNarrow ? 120 : 110,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      if (widget.highlighted)
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                          decoration: BoxDecoration(
+                            color: accentColor.withValues(alpha: 0.2),
+                            borderRadius: BorderRadius.circular(999),
+                            border: Border.all(color: accentColor.withValues(alpha: 0.7)),
+                          ),
+                          child: Text('Most popular', style: Theme.of(context).textTheme.labelSmall?.copyWith(color: accentColor, fontWeight: FontWeight.w700)),
+                        ),
+                      if (widget.highlighted) const SizedBox(width: 8),
+                      Flexible(child: Text(widget.name, style: Theme.of(context).textTheme.titleMedium?.copyWith(color: AppColors.onPrimary, fontWeight: FontWeight.w600))),
+                    ],
+                  ),
+                  const SizedBox(height: 6),
+                  Expanded(
+                    child: Text(
+                      widget.strapline,
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariantDark, height: 1.5),
+                    ),
+                  ),
+                ],
               ),
-          padding: EdgeInsets.symmetric(
-            horizontal: isNarrow ? 14 : 18,
-            vertical: isNarrow ? 8 : 10,
-          ),
-        );
-      }).toList(),
+            ),
+            const SizedBox(height: 14),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(widget.pricePrefix, style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariantDark)),
+                const SizedBox(width: 4),
+                Text(widget.price, style: highlightStyleForLocale(context, fontSize: 26, fontWeight: FontWeight.bold, color: accentColor)),
+                const SizedBox(width: 4),
+                Text(' USD', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariantDark)),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'Exact investment is confirmed after a scoping call.',
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariantDark.withValues(alpha: 0.9), fontStyle: FontStyle.italic),
+            ),
+            const SizedBox(height: 14),
+            for (final bullet in widget.bullets) ...[
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Icon(LucideIcons.check, size: 16, color: AppColors.accentLight),
+                  const SizedBox(width: 8),
+                  Expanded(child: Text(bullet, style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariantDark, height: 1.5))),
+                ],
+              ),
+              const SizedBox(height: 6),
+            ],
+            const Spacer(),
+            const SizedBox(height: 10),
+            FilledButton.icon(
+              onPressed: () => context.go('/consultations'),
+              icon: const Icon(LucideIcons.calendarClock, size: 18),
+              label: const Text('Book a project call'),
+              style: FilledButton.styleFrom(
+                backgroundColor: accentColor,
+                foregroundColor: AppColors.onAccent,
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -986,9 +1444,9 @@ class _ProminentStoreButtonState extends State<_ProminentStoreButton> {
   }
 }
 
-/// Two persuasion book cards placed below the video section.
-class _PersuasionBooksSection extends StatelessWidget {
-  const _PersuasionBooksSection({required this.l10n});
+/// Featured Mobile Apps: two product cards (Period 9, Stonechat Bazi).
+class _FeaturedMobileAppsSection extends StatelessWidget {
+  const _FeaturedMobileAppsSection({required this.l10n});
 
   final AppLocalizations l10n;
 
@@ -996,144 +1454,84 @@ class _PersuasionBooksSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final isNarrow = Breakpoints.isMobile(width);
-    return isNarrow
-        ? Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              _BookStoreCard(
-                l10n: l10n,
-                asset: AppContent.assetBookPersuasionEngBig,
-                title: l10n.bookStoreBook3Title,
-                subtitle: l10n.bookStoreBook3Subtitle,
-                price: l10n.bookStoreBook3Price,
-                showBestseller: false,
-              ),
-              const SizedBox(height: 24),
-              _BookStoreCard(
-                l10n: l10n,
-                asset: AppContent.assetBookPersuasionKhmer,
-                title: l10n.bookStoreBook4Title,
-                subtitle: l10n.bookStoreBook4Subtitle,
-                price: l10n.bookStoreBook4Price,
-                showBestseller: false,
-              ),
-            ],
-          )
-        : Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: _BookStoreCard(
-                  l10n: l10n,
-                  asset: AppContent.assetBookPersuasionEngBig,
-                  title: l10n.bookStoreBook3Title,
-                  subtitle: l10n.bookStoreBook3Subtitle,
-                  price: l10n.bookStoreBook3Price,
-                  showBestseller: false,
-                ),
-              ),
-              const SizedBox(width: 24),
-              Expanded(
-                child: _BookStoreCard(
-                  l10n: l10n,
-                  asset: AppContent.assetBookPersuasionKhmer,
-                  title: l10n.bookStoreBook4Title,
-                  subtitle: l10n.bookStoreBook4Subtitle,
-                  price: l10n.bookStoreBook4Price,
-                  showBestseller: false,
-                ),
-              ),
-            ],
-          );
-  }
-}
-
-/// Book Store section: creative heading, marketing copy, two featured books with Add to Cart.
-class _BookStoreSection extends StatelessWidget {
-  const _BookStoreSection({required this.l10n});
-
-  final AppLocalizations l10n;
-
-  @override
-  Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
-    final isNarrow = Breakpoints.isMobile(width);
-
+    final stackCards = Breakpoints.isNarrow(width);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisSize: MainAxisSize.min,
       children: [
         SectionHeader(
-          overline: l10n.bookStoreSectionOverline,
-          title: l10n.bookStoreSectionHeading,
-          subline: l10n.bookStoreSectionTagline,
+          overline: l10n.featuredAppsSectionOverline,
+          title: l10n.featuredAppsSectionTitle,
+          subline: l10n.featuredAppsSectionSubline,
           isNarrow: isNarrow,
         ),
         const SizedBox(height: 16),
-        _AppsScreenState._buildDescriptionWithHighlight(
-          context,
-          l10n.bookStoreSectionMarketing,
-          l10n.bookStoreSectionMarketingHighlight,
-          textAlign: TextAlign.left,
+        Text(
+          l10n.featuredAppsSectionBody,
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                color: AppColors.onSurfaceVariantDark,
+                height: 1.6,
+              ),
         ),
         const SizedBox(height: 32),
-        isNarrow
+        stackCards
             ? Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  _BookStoreCard(
+                  _FeaturedAppCard(
                     l10n: l10n,
-                    asset: AppContent.assetBook1,
-                    title: l10n.bookStoreBook1Title,
-                    subtitle: l10n.bookStoreBook1Subtitle,
-                    price: l10n.bookStoreBook1Price,
+                    asset: AppContent.assetFeaturedApp1,
+                    title: l10n.featuredApp1Title,
+                    subtitle: l10n.featuredApp1Subtitle,
+                    price: '24.99',
                     showBestseller: true,
                   ),
                   const SizedBox(height: 24),
-                  _BookStoreCard(
+                  _FeaturedAppCard(
                     l10n: l10n,
-                    asset: AppContent.assetBook2,
-                    title: l10n.bookStoreBook2Title,
-                    subtitle: l10n.bookStoreBook2Subtitle,
-                    price: l10n.bookStoreBook2Price,
+                    asset: AppContent.assetFeaturedApp2,
+                    title: l10n.featuredApp2Title,
+                    subtitle: l10n.featuredApp2Subtitle,
+                    price: '24.99',
                     showBestseller: false,
                   ),
                 ],
               )
-            : Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: _BookStoreCard(
-                      l10n: l10n,
-                      asset: AppContent.assetBook1,
-                      title: l10n.bookStoreBook1Title,
-                      subtitle: l10n.bookStoreBook1Subtitle,
-                      price: l10n.bookStoreBook1Price,
-                      showBestseller: true,
+            : IntrinsicHeight(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      child: _FeaturedAppCard(
+                        l10n: l10n,
+                        asset: AppContent.assetFeaturedApp1,
+                        title: l10n.featuredApp1Title,
+                        subtitle: l10n.featuredApp1Subtitle,
+                        price: '24.99',
+                        showBestseller: true,
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 24),
-                  Expanded(
-                    child: _BookStoreCard(
-                      l10n: l10n,
-                      asset: AppContent.assetBook2,
-                      title: l10n.bookStoreBook2Title,
-                      subtitle: l10n.bookStoreBook2Subtitle,
-                      price: l10n.bookStoreBook2Price,
-                      showBestseller: false,
+                    const SizedBox(width: 24),
+                    Expanded(
+                      child: _FeaturedAppCard(
+                        l10n: l10n,
+                        asset: AppContent.assetFeaturedApp2,
+                        title: l10n.featuredApp2Title,
+                        subtitle: l10n.featuredApp2Subtitle,
+                        price: '24.99',
+                        showBestseller: false,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
       ],
     );
   }
 }
 
-/// Single book card with cover, title, price, and Add to Cart.
-class _BookStoreCard extends StatefulWidget {
-  const _BookStoreCard({
+class _FeaturedAppCard extends StatefulWidget {
+  const _FeaturedAppCard({
     required this.l10n,
     required this.asset,
     required this.title,
@@ -1150,17 +1548,16 @@ class _BookStoreCard extends StatefulWidget {
   final bool showBestseller;
 
   @override
-  State<_BookStoreCard> createState() => _BookStoreCardState();
+  State<_FeaturedAppCard> createState() => _FeaturedAppCardState();
 }
 
-class _BookStoreCardState extends State<_BookStoreCard> {
+class _FeaturedAppCardState extends State<_FeaturedAppCard> {
   bool _hovered = false;
 
   @override
   Widget build(BuildContext context) {
     final isNarrow = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
     final prefix = widget.l10n.bookStorePricePrefix;
-
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
       onExit: (_) => setState(() => _hovered = false),
@@ -1172,9 +1569,7 @@ class _BookStoreCardState extends State<_BookStoreCard> {
           color: AppColors.surfaceElevatedDark,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: _hovered
-                ? AppColors.accent.withValues(alpha: 0.5)
-                : AppColors.borderDark,
+            color: _hovered ? AppColors.accent.withValues(alpha: 0.5) : AppColors.borderDark,
             width: _hovered ? 2 : 1,
           ),
           boxShadow: _hovered ? AppShadows.cardHover : AppShadows.card,
@@ -1196,7 +1591,7 @@ class _BookStoreCardState extends State<_BookStoreCard> {
                       errorBuilder: (_, __, ___) => Container(
                         color: AppColors.borderDark,
                         child: Icon(
-                          LucideIcons.bookOpen,
+                          LucideIcons.smartphone,
                           size: 48,
                           color: AppColors.onSurfaceVariantDark.withValues(alpha: 0.5),
                         ),
@@ -1250,7 +1645,7 @@ class _BookStoreCardState extends State<_BookStoreCard> {
                     color: AppColors.onSurfaceVariantDark,
                     height: 1.4,
                   ),
-              maxLines: 1,
+              maxLines: isNarrow ? 2 : 1,
               overflow: TextOverflow.ellipsis,
             ),
             const SizedBox(height: 12),
@@ -1288,9 +1683,7 @@ class _BookStoreCardState extends State<_BookStoreCard> {
                     backgroundColor: AppColors.accent,
                     foregroundColor: AppColors.onAccent,
                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                   ),
                 ),
               ],
@@ -1302,13 +1695,13 @@ class _BookStoreCardState extends State<_BookStoreCard> {
   }
 }
 
-/// Book Store section at the bottom: Featuring the Caishen Clinic Management System.
-class _TalismanStoreSection extends StatelessWidget {
-  const _TalismanStoreSection({required this.l10n});
+/// Clinic Management System: 3x3 feature grid with header.
+class _ClinicManagementSection extends StatelessWidget {
+  const _ClinicManagementSection({required this.l10n});
 
   final AppLocalizations l10n;
 
-  static List<(String, String)> _caishenFeatures(AppLocalizations l10n) {
+  static List<(String, String)> _features(AppLocalizations l10n) {
     return [
       (AppContent.assetCaishenClinic1, l10n.caishenClinicFeature1Title),
       (AppContent.assetCaishenClinic2, l10n.caishenClinicFeature2Title),
@@ -1330,7 +1723,7 @@ class _TalismanStoreSection extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          l10n.caishenClinicSectionHeading,
+          'Clinic Management System',
           style: highlightStyleForLocale(
             context,
             fontSize: isNarrow ? 24 : 30,
@@ -1360,118 +1753,73 @@ class _TalismanStoreSection extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 28),
-        _AppFeatureShowcase(features: _caishenFeatures(l10n)),
+        _AppFeatureShowcase(features: _features(l10n)),
       ],
     );
   }
 }
 
-/// App spotlight style: icon, title, description, and CTA area.
-class _SpotlightSection extends StatelessWidget {
-  const _SpotlightSection({
-    required this.icon,
-    required this.title,
-    required this.description,
-    required this.child,
-    this.transparent = false,
-  });
+/// Subscription container: App Development & Responsive Web offer with Get a quote and Subscribe CTAs.
+class _SubscriptionContainer extends StatelessWidget {
+  const _SubscriptionContainer({required this.l10n});
 
-  final IconData icon;
-  final String title;
-  final String description;
-  final Widget child;
-  final bool transparent;
+  final AppLocalizations l10n;
+
+  void _openSubscribeDialog(BuildContext context) {
+    showDialog<void>(
+      context: context,
+      barrierDismissible: true,
+      builder: (_) => const SubscribeDialog(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
-    final isNarrow = Breakpoints.isMobile(width);
+    final isNarrow = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
 
     return Container(
-      padding: const EdgeInsets.all(28),
+      padding: EdgeInsets.all(isNarrow ? 20 : 28),
       decoration: BoxDecoration(
-        color: transparent
-            ? AppColors.surfaceElevatedDark.withValues(alpha: 0.72)
-            : AppColors.surfaceElevatedDark,
+        color: AppColors.surfaceElevatedDark,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: transparent
-              ? AppColors.borderLight.withValues(alpha: 0.25)
-              : AppColors.borderDark,
-          width: transparent ? 1.5 : 1,
+          color: AppColors.accent.withValues(alpha: 0.6),
+          width: 1.5,
         ),
-        boxShadow: transparent
-            ? [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.2),
-                  blurRadius: 16,
-                  offset: const Offset(0, 4),
-                ),
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.08),
-                  blurRadius: 24,
-                  offset: const Offset(0, 2),
-                ),
-                BoxShadow(
-                  color: AppColors.accentGlow.withValues(alpha: 0.06),
-                  blurRadius: 20,
-                  spreadRadius: 0,
-                  offset: Offset.zero,
-                ),
-              ]
-            : AppShadows.card,
+        boxShadow: [
+          ...AppShadows.card,
+          BoxShadow(
+            color: AppColors.accentGlow.withValues(alpha: 0.12),
+            blurRadius: 20,
+            spreadRadius: 0,
+          ),
+        ],
       ),
       child: isNarrow
           ? Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 _buildIcon(context),
-                const SizedBox(height: 20),
-                Text(
-                  title,
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        color: AppColors.onPrimary,
-                        fontWeight: FontWeight.w600,
-                      ),
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  description,
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: AppColors.onSurfaceVariantDark,
-                        height: 1.5,
-                      ),
-                ),
-                const SizedBox(height: 24),
-                child,
+                SizedBox(height: isNarrow ? 16 : 20),
+                _buildContent(context, isNarrow),
+                SizedBox(height: isNarrow ? 20 : 24),
+                _buildCtaRow(context, isNarrow),
               ],
             )
           : Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _buildIcon(context),
-                const SizedBox(width: 28),
+                SizedBox(width: isNarrow ? 0 : 24),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        title,
-                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                              color: AppColors.onPrimary,
-                              fontWeight: FontWeight.w600,
-                            ),
-                      ),
-                      const SizedBox(height: 12),
-                      Text(
-                        description,
-                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                              color: AppColors.onSurfaceVariantDark,
-                              height: 1.5,
-                            ),
-                      ),
-                      const SizedBox(height: 24),
-                      child,
+                      _buildContent(context, isNarrow),
+                      SizedBox(height: isNarrow ? 20 : 24),
+                      _buildCtaRow(context, isNarrow),
                     ],
                   ),
                 ),
@@ -1482,13 +1830,208 @@ class _SpotlightSection extends StatelessWidget {
 
   Widget _buildIcon(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      width: 56,
+      height: 56,
       decoration: BoxDecoration(
         color: AppColors.accent.withValues(alpha: 0.15),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.borderLight.withValues(alpha: 0.4)),
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: AppColors.accent.withValues(alpha: 0.5)),
       ),
-      child: Icon(icon, size: 48, color: AppColors.accent),
+      child: const Icon(
+        LucideIcons.cpu,
+        size: 28,
+        color: AppColors.accent,
+      ),
+    );
+  }
+
+  Widget _buildContent(BuildContext context, bool isNarrow) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          l10n.stonechatSpotlightTitle,
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: AppColors.onPrimary,
+                fontWeight: FontWeight.w700,
+                fontSize: isNarrow ? 18 : 24,
+              ),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          l10n.stonechatSpotlightDesc,
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: AppColors.onSurfaceVariantDark,
+                height: 1.5,
+                fontSize: isNarrow ? 14 : null,
+              ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildCtaRow(BuildContext context, bool isNarrow) {
+    final buttonStyle = FilledButton.styleFrom(
+      backgroundColor: AppColors.accent,
+      foregroundColor: AppColors.onAccent,
+      padding: EdgeInsets.symmetric(
+        horizontal: isNarrow ? 16 : 20,
+        vertical: isNarrow ? 12 : 14,
+      ),
+      minimumSize: Size(isNarrow ? 0 : 44, isNarrow ? 44 : 48),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+    );
+    final outlinedStyle = OutlinedButton.styleFrom(
+      foregroundColor: AppColors.accent,
+      side: const BorderSide(color: AppColors.accent),
+      padding: EdgeInsets.symmetric(
+        horizontal: isNarrow ? 16 : 20,
+        vertical: isNarrow ? 12 : 14,
+      ),
+      minimumSize: Size(isNarrow ? 0 : 44, isNarrow ? 44 : 48),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+    );
+    return Wrap(
+      spacing: isNarrow ? 12 : 16,
+      runSpacing: isNarrow ? 10 : 12,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      children: [
+        FilledButton.icon(
+          onPressed: () => context.go('/consultations'),
+          icon: Icon(LucideIcons.externalLink, size: isNarrow ? 16 : 18),
+          label: Text(l10n.openStonechatCta),
+          style: buttonStyle,
+        ),
+        Text(
+          '\$${l10n.spotlightSubscriptionPrice}${l10n.spotlightPricePerMonth}',
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: AppColors.onSurfaceVariantDark,
+              ),
+        ),
+        OutlinedButton.icon(
+          onPressed: () => _openSubscribeDialog(context),
+          icon: Icon(LucideIcons.creditCard, size: isNarrow ? 16 : 18),
+          label: Text(l10n.spotlightSubscribe),
+          style: outlinedStyle,
+        ),
+      ],
+    );
+  }
+}
+
+/// Product showcase: 3x3 grid of app feature screens with labels.
+class _AppFeatureShowcase extends StatelessWidget {
+  const _AppFeatureShowcase({required this.features});
+
+  final List<(String, String)> features;
+
+  @override
+  Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+    final crossAxisCount = Breakpoints.isMobile(width) ? 2 : (width < Breakpoints.tablet ? 2 : 3);
+
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: crossAxisCount,
+        mainAxisSpacing: 16,
+        crossAxisSpacing: 16,
+        childAspectRatio: 2 / 3,
+      ),
+      itemCount: features.length,
+      itemBuilder: (context, index) {
+        final e = features[index];
+        return _AppFeatureCard(asset: e.$1, title: e.$2);
+      },
+    );
+  }
+}
+
+class _AppFeatureCard extends StatefulWidget {
+  const _AppFeatureCard({required this.asset, required this.title});
+
+  final String asset;
+  final String title;
+
+  @override
+  State<_AppFeatureCard> createState() => _AppFeatureCardState();
+}
+
+class _AppFeatureCardState extends State<_AppFeatureCard> {
+  bool _hovered = false;
+
+  static final List<BoxShadow> _cardShadow = [
+    BoxShadow(color: Colors.black54, blurRadius: 16, offset: const Offset(0, 6)),
+    BoxShadow(color: Colors.black26, blurRadius: 8, offset: const Offset(0, 2)),
+  ];
+
+  static final List<BoxShadow> _cardShadowHover = [
+    BoxShadow(color: Colors.black54, blurRadius: 24, offset: const Offset(0, 8)),
+    BoxShadow(color: Colors.black38, blurRadius: 12, offset: const Offset(0, 4)),
+    BoxShadow(color: AppColors.accentGlow.withValues(alpha: 0.4), blurRadius: 24, spreadRadius: 0, offset: const Offset(0, 4)),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => setState(() => _hovered = true),
+      onExit: (_) => setState(() => _hovered = false),
+      child: GestureDetector(
+        onTap: () => _showFullImageDialog(context, widget.asset, title: widget.title),
+        child: AnimatedScale(
+          scale: _hovered ? 1.02 : 1.0,
+          duration: const Duration(milliseconds: 200),
+          curve: Curves.easeOut,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.easeOut,
+            decoration: BoxDecoration(
+              color: AppColors.surfaceElevatedDark,
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(
+                color: _hovered ? AppColors.accent : AppColors.borderDark,
+                width: _hovered ? 3 : 1,
+              ),
+              boxShadow: _hovered ? _cardShadowHover : _cardShadow,
+            ),
+            clipBehavior: Clip.antiAlias,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Expanded(
+                  child: Image.asset(
+                    widget.asset,
+                    fit: BoxFit.cover,
+                    errorBuilder: (_, __, ___) => Center(
+                      child: Icon(LucideIcons.image, size: 48, color: AppColors.onSurfaceVariantDark.withValues(alpha: 0.5)),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 56,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        widget.title,
+                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                              color: AppColors.onPrimary,
+                              fontWeight: FontWeight.w600,
+                            ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
@@ -1669,324 +2212,3 @@ class _Period9Screenshot extends StatelessWidget {
   }
 }
 
-/// Product showcase: grid of app feature screens with labels.
-class _AppFeatureShowcase extends StatelessWidget {
-  const _AppFeatureShowcase({required this.features});
-
-  final List<(String asset, String title)> features;
-
-  @override
-  Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
-    final crossAxisCount = Breakpoints.isMobile(width) ? 2 : (width < Breakpoints.tablet ? 2 : 3);
-
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: crossAxisCount,
-        mainAxisSpacing: 16,
-        crossAxisSpacing: 16,
-        childAspectRatio: 2 / 3,
-      ),
-      itemCount: features.length,
-      itemBuilder: (context, index) {
-        final e = features[index];
-        return _AppFeatureCard(asset: e.$1, title: e.$2);
-      },
-    );
-  }
-}
-
-class _AppFeatureCard extends StatefulWidget {
-  const _AppFeatureCard({required this.asset, required this.title});
-
-  final String asset;
-  final String title;
-
-  @override
-  State<_AppFeatureCard> createState() => _AppFeatureCardState();
-}
-
-class _AppFeatureCardState extends State<_AppFeatureCard> {
-  bool _hovered = false;
-
-  static final List<BoxShadow> _chapterCardShadow = [
-    BoxShadow(
-      color: Colors.black54,
-      blurRadius: 16,
-      offset: const Offset(0, 6),
-    ),
-    BoxShadow(
-      color: Colors.black26,
-      blurRadius: 8,
-      offset: const Offset(0, 2),
-    ),
-  ];
-
-  static final List<BoxShadow> _chapterCardShadowHover = [
-    BoxShadow(
-      color: Colors.black54,
-      blurRadius: 24,
-      offset: const Offset(0, 8),
-    ),
-    BoxShadow(
-      color: Colors.black38,
-      blurRadius: 12,
-      offset: const Offset(0, 4),
-    ),
-    BoxShadow(
-      color: AppColors.accentGlow.withValues(alpha: 0.4),
-      blurRadius: 24,
-      spreadRadius: 0,
-      offset: const Offset(0, 4),
-    ),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
-      child: GestureDetector(
-        onTap: () => _showFullImageDialog(context, widget.asset, title: widget.title),
-        child: AnimatedScale(
-        scale: _hovered ? 1.02 : 1.0,
-        duration: const Duration(milliseconds: 200),
-        curve: Curves.easeOut,
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          curve: Curves.easeOut,
-          decoration: BoxDecoration(
-            color: AppColors.surfaceElevatedDark,
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(
-              color: _hovered ? AppColors.accent : AppColors.borderDark,
-              width: _hovered ? 3 : 1,
-            ),
-            boxShadow: _hovered ? _chapterCardShadowHover : _chapterCardShadow,
-          ),
-          clipBehavior: Clip.antiAlias,
-          child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-              child: Image.asset(
-                widget.asset,
-                fit: BoxFit.cover,
-                errorBuilder: (_, __, ___) => Center(
-                  child: Icon(LucideIcons.image, size: 48, color: AppColors.onSurfaceVariantDark.withValues(alpha: 0.5)),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 56,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    widget.title,
-                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                          color: AppColors.onPrimary,
-                          fontWeight: FontWeight.w600,
-                        ),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-        ),
-      ),
-      ),
-    );
-  }
-}
-
-/// Product grid for Book Store with price and Add to Cart.
-class _TalismanGrid extends StatelessWidget {
-  const _TalismanGrid({required this.l10n});
-
-  final AppLocalizations l10n;
-
-  static String _talismanTitle(AppLocalizations l10n, int index) {
-    return switch (index) {
-      1 => l10n.talismanProduct1Title,
-      2 => l10n.talismanProduct2Title,
-      3 => l10n.talismanProduct3Title,
-      4 => l10n.talismanProduct4Title,
-      5 => l10n.talismanProduct5Title,
-      6 => l10n.talismanProduct6Title,
-      7 => l10n.talismanProduct7Title,
-      8 => l10n.talismanProduct8Title,
-      9 => l10n.talismanProduct9Title,
-      _ => l10n.talismanProduct1Title,
-    };
-  }
-
-  static String _chapterAsset(int index) {
-    return switch (index) {
-      1 => AppContent.assetChapter1,
-      2 => AppContent.assetChapter2,
-      3 => AppContent.assetChapter3,
-      4 => AppContent.assetChapter4,
-      5 => AppContent.assetChapter5,
-      6 => AppContent.assetChapter6,
-      7 => AppContent.assetChapter7,
-      8 => AppContent.assetChapter8,
-      9 => AppContent.assetChapter9,
-      _ => AppContent.assetChapter1,
-    };
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
-    final crossAxisCount = Breakpoints.isMobile(width) ? 2 : 3;
-    final price = l10n.talismanProductPrice;
-    final prefix = l10n.bookStorePricePrefix;
-
-    return GridView.count(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      crossAxisCount: crossAxisCount,
-      mainAxisSpacing: 20,
-      crossAxisSpacing: 20,
-      childAspectRatio: 1 / 1.42,
-      children: List.generate(
-        9,
-        (i) => _TalismanProductCard(
-          l10n: l10n,
-          title: _talismanTitle(l10n, i + 1),
-          price: price,
-          pricePrefix: prefix,
-          index: i + 1,
-          imageAsset: _chapterAsset(i + 1),
-        ),
-      ),
-    );
-  }
-}
-
-class _TalismanProductCard extends StatefulWidget {
-  const _TalismanProductCard({
-    required this.l10n,
-    required this.title,
-    required this.price,
-    required this.pricePrefix,
-    required this.index,
-    required this.imageAsset,
-  });
-
-  final AppLocalizations l10n;
-  final String title;
-  final String price;
-  final String pricePrefix;
-  final int index;
-  final String imageAsset;
-
-  @override
-  State<_TalismanProductCard> createState() => _TalismanProductCardState();
-}
-
-class _TalismanProductCardState extends State<_TalismanProductCard> {
-  bool _hovered = false;
-
-  @override
-  Widget build(BuildContext context) {
-    final isNarrow = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
-
-    return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        padding: EdgeInsets.all(isNarrow ? 12 : 16),
-        decoration: BoxDecoration(
-          color: AppColors.surfaceElevatedDark,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(
-            color: _hovered ? AppColors.accent.withValues(alpha: 0.5) : AppColors.borderDark,
-            width: _hovered ? 2 : 1,
-          ),
-          boxShadow: _hovered ? AppShadows.cardHover : AppShadows.card,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Expanded(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Image.asset(
-                  widget.imageAsset,
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  height: double.infinity,
-                ),
-              ),
-            ),
-            SizedBox(height: isNarrow ? 10 : 12),
-            Text(
-              widget.title,
-              style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    color: AppColors.onPrimary,
-                    fontWeight: FontWeight.w600,
-                  ),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
-            const SizedBox(height: 8),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  '${widget.pricePrefix}${widget.price}',
-                  style: highlightStyleForLocale(
-                    context,
-                    fontSize: isNarrow ? 18 : 20,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.accent,
-                  ),
-                ),
-                FilledButton.icon(
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(widget.l10n.marketplaceAddedToCart),
-                        behavior: SnackBarBehavior.floating,
-                        backgroundColor: AppColors.surfaceElevatedDark,
-                        action: SnackBarAction(
-                          label: widget.l10n.buttonOk,
-                          textColor: AppColors.accent,
-                          onPressed: () {},
-                        ),
-                      ),
-                    );
-                  },
-                  icon: const Icon(LucideIcons.shoppingCart, size: 16),
-                  label: Text(isNarrow ? widget.l10n.buttonAdd : widget.l10n.bookStoreAddToCart),
-                  style: FilledButton.styleFrom(
-                    backgroundColor: AppColors.accent,
-                    foregroundColor: AppColors.onAccent,
-                    padding: EdgeInsets.symmetric(
-                      horizontal: isNarrow ? 10 : 14,
-                      vertical: isNarrow ? 8 : 10,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}

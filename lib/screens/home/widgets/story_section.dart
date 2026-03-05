@@ -101,7 +101,10 @@ class StorySection extends StatelessWidget {
     );
 
     // Story block: text only (no image)
-    final storyPadding = isMobile ? const EdgeInsets.fromLTRB(16, 24, 16, 32) : const EdgeInsets.fromLTRB(32, 168, 32, 168);
+    // Desktop: add extra right and bottom padding so the text sits further away
+    // from the decorative photo in the bottom-right corner.
+    final storyPadding =
+        isMobile ? const EdgeInsets.fromLTRB(16, 24, 16, 32) : const EdgeInsets.fromLTRB(32, 120, 120, 160);
 
     final storyBlock = Center(
       child: ConstrainedBox(
