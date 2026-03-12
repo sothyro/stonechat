@@ -127,11 +127,23 @@ class AppLocalizationsEn extends AppLocalizations {
   String get period9PremiumLabel => 'Premium subscription available';
 
   @override
-  String get period9SpotlightTitle => 'Stonechat Clinic App';
+  String get period9SpotlightTitle => 'Caishen Clinic App';
 
   @override
   String get period9SpotlightDesc =>
       'Manage appointments, patients, and records on the go. Built for clinics and small practices. Available on iOS and Android.';
+
+  @override
+  String get period9FeatureAppointments => 'Appointments';
+
+  @override
+  String get period9FeaturePatients => 'Patients';
+
+  @override
+  String get period9FeatureRecords => 'Records';
+
+  @override
+  String get period9Platforms => 'iOS & Android';
 
   @override
   String get downloadOnAppStore => 'Download on the App Store';
@@ -245,6 +257,157 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get featuredAppsSectionBody =>
       'Stonechat builds and publishes mobile apps for iOS and Android. Period 9 Feng Shui Guide and Stonechat Khmer AI are available on the App Store and Google Play.';
+
+  @override
+  String get masterElfSectionOverline => 'Featured Web App';
+
+  @override
+  String get masterElfSectionTitle => 'Master Elf Feng Shui App';
+
+  @override
+  String get masterElfSectionTagline =>
+      'The most beautiful and intuitive web app for the Master Elf Feng Shui company.';
+
+  @override
+  String get masterElfSectionTaglineHighlight => 'beautiful and intuitive';
+
+  @override
+  String get masterElfHeroHeadline =>
+      'Transform your Feng Shui practice. One app, three languages, endless possibilities.';
+
+  @override
+  String get masterElfHeroHeadlineHighlight => 'Transform';
+
+  @override
+  String get masterElfValueProp =>
+      'Book consultations, share your story, manage subscriptions, and connect with clients—all in one place. Built for practitioners who demand excellence.';
+
+  @override
+  String get masterElfCtaPrimary => 'Explore the app';
+
+  @override
+  String get masterElfCtaSecondary => 'Request a demo';
+
+  @override
+  String get masterElfLanguagesLabel => 'Available in 3 languages';
+
+  @override
+  String get masterElfLanguageKhmer => 'Khmer';
+
+  @override
+  String get masterElfLanguageEnglish => 'English';
+
+  @override
+  String get masterElfLanguageChinese => 'Chinese';
+
+  @override
+  String get masterElfFeatureBooking => 'Booking';
+
+  @override
+  String get masterElfFeatureBookingDesc =>
+      'Let clients book consultations in seconds. Smart scheduling, reminders, and seamless confirmations.';
+
+  @override
+  String get masterElfFeatureStory => 'Story';
+
+  @override
+  String get masterElfFeatureStoryDesc =>
+      'Share your journey and expertise. Build trust and reach new audiences with your story.';
+
+  @override
+  String get masterElfFeatureSubscriptions => 'Subscriptions & Purchase';
+
+  @override
+  String get masterElfFeatureSubscriptionsDesc =>
+      'Recurring revenue made simple. Subscriptions and one-time purchases in one integrated store.';
+
+  @override
+  String get masterElfFeatureContact => 'Contact';
+
+  @override
+  String get masterElfFeatureContactDesc =>
+      'Stay connected. Direct messaging and contact forms that keep you in touch with your community.';
+
+  @override
+  String get masterElfFeaturesHeading => 'Everything you need to grow';
+
+  @override
+  String get n22SectionOverline => 'Operations Platform';
+
+  @override
+  String get n22SectionTitle => 'Caishen Clinic Business Suite';
+
+  @override
+  String get n22SectionTagline =>
+      'Run your business from anywhere. Dashboard, POS, calendar, and reports—desktop and mobile in one system.';
+
+  @override
+  String get n22SectionTaglineHighlight => 'from anywhere';
+
+  @override
+  String get n22HeroHeadline =>
+      'One platform. Every device. Real-time control.';
+
+  @override
+  String get n22HeroHeadlineHighlight => 'Real-time control';
+
+  @override
+  String get n22ValueProp =>
+      'Manage operations, process sales, schedule appointments, and track performance—all in sync. Built for teams that move fast.';
+
+  @override
+  String get n22CtaPrimary => 'See it in action';
+
+  @override
+  String get n22CtaSecondary => 'Get a demo';
+
+  @override
+  String get n22DesktopLabel => 'Desktop experience';
+
+  @override
+  String get n22MobileLabel => 'Mobile experience';
+
+  @override
+  String get n22FeatureDashboard => 'Dashboard';
+
+  @override
+  String get n22FeatureDashboardDesc =>
+      'At-a-glance overview. KPIs, charts, and alerts in one view.';
+
+  @override
+  String get n22FeatureCalendar => 'Calendar';
+
+  @override
+  String get n22FeatureCalendarDesc =>
+      'Schedule and sync across devices. Never miss an appointment.';
+
+  @override
+  String get n22FeaturePos => 'Point of Sale';
+
+  @override
+  String get n22FeaturePosDesc =>
+      'Process transactions fast. Desktop and mobile POS ready.';
+
+  @override
+  String get n22FeatureReports => 'Reports';
+
+  @override
+  String get n22FeatureReportsDesc =>
+      'Insights that drive decisions. Export and share anytime.';
+
+  @override
+  String get n22FeatureLogin => 'Login';
+
+  @override
+  String get n22FeatureLoginDesc =>
+      'Secure access. Role-based permissions for your team.';
+
+  @override
+  String get n22FeatureProfile => 'Profile';
+
+  @override
+  String get n22FeatureProfileDesc =>
+      'Your profile, your way. Manage settings and preferences.';
 
   @override
   String get featuredApp1Title => 'Period 9 Feng Shui Guide';
@@ -416,7 +579,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Sample links to articles and features (to be updated):';
 
   @override
-  String get consultations => 'Book Consultation';
+  String get consultations => 'Consultations';
 
   @override
   String get contactUs => 'Contact';

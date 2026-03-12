@@ -126,11 +126,23 @@ class AppLocalizationsZh extends AppLocalizations {
   String get period9PremiumLabel => '可订阅高级版';
 
   @override
-  String get period9SpotlightTitle => 'Stonechat 诊所应用';
+  String get period9SpotlightTitle => 'Caishen 诊所应用';
 
   @override
   String get period9SpotlightDesc =>
       '随时管理预约、患者与档案。为诊所与小规模执业打造。支持 iOS 与 Android。';
+
+  @override
+  String get period9FeatureAppointments => '预约';
+
+  @override
+  String get period9FeaturePatients => '患者';
+
+  @override
+  String get period9FeatureRecords => '档案';
+
+  @override
+  String get period9Platforms => 'iOS 与 Android';
 
   @override
   String get downloadOnAppStore => '在 App Store 下载';
@@ -231,6 +243,141 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get featuredAppsSectionBody =>
       'Stonechat 为 iOS 和 Android 开发并发布移动应用。Period 9 风水指南与 Stonechat 高棉语 AI 已在 App Store 和 Google Play 上架。';
+
+  @override
+  String get masterElfSectionOverline => '精选网页应用';
+
+  @override
+  String get masterElfSectionTitle => 'Master Elf 风水应用';
+
+  @override
+  String get masterElfSectionTagline => 'Master Elf 风水公司最精美、最直观的网页应用。';
+
+  @override
+  String get masterElfSectionTaglineHighlight => '精美直观';
+
+  @override
+  String get masterElfHeroHeadline => '革新您的风水实践。一个应用，三种语言，无限可能。';
+
+  @override
+  String get masterElfHeroHeadlineHighlight => '革新';
+
+  @override
+  String get masterElfValueProp => '预约咨询、分享故事、管理订阅、连接客户——一站式完成。为追求卓越的从业者打造。';
+
+  @override
+  String get masterElfCtaPrimary => '探索应用';
+
+  @override
+  String get masterElfCtaSecondary => '申请演示';
+
+  @override
+  String get masterElfLanguagesLabel => '支持 3 种语言';
+
+  @override
+  String get masterElfLanguageKhmer => '高棉语';
+
+  @override
+  String get masterElfLanguageEnglish => '英语';
+
+  @override
+  String get masterElfLanguageChinese => '中文';
+
+  @override
+  String get masterElfFeatureBooking => '预约';
+
+  @override
+  String get masterElfFeatureBookingDesc => '让客户秒速预约咨询。智能排期、提醒与无缝确认。';
+
+  @override
+  String get masterElfFeatureStory => '故事';
+
+  @override
+  String get masterElfFeatureStoryDesc => '分享您的历程与专长。用故事建立信任，触达新受众。';
+
+  @override
+  String get masterElfFeatureSubscriptions => '订阅与购买';
+
+  @override
+  String get masterElfFeatureSubscriptionsDesc => '订阅收入轻松管理。订阅与一次性购买，一体化商店。';
+
+  @override
+  String get masterElfFeatureContact => '联系';
+
+  @override
+  String get masterElfFeatureContactDesc => '保持连接。直达消息与联系表单，让您与社群紧密相连。';
+
+  @override
+  String get masterElfFeaturesHeading => '助您成长的一切';
+
+  @override
+  String get n22SectionOverline => '运营平台';
+
+  @override
+  String get n22SectionTitle => 'Caishen 诊所商业套件';
+
+  @override
+  String get n22SectionTagline => '随时随地运营您的业务。仪表盘、收银、日历与报表——桌面与移动，一套系统。';
+
+  @override
+  String get n22SectionTaglineHighlight => '随时随地';
+
+  @override
+  String get n22HeroHeadline => '一个平台。全设备。实时掌控。';
+
+  @override
+  String get n22HeroHeadlineHighlight => '实时掌控';
+
+  @override
+  String get n22ValueProp => '管理运营、处理销售、安排预约、追踪绩效——全部同步。为快速行动的团队打造。';
+
+  @override
+  String get n22CtaPrimary => '观看演示';
+
+  @override
+  String get n22CtaSecondary => '申请试用';
+
+  @override
+  String get n22DesktopLabel => '桌面体验';
+
+  @override
+  String get n22MobileLabel => '移动体验';
+
+  @override
+  String get n22FeatureDashboard => '仪表盘';
+
+  @override
+  String get n22FeatureDashboardDesc => '一目了然。KPI、图表与提醒，一屏呈现。';
+
+  @override
+  String get n22FeatureCalendar => '日历';
+
+  @override
+  String get n22FeatureCalendarDesc => '跨设备排期与同步。不错过任何预约。';
+
+  @override
+  String get n22FeaturePos => '收银系统';
+
+  @override
+  String get n22FeaturePosDesc => '快速处理交易。桌面与移动收银就绪。';
+
+  @override
+  String get n22FeatureReports => '报表';
+
+  @override
+  String get n22FeatureReportsDesc => '驱动决策的洞察。随时导出与分享。';
+
+  @override
+  String get n22FeatureLogin => '登录';
+
+  @override
+  String get n22FeatureLoginDesc => '安全访问。基于角色的团队权限。';
+
+  @override
+  String get n22FeatureProfile => '个人资料';
+
+  @override
+  String get n22FeatureProfileDesc => '您的资料，您的方式。管理设置与偏好。';
 
   @override
   String get featuredApp1Title => 'Period 9 风水指南';

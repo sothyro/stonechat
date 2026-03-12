@@ -450,8 +450,8 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
               }
             },
           ),
-          _LoginSection(),
           _SmartMoveSection(),
+          _LoginSection(),
         ],
       ),
     );

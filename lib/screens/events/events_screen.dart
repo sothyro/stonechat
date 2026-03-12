@@ -451,7 +451,7 @@ class _EventsScreenState extends State<EventsScreen> {
                     icon: const Icon(LucideIcons.calendarCheck, size: 20),
                     label: Text(l10n.bookConsultation),
                     style: FilledButton.styleFrom(
-                      backgroundColor: AppColors.accent,
+                      backgroundColor: AppColors.serviceCommunicationsTraining,
                       foregroundColor: AppColors.onAccent,
                       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
                       elevation: 0,
@@ -464,8 +464,8 @@ class _EventsScreenState extends State<EventsScreen> {
                   icon: const Icon(LucideIcons.messageCircle, size: 20),
                   label: Text(l10n.contactUs),
                   style: OutlinedButton.styleFrom(
-                    foregroundColor: AppColors.accent,
-                    side: const BorderSide(color: AppColors.accent),
+                    foregroundColor: AppColors.serviceCommunicationsTraining,
+                    side: const BorderSide(color: AppColors.serviceCommunicationsTraining),
                     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
                   ),
                 ),
@@ -485,7 +485,7 @@ class _EventsScreenState extends State<EventsScreen> {
                     icon: const Icon(LucideIcons.calendarCheck, size: 20),
                     label: Text(l10n.bookConsultation),
                     style: FilledButton.styleFrom(
-                      backgroundColor: AppColors.accent,
+                      backgroundColor: AppColors.serviceCommunicationsTraining,
                       foregroundColor: AppColors.onAccent,
                       padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 16),
                       elevation: 0,
@@ -498,8 +498,8 @@ class _EventsScreenState extends State<EventsScreen> {
                   icon: const Icon(LucideIcons.messageCircle, size: 20),
                   label: Text(l10n.contactUs),
                   style: OutlinedButton.styleFrom(
-                    foregroundColor: AppColors.accent,
-                    side: const BorderSide(color: AppColors.accent),
+                    foregroundColor: AppColors.serviceCommunicationsTraining,
+                    side: const BorderSide(color: AppColors.serviceCommunicationsTraining),
                     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
                   ),
                 ),
@@ -522,7 +522,7 @@ class _EventsScreenState extends State<EventsScreen> {
     ) ?? const TextStyle(fontSize: 16, color: AppColors.onSurfaceVariantDark, height: 1.5);
     final highlightStyle = highlightStyleForLocale(
       context,
-      color: AppColors.accent,
+      color: AppColors.serviceCommunicationsTraining,
       fontWeight: FontWeight.bold,
       fontSize: (bodyStyle.fontSize ?? 16) * 1.45,
     );
@@ -806,14 +806,14 @@ class _WhyAttendBullet extends StatelessWidget {
           margin: const EdgeInsets.only(top: 4),
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: AppColors.accent.withValues(alpha: 0.15),
+            color: AppColors.serviceCommunicationsTraining.withValues(alpha: 0.15),
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-              color: AppColors.accent.withValues(alpha: 0.35),
+              color: AppColors.serviceCommunicationsTraining.withValues(alpha: 0.35),
               width: 1,
             ),
           ),
-          child: Icon(icon, size: 20, color: AppColors.accent),
+          child: Icon(icon, size: 20, color: AppColors.serviceCommunicationsTraining),
         ),
         const SizedBox(width: 16),
         Expanded(
@@ -852,7 +852,7 @@ class _EventCard extends StatefulWidget {
 class _EventCardState extends State<_EventCard> {
   bool _hovered = false;
 
-  Color get _accent => widget.event.accentColor ?? AppColors.accent;
+  Color get _accent => widget.event.accentColor ?? AppColors.serviceCommunicationsTraining;
 
   @override
   Widget build(BuildContext context) {
@@ -997,11 +997,11 @@ class _EventCardState extends State<_EventCard> {
                         width: double.infinity,
                         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
                         decoration: BoxDecoration(
-                          color: AppColors.accent,
+                          color: AppColors.serviceCommunicationsTraining,
                           borderRadius: BorderRadius.circular(24),
                           boxShadow: AppShadows.accentButton,
                           border: Border.all(
-                            color: AppColors.accentLight.withValues(alpha: 0.4),
+                            color: AppColors.serviceCommunicationsTrainingLight.withValues(alpha: 0.4),
                             width: 1,
                           ),
                         ),
@@ -1124,7 +1124,7 @@ class _EventRegistrationDialogState extends State<_EventRegistrationDialog> {
                   padding: const EdgeInsets.all(24),
                   child: Column(
                     children: [
-                      Icon(Icons.check_circle, size: 56, color: AppColors.accent),
+                      Icon(Icons.check_circle, size: 56, color: AppColors.serviceCommunicationsTraining),
                       const SizedBox(height: 20),
                       Text(
                         l10n.eventRegSuccess,
@@ -1149,7 +1149,7 @@ class _EventRegistrationDialogState extends State<_EventRegistrationDialog> {
                         child: FilledButton(
                           onPressed: () => Navigator.of(context).pop(),
                           style: FilledButton.styleFrom(
-                            backgroundColor: AppColors.accent,
+                            backgroundColor: AppColors.serviceCommunicationsTraining,
                             foregroundColor: AppColors.onAccent,
                             padding: const EdgeInsets.symmetric(vertical: 14),
                           ),
@@ -1245,7 +1245,7 @@ class _EventRegistrationDialogState extends State<_EventRegistrationDialog> {
                           child: FilledButton(
                             onPressed: canSubmit ? _submit : null,
                             style: FilledButton.styleFrom(
-                              backgroundColor: AppColors.accent,
+                              backgroundColor: AppColors.serviceCommunicationsTraining,
                               foregroundColor: AppColors.onAccent,
                               padding: const EdgeInsets.symmetric(vertical: 14),
                             ),
@@ -1303,7 +1303,7 @@ class _CoursesDisciplineCard extends StatefulWidget {
   final String topics;
   final VoidCallback onExplore;
   final Alignment? imageAlignment;
-  /// Service accent color (e.g. AppColors.serviceAppDevelopment). When null, uses AppColors.accent.
+  /// Service accent color (e.g. AppColors.serviceAppDevelopment). When null, uses AppColors.serviceCommunicationsTraining.
   final Color? accentColor;
 
   @override
@@ -1313,7 +1313,7 @@ class _CoursesDisciplineCard extends StatefulWidget {
 class _CoursesDisciplineCardState extends State<_CoursesDisciplineCard> {
   bool _isHovered = false;
 
-  Color get _accent => widget.accentColor ?? AppColors.accent;
+  Color get _accent => widget.accentColor ?? AppColors.serviceCommunicationsTraining;
 
   @override
   Widget build(BuildContext context) {

@@ -37,17 +37,19 @@ class SectionHeader extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text(
-          displayOverline,
-          style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                color: AppColors.accent,
-                fontWeight: FontWeight.w600,
-                fontSize: 12,
-                letterSpacing: isKhmer ? 0 : 3.2,
-                height: 1.2,
-              ),
-        ),
-        SizedBox(height: narrow ? 12 : 16),
+        if (overline.isNotEmpty) ...[
+          Text(
+            displayOverline,
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  color: AppColors.accent,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 12,
+                  letterSpacing: isKhmer ? 0 : 3.2,
+                  height: 1.2,
+                ),
+          ),
+          SizedBox(height: narrow ? 12 : 16),
+        ],
         Text(
           title,
           textAlign: TextAlign.center,

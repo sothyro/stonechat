@@ -127,11 +127,23 @@ class AppLocalizationsKm extends AppLocalizations {
   String get period9PremiumLabel => 'មានការជាវប៉្រេម៉ាយុម';
 
   @override
-  String get period9SpotlightTitle => 'Stonechat Clinic App';
+  String get period9SpotlightTitle => 'Caishen Clinic App';
 
   @override
   String get period9SpotlightDesc =>
       'គ្រប់គ្រងការណាត់ជួប អ្នកជម្ងឺ និងកំណត់ត្រាក្នុងដៃអ្នក។ រចនាសម្រាប់គ្លីនិក និងការអនុវត្តតូច។ មានលើ iOS និង Android។';
+
+  @override
+  String get period9FeatureAppointments => 'ការណាត់ជួប';
+
+  @override
+  String get period9FeaturePatients => 'អ្នកជម្ងឺ';
+
+  @override
+  String get period9FeatureRecords => 'កំណត់ត្រា';
+
+  @override
+  String get period9Platforms => 'iOS និង Android';
 
   @override
   String get downloadOnAppStore => 'ដោនឡូតពី App Store';
@@ -242,6 +254,158 @@ class AppLocalizationsKm extends AppLocalizations {
   @override
   String get featuredAppsSectionBody =>
       'Stonechat បង្កើត និងបោះពុម្ភកម្មវិធីចល័តសម្រាប់ iOS និង Android។ Period 9 Feng Shui Guide និង Stonechat Khmer AI មានលើ App Store និង Google Play។';
+
+  @override
+  String get masterElfSectionOverline => 'កម្មវិធីវ៉ែបពិសេស';
+
+  @override
+  String get masterElfSectionTitle => 'កម្មវិធី Master Elf Feng Shui';
+
+  @override
+  String get masterElfSectionTagline =>
+      'កម្មវិធីវ៉ែបស្អាត និងងាយប្រើបំផុតសម្រាប់ក្រុមហ៊ុន Master Elf Feng Shui។';
+
+  @override
+  String get masterElfSectionTaglineHighlight => 'ស្អាត និងងាយប្រើ';
+
+  @override
+  String get masterElfHeroHeadline =>
+      'ផ្លាស់ប្តូរការអនុវត្ត Feng Shui របស់អ្នក។ កម្មវិធីមួយ ភាសាបី លទ្ធភាពគ្មានដែនកំណត់។';
+
+  @override
+  String get masterElfHeroHeadlineHighlight => 'ផ្លាស់ប្តូរ';
+
+  @override
+  String get masterElfValueProp =>
+      'ការណាត់ជួប ចែករំលែករឿងរបស់អ្នក គ្រប់គ្រងការជាវ និងទាក់ទងអតិថិជន—ទាំងអស់នៅកន្លែងតែមួយ។ រចនាសម្រាប់អ្នកអនុវត្តដែលតម្រូវឱ្យមានគុណភាពខ្ពស់។';
+
+  @override
+  String get masterElfCtaPrimary => 'ស្វែងរកកម្មវិធី';
+
+  @override
+  String get masterElfCtaSecondary => 'ស្នើសុំការបង្ហាញ';
+
+  @override
+  String get masterElfLanguagesLabel => 'មាន ៣ ភាសា';
+
+  @override
+  String get masterElfLanguageKhmer => 'ខ្មែរ';
+
+  @override
+  String get masterElfLanguageEnglish => 'អង់គ្លេស';
+
+  @override
+  String get masterElfLanguageChinese => 'ចិន';
+
+  @override
+  String get masterElfFeatureBooking => 'ការណាត់ជួប';
+
+  @override
+  String get masterElfFeatureBookingDesc =>
+      'ឱ្យអតិថិជនកក់ការណាត់ជួបក្នុងវិនាទី។ ការកំណត់ពេលវេលាឆ្លាត ការរំលឹក និងការបញ្ជាក់រលូន។';
+
+  @override
+  String get masterElfFeatureStory => 'រឿង';
+
+  @override
+  String get masterElfFeatureStoryDesc =>
+      'ចែករំលែកដំណើររបស់អ្នក និងជំនាញរបស់អ្នក។ កសាងទំនុកចិត្ត និងឈានទៅរកទស្សនិកជនថ្មី។';
+
+  @override
+  String get masterElfFeatureSubscriptions => 'ការជាវ និងការទិញ';
+
+  @override
+  String get masterElfFeatureSubscriptionsDesc =>
+      'ប្រាក់ចំណូលដដែលៗធ្វើឱ្យសាមញ្ញ។ ការជាវ និងការទិញមួយដងក្នុងហាងរួមមួយ។';
+
+  @override
+  String get masterElfFeatureContact => 'ទំនាក់ទំនង';
+
+  @override
+  String get masterElfFeatureContactDesc =>
+      'រក្សាការភ្ជាប់។ ការផ្ញើសារ និងទម្រង់ទំនាក់ទំនងដែលរក្សាអ្នកនៅក្នុងទំនាក់ទំនងជាមួយសហគមន៍របស់អ្នក។';
+
+  @override
+  String get masterElfFeaturesHeading =>
+      'អ្វីគ្រប់យ៉ាងដែលអ្នកត្រូវការដើម្បីរីកចម្រើន';
+
+  @override
+  String get n22SectionOverline => 'វេទិកាប្រតិបត្តិការ';
+
+  @override
+  String get n22SectionTitle => 'Caishen Clinic Business Suite';
+
+  @override
+  String get n22SectionTagline =>
+      'ដំណើរការអាជីវកម្មរបស់អ្នកពីគ្រប់កន្លែង។ ផ្ទាំងគ្រប់គ្រង POS ប្រតិទិន និងរបាយការណ៍—ដេស្កឹប និងចល័តក្នុងប្រព័ន្ធតែមួយ។';
+
+  @override
+  String get n22SectionTaglineHighlight => 'ពីគ្រប់កន្លែង';
+
+  @override
+  String get n22HeroHeadline =>
+      'វេទិកាតែមួយ។ គ្រប់ឧបករណ៍។ ការគ្រប់គ្រងពេលវេលាពិត។';
+
+  @override
+  String get n22HeroHeadlineHighlight => 'ពេលវេលាពិត';
+
+  @override
+  String get n22ValueProp =>
+      'គ្រប់គ្រងប្រតិបត្តិការ ដំណើរការការលក់ កំណត់ពេលវេលា និងតាមដានការអនុវត្ត—ទាំងអស់ធ្វើសមកាលកម្ម។ រចនាសម្រាប់ក្រុមដែលផ្លាស់ប្តូររហ័ស។';
+
+  @override
+  String get n22CtaPrimary => 'មើលក្នុងសកម្មភាព';
+
+  @override
+  String get n22CtaSecondary => 'ទទួលការបង្ហាញ';
+
+  @override
+  String get n22DesktopLabel => 'បទពិសោធដេស្កឹប';
+
+  @override
+  String get n22MobileLabel => 'បទពិសោធចល័ត';
+
+  @override
+  String get n22FeatureDashboard => 'ផ្ទាំងគ្រប់គ្រង';
+
+  @override
+  String get n22FeatureDashboardDesc =>
+      'ទិដ្ឋភាពក្នុងមួយភ្នែក។ KPIs ក្រាហ្វ និងការជូនដំណឹងក្នុងទិដ្ឋភាពតែមួយ។';
+
+  @override
+  String get n22FeatureCalendar => 'ប្រតិទិន';
+
+  @override
+  String get n22FeatureCalendarDesc =>
+      'កំណត់ពេលវេលា និងធ្វើសមកាលកម្មគ្រប់ឧបករណ៍។ កុំឱ្យខកការណាត់ជួប។';
+
+  @override
+  String get n22FeaturePos => 'ចំណុចលក់';
+
+  @override
+  String get n22FeaturePosDesc =>
+      'ដំណើរការប្រតិបត្តិការរហ័ស។ ដេស្កឹប និង POS ចល័តរួចរាល់។';
+
+  @override
+  String get n22FeatureReports => 'របាយការណ៍';
+
+  @override
+  String get n22FeatureReportsDesc =>
+      'ការយល់ដឹងដែលជំរុញការសម្រេចចិត្ត។ នាំចេញ និងចែករំលែកគ្រប់ពេល។';
+
+  @override
+  String get n22FeatureLogin => 'ចូល';
+
+  @override
+  String get n22FeatureLoginDesc =>
+      'ការចូលប្រើដោយសុវត្ថិភាព។ ការអនុញ្ញាតផ្អែកលើតួនាទីសម្រាប់ក្រុមរបស់អ្នក។';
+
+  @override
+  String get n22FeatureProfile => 'ប្រវត្តិរូប';
+
+  @override
+  String get n22FeatureProfileDesc =>
+      'ប្រវត្តិរូបរបស់អ្នក របៀបរបស់អ្នក។ គ្រប់គ្រងការកំណត់ និងចំណូលចិត្ត។';
 
   @override
   String get featuredApp1Title => 'Period 9 Feng Shui Guide';

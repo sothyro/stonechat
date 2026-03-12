@@ -331,7 +331,7 @@ abstract class AppLocalizations {
   /// No description provided for @period9SpotlightTitle.
   ///
   /// In en, this message translates to:
-  /// **'Stonechat Clinic App'**
+  /// **'Caishen Clinic App'**
   String get period9SpotlightTitle;
 
   /// No description provided for @period9SpotlightDesc.
@@ -339,6 +339,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Manage appointments, patients, and records on the go. Built for clinics and small practices. Available on iOS and Android.'**
   String get period9SpotlightDesc;
+
+  /// No description provided for @period9FeatureAppointments.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointments'**
+  String get period9FeatureAppointments;
+
+  /// No description provided for @period9FeaturePatients.
+  ///
+  /// In en, this message translates to:
+  /// **'Patients'**
+  String get period9FeaturePatients;
+
+  /// No description provided for @period9FeatureRecords.
+  ///
+  /// In en, this message translates to:
+  /// **'Records'**
+  String get period9FeatureRecords;
+
+  /// No description provided for @period9Platforms.
+  ///
+  /// In en, this message translates to:
+  /// **'iOS & Android'**
+  String get period9Platforms;
 
   /// No description provided for @downloadOnAppStore.
   ///
@@ -537,6 +561,276 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Stonechat builds and publishes mobile apps for iOS and Android. Period 9 Feng Shui Guide and Stonechat Khmer AI are available on the App Store and Google Play.'**
   String get featuredAppsSectionBody;
+
+  /// No description provided for @masterElfSectionOverline.
+  ///
+  /// In en, this message translates to:
+  /// **'Featured Web App'**
+  String get masterElfSectionOverline;
+
+  /// No description provided for @masterElfSectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Master Elf Feng Shui App'**
+  String get masterElfSectionTitle;
+
+  /// No description provided for @masterElfSectionTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'The most beautiful and intuitive web app for the Master Elf Feng Shui company.'**
+  String get masterElfSectionTagline;
+
+  /// No description provided for @masterElfSectionTaglineHighlight.
+  ///
+  /// In en, this message translates to:
+  /// **'beautiful and intuitive'**
+  String get masterElfSectionTaglineHighlight;
+
+  /// No description provided for @masterElfHeroHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'Transform your Feng Shui practice. One app, three languages, endless possibilities.'**
+  String get masterElfHeroHeadline;
+
+  /// No description provided for @masterElfHeroHeadlineHighlight.
+  ///
+  /// In en, this message translates to:
+  /// **'Transform'**
+  String get masterElfHeroHeadlineHighlight;
+
+  /// No description provided for @masterElfValueProp.
+  ///
+  /// In en, this message translates to:
+  /// **'Book consultations, share your story, manage subscriptions, and connect with clients—all in one place. Built for practitioners who demand excellence.'**
+  String get masterElfValueProp;
+
+  /// No description provided for @masterElfCtaPrimary.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore the app'**
+  String get masterElfCtaPrimary;
+
+  /// No description provided for @masterElfCtaSecondary.
+  ///
+  /// In en, this message translates to:
+  /// **'Request a demo'**
+  String get masterElfCtaSecondary;
+
+  /// No description provided for @masterElfLanguagesLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Available in 3 languages'**
+  String get masterElfLanguagesLabel;
+
+  /// No description provided for @masterElfLanguageKhmer.
+  ///
+  /// In en, this message translates to:
+  /// **'Khmer'**
+  String get masterElfLanguageKhmer;
+
+  /// No description provided for @masterElfLanguageEnglish.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get masterElfLanguageEnglish;
+
+  /// No description provided for @masterElfLanguageChinese.
+  ///
+  /// In en, this message translates to:
+  /// **'Chinese'**
+  String get masterElfLanguageChinese;
+
+  /// No description provided for @masterElfFeatureBooking.
+  ///
+  /// In en, this message translates to:
+  /// **'Booking'**
+  String get masterElfFeatureBooking;
+
+  /// No description provided for @masterElfFeatureBookingDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Let clients book consultations in seconds. Smart scheduling, reminders, and seamless confirmations.'**
+  String get masterElfFeatureBookingDesc;
+
+  /// No description provided for @masterElfFeatureStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Story'**
+  String get masterElfFeatureStory;
+
+  /// No description provided for @masterElfFeatureStoryDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Share your journey and expertise. Build trust and reach new audiences with your story.'**
+  String get masterElfFeatureStoryDesc;
+
+  /// No description provided for @masterElfFeatureSubscriptions.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscriptions & Purchase'**
+  String get masterElfFeatureSubscriptions;
+
+  /// No description provided for @masterElfFeatureSubscriptionsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Recurring revenue made simple. Subscriptions and one-time purchases in one integrated store.'**
+  String get masterElfFeatureSubscriptionsDesc;
+
+  /// No description provided for @masterElfFeatureContact.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact'**
+  String get masterElfFeatureContact;
+
+  /// No description provided for @masterElfFeatureContactDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Stay connected. Direct messaging and contact forms that keep you in touch with your community.'**
+  String get masterElfFeatureContactDesc;
+
+  /// No description provided for @masterElfFeaturesHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything you need to grow'**
+  String get masterElfFeaturesHeading;
+
+  /// No description provided for @n22SectionOverline.
+  ///
+  /// In en, this message translates to:
+  /// **'Operations Platform'**
+  String get n22SectionOverline;
+
+  /// No description provided for @n22SectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Caishen Clinic Business Suite'**
+  String get n22SectionTitle;
+
+  /// No description provided for @n22SectionTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Run your business from anywhere. Dashboard, POS, calendar, and reports—desktop and mobile in one system.'**
+  String get n22SectionTagline;
+
+  /// No description provided for @n22SectionTaglineHighlight.
+  ///
+  /// In en, this message translates to:
+  /// **'from anywhere'**
+  String get n22SectionTaglineHighlight;
+
+  /// No description provided for @n22HeroHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'One platform. Every device. Real-time control.'**
+  String get n22HeroHeadline;
+
+  /// No description provided for @n22HeroHeadlineHighlight.
+  ///
+  /// In en, this message translates to:
+  /// **'Real-time control'**
+  String get n22HeroHeadlineHighlight;
+
+  /// No description provided for @n22ValueProp.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage operations, process sales, schedule appointments, and track performance—all in sync. Built for teams that move fast.'**
+  String get n22ValueProp;
+
+  /// No description provided for @n22CtaPrimary.
+  ///
+  /// In en, this message translates to:
+  /// **'See it in action'**
+  String get n22CtaPrimary;
+
+  /// No description provided for @n22CtaSecondary.
+  ///
+  /// In en, this message translates to:
+  /// **'Get a demo'**
+  String get n22CtaSecondary;
+
+  /// No description provided for @n22DesktopLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Desktop experience'**
+  String get n22DesktopLabel;
+
+  /// No description provided for @n22MobileLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile experience'**
+  String get n22MobileLabel;
+
+  /// No description provided for @n22FeatureDashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Dashboard'**
+  String get n22FeatureDashboard;
+
+  /// No description provided for @n22FeatureDashboardDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'At-a-glance overview. KPIs, charts, and alerts in one view.'**
+  String get n22FeatureDashboardDesc;
+
+  /// No description provided for @n22FeatureCalendar.
+  ///
+  /// In en, this message translates to:
+  /// **'Calendar'**
+  String get n22FeatureCalendar;
+
+  /// No description provided for @n22FeatureCalendarDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Schedule and sync across devices. Never miss an appointment.'**
+  String get n22FeatureCalendarDesc;
+
+  /// No description provided for @n22FeaturePos.
+  ///
+  /// In en, this message translates to:
+  /// **'Point of Sale'**
+  String get n22FeaturePos;
+
+  /// No description provided for @n22FeaturePosDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Process transactions fast. Desktop and mobile POS ready.'**
+  String get n22FeaturePosDesc;
+
+  /// No description provided for @n22FeatureReports.
+  ///
+  /// In en, this message translates to:
+  /// **'Reports'**
+  String get n22FeatureReports;
+
+  /// No description provided for @n22FeatureReportsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Insights that drive decisions. Export and share anytime.'**
+  String get n22FeatureReportsDesc;
+
+  /// No description provided for @n22FeatureLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get n22FeatureLogin;
+
+  /// No description provided for @n22FeatureLoginDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Secure access. Role-based permissions for your team.'**
+  String get n22FeatureLoginDesc;
+
+  /// No description provided for @n22FeatureProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get n22FeatureProfile;
+
+  /// No description provided for @n22FeatureProfileDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Your profile, your way. Manage settings and preferences.'**
+  String get n22FeatureProfileDesc;
 
   /// No description provided for @featuredApp1Title.
   ///
@@ -865,7 +1159,7 @@ abstract class AppLocalizations {
   /// No description provided for @consultations.
   ///
   /// In en, this message translates to:
-  /// **'Book Consultation'**
+  /// **'Consultations'**
   String get consultations;
 
   /// No description provided for @contactUs.

@@ -72,7 +72,7 @@ class _BookScreenState extends State<BookScreen> {
     ) ?? TextStyle(fontSize: 16, color: baseColor ?? AppColors.onSurfaceVariantDark, height: 1.5));
     final highlightStyle = highlightStyleForLocale(
       context,
-      color: baseColor != null ? AppColors.accentLight : AppColors.accent,
+      color: baseColor != null ? AppColors.serviceBookCreationLight : AppColors.serviceBookCreation,
       fontWeight: FontWeight.bold,
       fontSize: (bodyStyle.fontSize ?? 16) * 1.45,
     );
@@ -243,7 +243,7 @@ class _HeroCtaRow extends StatelessWidget {
       icon: const Icon(LucideIcons.bookOpenCheck, size: 20),
       label: const Text('Start your book project'),
       style: FilledButton.styleFrom(
-        backgroundColor: AppColors.accent,
+        backgroundColor: AppColors.serviceBookCreation,
         foregroundColor: AppColors.onAccent,
         padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 16),
         textStyle: Theme.of(context).textTheme.titleSmall?.copyWith(
@@ -506,7 +506,7 @@ class _FeaturedStonechatSectionState extends State<_FeaturedStonechatSection> {
             ),
             if (_hovered)
               BoxShadow(
-                color: AppColors.accentGlow.withValues(alpha: 0.12),
+                color: AppColors.serviceBookCreation.withValues(alpha: 0.12),
                 blurRadius: 28,
                 offset: const Offset(0, 6),
                 spreadRadius: 0,
@@ -558,7 +558,7 @@ class _FeaturedStonechatSectionState extends State<_FeaturedStonechatSection> {
                                 child: Icon(
                                   LucideIcons.cpu,
                                   size: 64,
-                                  color: AppColors.accent.withValues(alpha: 0.6),
+                                  color: AppColors.serviceBookCreation.withValues(alpha: 0.6),
                                 ),
                               ),
                             ),
@@ -598,7 +598,7 @@ class _FeaturedStonechatSectionState extends State<_FeaturedStonechatSection> {
                             context,
                             fontSize: isNarrow ? 30 : 38,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.accentLight,
+                            color: AppColors.serviceBookCreationLight,
                           ).copyWith(shadows: [
                             Shadow(
                               color: Colors.black.withValues(alpha: 0.7),
@@ -755,7 +755,7 @@ class _ServiceCardState extends State<_ServiceCard> {
           color: AppColors.surfaceElevatedDark,
           borderRadius: BorderRadius.circular(18),
           border: Border.all(
-            color: _hovered ? AppColors.accent.withValues(alpha: 0.5) : AppColors.borderDark,
+            color: _hovered ? AppColors.serviceBookCreation.withValues(alpha: 0.5) : AppColors.borderDark,
             width: _hovered ? 2 : 1,
           ),
           boxShadow: _hovered ? AppShadows.cardHover : AppShadows.card,
@@ -767,11 +767,11 @@ class _ServiceCardState extends State<_ServiceCard> {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: AppColors.accent.withValues(alpha: 0.16),
+                color: AppColors.serviceBookCreation.withValues(alpha: 0.16),
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: AppColors.accent.withValues(alpha: 0.6)),
+                border: Border.all(color: AppColors.serviceBookCreation.withValues(alpha: 0.6)),
               ),
-              child: Icon(widget.icon, size: 26, color: AppColors.accent),
+              child: Icon(widget.icon, size: 26, color: AppColors.serviceBookCreation),
             ),
             const SizedBox(height: 14),
             Text(
@@ -793,7 +793,7 @@ class _ServiceCardState extends State<_ServiceCard> {
             Text(
               widget.highlight,
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: AppColors.accentLight,
+                    color: AppColors.serviceBookCreationLight,
                     fontStyle: FontStyle.italic,
                   ),
             ),
@@ -851,7 +851,7 @@ class _BookProcessSection extends StatelessWidget {
         boxShadow: [
           ...AppShadows.card,
           BoxShadow(
-            color: AppColors.accentGlow.withValues(alpha: 0.09),
+            color: AppColors.serviceBookCreation.withValues(alpha: 0.09),
             blurRadius: 28,
             spreadRadius: 0,
           ),
@@ -868,7 +868,7 @@ class _BookProcessSection extends StatelessWidget {
               context,
               fontSize: isNarrow ? 24 : 30,
               fontWeight: FontWeight.bold,
-              color: AppColors.accent,
+              color: AppColors.serviceBookCreation,
             ),
           ),
           const SizedBox(height: 10),
@@ -951,10 +951,10 @@ class _BookProcessStep extends StatelessWidget {
       height: 26,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: AppColors.accent,
+        color: AppColors.serviceBookCreation,
         boxShadow: [
           BoxShadow(
-            color: AppColors.accentGlow.withValues(alpha: 0.35),
+            color: AppColors.serviceBookCreation.withValues(alpha: 0.35),
             blurRadius: 14,
             spreadRadius: 0,
           ),
@@ -999,7 +999,7 @@ class _BookProcessStep extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(color: AppColors.borderDark),
                 ),
-                child: Icon(icon, size: 20, color: AppColors.accentLight),
+                child: Icon(icon, size: 20, color: AppColors.serviceBookCreationLight),
               ),
               const SizedBox(width: 10),
               Expanded(
@@ -1046,7 +1046,7 @@ class _BookProcessStep extends StatelessWidget {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      AppColors.accent.withValues(alpha: 0.5),
+                      AppColors.serviceBookCreation.withValues(alpha: 0.5),
                       AppColors.borderLight.withValues(alpha: 0.1),
                     ],
                   ),
@@ -1069,7 +1069,7 @@ class _BookProcessStep extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(color: AppColors.borderDark),
                     ),
-                    child: Icon(icon, size: 20, color: AppColors.accentLight),
+                    child: Icon(icon, size: 20, color: AppColors.serviceBookCreationLight),
                   ),
                   const SizedBox(width: 10),
                   Flexible(
@@ -1161,7 +1161,7 @@ class _BookPricingSection extends StatelessWidget {
             context,
             fontSize: isNarrow ? 24 : 30,
             fontWeight: FontWeight.bold,
-            color: AppColors.accent,
+            color: AppColors.serviceBookCreation,
           ),
         ),
         const SizedBox(height: 10),
@@ -1249,7 +1249,7 @@ class _PricingCardState extends State<_PricingCard> {
     final l10n = AppLocalizations.of(context)!;
     final isNarrow = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
 
-    final accentColor = widget.highlighted ? AppColors.accent : AppColors.accentLight;
+    final accentColor = widget.highlighted ? AppColors.serviceBookCreation : AppColors.serviceBookCreationLight;
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
@@ -1368,7 +1368,7 @@ class _PricingCardState extends State<_PricingCard> {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(LucideIcons.check, size: 16, color: AppColors.accentLight),
+                  const Icon(LucideIcons.check, size: 16, color: AppColors.serviceBookCreationLight),
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
@@ -1590,7 +1590,7 @@ class _BookStoreCardState extends State<_BookStoreCard> {
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
             color: _hovered
-                ? AppColors.accent.withValues(alpha: 0.5)
+                ? AppColors.serviceBookCreation.withValues(alpha: 0.5)
                 : AppColors.borderDark,
             width: _hovered ? 2 : 1,
           ),
@@ -1628,7 +1628,7 @@ class _BookStoreCardState extends State<_BookStoreCard> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                       decoration: BoxDecoration(
-                        color: AppColors.accent,
+                        color: AppColors.serviceBookCreation,
                         borderRadius: BorderRadius.circular(8),
                         boxShadow: [
                           BoxShadow(
@@ -1681,7 +1681,7 @@ class _BookStoreCardState extends State<_BookStoreCard> {
                     context,
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.accent,
+                    color: AppColors.serviceBookCreation,
                   ),
                 ),
                 FilledButton.icon(
@@ -1693,7 +1693,7 @@ class _BookStoreCardState extends State<_BookStoreCard> {
                         backgroundColor: AppColors.surfaceElevatedDark,
                         action: SnackBarAction(
                           label: widget.l10n.buttonOk,
-                          textColor: AppColors.accent,
+                          textColor: AppColors.serviceBookCreation,
                           onPressed: () {},
                         ),
                       ),
@@ -1702,7 +1702,7 @@ class _BookStoreCardState extends State<_BookStoreCard> {
                   icon: const Icon(LucideIcons.shoppingCart, size: 18),
                   label: Text(widget.l10n.bookStoreAddToCart),
                   style: FilledButton.styleFrom(
-                    backgroundColor: AppColors.accent,
+                    backgroundColor: AppColors.serviceBookCreation,
                     foregroundColor: AppColors.onAccent,
                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                     shape: RoundedRectangleBorder(
@@ -1752,7 +1752,7 @@ class _TalismanStoreSection extends StatelessWidget {
             context,
             fontSize: isNarrow ? 24 : 30,
             fontWeight: FontWeight.bold,
-            color: AppColors.accent,
+            color: AppColors.serviceBookCreation,
             height: 1.2,
           ),
         ),
@@ -1830,7 +1830,7 @@ class _SpotlightSection extends StatelessWidget {
                   offset: const Offset(0, 2),
                 ),
                 BoxShadow(
-                  color: AppColors.accentGlow.withValues(alpha: 0.06),
+                  color: AppColors.serviceBookCreation.withValues(alpha: 0.06),
                   blurRadius: 20,
                   spreadRadius: 0,
                   offset: Offset.zero,
@@ -1901,11 +1901,11 @@ class _SpotlightSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: AppColors.accent.withValues(alpha: 0.15),
+        color: AppColors.serviceBookCreation.withValues(alpha: 0.15),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.borderLight.withValues(alpha: 0.4)),
       ),
-      child: Icon(icon, size: 48, color: AppColors.accent),
+      child: Icon(icon, size: 48, color: AppColors.serviceBookCreation),
     );
   }
 }
@@ -2153,7 +2153,7 @@ class _AppFeatureCardState extends State<_AppFeatureCard> {
       offset: const Offset(0, 4),
     ),
     BoxShadow(
-      color: AppColors.accentGlow.withValues(alpha: 0.4),
+      color: AppColors.serviceBookCreation.withValues(alpha: 0.4),
       blurRadius: 24,
       spreadRadius: 0,
       offset: const Offset(0, 4),
@@ -2178,7 +2178,7 @@ class _AppFeatureCardState extends State<_AppFeatureCard> {
             color: AppColors.surfaceElevatedDark,
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
-              color: _hovered ? AppColors.accent : AppColors.borderDark,
+              color: _hovered ? AppColors.serviceBookCreation : AppColors.borderDark,
               width: _hovered ? 3 : 1,
             ),
             boxShadow: _hovered ? _chapterCardShadowHover : _chapterCardShadow,
@@ -2326,7 +2326,7 @@ class _TalismanProductCardState extends State<_TalismanProductCard> {
           color: AppColors.surfaceElevatedDark,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: _hovered ? AppColors.accent.withValues(alpha: 0.5) : AppColors.borderDark,
+            color: _hovered ? AppColors.serviceBookCreation.withValues(alpha: 0.5) : AppColors.borderDark,
             width: _hovered ? 2 : 1,
           ),
           boxShadow: _hovered ? AppShadows.cardHover : AppShadows.card,
@@ -2367,7 +2367,7 @@ class _TalismanProductCardState extends State<_TalismanProductCard> {
                     context,
                     fontSize: isNarrow ? 18 : 20,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.accent,
+                    color: AppColors.serviceBookCreation,
                   ),
                 ),
                 FilledButton.icon(
@@ -2379,7 +2379,7 @@ class _TalismanProductCardState extends State<_TalismanProductCard> {
                         backgroundColor: AppColors.surfaceElevatedDark,
                         action: SnackBarAction(
                           label: widget.l10n.buttonOk,
-                          textColor: AppColors.accent,
+                          textColor: AppColors.serviceBookCreation,
                           onPressed: () {},
                         ),
                       ),
@@ -2388,7 +2388,7 @@ class _TalismanProductCardState extends State<_TalismanProductCard> {
                   icon: const Icon(LucideIcons.shoppingCart, size: 16),
                   label: Text(isNarrow ? widget.l10n.buttonAdd : widget.l10n.bookStoreAddToCart),
                   style: FilledButton.styleFrom(
-                    backgroundColor: AppColors.accent,
+                    backgroundColor: AppColors.serviceBookCreation,
                     foregroundColor: AppColors.onAccent,
                     padding: EdgeInsets.symmetric(
                       horizontal: isNarrow ? 10 : 14,

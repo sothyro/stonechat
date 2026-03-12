@@ -109,9 +109,12 @@ class AppContent {
   static const String assetAppMarriage = 'assets/images/training_image.jpg';
   static const String assetAppBusinessPartner = 'assets/images/students.jpg';
   static const String assetAppAdvancedFeatures = 'assets/images/training_image.jpg';
-  /// Clinic app screenshots.
-  static const String assetPeriod9_1 = 'assets/images/training_image.jpg';
-  static const String assetPeriod9_2 = 'assets/images/students.jpg';
+  /// Clinic app screenshots (wider/landscape orientation).
+  static const String assetPeriod9_1 = 'assets/images/apps/period9_1.JPG';
+  static const String assetPeriod9_2 = 'assets/images/apps/period9_2.JPG';
+  /// Stonechat Clinic App – single showcase image.
+  static const String assetCaishen = 'assets/images/apps/caishen.jpg';
+
   /// Caishen Clinic Management System – 9 feature screenshots.
   static const String assetCaishenClinic1 = 'assets/images/apps/Caishen Clinic (1).jpg';
   static const String assetCaishenClinic2 = 'assets/images/apps/Caishen Clinic (2).jpg';
@@ -126,6 +129,27 @@ class AppContent {
   /// Featured Mobile Apps cards (Period 9, Stonechat Bazi).
   static const String assetFeaturedApp1 = 'assets/images/apps/iphoneapp.jpg';
   static const String assetFeaturedApp2 = 'assets/images/apps/khmerai.jpg';
+
+  /// N22 Business Suite – video and screenshots (desktop landscape, mobile portrait).
+  static const String assetN22Video = 'assets/images/apps/n22appvideo.mp4';
+  static const String assetN22DesktopDashboard = 'assets/images/apps/n22desktopdashboard.png';
+  static const String assetN22DesktopDashboard2 = 'assets/images/apps/n22desktopdashboard2.png';
+  static const String assetN22DesktopCalendar = 'assets/images/apps/n22desktopcalendar.png';
+  static const String assetN22DesktopPos = 'assets/images/apps/n22desktoppos.png';
+  static const String assetN22DesktopReport = 'assets/images/apps/n22desktopreport.png';
+  static const String assetN22Dashboard = 'assets/images/apps/n22dashboard.png';
+  static const String assetN22Login = 'assets/images/apps/n22login.png';
+  static const String assetN22Pos = 'assets/images/apps/n22pos.png';
+  static const String assetN22Profile = 'assets/images/apps/n22profile.png';
+
+  /// Master Elf Feng Shui App – languages and features showcase.
+  static const String assetMasterKhmer = 'assets/images/apps/masterkhmer.png';
+  static const String assetMasterEnglish = 'assets/images/apps/masterenglish.png';
+  static const String assetMasterChinese = 'assets/images/apps/masterchinese.png';
+  static const String assetMasterAppStore = 'assets/images/apps/masterappstore.png';
+  static const String assetMasterContact = 'assets/images/apps/mastercontact.png';
+  static const String assetMasterBooking = 'assets/images/apps/masterbooking.png';
+  static const String assetMasterStory = 'assets/images/apps/masterstory.png';
 
   /// Book store.
   static const String assetBook1 = 'assets/stores/books/period9book1.jpg';
