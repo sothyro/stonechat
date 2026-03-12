@@ -22,13 +22,17 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="Stonechat Communications">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="apple-touch-icon" href="/icons/Icon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/icons/Icon-512.png" sizes="512x512">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- Favicon: root-relative paths so icons show when installing PWA or saving bookmark -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon.png">
 
   <title>Stonechat Communications | Apps, Digital Solutions &amp; Training</title>
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
 
   <!-- Preconnect to Google Fonts for faster above-the-fold text rendering -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -2,9 +2,19 @@
 
 Firebase Cloud Functions for appointments (slots, booking, PlasGate SMS) and contact form (Resend email).
 
+## Resend (contact form email)
+
+Set `RESEND_API_KEY` and `CONTACT_NOTIFY_EMAIL` to enable email notifications when someone submits the contact form:
+
+```powershell
+$env:RESEND_API_KEY='re_xxxxxxxx'
+$env:CONTACT_NOTIFY_EMAIL='team@yourdomain.com'
+node functions/scripts/set-resend-secrets.cjs
+```
+
 ## PlasGate SMS setup
 
-When a new document is created in the `appointments` collection, **3 SMS** are sent (sender **PlasGateUAT**): (1) customer, (2) admin, (3) Stonechat business line (+85512222211).
+When a new document is created in the `appointments` collection, **3 SMS** are sent (sender **stonechat**): (1) customer, (2) admin, (3) Stonechat business line (+85512222211).
 
 ### Required secrets
 

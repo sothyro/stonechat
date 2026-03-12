@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../theme/app_theme.dart';
+import '../utils/breakpoints.dart';
 import '../widgets/app_shell.dart';
 import '../screens/home/home_screen.dart';
 import '../screens/events/events_screen.dart';
@@ -118,8 +119,12 @@ class _NotFoundScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final width = MediaQuery.sizeOf(context).width;
+    final isMobile = Breakpoints.isMobile(width);
+    final paddingV = isMobile ? 48.0 : 80.0;
+    final paddingH = isMobile ? 16.0 : 24.0;
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 24),
+      padding: EdgeInsets.symmetric(vertical: paddingV, horizontal: paddingH),
       child: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,

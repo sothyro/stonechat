@@ -105,7 +105,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get stonechatSpotlightDesc =>
-      '我们为 Web、桌面、macOS、iOS 和 Android 开发现代、美观、实惠的应用。架构清晰、界面优雅——高品质产品，价格亲民。';
+      '我们为 Web、桌面、iOS 与 Android 开发现代应用，并设计响应式网站。代码清晰、界面简洁——高品质，价格合理。';
 
   @override
   String get openStonechatCta => '获取报价';
@@ -525,7 +525,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get mediaPostsFacebookBody => '我们的最新动态、培训与资讯发布在 Facebook 专页，欢迎关注。';
 
   @override
-  String get mediaPostsFacebookLink => 'facebook.com/stonechat';
+  String get mediaPostsFacebookLink => 'facebook.com/stonechat.vip';
 
   @override
   String get mediaPostsTelegramTitle => 'Telegram 群组';
@@ -806,34 +806,34 @@ class AppLocalizationsZh extends AppLocalizations {
   String get watch => '观看';
 
   @override
-  String get academyQiMen => '奇门遁甲精修™';
+  String get academyQiMen => '以人为中心的沟通艺术™';
 
   @override
-  String get academyQiMenDesc => '获得战略优势，最大化你的胜算。';
+  String get academyQiMenDesc => '培养扎实的通用沟通技能。清晰、实用的培训。';
 
   @override
-  String get academyBaZi => '八字和谐™';
+  String get academyBaZi => 'AI 增强沟通艺术™';
 
   @override
-  String get academyBaZiDesc => '了解你的命运与潜在力量。';
+  String get academyBaZiDesc => '有效运用 AI 工具进行沟通。充分利用 AI。';
 
   @override
-  String get academyFengShui => '风水执业™';
+  String get academyFengShui => '定制培训';
 
   @override
-  String get academyFengShuiDesc => '气的流动之执业师。';
+  String get academyFengShuiDesc => '为您的团队或机构量身定制的工作坊。我们根据您的需求调整。';
 
   @override
   String get academyPageTitle => '学院';
 
   @override
-  String get academyQiMenAbout => '基于时间与空间的古老策略体系，用于决策、择日与情境优势。';
+  String get academyQiMenAbout => '基于时间与空间的古老策略体系。用于决策、择日与情境优势。';
 
   @override
-  String get academyBaZiAbout => '八字命盘揭示你的优势、人生阶段与潜能，助力事业与人际。';
+  String get academyBaZiAbout => '八字命盘揭示您的优势、人生阶段与潜能，助力事业与人际。';
 
   @override
-  String get academyFengShuiAbout => '环境能量之学，学习评估与调整空间，促进福祉与成功。';
+  String get academyFengShuiAbout => '环境能量之学。学习评估与调整空间，促进福祉与成功。';
 
   @override
   String get academyQiMenTopics => '九宫 • 战略时机 • 商业与个人决策';
@@ -881,7 +881,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get academyMaoShanTopics => '仪轨 • 传统 • 实修与应用';
 
   @override
-  String get academyMoreCoursesNote => '更多课程与排期将在此公布。如需抢先报名或定制团体课程，请联系我们。';
+  String get academyMoreCoursesNote => '我们六大服务的培训。如需排期或定制团体课程，请联系我们。';
 
   @override
   String get eventCourseAppDevelopmentDesc =>
@@ -1080,17 +1080,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get eventsWhyAttendTitle => '为什么参加我们的培训';
 
   @override
-  String get eventsWhyAttendLead =>
-      '这不仅是又一堂讲座。这是最受期待的风水与中华玄学体验——古老智慧与实战策略相遇，让你满载而归、改变人生。';
+  String get eventsWhyAttendLead => '实操传播培训：以人为中心、AI 增强。还有应用与图书创作洞见。友好、无术语的环境。';
 
   @override
-  String get eventsWhyAttend1 => '向大师学习——现场授课与独到见解，别处难求。';
+  String get eventsWhyAttend1 => '用通俗语言学习——无技术绕弯。我们确保您感到舒适自信。';
 
   @override
-  String get eventsWhyAttend2 => '结识同修与爱好者，与志同道合者同行。';
+  String get eventsWhyAttend2 => '结识关心清晰沟通与优质应用的人。';
 
   @override
-  String get eventsWhyAttend3 => '席位有限。立即预订，成为这场盛会的一员。';
+  String get eventsWhyAttend3 => '席位有限。立即预订，充分利用培训。';
 
   @override
   String get eventsUpcomingHeadline => '即将举行的培训';
@@ -1165,97 +1164,97 @@ class AppLocalizationsZh extends AppLocalizations {
   String get aboutBullet4 => '定制项目—定制方案。清晰沟通，快速响应。支持高棉语、英语与中文。';
 
   @override
-  String get journeyPageHeadline => '我的奋进';
+  String get journeyPageHeadline => '我们的故事';
 
   @override
-  String get journeyHeroSubline => '从使命到清明——风水与中华玄学实践。';
+  String get journeyHeroSubline =>
+      '六大服务，一个伙伴：应用开发、响应式网站、AI 智能体、图书创作、传播培训、定制项目。';
 
   @override
-  String get journeySectionTheStory => '历程';
+  String get journeySectionTheStory => '故事';
 
   @override
-  String get journeyHeroSpotlightTitle => '道路';
+  String get journeyHeroSpotlightTitle => '我们是谁';
 
   @override
-  String get journeyHeroSpotlightDesc => '从使命到带来清明与成果的体系。在下方了解历程。';
+  String get journeyHeroSpotlightDesc =>
+      '我们提供应用开发、响应式网站、AI 智能体、图书创作、传播培训与定制项目。在下方了解更多。';
 
   @override
-  String get journeyHeroSpotlightCta => '阅读历程';
+  String get journeyHeroSpotlightCta => '阅读故事';
 
   @override
   String get journeyStory1 =>
-      'Stonechat 是公认的风水与中华玄学实践者，拥有超过 44,000 名追随者，长期为个人与企业提供清晰指引与成果。他的道路并非偶然，而是始于一份使命。';
+      'Stonechat Communications 提供六大核心服务：应用开发、响应式网站、AI 智能体、图书创作、传播培训与定制项目。我们开发现代应用与网站、设计图书、开展清晰实用的培训。';
 
   @override
   String get journeyStory2 =>
-      '对天道智慧的深信，逐渐化为使命：将古老的时机、空间与命运体系带入日常生活。经年累月的研究、实践与提炼，他建立起一套将玄学转化为可执行洞见的方法。';
+      '我们注重清晰的架构与界面，价格合理。我们支持高棉语、英语和中文，可根据需求增加更多语言。每项服务都力求直观易用。';
 
   @override
   String get journeyStory3 =>
-      '如今，这套方法帮助客户做出更好决策、择吉日、认识自身优势并调整环境。从命运解读、战略择日到风水勘察，Stonechat 的系统旨在产生真实影响。';
+      '我们重视快速响应与清晰、人性化的沟通——让您随时了解进展、充满信心。告诉我们您的目标，我们会为您匹配合适的服务。';
 
   @override
-  String get journeyPeriod9Title => '九运与新纪元';
+  String get journeyPeriod9Title => '传播培训';
 
   @override
   String get journeyPeriod9Body =>
-      '我们正处在九运（2024–2043），即玄空九运中的离火运。这二十年强调火元素能量、南方方位，以及能见度、进步与内在清明。Stonechat 的实践与此转换同步，助你在新纪元中以契合天时的时机与布局前行。';
+      '传播培训是我们六大服务之一。以人为中心、AI 增强的工作坊。清晰、实用的技能——无术语。';
 
   @override
-  String get journeyPhoenixTitle => '凤凰崛起';
+  String get journeyPhoenixTitle => '图书创作服务';
 
   @override
   String get journeyPhoenixBody =>
-      '「凤凰崛起」是 Stonechat 的悟道与系统之名，象征重生、转化，以及洞见化为行动的一刻。在九运中，凤凰崛起——掌握正确知识，你也能腾飞。他的框架将八字、奇门遁甲、易经、择日、风水与茅山融为一体，为准备好的人提供连贯之道。';
+      '图书创作服务：从构思到成书。我们全程支持作者与机构完成写作、编辑、设计与出版。一站式完成。';
 
   @override
   String get methodPageHeadline => '我们的方法';
 
   @override
   String get methodIntro =>
-      'Stonechat 的系统建立在古典中华玄学之上。每一门学问均以清晰的公式与标准应用，使咨询与教学一致、可解释且有效。以下为主要支柱的实践、推算与运用方式。';
+      '我们提供六大核心服务：应用开发、响应式网站、AI 智能体、图书创作、传播培训与定制项目。以下是我们如何工作以及您能期待什么。清晰直观。';
 
   @override
-  String get methodBaZiTitle => '八字（四柱命理）';
+  String get methodBaZiTitle => '应用开发与响应式网站';
 
   @override
   String get methodBaZiBody =>
-      '八字以出生年月日时排出年、月、日、时四柱，每柱一天干一地支，共八字。在适用处以真太阳时推算。我们分析五行、强弱与冲克及大运流年，以揭示潜能、利方与关键决策的时机。';
+      '我们为 Web、桌面、iOS 与 Android 开发现代应用，并设计响应式网站。代码清晰、界面简洁、品质优良、价格合理。';
 
   @override
-  String get methodQimenTitle => '奇门遁甲';
+  String get methodQimenTitle => '传播培训';
 
   @override
-  String get methodQimenBody =>
-      '奇门以随日期与时辰变化的九宫格为基础。我们按问事或事件时间起盘，排布三奇、八门与八神，按阴遁或阳遁解读。公式具时效性，用于策略、择日与情境分析。';
+  String get methodQimenBody => '传播培训：以人为中心、AI 增强的工作坊。清晰、实用的技能，让您与团队自信沟通。无术语。';
 
   @override
-  String get methodIChingTitle => '易经';
+  String get methodIChingTitle => '图书创作服务';
 
   @override
-  String get methodIChingBody =>
-      '易经通过占得六爻卦象反映当下。我们采用传统三枚钱币或蓍草法：自下而上建爻（6 老阴、7 少阳、8 少阴、9 老阳）。所得卦象与动爻依经典与 Stonechat 的框架解读，用于决策与方向。';
+  String get methodIChingBody => '从构思到出版——写作、编辑、设计与出版。我们全程支持作者与机构。';
 
   @override
-  String get methodDateSelectionTitle => '择日';
+  String get methodDateSelectionTitle => '快速响应';
 
   @override
   String get methodDateSelectionBody =>
-      '吉日吉时依通书、八字与事主之合、以及奇门战略时机选取。我们避开凶日（如干支冲克），并与开业、婚嫁、出行及重大事项的有利能量相合。';
+      '我们重视速度而不牺牲质量。我们不会让您等待数月；我们优先快速响应，让您的网站、应用、培训或图书及时推进。';
 
   @override
-  String get methodFengShuiTitle => '风水（玄空飞星）';
+  String get methodFengShuiTitle => '我们支持的语言';
 
   @override
   String get methodFengShuiBody =>
-      '我们采用玄空飞星风水。以建筑落成年份（风水年自 2 月 4 日起）与坐向（二十四山）定飞星盘。九宫配星与洛书结合。我们审视山星向星、五行平衡与九运调整，以建议布局与化解。';
+      '我们的产品与服务支持高棉语、英语和中文。我们可根据需求灵活增加更多语言，助您触达目标受众。';
 
   @override
-  String get methodMaoShanTitle => '茅山';
+  String get methodMaoShanTitle => '清晰、人性化的沟通';
 
   @override
   String get methodMaoShanBody =>
-      '茅山传统在 Stonechat 系统中于适当处融入仪轨与实修。方法依古典形制与用途应用，支持中华玄学在其框架中的精神与实践面向。';
+      '在每次互动中，我们以清晰、人性化的语气沟通，而非使用过多技术术语。我们的目标是让非技术客户在整个过程中感到舒适、知情且自信。';
 
   @override
   String get appointmentIntro => '选择咨询类型、预约时间，我们将通过短信向您发送确认。';
@@ -1387,54 +1386,54 @@ class AppLocalizationsZh extends AppLocalizations {
   String get next => '下一步';
 
   @override
-  String get smartMoveHeading => '每一步都可以是明智的一步';
+  String get smartMoveHeading => '让我们打造出色的产品。';
 
   @override
   String get smartMoveIntro =>
-      '每一次突破背后都有清晰的时刻。当你看清全局，机会自然出现，决策更轻松，进展更顺畅。我们正是帮助你做到这一点：看清前路，让下一步成为正确的一步。与我们的团队咨询，你得到的不仅是洞见，更是自信前行的结构。';
+      '我们提供清晰、高标准的应用架构与优雅、易用的界面，价格实惠。个人与企业都能获得高品质产品而无需大笔投入。快速响应、清晰沟通——让您始终了解进展。我们用通俗语言解释，让您知情且自信。';
 
   @override
-  String get smartMoveCard1Title => '达成个人目标';
+  String get smartMoveCard1Title => 'Web、桌面、iOS 与 Android';
 
   @override
-  String get smartMoveCard1Desc => '在清晰指引下，把抱负化为可实现的里程碑。';
+  String get smartMoveCard1Desc => '基于清晰架构的现代应用。我们覆盖您需要的平台。';
 
   @override
-  String get smartMoveCard2Title => '制定适合的路线图';
+  String get smartMoveCard2Title => '优雅、易用的界面';
 
   @override
-  String get smartMoveCard2Desc => '获得为你的生活、事业或生意量身定制的结构化计划。';
+  String get smartMoveCard2Desc => '美观且实用的设计。无杂乱、无困惑。';
 
   @override
-  String get smartMoveCard3Title => '扫除隐藏障碍';
+  String get smartMoveCard3Title => '实惠的价格';
 
   @override
-  String get smartMoveCard3Desc => '发现你未曾注意的障碍，并学会跨越它们。';
+  String get smartMoveCard3Desc => '高品质产品，价格不高。我们保持成本合理。';
 
   @override
-  String get smartMoveCard4Title => '提升情境认知';
+  String get smartMoveCard4Title => '快速响应';
 
   @override
-  String get smartMoveCard4Desc => '如实看清现状，让决策更轻松。';
+  String get smartMoveCard4Desc => '我们不会让您等待数月。速度与质量兼顾。';
 
   @override
-  String get smartMoveCard5Title => '发现更好选择';
+  String get smartMoveCard5Title => '清晰、人性化的沟通';
 
   @override
-  String get smartMoveCard5Desc => '发现你未曾意识到的选项，并选出最有利于你的那一个。';
+  String get smartMoveCard5Desc => '我们使用通俗语言，让非技术客户感到舒适自信。';
 
   @override
-  String get smartMoveCard6Title => '朝正确方向前进';
+  String get smartMoveCard6Title => '高棉语、英语、中文';
 
   @override
-  String get smartMoveCard6Desc => '在时机与格局中行动，让进展自然可持续。';
+  String get smartMoveCard6Desc => '我们支持三种主要语言，可根据需求增加更多。';
 
   @override
   String get contactLetsConnect => '保持联系！';
 
   @override
   String get contactIntro =>
-      '无论您是想通过咨询获得清晰指引、了解我们的课程，还是寻求合作，我们的团队都会为您提供帮助。只需选择主题、留下留言，我们会尽快与您联系。';
+      '无论您需要应用、网站、培训还是出版帮助，我们都在这里。我们使用清晰、人性化的语言。选择主题、留下留言，我们会尽快回复。我们通常在 1 个工作日内回复。';
 
   @override
   String get contactFormName => '姓名';
@@ -1739,11 +1738,11 @@ class AppLocalizationsZh extends AppLocalizations {
   String get forecastYearBingWu => '2026 丙午，火馬年';
 
   @override
-  String get forecastYearSubtitle => '2026：新開端與蛻變';
+  String get forecastYearSubtitle => '2026：新开端与蜕变';
 
   @override
   String logoPlaceholder(int number) {
-    return '標誌 $number';
+    return '标志 $number';
   }
 
   @override
@@ -1753,7 +1752,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sampleArticle2 => '示例文章 2';
 
   @override
-  String get sampleFeature => '示例專題';
+  String get sampleFeature => '示例专题';
 
   @override
   String get event1Title => '传播培训：以人为中心的技能';
@@ -1839,10 +1838,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get dashboardStatsTotal => '总计';
 
   @override
-  String get dashboardStatsPending => '待確認';
+  String get dashboardStatsPending => '待确认';
 
   @override
-  String get dashboardStatsConfirmed => '已確認';
+  String get dashboardStatsConfirmed => '已确认';
 
   @override
   String get dashboardStatsCancelled => '已取消';
@@ -1866,10 +1865,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get appointmentName => '姓名';
 
   @override
-  String get appointmentPhone => '電話';
+  String get appointmentPhone => '电话';
 
   @override
-  String get confirmAppointment => '確認';
+  String get confirmAppointment => '确认';
 
   @override
   String get reschedule => '改期';

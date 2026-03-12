@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 import '../l10n/app_localizations.dart';
+import '../utils/breakpoints.dart';
 import '../services/error_service.dart';
 import '../theme/app_theme.dart';
 import '../widgets/glass_container.dart';
@@ -72,7 +73,7 @@ class ErrorDisplay extends StatelessWidget {
 
   Widget _buildFull(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final isMobile = MediaQuery.sizeOf(context).width < 600;
+    final isMobile = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
 
     return GlassContainer(
       blurSigma: 8,

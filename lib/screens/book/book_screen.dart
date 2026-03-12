@@ -646,10 +646,10 @@ class _BookServicesOverviewSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisSize: MainAxisSize.min,
       children: [
-        const SectionHeader(
+        SectionHeader(
           overline: 'Book services',
           title: 'Everything you need to publish with confidence',
-          isNarrow: false,
+          isNarrow: isNarrow,
         ),
         const SizedBox(height: 18),
         Text(

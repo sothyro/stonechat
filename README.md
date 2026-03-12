@@ -149,12 +149,12 @@ They do not share data or logic. Contact form submissions do not affect the book
    When a document is created in `contact_submissions`, a Cloud Function can send an email to your team.
 
    - Sign up at [Resend](https://resend.com) and create an API key.
-   - Set Firebase secrets (from project root):
-     ```bash
-     firebase functions:secrets:set RESEND_API_KEY
-     firebase functions:secrets:set CONTACT_NOTIFY_EMAIL
+   - Set Firebase secrets (from project root). **Option A – Script:**
+     ```powershell
+     $env:RESEND_API_KEY='re_xxxxxxxx'; $env:CONTACT_NOTIFY_EMAIL='team@yourdomain.com'
+     node functions/scripts/set-resend-secrets.cjs
      ```
-     When prompted, enter your Resend API key and the email address that should receive contact form notifications (e.g. `team@yourdomain.com`).
+     **Option B – Manual:** Run `firebase functions:secrets:set RESEND_API_KEY` and `firebase functions:secrets:set CONTACT_NOTIFY_EMAIL`, then paste values when prompted.
    - Redeploy functions. From project root, first install dependencies in `functions`, then deploy:
      ```powershell
      cd functions; npm ci; cd ..
@@ -167,7 +167,7 @@ They do not share data or logic. Contact form submissions do not affect the book
 
 ### PlasGate SMS (appointment confirmations)
 
-When a new document is created in `appointments`, a Cloud Function sends an SMS confirmation via [PlasGate](https://support.plasgate.com/article/api-overview) (sender: **PlasGateUAT**).
+When a new document is created in `appointments`, a Cloud Function sends an SMS confirmation via [PlasGate](https://support.plasgate.com/article/api-overview) (sender: **stonechat**).
 
 1. **Set Firebase secrets** (from project root). You need your PlasGate **private key** and **secret** from the PlasGate portal, and (optional) an admin phone for "create booking on behalf of client" SMS:
    ```bash

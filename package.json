@@ -1,0 +1,12 @@
+{
+  "name": "stonechat-scripts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate-favicons": "node scripts/generate-favicons.js"
+  },
+  "devDependencies": {
+    "png-to-ico": "^3.0.1",
+    "sharp": "^0.33.5"
+  }
+}

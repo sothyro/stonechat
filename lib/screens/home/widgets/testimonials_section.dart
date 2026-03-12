@@ -231,9 +231,11 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
             ],
           );
 
+    final paddingV = isMobile ? 40.0 : 56.0;
+    final paddingH = isMobile ? 16.0 : 24.0;
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 56, horizontal: 24),
+      padding: EdgeInsets.symmetric(vertical: paddingV, horizontal: paddingH),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../theme/app_theme.dart';
+import '../utils/breakpoints.dart';
 
 /// Reusable section title block: overline label, main headline, accent line, optional subline.
 /// Matches the services section style for consistency across all pages.
@@ -28,7 +29,7 @@ class SectionHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
-    final narrow = isNarrow ?? width < 600;
+    final narrow = isNarrow ?? Breakpoints.isMobile(width);
     final locale = Localizations.localeOf(context);
     final isKhmer = locale.languageCode == 'km';
     final displayOverline = isKhmer ? overline : overline.toUpperCase();
@@ -56,7 +57,7 @@ class SectionHeader extends StatelessWidget {
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
             color: AppColors.onPrimary,
             fontWeight: FontWeight.w700,
-            fontSize: width < 600 ? 28 : (width < 900 ? 36 : 44),
+            fontSize: Breakpoints.isMobile(width) ? 28 : (width < 900 ? 36 : 44),
             height: 1.15,
             letterSpacing: -0.5,
           ),
@@ -79,7 +80,7 @@ class SectionHeader extends StatelessWidget {
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: AppColors.onSurfaceVariantDark,
-                fontSize: width < 600 ? 16 : 18,
+                fontSize: Breakpoints.isMobile(width) ? 16 : 18,
                 height: 1.5,
               ),
             ),
