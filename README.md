@@ -167,7 +167,7 @@ They do not share data or logic. Contact form submissions do not affect the book
 
 ### PlasGate SMS (appointment confirmations)
 
-When a new document is created in `appointments`, a Cloud Function sends an SMS confirmation via [PlasGate](https://support.plasgate.com/article/api-overview) (sender: **stonechat**).
+When a new document is created in `appointments`, a Cloud Function sends an SMS confirmation via [PlasGate](https://support.plasgate.com/article/api-overview) (sender: **Stonechat**).
 
 1. **Set Firebase secrets** (from project root). You need your PlasGate **private key** and **secret** from the PlasGate portal, and (optional) an admin phone for "create booking on behalf of client" SMS:
    ```bash

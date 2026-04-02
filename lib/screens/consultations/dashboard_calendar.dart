@@ -773,6 +773,11 @@ Future<void> showCreateBookingDialog(
                     date: dateStr,
                     time: selectedTime,
                     sessionType: selectedSessionType,
+                    visitTypeLabel: selectedSessionType == sessionTypeOnline
+                        ? l10n.sessionTypeOnline
+                        : l10n.sessionTypeVisit,
+                    visitFieldLabel: l10n.sessionType,
+                    smsLocale: Localizations.localeOf(context).languageCode,
                     notes: note.isEmpty ? null : note,
                     durationMinutes: defaultSessionDurationMinutes,
                     createdByAdmin: true,

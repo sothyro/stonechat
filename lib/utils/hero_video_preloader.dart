@@ -111,70 +111,73 @@ class _LoadingContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final pulseScale = 1.0 + (0.04 * (0.5 - (pulseValue - 0.5).abs()));
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.dark().copyWith(
-        scaffoldBackgroundColor: AppColors.backgroundDark,
-        textTheme: textThemeForLocale('en'),
-      ),
-      home: Scaffold(
-        backgroundColor: AppColors.backgroundDark,
-        body: Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                AppColors.backgroundDark,
-                AppColors.surfaceDark,
-                AppColors.primary.withValues(alpha: 0.95),
-              ],
-            ),
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: MediaQuery(
+        data: const MediaQueryData(),
+        child: Theme(
+          data: AppTheme.dark().copyWith(
+            scaffoldBackgroundColor: AppColors.backgroundDark,
+            textTheme: textThemeForLocale('en'),
           ),
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Transform.scale(
-                  scale: pulseScale,
-                  child: SizedBox(
-                    width: 52,
-                    height: 52,
-                    child: CircularProgressIndicator(
-                      value: displayProgress > 0 && displayProgress <= 1
-                          ? displayProgress
-                          : null,
-                      strokeWidth: 2.5,
-                      valueColor: const AlwaysStoppedAnimation<Color>(AppColors.accent),
-                      backgroundColor: AppColors.accent.withValues(alpha: 0.2),
+          child: ColoredBox(
+            color: AppColors.backgroundDark,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    AppColors.backgroundDark,
+                    AppColors.surfaceDark,
+                    AppColors.primary.withValues(alpha: 0.95),
+                  ],
+                ),
+              ),
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Transform.scale(
+                      scale: pulseScale,
+                      child: SizedBox(
+                        width: 52,
+                        height: 52,
+                        child: CircularProgressIndicator(
+                          value: displayProgress > 0 && displayProgress <= 1
+                              ? displayProgress
+                              : null,
+                          strokeWidth: 2.5,
+                          valueColor: const AlwaysStoppedAnimation<Color>(AppColors.accent),
+                          backgroundColor: AppColors.accent.withValues(alpha: 0.2),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Text(
-                  '${(displayProgress * 100).round()}%',
-                  style: TextStyle(
-                    color: AppColors.accent.withValues(alpha: 0.95),
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 300),
-                  child: Text(
-                    message,
-                    key: ValueKey<String>(message),
-                    style: TextStyle(
-                      color: AppColors.accent.withValues(alpha: 0.7),
-                      fontSize: 13,
-                      fontWeight: FontWeight.w400,
+                    const SizedBox(height: 20),
+                    Text(
+                      '${(displayProgress * 100).round()}%',
+                      style: TextStyle(
+                        color: AppColors.accent.withValues(alpha: 0.95),
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
+                    const SizedBox(height: 8),
+                    AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 300),
+                      child: Text(
+                        message,
+                        key: ValueKey<String>(message),
+                        style: TextStyle(
+                          color: AppColors.accent.withValues(alpha: 0.7),
+                          fontSize: 13,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         ),

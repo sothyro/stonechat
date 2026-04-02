@@ -6,6 +6,7 @@ import '../../../l10n/app_localizations.dart';
 import '../../../theme/app_theme.dart';
 import '../../../utils/breakpoints.dart';
 import '../../../widgets/section_header.dart';
+import '../../../widgets/deferred_hover_mouse_region.dart';
 
 /// Home page services section: 6 service cards with images, placed below the hero.
 /// Prominent section with a clear heading and intuitive, beautiful cards.
@@ -151,8 +152,6 @@ class _ServiceCard extends StatefulWidget {
 }
 
 class _ServiceCardState extends State<_ServiceCard> {
-  bool _hovered = false;
-
   /// Whether [chipColor] is dark (use white text on pill).
   bool get _isDarkChip {
     final c = widget.chipColor;
@@ -164,19 +163,18 @@ class _ServiceCardState extends State<_ServiceCard> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final learnMoreLabel = l10n?.serviceLearnMore ?? 'Learn more';
-    final borderColor = _hovered
+    return DeferredHoverMouseRegion(
+      builder: (context, hovered) {
+    final borderColor = hovered
         ? widget.chipColor
         : AppColors.borderDark;
-    final shadow = _hovered ? AppShadows.eventCardHover : AppShadows.eventCard;
-    final scale = _hovered ? 1.02 : 1.0;
+    final shadow = hovered ? AppShadows.eventCardHover : AppShadows.eventCard;
+    final scale = hovered ? 1.02 : 1.0;
     final chipBg = widget.chipColor.withValues(alpha: _isDarkChip ? 0.85 : 0.22);
     final chipBorder = widget.chipColor.withValues(alpha: 0.9);
     final chipTextColor = _isDarkChip ? Colors.white : widget.chipColor;
 
-    return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
-      child: AnimatedScale(
+    return AnimatedScale(
         scale: scale,
         duration: const Duration(milliseconds: 200),
         curve: Curves.easeOut,
@@ -191,7 +189,7 @@ class _ServiceCardState extends State<_ServiceCard> {
               decoration: BoxDecoration(
                 color: AppColors.surfaceElevatedDark,
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: borderColor, width: _hovered ? 1.5 : 1),
+                border: Border.all(color: borderColor, width: hovered ? 1.5 : 1),
                 boxShadow: shadow,
               ),
               clipBehavior: Clip.antiAlias,
@@ -309,7 +307,8 @@ class _ServiceCardState extends State<_ServiceCard> {
             ),
           ),
         ),
-      ),
+      );
+      },
     );
   }
 }

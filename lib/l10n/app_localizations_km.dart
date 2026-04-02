@@ -127,7 +127,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get period9PremiumLabel => 'មានការជាវប៉្រេម៉ាយុម';
 
   @override
-  String get period9SpotlightTitle => 'Caishen Clinic App';
+  String get period9SpotlightTitle => 'កម្មវិធីគ្លីនិក Caishen';
 
   @override
   String get period9SpotlightDesc =>
@@ -333,7 +333,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get n22SectionOverline => 'វេទិកាប្រតិបត្តិការ';
 
   @override
-  String get n22SectionTitle => 'Caishen Clinic Business Suite';
+  String get n22SectionTitle => 'ឈុតអាជីវកម្មគ្លីនិក Caishen';
 
   @override
   String get n22SectionTagline =>
@@ -408,7 +408,7 @@ class AppLocalizationsKm extends AppLocalizations {
       'ប្រវត្តិរូបរបស់អ្នក របៀបរបស់អ្នក។ គ្រប់គ្រងការកំណត់ និងចំណូលចិត្ត។';
 
   @override
-  String get featuredApp1Title => 'Period 9 Feng Shui Guide';
+  String get featuredApp1Title => 'មគ្គុទេសក៍ Feng Shui យក ៩';
 
   @override
   String get featuredApp1Subtitle =>
@@ -731,7 +731,7 @@ class AppLocalizationsKm extends AppLocalizations {
       'ការអភិវឌ្ឍកម្មវិធី វ៉ែបឆបឧបករណ៍ AI Agent ការបង្កើតសៀវភៅ វគ្គបណ្តុះបណ្តាលការទំនាក់ទំនង និងគម្រោងផ្ទាល់—ដៃគូតែមួយសម្រាប់ទាំងអស់។';
 
   @override
-  String get serviceAiAgent => 'AI Agent';
+  String get serviceAiAgent => 'ភ្នាក់ងារ AI';
 
   @override
   String get serviceAiAgentDesc =>
@@ -918,7 +918,7 @@ class AppLocalizationsKm extends AppLocalizations {
       'ក្បួនស្ដេចអណ្ដើកខ្មៅ Tung Shu • ម៉ោងមង្គល • ព្រឹត្តិការណ៍ និងហេតុសំខាន់ៗ';
 
   @override
-  String get academyIChing => 'I Ching™';
+  String get academyIChing => 'អ៊ីជីង™';
 
   @override
   String get academyIChingDesc =>
@@ -933,7 +933,7 @@ class AppLocalizationsKm extends AppLocalizations {
       'តម្រាអ៊ីជីង៦៤ • ការទស្សន៍ទាយ • ការផ្លាស់ប្តូរ និងយុទ្ធសាស្រ្ត';
 
   @override
-  String get academyMaoShan => 'Mao Shan™';
+  String get academyMaoShan => 'ម៉ៅសាន™';
 
   @override
   String get academyMaoShanDesc =>
@@ -1088,7 +1088,7 @@ class AppLocalizationsKm extends AppLocalizations {
       'វ៉ែបឆបឧបករណ៍៖ វ៉ែបស៊ីតស្អាត លឿន ដែលដំណើរការលើគ្រឿងរាយគ្រឿងរៀបគ្រប់ប្រភេទ។ សេវាកម្មមួយក្នុងចំណោម៦របស់យើង។ ទាក់ទងយើងដើម្បីស្វែងយល់តម្លៃ។';
 
   @override
-  String get consult6Category => 'AI Agent';
+  String get consult6Category => 'ភ្នាក់ងារ AI';
 
   @override
   String get consult6Method => 'AI';
@@ -1102,6 +1102,83 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get stickyCtaText => 'ចុះឈ្មោះ';
+
+  @override
+  String get stickyLoginCta => 'បុគ្គលិក';
+
+  @override
+  String get stickyDashboardCta => 'ផ្ទាំង';
+
+  @override
+  String get adminLoginTitle => 'ចូលប្រើបុគ្គលិក';
+
+  @override
+  String get adminLoginSubtitle =>
+      'ចូលដើម្បីគ្រប់គ្រងអ្នកចុះឈ្មោះ ការណាត់ជួប និងសារទំនាក់ទំនង។';
+
+  @override
+  String get adminHubTitle => 'ការងារប្រតិបត្តិ';
+
+  @override
+  String get adminHubSubtitle =>
+      'អ្នកចុះឈ្មោះ ការណាត់ជួប និងសារទំនាក់ទំនងក្នុងទីតែងមួយ។';
+
+  @override
+  String get adminTabSubscribers => 'អ្នកចុះឈ្មោះ';
+
+  @override
+  String get adminTabAppointments => 'ការណាត់ជួប';
+
+  @override
+  String get adminTabContacts => 'ទំនាក់ទំនង';
+
+  @override
+  String get adminSubscribersHeading => 'អ្នកចុះឈ្មោះទទួលព័ត៌មាន';
+
+  @override
+  String get adminSubscribersSearchHint => 'ស្វែងរកតាមអ៊ីមែល…';
+
+  @override
+  String get adminSubscribersEmpty => 'មិនទាន់មានអ្នកចុះឈ្មោះ។';
+
+  @override
+  String get adminContactsHeading => 'ទំរង់ទំនាក់ទំនង';
+
+  @override
+  String get adminContactsEmpty => 'មិនទាន់មានសារ។';
+
+  @override
+  String get adminColEmail => 'អ៊ីមែល';
+
+  @override
+  String get adminColStatus => 'ស្ថានភាព';
+
+  @override
+  String get adminColSubscribed => 'ចុះឈ្មោះ';
+
+  @override
+  String get adminColLastConfirmed => 'បានបញ្ជាក់ចុងក្រោយ';
+
+  @override
+  String get adminColName => 'ឈ្មោះ';
+
+  @override
+  String get adminColSubject => 'ប្រធានបទ';
+
+  @override
+  String get adminColDate => 'ទទួល';
+
+  @override
+  String get adminColPhone => 'ទូរស័ព្ទ';
+
+  @override
+  String get adminViewDetails => 'បើក';
+
+  @override
+  String get adminMessageTitle => 'សារ';
+
+  @override
+  String get adminLoadError => 'មានបញ្ហា។ សាកល្បងធ្វើឲ្យថ្មី។';
 
   @override
   String get popupTitle1 => 'Stonechat';
@@ -2315,4 +2392,465 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get sectionTestimonialsPart4 => 'លទ្ធផល។';
+
+  @override
+  String get priceFromLabel => 'ចាប់ពី';
+
+  @override
+  String get pricingSuffixUsd => ' USD';
+
+  @override
+  String get pricingSuffixUsdPerMonth => ' USD/ខែ';
+
+  @override
+  String get projectBookCallCta => 'កក់ការហៅពិភាក្សាគម្រោង';
+
+  @override
+  String get projectPricingScopingNote =>
+      'ការវិនិយោគពិតប្រាកដត្រូវបានបញ្ជាក់បន្ទាប់ពីការហៅពិភាក្សាកំណត់ដែនកំណត់។';
+
+  @override
+  String get marketplaceMostPopularBadge => 'ពេញនិយមបំផុត';
+
+  @override
+  String get bookPageHeroOverline => 'សៀវភៅ និងសេវាបោះពុម្ភ';
+
+  @override
+  String get bookPageHeroTitle => 'ពីគំនិតដំបូងទៅសៀវភៅរួច';
+
+  @override
+  String get bookPageHeroSubtitle =>
+      'ប្រែកម្មជំនាញរបស់អ្នកឱ្យទៅជាសៀវភៅដែលបោះពុម្ភដោយវិជ្ជាជីវៈ។ Stonechat ណែនាំអ្នកពីការប្រមូលគំនិត ការសរសេរ រហូតដល់ការរចនា ការបោះពុម្ភ និងការចេញផ្សាយ។';
+
+  @override
+  String get bookStartProjectCta => 'ចាប់ផ្តើមគម្រោងសៀវភៅរបស់អ្នក';
+
+  @override
+  String get bookServicesOverline => 'សេវាសៀវភៅ';
+
+  @override
+  String get bookServicesTitle =>
+      'អ្វីគ្រប់យ៉ាងដែលអ្នកត្រូវការដើម្បីបោះពុម្ភដោយជឿជាក់';
+
+  @override
+  String get bookServicesIntro =>
+      'មិនថាអ្នកចាប់ផ្តើមពីគំនិតគូរក្បាល សេចក្តីព្រាង ឬសៀវភៅរួចដែលត្រូវការរចនា និងបោះពុម្ភ Stonechat ផ្តល់សេវាបោះពុម្ភពេញលេញសម្រាប់អ្នកដឹកនាំ និងអ្នកជំនាញរវល់។';
+
+  @override
+  String get bookSvc1Title => 'យុទ្ធសាស្ត្រសៀវភៅ និងរចនាសម្ព័ន្ធ';
+
+  @override
+  String get bookSvc1Body =>
+      'ធ្វើឱ្យសារសំខាន់របស់អ្នកច្បាស់ កំណត់អ្នកអាន និងរៀបចំគំនិតជាគ្រែជួររឿង។ យើងជួយអ្នកសម្រេចថាអ្វីគួរនៅក្នុងសៀវភៅ អ្វីគួរដកចេញ ដើម្បីឱ្យការសរសេររហ័ស និងផ្តោត។';
+
+  @override
+  String get bookSvc1Highlight =>
+      'សមនឹងអ្នកដឹកនាំ និងអ្នកជំនាញដែលដឹងអ្វីដែលចង់និយាយ ប៉ុន្តែមិនទាន់ដឹងរបៀបរៀបចំ។';
+
+  @override
+  String get bookSvc2Title => 'ការសរសេរ កែសម្រួល និងបកប្រែ';
+
+  @override
+  String get bookSvc2Body =>
+      'តាមរយៈការសម្ភាសន៍ សរសេររួម និងកែសម្រួល យើងប្រមូលចំណេះរបស់អ្នកទៅជាជំពូកដែលរួចរាល់សម្រាប់បោះពុម្ភ។ ក្រុមការងាររបស់យើងសរសេរតាមសំឡេងអ្នកជាភាសាអង់គ្លេស និងខ្មែរ រួចកែទម្រង់គ្រប់ទំព័រ។';
+
+  @override
+  String get bookSvc2Highlight =>
+      'អ្នកនៅតែជាអ្នកនិពន្ធ និងអ្នកសម្រេចចិត្ត។ យើងធ្វើការធ្ងន់លើទំព័រពីសេចក្តីព្រាងដំបូង ដល់ការផ្ទៀងផ្ទាត់ចុងក្រោយ។';
+
+  @override
+  String get bookSvc3Title => 'រចនា ប្លង់ទំព័រ និងបោះពុម្ភ';
+
+  @override
+  String get bookSvc3Body =>
+      'យើងបង្កើតក្របខណ្ឌអាជីវកម្ម រចនាទំព័រខាងក្នុងស្អាត និងរៀបចំឯកសារបោះពុម្ភ និងឌីជីថលដែលរោងពុម្ភត្រូវការ។ ក្រុមយើងសម្របតាមលក្ខខណ្ឌ តម្លៃស្នើ និងការបោះពុម្ភសាកល្បង ដើម្បីសៀវភៅរបស់អ្នកមើលគុណភាពពិភពលោក។';
+
+  @override
+  String get bookSvc3Highlight =>
+      'ដៃគូតែមួយពីគំនិតរចនា ដល់សៀវភៅបោះពុម្ភនៅក្នុងដៃ រួចសម្រាប់ចាប់ផ្តើម។';
+
+  @override
+  String get bookProcessTitle => 'របៀបសៀវភៅរបស់អ្នកមានជីវិត';
+
+  @override
+  String get bookProcessSubtitle =>
+      'ដំណើរការមួយដែលមានការណែនាំពីការសន្ទនាដំបូង ដល់សៀវភៅបោះពុម្ភនៅក្នុងដៃអ្នក។';
+
+  @override
+  String get bookProcessStep1Title => '១. រកឃើញ និងប្រមូលគំនិត';
+
+  @override
+  String get bookProcessStep1Body =>
+      'យើងស្វែងយល់រឿង គោលដៅ អ្នកអាន និងកាលវិភាគរបស់អ្នក រួចរៀបចំជាគំនិតសៀវភៅ និងគ្រែជួររឿងដំណើរការច្បាស់។';
+
+  @override
+  String get bookProcessStep2Title => '២. ការសរសេរ និងការកែសម្រួល';
+
+  @override
+  String get bookProcessStep2Body =>
+      'តាមរយៈការសម្ភាសន៍ ការពិនិត្យសេចក្តីព្រាង និងការកែសម្រួល យើងសហការបង្កើតជំពូកដែលឮដូចអ្នក និងអានដូចអ្នកជំនាញ។';
+
+  @override
+  String get bookProcessStep3Title => '៣. រចនា និងផលិតកម្ម';
+
+  @override
+  String get bookProcessStep3Body =>
+      'យើងរចនាក្របខណ្ឌ រៀបប្លង់ទំព័រ រៀបចំឯកសារបោះពុម្ភ និងឌីជីថល និងគ្រប់គ្រងរោងពុម្ភតាមស្តង់ដារគុណភាពដែលបានព្រមព្រៀង។';
+
+  @override
+  String get bookProcessStep4Title => '៤. ចាប់ផ្តើម និងលើសពីនោះ';
+
+  @override
+  String get bookProcessStep4Body =>
+      'អ្នកទទួលសៀវភៅរួច និងសម្ភារៈចាប់ផ្តើម។ យើងក៏អាចគាំទ្រព្រឹត្តិការណ៍ ប្រព័ន្ធផ្សព្វផ្សាយ និងមាតិកាបណ្តាញសង្គមដើម្បីពង្រីកឥទ្ធិពល។';
+
+  @override
+  String get bookPricingHeading => 'កញ្ចប់ភាពច្បាស់ តម្រូវតាមសៀវភៅរបស់អ្នក';
+
+  @override
+  String get bookPricingIntro =>
+      'គម្រោងគ្រប់មិនចាប់ផ្តើមដោយការសន្ទនា។ កញ្ចប់ទាំងនេះផ្តល់ចំណុចចាប់ផ្តើមច្បាស់—បន្ទាប់មកយើងសម្របដែនកំណត់ ពេលវេលា និងបរិមាណបោះពុម្ភអោយត្រូវនឹងគោលដៅ និងថវិការបស់អ្នក។';
+
+  @override
+  String get bookPlanAuthorStarterName => 'Author Starter';
+
+  @override
+  String get bookPlanAuthorStarterStrapline =>
+      'ល្អប្រសិនបើអ្នកមានសេចក្តីព្រាង ឬកំណត់ចំណាំលម្អិតរួចហើយ។';
+
+  @override
+  String get bookPlanAuthorStarterBullet1 =>
+      'សមាជិកការងារគំនិតសៀវភៅ និងគ្រែជួររឿង';
+
+  @override
+  String get bookPlanAuthorStarterBullet2 =>
+      'ការពិនិត្យកែសម្រួលសេចក្តីព្រាង (រហូតដល់ ៤០០០០ ពាក្យ)';
+
+  @override
+  String get bookPlanAuthorStarterBullet3 => 'កែប្រែបន្ទាត់ និងកែភាពរលូន';
+
+  @override
+  String get bookPlanAuthorStarterBullet4 =>
+      'ប្លង់ខាងក្នុងសាមញ្ញ និងឯកសាររួចសម្រាប់បោះពុម្ភ';
+
+  @override
+  String get bookPlanSignatureName => 'Signature Book';
+
+  @override
+  String get bookPlanSignatureStrapline =>
+      'កញ្ចប់ពេញលេញពេញនិយមបំផុតសម្រាប់អ្នកដឹកនាំ និងអ្នកជំនាញ។';
+
+  @override
+  String get bookPlanSignatureBullet1 =>
+      'យុទ្ធសាស្ត្រ ទីតាំង និងគ្រែជួររឿងពេញលេញ';
+
+  @override
+  String get bookPlanSignatureBullet2 =>
+      'ការសរសេរតាមអ្នកផ្សេង ឬសរសេររួមដោយផ្អែកលើការសម្ភាសន៍';
+
+  @override
+  String get bookPlanSignatureBullet3 =>
+      'ការកែសម្រួលវិជ្ជាជីវៈ ការកែភាពរលូន និងការផ្ទៀងផ្ទាត់ការពិត';
+
+  @override
+  String get bookPlanSignatureBullet4 =>
+      'រចនាក្របខណ្ឌតាមតម្រូវការ និងប្លង់ខាងក្នុងពិធី';
+
+  @override
+  String get bookPlanSignatureBullet5 =>
+      'ការសម្របបោះពុម្ភ (ស្តង់ដារណែនាំ និងការស្នើតម្លៃ)';
+
+  @override
+  String get bookPlanLaunchLegacyName => 'Launch & Legacy';
+
+  @override
+  String get bookPlanLaunchLegacyStrapline =>
+      'សម្រាប់សៀវភៅដែលជាគ្រឹះម៉ាក អង្គការ ឬយុទ្ធនាការ។';
+
+  @override
+  String get bookPlanLaunchLegacyBullet1 => 'អ្វីៗដូចក្នុង Signature Book';
+
+  @override
+  String get bookPlanLaunchLegacyBullet2 =>
+      'ព្រឹត្តិការណ៍ចាប់ផ្តើម និងកញ្ចប់ចំណុចនិយាយសម្រាប់ប្រព័ន្ធផ្សព្វផ្សាយ';
+
+  @override
+  String get bookPlanLaunchLegacyBullet3 =>
+      'កញ្ចប់បណ្តាញសង្គម (ការបង្ហោះ រូបភាព អត្ថបទ)';
+
+  @override
+  String get bookPlanLaunchLegacyBullet4 =>
+      'PDF សម្រាប់សារព័ត៌មាន និងទម្រង់សៀវទេវឌីជីថល (ឧ. PDF/ePub)';
+
+  @override
+  String get bookPlanLaunchLegacyBullet5 =>
+      'បកប្រែជម្រើស និងការបោះពុម្ភពីរភាសា';
+
+  @override
+  String get appsPageDevHeroTitle => 'ពីគំនិតទៅ App Store និង Play Store';
+
+  @override
+  String get appsPageDevHeroSubtitle =>
+      'ប្រែការឃើញរបស់អ្នកទៅជាកម្មវិធីចល័ត ឬវ៉ែបដែលរួចរាល់។ Stonechat ណែនាំអ្នកពីគំនិត និងរចនា រហូតដល់ការអភិវឌ្ឍ ការធ្វើតេស្ត និងការដាក់ពាក្យទៅ App Store និង Google Play។';
+
+  @override
+  String get appsStartProjectCta => 'ចាប់ផ្តើមគម្រោងកម្មវិធីរបស់អ្នក';
+
+  @override
+  String get appsServicesOverline => 'សេវាកម្មវិធី';
+
+  @override
+  String get appsServicesTitle =>
+      'អ្វីគ្រប់យ៉ាងដែលអ្នកត្រូវការដើម្បីចេញផ្សាយកម្មវិធីដ៏ល្អ';
+
+  @override
+  String get appsServicesIntro =>
+      'មិនថាអ្នកត្រូវការ MVP សាមញ្ញ ឬផលិតផលពេញលក្ខណៈ Stonechat ផ្តល់ការអភិវឌ្ឍកម្មវិធីពីកំពូលដល់គោល។ យើងធ្វើការជាមួយអាជីវកម្មចាប់ផ្តើម សាជីវកម្ម និងអង្គការដែលចង់ផ្លាស់ប្តូររហ័សដោយមិនកាត់គុណភាព។';
+
+  @override
+  String get appSvc1Title => 'យុទ្ធសាស្ត្រ និងការរកឃើញ';
+
+  @override
+  String get appSvc1Body =>
+      'យើងធ្វើឱ្យគំនិតកម្មវិធីរបស់អ្នកច្បាស់ កំណត់មុខងារសំខាន់ និងផែនទីលំហូរអ្នកប្រើ។ រួមគ្នាយើងសម្រេចថាត្រូវសាងសង់អ្វីជាដំបូង ដើម្បីចាកចេញរហ័ស និងនៅក្នុងថវិកា។';
+
+  @override
+  String get appSvc1Highlight =>
+      'ល្អនៅពេលអ្នកមានការឃើញ ប៉ុន្តែត្រូវការផែនភាពច្បាស់ដើម្បីប្រតិបត្តិ។';
+
+  @override
+  String get appSvc2Title => 'រចនា និងការអភិវឌ្ឍ';
+
+  @override
+  String get appSvc2Body =>
+      'ក្រុមយើងរចនាចំណុចប្រទាក់វិនាសណា និងសាងសង់កម្មវិធី native ឬឆ្លងវេទិកាសម្រាប់ iOS, Android និងវ៉ែប។ យើងប្រើប្រាស់ស្តាកទំនើប និងគោលការណ៍ល្អបំផុតសម្រាប់ការអនុវត្ត និងសុវត្ថិភាព។';
+
+  @override
+  String get appSvc2Highlight =>
+      'អ្នកទទួលកម្មវិធីរួចដំណើរការដែលរុញរហ័ស និងមើលវិជ្ជាជីវៈ។';
+
+  @override
+  String get appSvc3Title => 'ការធ្វើតេស្ត និងការដាក់ពាក្យហាងកម្មវិធី';
+
+  @override
+  String get appSvc3Body =>
+      'យើងធ្វើតេស្តលើឧបករណ៍ពិត ជួសជុលកំហុស និងដោយដៃការដាក់ពាក្យ App Store និង Google Play។ ពីរូបថតអេក្រង់ រហូតដល់ការពិនិត្យសេចក្តីអនុលោមតាម យើងដាក់កម្មវិធីរបស់អ្នកឱ្យរស់។';
+
+  @override
+  String get appSvc3Highlight =>
+      'ដៃគូតែមួយពីការសាងសង់ចុងក្រោយ ដល់កម្មវិធីដែលបោះពុម្ភក្នុងហាងទាំងពីរ។';
+
+  @override
+  String get appProcessTitle => 'របៀបកម្មវិធីរបស់អ្នកត្រូវបានសាង និងបោះពុម្ភ';
+
+  @override
+  String get appProcessSubtitle =>
+      'ដំណើរការមួយដែលមានការណែនាំពីការសន្ទនាដំបូង ដល់កម្មវិធីរស់លើ App Store និង Google Play។';
+
+  @override
+  String get appProcessStep1Title => '១. រកឃើញ និងគំនិត';
+
+  @override
+  String get appProcessStep1Body =>
+      'យើងស្វែងយល់គោលដៅ អ្នកប្រើ និងកម្រិត រួចកំណត់ដែនកំណត់ និងសំណុចលក្ខណៈច្បាស់សម្រាប់ការចេញផ្សាយដំបូង។';
+
+  @override
+  String get appProcessStep2Title => '២. រចនា និងគំរូ';
+
+  @override
+  String get appProcessStep2Body =>
+      'យើងបង្កើត wireframe និងរចនាកម្រិតខ្ពស់ ធ្វើតេស្តលំហូរជាមួយអ្នក និងកែលម្អរូបរាងមុនការអភិវឌ្ឍ។';
+
+  @override
+  String get appProcessStep3Title => '៣. ការអភិវឌ្ឍ និងការធ្វើតេស្ត';
+
+  @override
+  String get appProcessStep3Body =>
+      'យើងសាងសង់កម្មវិធី ដំណើរការធ្វើតេស្តស្វ័យប្រវត្តិ និងដោយដៃ និងធ្វើសម្រួលរហូតដល់ត្រូវនឹងគោលគុណភាព និងការអនុវត្ត។';
+
+  @override
+  String get appProcessStep4Title => '៤. ការដាក់ពាក្យហាង និងការចាប់ផ្តើម';
+
+  @override
+  String get appProcessStep4Body =>
+      'យើងរៀបចំធនធានហាង ដាក់ពាក្យ App Store និង Google Play និងគាំទ្រអ្នកតាមរយៈការពិនិត្យរហូតកម្មវិធីចាប់ផ្តើមរស់។';
+
+  @override
+  String get appsPricingHeading => 'តម្លៃច្បាស់ តម្រូវតាមដែនកំណត់របស់អ្នក';
+
+  @override
+  String get appsPricingIntro =>
+      'តម្លៃក្នុងស្រុកសម្រាប់កម្ពុជា។ គម្រោងគ្រប់ចាប់ផ្តើមដោយការហៅកំណត់ដែនកំណត់—យើងសម្របដែនកំណត់ និងលទ្ធផលឱ្យត្រូវនឹងគោលដៅ។ ប្រើ USD។';
+
+  @override
+  String get appsPricingSectionApps => 'ការអភិវឌ្ឍកម្មវិធី';
+
+  @override
+  String get appsPricingSectionWebsites => 'វ៉ែប និងទំព័រចុះចត';
+
+  @override
+  String get appsPricingSectionMaintenance => 'ថែទាំ និងគាំទ្រ';
+
+  @override
+  String get appPlanMiniName => 'Mini App / MVP';
+
+  @override
+  String get appPlanMiniStrapline =>
+      'កម្មវិធីសាមញ្ញជាមួយមុខងារសំខាន់។ ល្អសម្រាប់ទម្រង់កក់ កាតាឡុក ឧបករណ៍ក្នុង។';
+
+  @override
+  String get appPlanMiniBullet1 => 'ប្រអប់ ៣–៥';
+
+  @override
+  String get appPlanMiniBullet2 => 'គ្មានមូលដ្ឋានទិន្នន័យ ឬ Firebase សាមញ្ញ';
+
+  @override
+  String get appPlanMiniBullet3 => 'Android តែប៉ុណ្ណោះ';
+
+  @override
+  String get appPlanMiniBullet4 => 'ប្រគល់ក្នុង ២–៤ សប្តាហ៍';
+
+  @override
+  String get appPlanStandardName => 'Standard Business App';
+
+  @override
+  String get appPlanStandardStrapline =>
+      'ពេញនិយមសម្រាប់គ្លីនិក SME និងប្រព័ន្ធលក់តូច។';
+
+  @override
+  String get appPlanStandardBullet1 => 'ប្រអប់ ៨–១៥';
+
+  @override
+  String get appPlanStandardBullet2 =>
+      'Firebase មូលដ្ឋានទិន្នន័យ ការផ្ទៀងផ្ទាត់ CRUD';
+
+  @override
+  String get appPlanStandardBullet3 => 'របាយការណ៍សាមញ្ញ';
+
+  @override
+  String get appPlanStandardBullet4 => 'Android (iOS + web បន្ថែម +៣០–៥០%)';
+
+  @override
+  String get appPlanAdvancedName => 'Advanced App';
+
+  @override
+  String get appPlanAdvancedStrapline =>
+      'តក្កវិជ្ជាស្មុគស្មាញ តួនាទីច្រើន ការរួមបញ្ចូល ផ្ទាំងគ្រប់គ្រង។';
+
+  @override
+  String get appPlanAdvancedBullet1 => 'គ្លីនិកធំ ឬ POS ចម្រុះសាខា';
+
+  @override
+  String get appPlanAdvancedBullet2 => 'កម្មវិធីដឹកជញ្ជូន ឬទីផ្សារ';
+
+  @override
+  String get appPlanAdvancedBullet3 => 'មូលដ្ឋានទិន្នន័យ និងរដ្ឋបាលផ្ទាល់';
+
+  @override
+  String get appPlanAdvancedBullet4 => 'ស្នើតម្លៃតាមករណី';
+
+  @override
+  String get appPlanLandingName => 'ទំព័រចុះចត';
+
+  @override
+  String get appPlanLandingStrapline =>
+      'គេហទំព័រទំព័រតែមួយសម្រាប់អ្នកលក់ Facebook។ រូបរាងវិជ្ជាជីវៈក្នុង ៣–៥ ថ្ងៃ។';
+
+  @override
+  String get appPlanLandingBullet1 => 'ទំព័រតែមួយ';
+
+  @override
+  String get appPlanLandingBullet2 => 'ទម្រង់ទំនាក់ទំនង';
+
+  @override
+  String get appPlanLandingBullet3 => 'សមនឹងចល័ត';
+
+  @override
+  String get appPlanStarterWebName => 'Starter Web';
+
+  @override
+  String get appPlanStarterWebStrapline =>
+      'អាជីវកម្មតូច៖ កន្លែងកាត់សក់ ហាងតូច គ្រូ។';
+
+  @override
+  String get appPlanStarterWebBullet1 => 'គេហទំព័រ ១–៣';
+
+  @override
+  String get appPlanStarterWebBullet2 => 'រចនាពុម្ព';
+
+  @override
+  String get appPlanStarterWebBullet3 => 'ទម្រង់ទំនាក់ទំនងមូលដ្ឋាន';
+
+  @override
+  String get appPlanBasicBizName => 'Basic Business';
+
+  @override
+  String get appPlanBasicBizStrapline => 'SME គ្លីនិក មជ្ឈមណ្ឌលបណ្តុះបណ្តាល។';
+
+  @override
+  String get appPlanBasicBizBullet1 => 'គេហទំព័រ ៥–៨';
+
+  @override
+  String get appPlanBasicBizBullet2 => 'ប្លង់ផ្ទាល់ពីពុម្ព';
+
+  @override
+  String get appPlanBasicBizBullet3 => 'ប្លុក/ព័ត៌មានសាមញ្ញ ភាសា ១';
+
+  @override
+  String get appPlanProBizName => 'Pro Business';
+
+  @override
+  String get appPlanProBizStrapline => 'សាលា NGO SME ធំជាង។';
+
+  @override
+  String get appPlanProBizBullet1 => 'រហូតដល់ ~១២ ទំព័រ';
+
+  @override
+  String get appPlanProBizBullet2 => 'ពីរភាសាខ្មែរ/អង់គ្លេស';
+
+  @override
+  String get appPlanProBizBullet3 => 'ទម្រង់កក់ ឬបញ្ជីផលិតផល';
+
+  @override
+  String get appPlanEcomName => 'ពាណិជ្ជកម្មអេឡិចត្រូនិចតូច';
+
+  @override
+  String get appPlanEcomStrapline => 'ហាងអនឡាញ ម៉ាកតូច។';
+
+  @override
+  String get appPlanEcomBullet1 => 'ផលិតផល ២០–៨០';
+
+  @override
+  String get appPlanEcomBullet2 => 'រទេះ ទូទាត់ ការទូទាត់';
+
+  @override
+  String get appPlanEcomBullet3 => 'រដ្ឋបាលមូលដ្ឋានគ្រប់ផលិតផល';
+
+  @override
+  String get appPlanHostingName => 'Hosting វ៉ែប';
+
+  @override
+  String get appPlanHostingStrapline =>
+      'រក្សាគេហទំព័ររបស់អ្នកសុវត្ថិ និងធ្វើបច្ចុប្បន្ន។';
+
+  @override
+  String get appPlanHostingBullet1 =>
+      'មូលដ្ឋាន៖ ១០–២០ — hosting សុវត្ថិ កែ ២–៤';
+
+  @override
+  String get appPlanHostingBullet2 =>
+      'Pro៖ ៣០–៥០ — ធ្វើបច្ចុប្បន្នមាតិកា បម្រុង គាំទ្រអាទិភាព';
+
+  @override
+  String get appPlanSupportName => 'គាំទ្រកម្មវិធី';
+
+  @override
+  String get appPlanSupportStrapline => 'កែកំហុស កែតម្រូវ និងមុខងារថ្មី។';
+
+  @override
+  String get appPlanSupportBullet1 => 'មូលដ្ឋាន៖ ៥០–៨០ — កែ UI តូច តាមដាន';
+
+  @override
+  String get appPlanSupportBullet2 =>
+      'រីកចម្រើន៖ ១០០–១៥០ — មុខងារថ្មី វិភាគ ការអនុវត្ត';
 }

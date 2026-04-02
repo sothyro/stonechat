@@ -247,6 +247,11 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
           date: dateStr,
           time: timeStr,
           sessionType: _selectedSessionType,
+          visitTypeLabel: _selectedSessionType == sessionTypeOnline
+              ? l10n.sessionTypeOnline
+              : l10n.sessionTypeVisit,
+          visitFieldLabel: l10n.sessionType,
+          smsLocale: Localizations.localeOf(context).languageCode,
           durationMinutes: defaultSessionDurationMinutes,
         ),
         maxRetries: 3,
@@ -1208,7 +1213,7 @@ class _LoginSectionState extends State<_LoginSection> {
         _loading = false;
         _error = null;
       });
-      context.go('/consultations/dashboard');
+      context.go('/admin');
     } catch (e) {
       if (!mounted) return;
       setState(() {
@@ -1268,7 +1273,7 @@ class _LoginSectionState extends State<_LoginSection> {
                       runSpacing: 8,
                       children: [
                         FilledButton.icon(
-                          onPressed: () => context.go('/consultations/dashboard'),
+                          onPressed: () => context.go('/admin'),
                           icon: const Icon(LucideIcons.layoutDashboard, size: 18),
                           label: Text(l10n.goToDashboard),
                           style: FilledButton.styleFrom(

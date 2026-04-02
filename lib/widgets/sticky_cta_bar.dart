@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
+import 'package:provider/provider.dart';
 
 import '../l10n/app_localizations.dart';
+import '../providers/auth_provider.dart';
 import '../theme/app_theme.dart';
-import '../utils/breakpoints.dart';
 import 'glass_container.dart';
+import 'staff_login_dialog.dart';
 import 'subscribe_dialog.dart';
 
-/// Floating vertical bar on the right side for the Subscribe CTA.
+/// Floating vertical bar on the right side for Subscribe + Staff login / Hub.
 class StickyCtaBar extends StatefulWidget {
   const StickyCtaBar({super.key});
 
@@ -18,7 +21,7 @@ class StickyCtaBar extends StatefulWidget {
 class _StickyCtaBarState extends State<StickyCtaBar> {
   bool _dismissed = false;
 
-  void _openPopup() {
+  void _openSubscribe() {
     showDialog<void>(
       context: context,
       barrierDismissible: true,
@@ -26,17 +29,26 @@ class _StickyCtaBarState extends State<StickyCtaBar> {
     );
   }
 
+  void _onStaffTap(AuthProvider auth) {
+    if (auth.isLoggedIn) {
+      context.go('/admin');
+      return;
+    }
+    showStaffLoginDialog(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     if (_dismissed) return const SizedBox.shrink();
 
     final l10n = AppLocalizations.of(context)!;
+    final auth = context.watch<AuthProvider>();
 
     final textStyle = Theme.of(context).textTheme.titleSmall?.copyWith(
-      color: AppColors.onAccent,
-      fontWeight: FontWeight.w600,
-      fontSize: 12,
-    );
+          color: AppColors.onAccent,
+          fontWeight: FontWeight.w600,
+          fontSize: 12,
+        );
 
     const radius = BorderRadius.only(
       topLeft: Radius.circular(12),
@@ -55,7 +67,7 @@ class _StickyCtaBarState extends State<StickyCtaBar> {
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 10),
       child: IntrinsicWidth(
         child: ConstrainedBox(
-          constraints: const BoxConstraints(maxHeight: 400),
+          constraints: const BoxConstraints(maxHeight: 480),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -65,42 +77,71 @@ class _StickyCtaBarState extends State<StickyCtaBar> {
                   onPressed: () => setState(() => _dismissed = true),
                   tooltip: l10n.dismiss,
                   padding: EdgeInsets.zero,
-                  constraints: const BoxConstraints(
-                    minWidth: kMinTouchTargetSize,
-                    minHeight: kMinTouchTargetSize,
-                  ),
+                  constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
                   style: IconButton.styleFrom(
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   ),
                 ),
                 const SizedBox(height: 8),
-                InkWell(
-                  onTap: _openPopup,
-                  borderRadius: BorderRadius.circular(8),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(LucideIcons.mail, color: AppColors.onAccent, size: 22),
-                        const SizedBox(height: 12),
-                        RotatedBox(
-                          quarterTurns: 3,
-                          child: Text(
-                            l10n.stickyCtaText,
-                            style: textStyle,
-                            textAlign: TextAlign.center,
-                            maxLines: 4,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                _VerticalCta(
+                  icon: LucideIcons.mail,
+                  label: l10n.stickyCtaText,
+                  textStyle: textStyle,
+                  onTap: _openSubscribe,
+                ),
+                const SizedBox(height: 8),
+                Divider(color: AppColors.onAccent.withValues(alpha: 0.35), height: 24, thickness: 1),
+                _VerticalCta(
+                  icon: auth.isLoggedIn ? LucideIcons.layoutDashboard : LucideIcons.logIn,
+                  label: auth.isLoggedIn ? l10n.stickyDashboardCta : l10n.stickyLoginCta,
+                  textStyle: textStyle,
+                  onTap: () => _onStaffTap(auth),
                 ),
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class _VerticalCta extends StatelessWidget {
+  const _VerticalCta({
+    required this.icon,
+    required this.label,
+    required this.textStyle,
+    required this.onTap,
+  });
+
+  final IconData icon;
+  final String label;
+  final TextStyle? textStyle;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(8),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(icon, color: AppColors.onAccent, size: 22),
+            const SizedBox(height: 12),
+            RotatedBox(
+              quarterTurns: 3,
+              child: Text(
+                label,
+                style: textStyle,
+                textAlign: TextAlign.center,
+                maxLines: 4,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ],
         ),
       ),
     );

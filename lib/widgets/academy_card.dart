@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../config/app_content.dart';
 import '../l10n/app_localizations.dart';
 import '../theme/app_theme.dart';
+import 'deferred_hover_mouse_region.dart';
 
 /// Academy/learning card: image on top, title, description, and "Explore →" CTA.
 /// Same design as the three cards on the main page (BaZi Harmony, Feng Shui Charter, QiMen Dunjia).
@@ -29,8 +30,6 @@ class AcademyCard extends StatefulWidget {
 }
 
 class _AcademyCardState extends State<AcademyCard> {
-  bool _isHovered = false;
-
   static const Color _textLight = Color(0xFFE8E8E8);
   static const Color _textMuted = Color(0xFFB0B0B0);
   static const double _imageAspectRatio = 1.0;
@@ -55,18 +54,17 @@ class _AcademyCardState extends State<AcademyCard> {
       fontWeight: FontWeight.w600,
       fontSize: 16,
     );
-    final shadow = _isHovered ? AppShadows.cardHover : AppShadows.card;
-    final borderColor = _isHovered
+    return DeferredHoverMouseRegion(
+      builder: (context, hovered) {
+    final shadow = hovered ? AppShadows.cardHover : AppShadows.card;
+    final borderColor = hovered
         ? AppColors.borderLight.withValues(alpha: 0.5)
         : AppColors.borderDark;
-    final scale = _isHovered ? 1.02 : 1.0;
+    final scale = hovered ? 1.02 : 1.0;
     final imageAsset = widget.imageAsset ?? AppContent.assetAcademy;
     final fallbackIcon = widget.icon ?? Icons.school;
 
-    return MouseRegion(
-      onEnter: (_) => setState(() => _isHovered = true),
-      onExit: (_) => setState(() => _isHovered = false),
-      child: AnimatedScale(
+    return AnimatedScale(
         scale: scale,
         duration: const Duration(milliseconds: 150),
         curve: Curves.easeOut,
@@ -143,7 +141,8 @@ class _AcademyCardState extends State<AcademyCard> {
             ),
           ),
         ),
-      ),
+      );
+      },
     );
   }
 

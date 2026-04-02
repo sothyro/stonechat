@@ -65,6 +65,12 @@ Future<BookingResult> submitAppointmentBooking({
   required String date,
   required String time,
   String sessionType = 'VISIT',
+  /// Exact session-type label shown in the UI (e.g. Visit / Online). Stored for SMS accuracy.
+  String visitTypeLabel = '',
+  /// UI heading for session type (same as l10n.sessionType); optional, improves KM/ZH SMS caption match.
+  String visitFieldLabel = '',
+  /// BCP-47 language code from site locale (`en`, `km`, `zh`). Drives PlasGate SMS wording.
+  String smsLocale = 'en',
   String? notes,
   int durationMinutes = defaultSessionDurationMinutes,
   bool createdByAdmin = false,
@@ -80,6 +86,7 @@ Future<BookingResult> submitAppointmentBooking({
       final ref = firestore.collection('appointments').doc();
       final startTimestamp = startTime != null ? Timestamp.fromDate(startTime) : null;
       final endTimestamp = endTime != null ? Timestamp.fromDate(endTime) : null;
+      final localeTag = smsLocale.trim().isEmpty ? 'en' : smsLocale.trim().split(RegExp(r'[-_]')).first.toLowerCase();
       final data = <String, dynamic>{
         'name': name.trim(),
         'phone': normalizedPhone,
@@ -88,6 +95,9 @@ Future<BookingResult> submitAppointmentBooking({
         'date': date,
         'time': time,
         'sessionType': sessionType,
+        if (visitTypeLabel.trim().isNotEmpty) 'visitTypeLabel': visitTypeLabel.trim(),
+        if (visitFieldLabel.trim().isNotEmpty) 'visitFieldLabel': visitFieldLabel.trim(),
+        'smsLocale': localeTag,
         'startTime': startTimestamp,
         'endTime': endTimestamp,
         'durationMinutes': durationMinutes,

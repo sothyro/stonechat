@@ -7,6 +7,7 @@ import '../../config/app_content.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/app_theme.dart';
 import '../../utils/breakpoints.dart';
+import '../../utils/defer_pointer.dart';
 import '../../widgets/section_header.dart';
 import '../../widgets/subscribe_dialog.dart';
 import '../../utils/launcher_utils.dart';
@@ -146,16 +147,16 @@ class _AppsScreenState extends State<AppsScreen> {
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const SectionHeader(
-                          overline: 'App Development',
-                          title: 'From idea to App Store and Play Store',
-                          isNarrow: false,
+                        SectionHeader(
+                          overline: l10n.serviceAppDevelopment,
+                          title: l10n.appsPageDevHeroTitle,
+                          isNarrow: isNarrow,
                         ),
                         SizedBox(height: isNarrow ? 20 : 24),
                         ConstrainedBox(
                           constraints: const BoxConstraints(maxWidth: 640),
                           child: Text(
-                            'Turn your vision into a polished mobile or web app. Stonechat guides you from concept and design through development, testing, and submission to the App Store and Google Play.',
+                            l10n.appsPageDevHeroSubtitle,
                             textAlign: TextAlign.center,
                             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                                   color: AppColors.onPrimary.withValues(alpha: 0.9),
@@ -278,7 +279,7 @@ class _AppsHeroCtaRow extends StatelessWidget {
     final primary = FilledButton.icon(
       onPressed: () => context.go('/consultations'),
       icon: const Icon(LucideIcons.smartphone, size: 20),
-      label: const Text('Start your app project'),
+      label: Text(l10n.appsStartProjectCta),
       style: FilledButton.styleFrom(
         backgroundColor: AppColors.serviceAppDevelopment,
         foregroundColor: AppColors.onAccent,
@@ -316,47 +317,41 @@ class _AppServicesOverviewSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final width = MediaQuery.sizeOf(context).width;
     final isNarrow = Breakpoints.isMobile(width);
     final children = [
       _AppServiceCard(
         icon: LucideIcons.lightbulb,
-        title: 'Strategy & discovery',
-        body:
-            'We clarify your app idea, define core features, and map user flows. '
-            'Together we decide what to build first so you launch faster and stay within budget.',
-        highlight: 'Ideal when you have a vision but need a clear roadmap to execute it.',
+        title: l10n.appSvc1Title,
+        body: l10n.appSvc1Body,
+        highlight: l10n.appSvc1Highlight,
       ),
       _AppServiceCard(
         icon: LucideIcons.terminal,
-        title: 'Design & development',
-        body:
-            'Our team designs intuitive interfaces and builds native or cross-platform apps '
-            'for iOS, Android, and web. We use modern stacks and follow best practices for performance and security.',
-        highlight: 'You get a production-ready app that feels fast and looks professional.',
+        title: l10n.appSvc2Title,
+        body: l10n.appSvc2Body,
+        highlight: l10n.appSvc2Highlight,
       ),
       _AppServiceCard(
         icon: LucideIcons.rocket,
-        title: 'Testing & store submission',
-        body:
-            'We test on real devices, fix bugs, and handle App Store and Google Play submission. '
-            'From screenshots and descriptions to compliance checks, we get your app live.',
-        highlight: 'One partner from final build to published app in both stores.',
+        title: l10n.appSvc3Title,
+        body: l10n.appSvc3Body,
+        highlight: l10n.appSvc3Highlight,
       ),
     ];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisSize: MainAxisSize.min,
       children: [
-        const SectionHeader(
-          overline: 'App services',
-          title: 'Everything you need to ship a great app',
-          isNarrow: false,
+        SectionHeader(
+          overline: l10n.appsServicesOverline,
+          title: l10n.appsServicesTitle,
+          isNarrow: isNarrow,
         ),
         const SizedBox(height: 18),
         Text(
-          'Whether you need a simple MVP or a full-featured product, Stonechat delivers end-to-end app development. '
-          'We work with startups, enterprises, and organisations who want to move fast without cutting corners.',
+          l10n.appsServicesIntro,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: AppColors.onSurfaceVariantDark,
                 height: 1.6,
@@ -418,8 +413,18 @@ class _AppServiceCardState extends State<_AppServiceCard> {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
+      onEnter: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = true);
+        });
+      },
+      onExit: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = false);
+        });
+      },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 180),
         curve: Curves.easeOut,
@@ -483,13 +488,14 @@ class _AppProcessSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final width = MediaQuery.sizeOf(context).width;
     final isNarrow = Breakpoints.isMobile(width);
     final steps = [
-      (LucideIcons.lightbulb, '1. Discovery & concept', 'We explore your goals, users, and constraints, then define a clear scope and feature set for your first release.'),
-      (LucideIcons.layoutDashboard, '2. Design & prototyping', 'We create wireframes and high-fidelity designs, test flows with you, and finalise the look and feel before development.'),
-      (LucideIcons.terminal, '3. Development & testing', 'We build the app, run automated and manual tests, and iterate until it meets your quality bar and performance targets.'),
-      (LucideIcons.smartphone, '4. Store submission & launch', 'We prepare store assets, submit to App Store and Google Play, and support you through review until your app goes live.'),
+      (LucideIcons.lightbulb, l10n.appProcessStep1Title, l10n.appProcessStep1Body),
+      (LucideIcons.layoutDashboard, l10n.appProcessStep2Title, l10n.appProcessStep2Body),
+      (LucideIcons.terminal, l10n.appProcessStep3Title, l10n.appProcessStep3Body),
+      (LucideIcons.smartphone, l10n.appProcessStep4Title, l10n.appProcessStep4Body),
     ];
     return Container(
       decoration: BoxDecoration(
@@ -518,7 +524,7 @@ class _AppProcessSection extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            'How your app gets built and published',
+            l10n.appProcessTitle,
             style: highlightStyleForLocale(
               context,
               fontSize: isNarrow ? 24 : 30,
@@ -528,7 +534,7 @@ class _AppProcessSection extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Text(
-            'A single, guided process from first conversation to live apps on the App Store and Google Play.',
+            l10n.appProcessSubtitle,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: AppColors.onSurfaceVariantDark,
                   height: 1.6,
@@ -690,90 +696,92 @@ class _AppPricingSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final isNarrow = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
-    const appPlans = [
-      ('Mini App / MVP', 'Simple apps with core features. Ideal for booking forms, catalogs, internal tools.', '', '700–1,200', ' USD', [
-        '3–5 screens',
-        'No backend or simple Firebase',
-        'Android only',
-        'Delivered in 2–4 weeks',
+    final usd = l10n.pricingSuffixUsd;
+    final usdMo = l10n.pricingSuffixUsdPerMonth;
+    final appPlans = [
+      (l10n.appPlanMiniName, l10n.appPlanMiniStrapline, '', '700–1,200', usd, [
+        l10n.appPlanMiniBullet1,
+        l10n.appPlanMiniBullet2,
+        l10n.appPlanMiniBullet3,
+        l10n.appPlanMiniBullet4,
       ], false),
-      ('Standard Business App', 'Our most popular for clinics, SMEs, and small POS systems.', '', '1,500–2,500', ' USD', [
-        '8–15 screens',
-        'Firebase backend, auth, CRUD',
-        'Simple reports',
-        'Android (iOS + web add +30–50%)',
+      (l10n.appPlanStandardName, l10n.appPlanStandardStrapline, '', '1,500–2,500', usd, [
+        l10n.appPlanStandardBullet1,
+        l10n.appPlanStandardBullet2,
+        l10n.appPlanStandardBullet3,
+        l10n.appPlanStandardBullet4,
       ], true),
-      ('Advanced App', 'Complex logic, multi-role, integrations, dashboards.', '', '3,000–6,000+', ' USD', [
-        'Large clinic or multi-branch POS',
-        'Delivery or marketplace apps',
-        'Custom backend and admin',
-        'Quote case-by-case',
+      (l10n.appPlanAdvancedName, l10n.appPlanAdvancedStrapline, '', '3,000–6,000+', usd, [
+        l10n.appPlanAdvancedBullet1,
+        l10n.appPlanAdvancedBullet2,
+        l10n.appPlanAdvancedBullet3,
+        l10n.appPlanAdvancedBullet4,
       ], false),
     ];
-    const webPlans = [
-      ('Landing Page', 'One-page site for Facebook sellers. Professional look in 3–5 days.', '', '100–130', ' USD', [
-        'Single page',
-        'Contact form',
-        'Mobile-friendly',
+    final webPlans = [
+      (l10n.appPlanLandingName, l10n.appPlanLandingStrapline, '', '100–130', usd, [
+        l10n.appPlanLandingBullet1,
+        l10n.appPlanLandingBullet2,
+        l10n.appPlanLandingBullet3,
       ], false),
-      ('Starter Web', 'Micro businesses: salon, small shop, teacher.', '', '180–220', ' USD', [
-        '1–3 pages',
-        'Template design',
-        'Basic contact form',
+      (l10n.appPlanStarterWebName, l10n.appPlanStarterWebStrapline, '', '180–220', usd, [
+        l10n.appPlanStarterWebBullet1,
+        l10n.appPlanStarterWebBullet2,
+        l10n.appPlanStarterWebBullet3,
       ], false),
-      ('Basic Business', 'SMEs, clinics, training centers.', '', '250–350', ' USD', [
-        '5–8 pages',
-        'Custom layout from template',
-        'Simple blog/news, 1 language',
+      (l10n.appPlanBasicBizName, l10n.appPlanBasicBizStrapline, '', '250–350', usd, [
+        l10n.appPlanBasicBizBullet1,
+        l10n.appPlanBasicBizBullet2,
+        l10n.appPlanBasicBizBullet3,
       ], false),
-      ('Pro Business', 'Schools, NGOs, larger SMEs.', '', '400–600', ' USD', [
-        'Up to ~12 pages',
-        'Bilingual Khmer/English',
-        'Booking form or product listing',
+      (l10n.appPlanProBizName, l10n.appPlanProBizStrapline, '', '400–600', usd, [
+        l10n.appPlanProBizBullet1,
+        l10n.appPlanProBizBullet2,
+        l10n.appPlanProBizBullet3,
       ], false),
-      ('Small E-commerce', 'Online shops, small brands.', '', '700–1,000', ' USD', [
-        '20–80 products',
-        'Cart, checkout, payment',
-        'Basic admin to manage products',
+      (l10n.appPlanEcomName, l10n.appPlanEcomStrapline, '', '700–1,000', usd, [
+        l10n.appPlanEcomBullet1,
+        l10n.appPlanEcomBullet2,
+        l10n.appPlanEcomBullet3,
       ], false),
     ];
-    const maintenancePlans = [
-      ('Web hosting', 'Keep your site secure and updated.', '', '10–50', ' USD/mo', [
-        'Basic: 10–20 — hosting, security, 2–4 edits',
-        'Pro: 30–50 — content updates, backups, priority support',
+    final maintenancePlans = [
+      (l10n.appPlanHostingName, l10n.appPlanHostingStrapline, '', '10–50', usdMo, [
+        l10n.appPlanHostingBullet1,
+        l10n.appPlanHostingBullet2,
       ], false),
-      ('App support', 'Bug fixes, tweaks, and new features.', '', '50–150', ' USD/mo', [
-        'Basic: 50–80 — fixes, minor UI, monitoring',
-        'Growth: 100–150 — new features, analytics, performance',
+      (l10n.appPlanSupportName, l10n.appPlanSupportStrapline, '', '50–150', usdMo, [
+        l10n.appPlanSupportBullet1,
+        l10n.appPlanSupportBullet2,
       ], false),
     ];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
-          'Transparent pricing, tailored to your scope',
+          l10n.appsPricingHeading,
           style: highlightStyleForLocale(context, fontSize: isNarrow ? 24 : 30, fontWeight: FontWeight.bold, color: AppColors.serviceAppDevelopment),
         ),
         const SizedBox(height: 10),
         Text(
-          'Local pricing for Cambodia. Every project starts with a scoping call — we adjust scope and deliverables to match your goals. Use USD; approximate KHR available for marketing.',
+          l10n.appsPricingIntro,
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.onSurfaceVariantDark, height: 1.6),
         ),
         const SizedBox(height: 32),
-        _buildSectionTitle(context, 'App development'),
+        _buildSectionTitle(context, l10n.appsPricingSectionApps),
         const SizedBox(height: 18),
         _buildPlanGrid(context, isNarrow, appPlans, l10n),
         const SizedBox(height: 40),
-        _buildSectionTitle(context, 'Websites & landing pages'),
+        _buildSectionTitle(context, l10n.appsPricingSectionWebsites),
         const SizedBox(height: 18),
         _buildPlanGrid(context, isNarrow, webPlans, l10n),
         const SizedBox(height: 40),
-        _buildSectionTitle(context, 'Maintenance & support'),
+        _buildSectionTitle(context, l10n.appsPricingSectionMaintenance),
         const SizedBox(height: 18),
         _buildPlanGrid(context, isNarrow, maintenancePlans, l10n),
         const SizedBox(height: 24),
         Text(
-          'Exact investment is confirmed after a scoping call.',
+          l10n.projectPricingScopingNote,
           style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariantDark.withValues(alpha: 0.9), fontStyle: FontStyle.italic),
         ),
       ],
@@ -847,7 +855,7 @@ class _AppPricingCard extends StatefulWidget {
     required this.strapline,
     required this.pricePrefix,
     required this.price,
-    this.priceSuffix = ' USD',
+    this.priceSuffix = '',
     required this.bullets,
     this.highlighted = false,
     required this.l10n,
@@ -874,8 +882,18 @@ class _AppPricingCardState extends State<_AppPricingCard> {
     final isNarrow = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
     final accentColor = widget.highlighted ? AppColors.serviceAppDevelopment : AppColors.serviceAppDevelopmentLight;
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
+      onEnter: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = true);
+        });
+      },
+      onExit: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = false);
+        });
+      },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 180),
         curve: Curves.easeOut,
@@ -907,7 +925,7 @@ class _AppPricingCardState extends State<_AppPricingCard> {
                             borderRadius: BorderRadius.circular(999),
                             border: Border.all(color: accentColor.withValues(alpha: 0.7)),
                           ),
-                          child: Text('Most popular', style: Theme.of(context).textTheme.labelSmall?.copyWith(color: accentColor, fontWeight: FontWeight.w700)),
+                          child: Text(widget.l10n.marketplaceMostPopularBadge, style: Theme.of(context).textTheme.labelSmall?.copyWith(color: accentColor, fontWeight: FontWeight.w700)),
                         ),
                       if (widget.highlighted) const SizedBox(width: 8),
                       Flexible(child: Text(widget.name, style: Theme.of(context).textTheme.titleMedium?.copyWith(color: AppColors.onPrimary, fontWeight: FontWeight.w600))),
@@ -938,7 +956,7 @@ class _AppPricingCardState extends State<_AppPricingCard> {
             ),
             const SizedBox(height: 10),
             Text(
-              'Exact investment is confirmed after a scoping call.',
+              widget.l10n.projectPricingScopingNote,
               style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariantDark.withValues(alpha: 0.9), fontStyle: FontStyle.italic),
             ),
             const SizedBox(height: 14),
@@ -958,7 +976,7 @@ class _AppPricingCardState extends State<_AppPricingCard> {
             FilledButton.icon(
               onPressed: () => context.go('/consultations'),
               icon: const Icon(LucideIcons.calendarClock, size: 18),
-              label: const Text('Book a project call'),
+              label: Text(widget.l10n.projectBookCallCta),
               style: FilledButton.styleFrom(
                 backgroundColor: accentColor,
                 foregroundColor: AppColors.onAccent,
@@ -991,8 +1009,18 @@ class _FeaturedStonechatSectionState extends State<_FeaturedStonechatSection> {
     final isNarrow = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
+      onEnter: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = true);
+        });
+      },
+      onExit: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = false);
+        });
+      },
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
@@ -1386,8 +1414,18 @@ class _MasterElfLanguageCardState extends State<_MasterElfLanguageCard> {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
+      onEnter: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = true);
+        });
+      },
+      onExit: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = false);
+        });
+      },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         curve: Curves.easeOut,
@@ -1520,8 +1558,18 @@ class _MasterElfFeatureCardState extends State<_MasterElfFeatureCard> {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
+      onEnter: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = true);
+        });
+      },
+      onExit: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = false);
+        });
+      },
       child: GestureDetector(
         onTap: () => _showFullImageDialog(context, widget.asset, title: widget.title),
         child: LayoutBuilder(
@@ -1702,8 +1750,18 @@ class _N22BusinessSuiteSectionState extends State<_N22BusinessSuiteSection> {
     final accent = AppColors.accent;
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
+      onEnter: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = true);
+        });
+      },
+      onExit: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = false);
+        });
+      },
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
@@ -1975,8 +2033,18 @@ class _N22LandscapeCardState extends State<_N22LandscapeCard> {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
+      onEnter: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = true);
+        });
+      },
+      onExit: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = false);
+        });
+      },
       child: GestureDetector(
         onTap: () => _showFullImageDialog(context, widget.asset, title: widget.title),
         child: LayoutBuilder(
@@ -2139,8 +2207,18 @@ class _N22PortraitCardState extends State<_N22PortraitCard> {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
+      onEnter: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = true);
+        });
+      },
+      onExit: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = false);
+        });
+      },
       child: GestureDetector(
         onTap: () => _showFullImageDialog(context, widget.asset, title: widget.title),
         child: LayoutBuilder(
@@ -2629,8 +2707,18 @@ class _FeaturedAppCardState extends State<_FeaturedAppCard> {
     final isNarrow = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
     final prefix = widget.l10n.bookStorePricePrefix;
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
+      onEnter: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = true);
+        });
+      },
+      onExit: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = false);
+        });
+      },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         curve: Curves.easeOut,

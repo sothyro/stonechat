@@ -3,7 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "generate-favicons": "node scripts/generate-favicons.js"
+    "generate-favicons": "node scripts/generate-favicons.js",
+    "verify-icons": "node scripts/verify-icons.js",
+    "generate-icons": "node scripts/generate-favicons.js && node scripts/verify-icons.js"
   },
   "devDependencies": {
     "png-to-ico": "^3.0.1",

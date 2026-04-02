@@ -1022,6 +1022,81 @@ class AppLocalizationsZh extends AppLocalizations {
   String get stickyCtaText => '订阅';
 
   @override
+  String get stickyLoginCta => '员工';
+
+  @override
+  String get stickyDashboardCta => '后台';
+
+  @override
+  String get adminLoginTitle => '员工登录';
+
+  @override
+  String get adminLoginSubtitle => '登录后可管理订阅者、预约和联系留言。';
+
+  @override
+  String get adminHubTitle => '运营中心';
+
+  @override
+  String get adminHubSubtitle => '订阅、预约与联系表单集中管理。';
+
+  @override
+  String get adminTabSubscribers => '订阅者';
+
+  @override
+  String get adminTabAppointments => '预约';
+
+  @override
+  String get adminTabContacts => '联系';
+
+  @override
+  String get adminSubscribersHeading => '邮件订阅';
+
+  @override
+  String get adminSubscribersSearchHint => '按邮箱筛选…';
+
+  @override
+  String get adminSubscribersEmpty => '暂无订阅者。';
+
+  @override
+  String get adminContactsHeading => '联系表单';
+
+  @override
+  String get adminContactsEmpty => '暂无留言。';
+
+  @override
+  String get adminColEmail => '邮箱';
+
+  @override
+  String get adminColStatus => '状态';
+
+  @override
+  String get adminColSubscribed => '首次订阅';
+
+  @override
+  String get adminColLastConfirmed => '最近确认';
+
+  @override
+  String get adminColName => '姓名';
+
+  @override
+  String get adminColSubject => '主题';
+
+  @override
+  String get adminColDate => '收到时间';
+
+  @override
+  String get adminColPhone => '电话';
+
+  @override
+  String get adminViewDetails => '查看';
+
+  @override
+  String get adminMessageTitle => '留言内容';
+
+  @override
+  String get adminLoadError => '加载失败，请刷新重试。';
+
+  @override
   String get popupTitle1 => 'Stonechat';
 
   @override
@@ -2165,4 +2240,422 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get sectionTestimonialsPart4 => '成果。';
+
+  @override
+  String get priceFromLabel => '起价';
+
+  @override
+  String get pricingSuffixUsd => ' 美元';
+
+  @override
+  String get pricingSuffixUsdPerMonth => ' 美元/月';
+
+  @override
+  String get projectBookCallCta => '预约项目沟通';
+
+  @override
+  String get projectPricingScopingNote => '具体费用将在需求沟通后确认。';
+
+  @override
+  String get marketplaceMostPopularBadge => '最受欢迎';
+
+  @override
+  String get bookPageHeroOverline => '出版物与图书服务';
+
+  @override
+  String get bookPageHeroTitle => '从第一个想法到成书';
+
+  @override
+  String get bookPageHeroSubtitle =>
+      '将您的专长转化为精美、专业出版的图书。Stonechat 陪伴您从头脑风暴与写作，到设计、印刷与发布。';
+
+  @override
+  String get bookStartProjectCta => '启动图书项目';
+
+  @override
+  String get bookServicesOverline => '图书服务';
+
+  @override
+  String get bookServicesTitle => '安心出版所需的一切';
+
+  @override
+  String get bookServicesIntro =>
+      '无论您是从粗糙想法、手稿草稿，还是需要设计与印刷的成稿起步，Stonechat 为忙碌的管理者与专家提供一站式出版服务。';
+
+  @override
+  String get bookSvc1Title => '图书策略与结构';
+
+  @override
+  String get bookSvc1Body =>
+      '厘清核心信息，明确读者对象，将想法整理为清晰的章节目录。我们帮您决定哪些内容该写进书里、哪些可以删去，让写作更快、更聚焦。';
+
+  @override
+  String get bookSvc1Highlight => '适合清楚想表达什么，但不知如何组织的领导者与专家。';
+
+  @override
+  String get bookSvc2Title => '写作、编辑与翻译';
+
+  @override
+  String get bookSvc2Body =>
+      '通过访谈、合写与精细编辑，我们将您的知识打磨成可出版章节。编辑团队用英语与高棉语保持您的语气，并逐页优化准确性与行文。';
+
+  @override
+  String get bookSvc2Highlight => '您仍是作者与决策者；我们从初稿到终稿承担繁重的文字工作。';
+
+  @override
+  String get bookSvc3Title => '设计、排版与出版';
+
+  @override
+  String get bookSvc3Body =>
+      '我们设计专业封面与清爽内页，并准备印刷厂所需的全部印前与数字文件。团队协调规格、报价与打样，让您的书在任何书架上都显专业。';
+
+  @override
+  String get bookSvc3Highlight => '从设计概念到成书交付、准备上市，一个伙伴全程负责。';
+
+  @override
+  String get bookProcessTitle => '您的图书如何落地';
+
+  @override
+  String get bookProcessSubtitle => '从首次沟通到成书交付，一条清晰的引导流程。';
+
+  @override
+  String get bookProcessStep1Title => '1. 调研与头脑风暴';
+
+  @override
+  String get bookProcessStep1Body => '我们了解您的故事、目标、读者与时间线，并整理成清晰的书籍概念与工作大纲。';
+
+  @override
+  String get bookProcessStep2Title => '2. 写作与编辑';
+
+  @override
+  String get bookProcessStep2Body => '通过访谈、稿件审读与多轮编辑，我们与您共创既像您本人、又具备专业水准的章节。';
+
+  @override
+  String get bookProcessStep3Title => '3. 设计与制作';
+
+  @override
+  String get bookProcessStep3Body => '我们设计封面、排版内页，准备印刷与数字文件，并按约定质量标准对接印厂。';
+
+  @override
+  String get bookProcessStep4Title => '4. 上市与延伸';
+
+  @override
+  String get bookProcessStep4Body => '您收到成书与发布物料；我们也可支持活动、媒体与社交内容，扩大影响力。';
+
+  @override
+  String get bookPricingHeading => '透明套餐，按书定制';
+
+  @override
+  String get bookPricingIntro =>
+      '每个项目都从对话开始。以下套餐是清晰起点——随后我们会按您的目标与预算调整范围、时间与印量。';
+
+  @override
+  String get bookPlanAuthorStarterName => '作者入门';
+
+  @override
+  String get bookPlanAuthorStarterStrapline => '适合已有草稿或详细笔记的人士。';
+
+  @override
+  String get bookPlanAuthorStarterBullet1 => '图书概念与章节目录工作坊';
+
+  @override
+  String get bookPlanAuthorStarterBullet2 => '手稿编辑审读（最多 40,000 词）';
+
+  @override
+  String get bookPlanAuthorStarterBullet3 => '行级编辑与校对';
+
+  @override
+  String get bookPlanAuthorStarterBullet4 => '简洁内页排版与印前文件';
+
+  @override
+  String get bookPlanSignatureName => '签名书套餐';
+
+  @override
+  String get bookPlanSignatureStrapline => '面向管理者与专家的热门全包方案。';
+
+  @override
+  String get bookPlanSignatureBullet1 => '策略、定位与完整章纲';
+
+  @override
+  String get bookPlanSignatureBullet2 => '基于访谈的代笔或合写';
+
+  @override
+  String get bookPlanSignatureBullet3 => '专业编辑、校对与事实核查';
+
+  @override
+  String get bookPlanSignatureBullet4 => '定制封面与高级内页排版';
+
+  @override
+  String get bookPlanSignatureBullet5 => '印刷协调（推荐规格与报价）';
+
+  @override
+  String get bookPlanLaunchLegacyName => '发布与传承';
+
+  @override
+  String get bookPlanLaunchLegacyStrapline => '适合作为品牌、机构或战役支柱的著作。';
+
+  @override
+  String get bookPlanLaunchLegacyBullet1 => '包含签名书套餐全部内容';
+
+  @override
+  String get bookPlanLaunchLegacyBullet2 => '发布活动与媒体要点包';
+
+  @override
+  String get bookPlanLaunchLegacyBullet3 => '社媒发布套件（帖子、视觉、配文）';
+
+  @override
+  String get bookPlanLaunchLegacyBullet4 => '供媒体使用的 PDF 及电子书格式（如 PDF/ePub）';
+
+  @override
+  String get bookPlanLaunchLegacyBullet5 => '可选翻译与双语版本';
+
+  @override
+  String get appsPageDevHeroTitle => '从创意到 App Store 与 Google Play';
+
+  @override
+  String get appsPageDevHeroSubtitle =>
+      '把愿景做成精良的移动或网页应用。Stonechat 从概念与设计，到开发、测试，再到提交 App Store 与 Google Play，全程陪伴。';
+
+  @override
+  String get appsStartProjectCta => '启动应用项目';
+
+  @override
+  String get appsServicesOverline => '应用服务';
+
+  @override
+  String get appsServicesTitle => '做出优秀应用所需的一切';
+
+  @override
+  String get appsServicesIntro =>
+      '无论需要精简 MVP 还是功能完整的产品，Stonechat 提供端到端应用开发。我们与初创企业、大型公司及机构合作，在不影响质量的前提下快速推进。';
+
+  @override
+  String get appSvc1Title => '策略与探索';
+
+  @override
+  String get appSvc1Body => '我们厘清应用创意、界定核心功能并绘制用户流程。共同决定先行开发哪些功能，以便更快上线并控制预算。';
+
+  @override
+  String get appSvc1Highlight => '适合有愿景但需要清晰路线图来执行的团队。';
+
+  @override
+  String get appSvc2Title => '设计与开发';
+
+  @override
+  String get appSvc2Body =>
+      '团队设计直观界面，并为 iOS、Android 与 Web 构建原生或跨平台应用。采用现代技术栈，遵循性能与安全最佳实践。';
+
+  @override
+  String get appSvc2Highlight => '获得运行流畅、外观专业的可上线应用。';
+
+  @override
+  String get appSvc3Title => '测试与商店上架';
+
+  @override
+  String get appSvc3Body =>
+      '我们在真机测试、修复缺陷，并代办 App Store 与 Google Play 提审。从截图、文案到合规检查，助您顺利上架。';
+
+  @override
+  String get appSvc3Highlight => '从终版构建到双店发布，一个伙伴全程负责。';
+
+  @override
+  String get appProcessTitle => '应用如何开发与发布';
+
+  @override
+  String get appProcessSubtitle =>
+      '从首次沟通到应用在 App Store 与 Google Play 上线，流程清晰可追溯。';
+
+  @override
+  String get appProcessStep1Title => '1. 需求与概念';
+
+  @override
+  String get appProcessStep1Body => '我们梳理目标、用户与约束，为首版发布划定清晰范围与功能集合。';
+
+  @override
+  String get appProcessStep2Title => '2. 设计与原型';
+
+  @override
+  String get appProcessStep2Body => '我们制作线框与高保真设计，与您一起验证流程，并在开发前定稿视觉与体验。';
+
+  @override
+  String get appProcessStep3Title => '3. 开发与测试';
+
+  @override
+  String get appProcessStep3Body => '我们构建应用，运行自动化与手工测试，并按您的质量与性能目标迭代。';
+
+  @override
+  String get appProcessStep4Title => '4. 提审与上线';
+
+  @override
+  String get appProcessStep4Body =>
+      '我们准备商店素材，提交 App Store 与 Google Play，并陪伴您通过审核直至上架。';
+
+  @override
+  String get appsPricingHeading => '透明定价，按范围定制';
+
+  @override
+  String get appsPricingIntro =>
+      '面向柬埔寨的本地报价。每个项目以需求沟通开场——我们据此调整范围与交付物。标价以美元计；如需瑞尔可按营销场景换算。';
+
+  @override
+  String get appsPricingSectionApps => '应用开发';
+
+  @override
+  String get appsPricingSectionWebsites => '网站与落地页';
+
+  @override
+  String get appsPricingSectionMaintenance => '维护与支持';
+
+  @override
+  String get appPlanMiniName => '迷你应用 / MVP';
+
+  @override
+  String get appPlanMiniStrapline => '具备核心功能的简单应用。适合预约表单、产品目录与内部工具。';
+
+  @override
+  String get appPlanMiniBullet1 => '3–5 个界面';
+
+  @override
+  String get appPlanMiniBullet2 => '无后端或简单 Firebase';
+
+  @override
+  String get appPlanMiniBullet3 => '仅 Android';
+
+  @override
+  String get appPlanMiniBullet4 => '2–4 周交付';
+
+  @override
+  String get appPlanStandardName => '标准商业应用';
+
+  @override
+  String get appPlanStandardStrapline => '诊所、中小企业与小 POS 系统的热门选择。';
+
+  @override
+  String get appPlanStandardBullet1 => '8–15 个界面';
+
+  @override
+  String get appPlanStandardBullet2 => 'Firebase 后端、认证、增删改查';
+
+  @override
+  String get appPlanStandardBullet3 => '简单报表';
+
+  @override
+  String get appPlanStandardBullet4 => 'Android（iOS + 网页约加价 30–50%）';
+
+  @override
+  String get appPlanAdvancedName => '高级应用';
+
+  @override
+  String get appPlanAdvancedStrapline => '复杂逻辑、多角色、集成与仪表盘。';
+
+  @override
+  String get appPlanAdvancedBullet1 => '大型诊所或多分店 POS';
+
+  @override
+  String get appPlanAdvancedBullet2 => '配送或平台类应用';
+
+  @override
+  String get appPlanAdvancedBullet3 => '定制后端与管理端';
+
+  @override
+  String get appPlanAdvancedBullet4 => '按项目报价';
+
+  @override
+  String get appPlanLandingName => '落地页';
+
+  @override
+  String get appPlanLandingStrapline => '面向 Facebook 卖家的单页站点。3–5 天呈现专业形象。';
+
+  @override
+  String get appPlanLandingBullet1 => '单页';
+
+  @override
+  String get appPlanLandingBullet2 => '联系表单';
+
+  @override
+  String get appPlanLandingBullet3 => '移动友好';
+
+  @override
+  String get appPlanStarterWebName => '入门网站';
+
+  @override
+  String get appPlanStarterWebStrapline => '微型商家：美发、小店铺、教师等。';
+
+  @override
+  String get appPlanStarterWebBullet1 => '1–3 页';
+
+  @override
+  String get appPlanStarterWebBullet2 => '模板化设计';
+
+  @override
+  String get appPlanStarterWebBullet3 => '基础联系表单';
+
+  @override
+  String get appPlanBasicBizName => '基础企业站';
+
+  @override
+  String get appPlanBasicBizStrapline => '中小企业、诊所、培训中心。';
+
+  @override
+  String get appPlanBasicBizBullet1 => '5–8 页';
+
+  @override
+  String get appPlanBasicBizBullet2 => '基于模板的定制版式';
+
+  @override
+  String get appPlanBasicBizBullet3 => '简单博客/资讯，单语言';
+
+  @override
+  String get appPlanProBizName => '专业企业站';
+
+  @override
+  String get appPlanProBizStrapline => '学校、非政府组织、较大中小企业。';
+
+  @override
+  String get appPlanProBizBullet1 => '最多约 12 页';
+
+  @override
+  String get appPlanProBizBullet2 => '高棉语/英语双语';
+
+  @override
+  String get appPlanProBizBullet3 => '预约表单或产品列表';
+
+  @override
+  String get appPlanEcomName => '小型电商';
+
+  @override
+  String get appPlanEcomStrapline => '网店与小型品牌。';
+
+  @override
+  String get appPlanEcomBullet1 => '20–80 个商品';
+
+  @override
+  String get appPlanEcomBullet2 => '购物车、结账、支付';
+
+  @override
+  String get appPlanEcomBullet3 => '基础后台管理商品';
+
+  @override
+  String get appPlanHostingName => '网站托管';
+
+  @override
+  String get appPlanHostingStrapline => '保持站点安全与更新。';
+
+  @override
+  String get appPlanHostingBullet1 => '基础：10–20 — 托管、安全、2–4 次小改';
+
+  @override
+  String get appPlanHostingBullet2 => '专业：30–50 — 内容更新、备份、优先支持';
+
+  @override
+  String get appPlanSupportName => '应用支持';
+
+  @override
+  String get appPlanSupportStrapline => '缺陷修复、微调与新功能。';
+
+  @override
+  String get appPlanSupportBullet1 => '基础：50–80 — 修复、小幅界面、监控';
+
+  @override
+  String get appPlanSupportBullet2 => '成长：100–150 — 新功能、分析、性能';
 }

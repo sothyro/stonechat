@@ -7,6 +7,7 @@ import '../../config/app_content.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/app_theme.dart';
 import '../../utils/breakpoints.dart';
+import '../../utils/defer_pointer.dart';
 import '../../widgets/section_header.dart';
 import '../../utils/launcher_utils.dart';
 
@@ -101,11 +102,9 @@ class _BookScreenState extends State<BookScreen> {
     final isNarrow = Breakpoints.isMobile(width);
 
     // Page copy is intentionally focused on publications & book services only.
-    const heroOverline = 'Publications & Book Services';
-    const heroTitle = 'From first idea to finished book';
-    const heroSubtitle =
-        'Turn your expertise into a beautiful, professionally published book. '
-        'Stonechat guides you from brainstorming and writing to design, printing, and launch.';
+    final heroOverline = l10n.bookPageHeroOverline;
+    final heroTitle = l10n.bookPageHeroTitle;
+    final heroSubtitle = l10n.bookPageHeroSubtitle;
 
     return Container(
       width: double.infinity,
@@ -241,7 +240,7 @@ class _HeroCtaRow extends StatelessWidget {
     final primary = FilledButton.icon(
       onPressed: () => context.go('/consultations'),
       icon: const Icon(LucideIcons.bookOpenCheck, size: 20),
-      label: const Text('Start your book project'),
+      label: Text(l10n.bookStartProjectCta),
       style: FilledButton.styleFrom(
         backgroundColor: AppColors.serviceBookCreation,
         foregroundColor: AppColors.onAccent,
@@ -480,8 +479,18 @@ class _FeaturedStonechatSectionState extends State<_FeaturedStonechatSection> {
     final isNarrow = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
+      onEnter: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = true);
+        });
+      },
+      onExit: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = false);
+        });
+      },
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
@@ -639,6 +648,7 @@ class _BookServicesOverviewSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final width = MediaQuery.sizeOf(context).width;
     final isNarrow = Breakpoints.isMobile(width);
 
@@ -647,14 +657,13 @@ class _BookServicesOverviewSection extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         SectionHeader(
-          overline: 'Book services',
-          title: 'Everything you need to publish with confidence',
+          overline: l10n.bookServicesOverline,
+          title: l10n.bookServicesTitle,
           isNarrow: isNarrow,
         ),
         const SizedBox(height: 18),
         Text(
-          'Whether you are starting with a rough idea, a draft manuscript, or a finished book that needs design and printing, '
-          'Stonechat offers an end-to-end publication service tailored to busy leaders and experts.',
+          l10n.bookServicesIntro,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: AppColors.onSurfaceVariantDark,
                 height: 1.6,
@@ -667,27 +676,21 @@ class _BookServicesOverviewSection extends StatelessWidget {
             final children = [
               _ServiceCard(
                 icon: LucideIcons.brain,
-                title: 'Book strategy & structure',
-                body:
-                    'Clarify your core message, define who the book is for, and shape your ideas into a clear chapter outline. '
-                    'We help you decide what belongs in the book and what can stay out, so writing becomes faster and more focused.',
-                highlight: 'Ideal for leaders and experts who know what they want to say but are not sure how to organise it.',
+                title: l10n.bookSvc1Title,
+                body: l10n.bookSvc1Body,
+                highlight: l10n.bookSvc1Highlight,
               ),
               _ServiceCard(
                 icon: LucideIcons.fileText,
-                title: 'Writing, editing & translation',
-                body:
-                    'Through interviews, co-writing and careful editing, we turn your knowledge into polished, publication-ready chapters. '
-                    'Our editorial team writes in your voice in both English and Khmer, then refines every page for accuracy and flow.',
-                highlight: 'You stay the author and decision-maker; we do the heavy lifting on the page from first draft to final proof.',
+                title: l10n.bookSvc2Title,
+                body: l10n.bookSvc2Body,
+                highlight: l10n.bookSvc2Highlight,
               ),
               _ServiceCard(
                 icon: LucideIcons.layoutDashboard,
-                title: 'Design, layout & publishing',
-                body:
-                    'We create a professional cover, design clean interior pages, and prepare all print and digital files your printer needs. '
-                    'Our team coordinates specifications, quotations and test prints so your finished books look world-class on every shelf.',
-                highlight: 'One partner from design concept to printed books in your hands, ready for launch.',
+                title: l10n.bookSvc3Title,
+                body: l10n.bookSvc3Body,
+                highlight: l10n.bookSvc3Highlight,
               ),
             ];
 
@@ -745,8 +748,18 @@ class _ServiceCardState extends State<_ServiceCard> {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
+      onEnter: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = true);
+        });
+      },
+      onExit: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = false);
+        });
+      },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 180),
         curve: Curves.easeOut,
@@ -810,30 +823,15 @@ class _BookProcessSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final width = MediaQuery.sizeOf(context).width;
     final isNarrow = Breakpoints.isMobile(width);
 
     final steps = [
-      (
-        LucideIcons.lightbulb,
-        '1. Discovery & brainstorming',
-        'We explore your story, goals, audience, and timeline, then shape them into a clear book concept and working outline.'
-      ),
-      (
-        LucideIcons.fileText,
-        '2. Writing & editorial',
-        'Through interviews, draft reviews, and editorial passes, we co-create chapters that sound like you and read like a pro.'
-      ),
-      (
-        LucideIcons.layoutTemplate,
-        '3. Design & production',
-        'We design the cover, lay out the pages, prepare print and digital files, and manage printers to agreed quality standards.'
-      ),
-      (
-        LucideIcons.rocket,
-        '4. Launch & beyond',
-        'You receive finished books and launch materials; we can also support events, media, and social content to amplify impact.'
-      ),
+      (LucideIcons.lightbulb, l10n.bookProcessStep1Title, l10n.bookProcessStep1Body),
+      (LucideIcons.fileText, l10n.bookProcessStep2Title, l10n.bookProcessStep2Body),
+      (LucideIcons.layoutTemplate, l10n.bookProcessStep3Title, l10n.bookProcessStep3Body),
+      (LucideIcons.rocket, l10n.bookProcessStep4Title, l10n.bookProcessStep4Body),
     ];
 
     return Container(
@@ -863,7 +861,7 @@ class _BookProcessSection extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            'How your book comes to life',
+            l10n.bookProcessTitle,
             style: highlightStyleForLocale(
               context,
               fontSize: isNarrow ? 24 : 30,
@@ -873,7 +871,7 @@ class _BookProcessSection extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Text(
-            'A single, guided process from first conversation to printed books in your hands.',
+            l10n.bookProcessSubtitle,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: AppColors.onSurfaceVariantDark,
                   height: 1.6,
@@ -1105,48 +1103,49 @@ class _BookPricingSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final width = MediaQuery.sizeOf(context).width;
     final isNarrow = Breakpoints.isMobile(width);
 
-    const plans = [
+    final plans = [
       (
-        'Author Starter',
-        'Ideal if you already have a draft or detailed notes.',
-        'From',
+        l10n.bookPlanAuthorStarterName,
+        l10n.bookPlanAuthorStarterStrapline,
+        l10n.priceFromLabel,
         '1,500',
         [
-          'Book concept and chapter outline workshop',
-          'Editorial review of manuscript (up to 40,000 words)',
-          'Line editing and proofreading',
-          'Simple interior layout and print-ready files',
+          l10n.bookPlanAuthorStarterBullet1,
+          l10n.bookPlanAuthorStarterBullet2,
+          l10n.bookPlanAuthorStarterBullet3,
+          l10n.bookPlanAuthorStarterBullet4,
         ],
         false,
       ),
       (
-        'Signature Book',
-        'Our most popular end-to-end package for leaders and experts.',
-        'From',
+        l10n.bookPlanSignatureName,
+        l10n.bookPlanSignatureStrapline,
+        l10n.priceFromLabel,
         '3,500',
         [
-          'Strategy, positioning and full chapter outline',
-          'Ghostwriting or co-writing based on interviews',
-          'Professional editing, proofreading and fact-checking',
-          'Custom cover design and premium interior layout',
-          'Print coordination (recommended specs and quotations)',
+          l10n.bookPlanSignatureBullet1,
+          l10n.bookPlanSignatureBullet2,
+          l10n.bookPlanSignatureBullet3,
+          l10n.bookPlanSignatureBullet4,
+          l10n.bookPlanSignatureBullet5,
         ],
         true,
       ),
       (
-        'Launch & Legacy',
-        'For books that anchor your brand, organisation or campaign.',
-        'From',
+        l10n.bookPlanLaunchLegacyName,
+        l10n.bookPlanLaunchLegacyStrapline,
+        l10n.priceFromLabel,
         '5,500',
         [
-          'Everything in Signature Book',
-          'Launch event and media talking points pack',
-          'Social media launch kit (posts, visuals, captions)',
-          'Press-ready PDF and digital book formats (e.g. PDF/ePub)',
-          'Optional translation and bilingual editions',
+          l10n.bookPlanLaunchLegacyBullet1,
+          l10n.bookPlanLaunchLegacyBullet2,
+          l10n.bookPlanLaunchLegacyBullet3,
+          l10n.bookPlanLaunchLegacyBullet4,
+          l10n.bookPlanLaunchLegacyBullet5,
         ],
         false,
       ),
@@ -1156,7 +1155,7 @@ class _BookPricingSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
-          'Transparent packages, customised to your book',
+          l10n.bookPricingHeading,
           style: highlightStyleForLocale(
             context,
             fontSize: isNarrow ? 24 : 30,
@@ -1166,8 +1165,7 @@ class _BookPricingSection extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         Text(
-          'Every project begins with a conversation. These packages give you a clear starting point — we then tailor scope, timelines '
-          'and print quantities to match your goals and budget.',
+          l10n.bookPricingIntro,
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 color: AppColors.onSurfaceVariantDark,
                 height: 1.6,
@@ -1252,8 +1250,18 @@ class _PricingCardState extends State<_PricingCard> {
     final accentColor = widget.highlighted ? AppColors.serviceBookCreation : AppColors.serviceBookCreationLight;
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
+      onEnter: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = true);
+        });
+      },
+      onExit: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = false);
+        });
+      },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 180),
         curve: Curves.easeOut,
@@ -1292,7 +1300,7 @@ class _PricingCardState extends State<_PricingCard> {
                             border: Border.all(color: accentColor.withValues(alpha: 0.7)),
                           ),
                           child: Text(
-                            'Most popular',
+                            l10n.marketplaceMostPopularBadge,
                             style: Theme.of(context).textTheme.labelSmall?.copyWith(
                                   color: accentColor,
                                   fontWeight: FontWeight.w700,
@@ -1348,7 +1356,7 @@ class _PricingCardState extends State<_PricingCard> {
                 ),
                 const SizedBox(width: 4),
                 Text(
-                  l10n.spotlightPricePerMonth,
+                  l10n.pricingSuffixUsd,
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         color: AppColors.onSurfaceVariantDark,
                       ),
@@ -1357,7 +1365,7 @@ class _PricingCardState extends State<_PricingCard> {
             ),
             const SizedBox(height: 10),
             Text(
-              'Exact investment is confirmed after a scoping call.',
+              l10n.projectPricingScopingNote,
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
                     color: AppColors.onSurfaceVariantDark.withValues(alpha: 0.9),
                     fontStyle: FontStyle.italic,
@@ -1388,7 +1396,7 @@ class _PricingCardState extends State<_PricingCard> {
             FilledButton.icon(
               onPressed: () => context.go('/consultations'),
               icon: const Icon(LucideIcons.calendarClock, size: 18),
-              label: Text('Book a project call'),
+              label: Text(l10n.projectBookCallCta),
               style: FilledButton.styleFrom(
                 backgroundColor: accentColor,
                 foregroundColor: AppColors.onAccent,
@@ -1579,8 +1587,18 @@ class _BookStoreCardState extends State<_BookStoreCard> {
     final prefix = widget.l10n.bookStorePricePrefix;
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
+      onEnter: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = true);
+        });
+      },
+      onExit: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = false);
+        });
+      },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         curve: Curves.easeOut,
@@ -2163,8 +2181,18 @@ class _AppFeatureCardState extends State<_AppFeatureCard> {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
+      onEnter: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = true);
+        });
+      },
+      onExit: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = false);
+        });
+      },
       child: GestureDetector(
         onTap: () => _showFullImageDialog(context, widget.asset, title: widget.title),
         child: AnimatedScale(
@@ -2317,8 +2345,18 @@ class _TalismanProductCardState extends State<_TalismanProductCard> {
     final isNarrow = Breakpoints.isMobile(MediaQuery.sizeOf(context).width);
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
+      onEnter: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = true);
+        });
+      },
+      onExit: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = false);
+        });
+      },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         padding: EdgeInsets.all(isNarrow ? 12 : 16),

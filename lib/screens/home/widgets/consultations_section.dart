@@ -6,6 +6,7 @@ import '../../../config/app_content.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../theme/app_theme.dart';
 import '../../../utils/breakpoints.dart';
+import '../../../utils/defer_pointer.dart';
 import '../../../widgets/section_header.dart';
 
 class ConsultationsSection extends StatelessWidget {
@@ -233,8 +234,18 @@ class _ConsultBlockState extends State<_ConsultBlock> {
     final scale = _isHovered ? 1.02 : 1.0;
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _isHovered = true),
-      onExit: (_) => setState(() => _isHovered = false),
+      onEnter: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _isHovered = true);
+        });
+      },
+      onExit: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _isHovered = false);
+        });
+      },
       child: AnimatedScale(
         scale: scale,
         duration: const Duration(milliseconds: 150),

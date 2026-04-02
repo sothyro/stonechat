@@ -42,9 +42,8 @@ List<String> get _restImageAssets => [
   AppContent.assetPeriod9_2,
 ];
 
-/// Preloads critical path (logo + hero image + hero video); reports progress 0.0 → 1.0.
-/// Page is revealed only when progress reaches 1.0 so the video is buffered and ready.
-/// Rest images and other-locale fonts load in background after reveal.
+/// Preloads the critical path (logo + hero image) and reports progress 0.0 → 1.0.
+/// Remaining assets/fonts load in the background after the first paint.
 class AppAssetPreloader {
   AppAssetPreloader._();
 
@@ -76,14 +75,20 @@ class AppAssetPreloader {
     void Function(int completed, int total) onProgress,
   ) async {
     final total = paths.length;
-    var completed = 0;
-    for (final path in paths) {
-      try {
-        await rootBundle.load(path);
-      } catch (_) {}
-      completed++;
-      onProgress(completed, total);
+    if (total == 0) {
+      onProgress(0, 0);
+      return;
     }
+    var completed = 0;
+    await Future.wait(
+      paths.map((path) async {
+        try {
+          await rootBundle.load(path);
+        } catch (_) {}
+        completed++;
+        onProgress(completed, total);
+      }),
+    );
   }
 
   static Future<void> _loadMainFonts() async {

@@ -14,7 +14,7 @@ node functions/scripts/set-resend-secrets.cjs
 
 ## PlasGate SMS setup
 
-When a new document is created in the `appointments` collection, **3 SMS** are sent (sender **stonechat**): (1) customer, (2) admin, (3) Stonechat business line (+85512222211).
+When a new document is created in the `appointments` collection, **3 SMS** are sent (sender **Stonechat**): (1) customer, (2) admin, (3) Stonechat business line (+85512222211).
 
 ### Required secrets
 
@@ -63,3 +63,33 @@ On every new booking (customer or admin):
 3. **Stonechat business SMS**: Always sent to the configured business number with the same summary.
 
 Phone numbers are normalized to E.164. One automatic retry on 5xx or network errors per SMS. Customer SMS result is written to the appointment document (`smsStatus`, `smsSentAt`, and on failure `smsErrorReason`, `smsErrorBody`, etc.).
+
+## Subscriptions (email updates)
+
+The Subscribe CTA uses a callable Function to store subscriber emails and send a confirmation email, then a scheduled Function sends monthly updates.
+
+### Callable: `subscribeEmail`
+
+- No auth required.
+- Call with:
+  - `{ "email": "user@example.com" }`
+- Behavior:
+  - Validates the email address
+  - Deduplicates by email (stored in Firestore collection `email_subscriptions`)
+  - Sends an immediate confirmation email to the submitted address via Resend
+
+### Scheduled: `sendMonthlyUpdates`
+
+- Runs monthly (`0 0 1 * *`, i.e. the 1st day of each month at 00:00 UTC).
+- Sends `"[Stonechat] Monthly updates"` to subscribers where `status == "active"`.
+- Idempotency:
+  - Skips sending if `newsletter_runs/{YYYY-MM}` has `status: "done"`.
+
+### Required secrets
+
+- `RESEND_API_KEY` (already used by the contact form email notifications)
+
+### Admin list callables (authenticated)
+
+- `listEmailSubscribers` — requires Firebase Auth. Optional `{ "limit": 500 }`. Returns `{ subscribers: [{ id, email, status, createdAt, lastConfirmedAt }] }` (ISO date strings), ordered by `lastConfirmedAt` desc.
+- `listContactSubmissions` — requires Firebase Auth. Optional `{ "limit": 200 }`. Returns `{ submissions: [...] }` from `contact_submissions`, ordered by `createdAt` desc.

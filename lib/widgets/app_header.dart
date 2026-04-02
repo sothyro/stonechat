@@ -21,6 +21,23 @@ class _MenuColors {
 
 /// Menu bar corner radius (desktop and mobile).
 const double _kMenuBarRadius = 22.0;
+const double _kStartupFriendlyBlurSigma = 8.0;
+
+/// Header outer vertical padding used by [AppHeader].
+const double kAppHeaderOuterVerticalPadding = 16.0;
+
+/// Internal stack height used by desktop/mobile headers.
+const double kAppHeaderStackHeight = 240.0;
+
+/// Height reported by [AppHeader.preferredSize]. Use with [AppShell] top padding (12)
+/// and [MediaQuery.padding] so page content clears the overlay header.
+const double kAppHeaderPreferredHeight =
+    (kAppHeaderOuterVerticalPadding * 2) + kAppHeaderStackHeight;
+
+/// Max tappable area for the overlay header in [AppShell].
+/// Keeps only the visible menu zone interactive and lets content underneath
+/// receive taps below this line.
+const double kAppHeaderHitTestHeight = 140.0;
 
 class AppHeader extends StatelessWidget implements PreferredSizeWidget {
   const AppHeader({super.key, this.onOpenDrawer});
@@ -28,7 +45,7 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback? onOpenDrawer;
 
   @override
-  Size get preferredSize => const Size.fromHeight(264);
+  Size get preferredSize => const Size.fromHeight(kAppHeaderPreferredHeight);
 
   @override
   Widget build(BuildContext context) {
@@ -39,10 +56,14 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
     return Semantics(
       container: true,
       label: l10n.semanticsNavigation,
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-        color: Colors.transparent,
+      // No [Container] color: transparent — that adds a [ColoredBox] that hit-tests
+      // opaque across the full header band and triggers deep hit tests during web resize
+      // before inner children finish layout ("never been laid out").
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          vertical: kAppHeaderOuterVerticalPadding,
+          horizontal: 24,
+        ),
         child: isMobile
             ? _MobileHeader(
                 l10n: l10n,
@@ -50,7 +71,7 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
                 localeNotifier: localeNotifier,
               )
             : _DesktopHeader(l10n: l10n, localeNotifier: localeNotifier),
-      ),
+        ),
     );
   }
 }
@@ -95,7 +116,7 @@ class _MobileHeader extends StatelessWidget {
             top: 0,
             height: barHeight,
             child: GlassContainer(
-              blurSigma: 14,
+              blurSigma: _kStartupFriendlyBlurSigma,
               color: AppColors.overlayDark.withValues(alpha: 0.42),
               borderRadius: BorderRadius.circular(_kMenuBarRadius),
               border: Border.all(color: _MenuColors.barBorder, width: 1.5),
@@ -246,7 +267,7 @@ class _DesktopHeader extends StatelessWidget {
               top: 0,
               height: barHeight,
               child: GlassContainer(
-                blurSigma: 14,
+                blurSigma: _kStartupFriendlyBlurSigma,
                 color: AppColors.overlayDark.withValues(alpha: 0.42),
                 borderRadius: BorderRadius.circular(_kMenuBarRadius),
                 border: Border.all(color: _MenuColors.barBorder, width: 1.5),

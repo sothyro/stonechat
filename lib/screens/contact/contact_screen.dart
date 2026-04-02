@@ -149,6 +149,7 @@ class _ContactScreenState extends State<ContactScreen> {
       builder: (context) => _ContactResultDialog(
         success: success,
         error: error,
+        onRetry: error?.retryable == true ? () { _onSubmit(); } : null,
       ),
     );
   }
@@ -541,10 +542,12 @@ class _ContactResultDialog extends StatelessWidget {
   const _ContactResultDialog({
     required this.success,
     this.error,
+    this.onRetry,
   });
 
   final bool success;
   final AppError? error;
+  final VoidCallback? onRetry;
 
   @override
   Widget build(BuildContext context) {
@@ -625,7 +628,7 @@ class _ContactResultDialog extends StatelessWidget {
                   onRetry: error!.retryable
                       ? () {
                           Navigator.of(context).pop();
-                          // Retry will be handled by parent widget
+                          onRetry?.call();
                         }
                       : null,
                 ),

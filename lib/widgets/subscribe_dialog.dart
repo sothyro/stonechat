@@ -7,6 +7,8 @@ import '../theme/app_theme.dart';
 import '../utils/breakpoints.dart';
 import '../utils/launcher_utils.dart';
 import 'glass_container.dart';
+import '../services/subscription_service.dart';
+import '../services/error_service.dart' show ErrorCategory;
 
 /// Subscribe dialog: email sign-up and optional "Join on Telegram" CTA.
 /// Replaces the previous zodiac/forecast CTA dialog for an intuitive subscribe flow.
@@ -21,6 +23,7 @@ class _SubscribeDialogState extends State<SubscribeDialog> {
   final _emailController = TextEditingController();
   final _emailFocus = FocusNode();
   bool _submitted = false;
+  bool _submitting = false;
   String? _errorText;
 
   @override
@@ -37,7 +40,8 @@ class _SubscribeDialogState extends State<SubscribeDialog> {
     return pattern.hasMatch(email);
   }
 
-  void _onSubscribe() {
+  Future<void> _onSubscribe() async {
+    if (_submitting) return;
     final email = _emailController.text.trim();
     if (email.isEmpty) {
       setState(() => _errorText = null);
@@ -51,18 +55,54 @@ class _SubscribeDialogState extends State<SubscribeDialog> {
     }
     setState(() {
       _errorText = null;
-      _submitted = true;
+      _submitting = true;
     });
-    // TODO: send to backend when subscribe API is ready
-    if (mounted) {
+
+    try {
+      final l10n = AppLocalizations.of(context)!;
+      final result = await subscribeEmail(email: email);
+      if (!mounted) return;
+
+      setState(() => _submitting = false);
+      if (result.success) {
+        setState(() => _submitted = true);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(l10n.subscribeSuccess),
+            backgroundColor: AppColors.accent,
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
+        Navigator.of(context).pop();
+        return;
+      }
+
+      final err = result.error;
+      final errText = err?.category == ErrorCategory.validation
+          ? err?.userMessage
+          : null;
+      if (errText != null) {
+        setState(() => _errorText = errText);
+        _emailFocus.requestFocus();
+      }
+
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context)!.subscribeSuccess),
-          backgroundColor: AppColors.accent,
+          content: Text(err?.userMessage ?? l10n.contactError),
+          backgroundColor: AppColors.error,
           behavior: SnackBarBehavior.floating,
         ),
       );
-      Navigator.of(context).pop();
+    } catch (e) {
+      if (!mounted) return;
+      setState(() => _submitting = false);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.contactError),
+          backgroundColor: AppColors.error,
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
     }
   }
 
@@ -155,7 +195,9 @@ class _SubscribeDialogState extends State<SubscribeDialog> {
                     focusNode: _emailFocus,
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.done,
-                    onSubmitted: (_) => _onSubscribe(),
+                    onSubmitted: (_) {
+                      _onSubscribe();
+                    },
                     onChanged: (_) => setState(() => _errorText = null),
                     decoration: InputDecoration(
                       hintText: l10n.subscribeEmailHint,
@@ -193,7 +235,11 @@ class _SubscribeDialogState extends State<SubscribeDialog> {
                       boxShadow: AppShadows.accentButton,
                     ),
                     child: FilledButton(
-                      onPressed: _submitted ? null : _onSubscribe,
+                      onPressed: (_submitted || _submitting)
+                          ? null
+                          : () {
+                              _onSubscribe();
+                            },
                       style: FilledButton.styleFrom(
                         backgroundColor: AppColors.accent,
                         foregroundColor: AppColors.onAccent,

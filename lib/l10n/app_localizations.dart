@@ -2080,6 +2080,156 @@ abstract class AppLocalizations {
   /// **'Subscribe'**
   String get stickyCtaText;
 
+  /// No description provided for @stickyLoginCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Staff'**
+  String get stickyLoginCta;
+
+  /// No description provided for @stickyDashboardCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Hub'**
+  String get stickyDashboardCta;
+
+  /// No description provided for @adminLoginTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Staff sign in'**
+  String get adminLoginTitle;
+
+  /// No description provided for @adminLoginSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to manage subscribers, appointments, and contact messages.'**
+  String get adminLoginSubtitle;
+
+  /// No description provided for @adminHubTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Operations hub'**
+  String get adminHubTitle;
+
+  /// No description provided for @adminHubSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything you need to run Stonechat day to day.'**
+  String get adminHubSubtitle;
+
+  /// No description provided for @adminTabSubscribers.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscribers'**
+  String get adminTabSubscribers;
+
+  /// No description provided for @adminTabAppointments.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointments'**
+  String get adminTabAppointments;
+
+  /// No description provided for @adminTabContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Contacts'**
+  String get adminTabContacts;
+
+  /// No description provided for @adminSubscribersHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Newsletter subscribers'**
+  String get adminSubscribersHeading;
+
+  /// No description provided for @adminSubscribersSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter by email…'**
+  String get adminSubscribersSearchHint;
+
+  /// No description provided for @adminSubscribersEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No subscribers yet.'**
+  String get adminSubscribersEmpty;
+
+  /// No description provided for @adminContactsHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact form'**
+  String get adminContactsHeading;
+
+  /// No description provided for @adminContactsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No messages yet.'**
+  String get adminContactsEmpty;
+
+  /// No description provided for @adminColEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get adminColEmail;
+
+  /// No description provided for @adminColStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get adminColStatus;
+
+  /// No description provided for @adminColSubscribed.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscribed'**
+  String get adminColSubscribed;
+
+  /// No description provided for @adminColLastConfirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Last confirmed'**
+  String get adminColLastConfirmed;
+
+  /// No description provided for @adminColName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get adminColName;
+
+  /// No description provided for @adminColSubject.
+  ///
+  /// In en, this message translates to:
+  /// **'Subject'**
+  String get adminColSubject;
+
+  /// No description provided for @adminColDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Received'**
+  String get adminColDate;
+
+  /// No description provided for @adminColPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get adminColPhone;
+
+  /// No description provided for @adminViewDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Open'**
+  String get adminViewDetails;
+
+  /// No description provided for @adminMessageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Message'**
+  String get adminMessageTitle;
+
+  /// No description provided for @adminLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Try refresh.'**
+  String get adminLoadError;
+
   /// No description provided for @popupTitle1.
   ///
   /// In en, this message translates to:
@@ -4317,6 +4467,816 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Outcomes.'**
   String get sectionTestimonialsPart4;
+
+  /// No description provided for @priceFromLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'From'**
+  String get priceFromLabel;
+
+  /// No description provided for @pricingSuffixUsd.
+  ///
+  /// In en, this message translates to:
+  /// **' USD'**
+  String get pricingSuffixUsd;
+
+  /// No description provided for @pricingSuffixUsdPerMonth.
+  ///
+  /// In en, this message translates to:
+  /// **' USD/mo'**
+  String get pricingSuffixUsdPerMonth;
+
+  /// No description provided for @projectBookCallCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Book a project call'**
+  String get projectBookCallCta;
+
+  /// No description provided for @projectPricingScopingNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Exact investment is confirmed after a scoping call.'**
+  String get projectPricingScopingNote;
+
+  /// No description provided for @marketplaceMostPopularBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Most popular'**
+  String get marketplaceMostPopularBadge;
+
+  /// No description provided for @bookPageHeroOverline.
+  ///
+  /// In en, this message translates to:
+  /// **'Publications & Book Services'**
+  String get bookPageHeroOverline;
+
+  /// No description provided for @bookPageHeroTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'From first idea to finished book'**
+  String get bookPageHeroTitle;
+
+  /// No description provided for @bookPageHeroSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn your expertise into a beautiful, professionally published book. Stonechat guides you from brainstorming and writing to design, printing, and launch.'**
+  String get bookPageHeroSubtitle;
+
+  /// No description provided for @bookStartProjectCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Start your book project'**
+  String get bookStartProjectCta;
+
+  /// No description provided for @bookServicesOverline.
+  ///
+  /// In en, this message translates to:
+  /// **'Book services'**
+  String get bookServicesOverline;
+
+  /// No description provided for @bookServicesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything you need to publish with confidence'**
+  String get bookServicesTitle;
+
+  /// No description provided for @bookServicesIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Whether you are starting with a rough idea, a draft manuscript, or a finished book that needs design and printing, Stonechat offers an end-to-end publication service tailored to busy leaders and experts.'**
+  String get bookServicesIntro;
+
+  /// No description provided for @bookSvc1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Book strategy & structure'**
+  String get bookSvc1Title;
+
+  /// No description provided for @bookSvc1Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Clarify your core message, define who the book is for, and shape your ideas into a clear chapter outline. We help you decide what belongs in the book and what can stay out, so writing becomes faster and more focused.'**
+  String get bookSvc1Body;
+
+  /// No description provided for @bookSvc1Highlight.
+  ///
+  /// In en, this message translates to:
+  /// **'Ideal for leaders and experts who know what they want to say but are not sure how to organise it.'**
+  String get bookSvc1Highlight;
+
+  /// No description provided for @bookSvc2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Writing, editing & translation'**
+  String get bookSvc2Title;
+
+  /// No description provided for @bookSvc2Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Through interviews, co-writing and careful editing, we turn your knowledge into polished, publication-ready chapters. Our editorial team writes in your voice in both English and Khmer, then refines every page for accuracy and flow.'**
+  String get bookSvc2Body;
+
+  /// No description provided for @bookSvc2Highlight.
+  ///
+  /// In en, this message translates to:
+  /// **'You stay the author and decision-maker; we do the heavy lifting on the page from first draft to final proof.'**
+  String get bookSvc2Highlight;
+
+  /// No description provided for @bookSvc3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Design, layout & publishing'**
+  String get bookSvc3Title;
+
+  /// No description provided for @bookSvc3Body.
+  ///
+  /// In en, this message translates to:
+  /// **'We create a professional cover, design clean interior pages, and prepare all print and digital files your printer needs. Our team coordinates specifications, quotations and test prints so your finished books look world-class on every shelf.'**
+  String get bookSvc3Body;
+
+  /// No description provided for @bookSvc3Highlight.
+  ///
+  /// In en, this message translates to:
+  /// **'One partner from design concept to printed books in your hands, ready for launch.'**
+  String get bookSvc3Highlight;
+
+  /// No description provided for @bookProcessTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How your book comes to life'**
+  String get bookProcessTitle;
+
+  /// No description provided for @bookProcessSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A single, guided process from first conversation to printed books in your hands.'**
+  String get bookProcessSubtitle;
+
+  /// No description provided for @bookProcessStep1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'1. Discovery & brainstorming'**
+  String get bookProcessStep1Title;
+
+  /// No description provided for @bookProcessStep1Body.
+  ///
+  /// In en, this message translates to:
+  /// **'We explore your story, goals, audience, and timeline, then shape them into a clear book concept and working outline.'**
+  String get bookProcessStep1Body;
+
+  /// No description provided for @bookProcessStep2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'2. Writing & editorial'**
+  String get bookProcessStep2Title;
+
+  /// No description provided for @bookProcessStep2Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Through interviews, draft reviews, and editorial passes, we co-create chapters that sound like you and read like a pro.'**
+  String get bookProcessStep2Body;
+
+  /// No description provided for @bookProcessStep3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'3. Design & production'**
+  String get bookProcessStep3Title;
+
+  /// No description provided for @bookProcessStep3Body.
+  ///
+  /// In en, this message translates to:
+  /// **'We design the cover, lay out the pages, prepare print and digital files, and manage printers to agreed quality standards.'**
+  String get bookProcessStep3Body;
+
+  /// No description provided for @bookProcessStep4Title.
+  ///
+  /// In en, this message translates to:
+  /// **'4. Launch & beyond'**
+  String get bookProcessStep4Title;
+
+  /// No description provided for @bookProcessStep4Body.
+  ///
+  /// In en, this message translates to:
+  /// **'You receive finished books and launch materials; we can also support events, media, and social content to amplify impact.'**
+  String get bookProcessStep4Body;
+
+  /// No description provided for @bookPricingHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Transparent packages, customised to your book'**
+  String get bookPricingHeading;
+
+  /// No description provided for @bookPricingIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Every project begins with a conversation. These packages give you a clear starting point — we then tailor scope, timelines and print quantities to match your goals and budget.'**
+  String get bookPricingIntro;
+
+  /// No description provided for @bookPlanAuthorStarterName.
+  ///
+  /// In en, this message translates to:
+  /// **'Author Starter'**
+  String get bookPlanAuthorStarterName;
+
+  /// No description provided for @bookPlanAuthorStarterStrapline.
+  ///
+  /// In en, this message translates to:
+  /// **'Ideal if you already have a draft or detailed notes.'**
+  String get bookPlanAuthorStarterStrapline;
+
+  /// No description provided for @bookPlanAuthorStarterBullet1.
+  ///
+  /// In en, this message translates to:
+  /// **'Book concept and chapter outline workshop'**
+  String get bookPlanAuthorStarterBullet1;
+
+  /// No description provided for @bookPlanAuthorStarterBullet2.
+  ///
+  /// In en, this message translates to:
+  /// **'Editorial review of manuscript (up to 40,000 words)'**
+  String get bookPlanAuthorStarterBullet2;
+
+  /// No description provided for @bookPlanAuthorStarterBullet3.
+  ///
+  /// In en, this message translates to:
+  /// **'Line editing and proofreading'**
+  String get bookPlanAuthorStarterBullet3;
+
+  /// No description provided for @bookPlanAuthorStarterBullet4.
+  ///
+  /// In en, this message translates to:
+  /// **'Simple interior layout and print-ready files'**
+  String get bookPlanAuthorStarterBullet4;
+
+  /// No description provided for @bookPlanSignatureName.
+  ///
+  /// In en, this message translates to:
+  /// **'Signature Book'**
+  String get bookPlanSignatureName;
+
+  /// No description provided for @bookPlanSignatureStrapline.
+  ///
+  /// In en, this message translates to:
+  /// **'Our most popular end-to-end package for leaders and experts.'**
+  String get bookPlanSignatureStrapline;
+
+  /// No description provided for @bookPlanSignatureBullet1.
+  ///
+  /// In en, this message translates to:
+  /// **'Strategy, positioning and full chapter outline'**
+  String get bookPlanSignatureBullet1;
+
+  /// No description provided for @bookPlanSignatureBullet2.
+  ///
+  /// In en, this message translates to:
+  /// **'Ghostwriting or co-writing based on interviews'**
+  String get bookPlanSignatureBullet2;
+
+  /// No description provided for @bookPlanSignatureBullet3.
+  ///
+  /// In en, this message translates to:
+  /// **'Professional editing, proofreading and fact-checking'**
+  String get bookPlanSignatureBullet3;
+
+  /// No description provided for @bookPlanSignatureBullet4.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom cover design and premium interior layout'**
+  String get bookPlanSignatureBullet4;
+
+  /// No description provided for @bookPlanSignatureBullet5.
+  ///
+  /// In en, this message translates to:
+  /// **'Print coordination (recommended specs and quotations)'**
+  String get bookPlanSignatureBullet5;
+
+  /// No description provided for @bookPlanLaunchLegacyName.
+  ///
+  /// In en, this message translates to:
+  /// **'Launch & Legacy'**
+  String get bookPlanLaunchLegacyName;
+
+  /// No description provided for @bookPlanLaunchLegacyStrapline.
+  ///
+  /// In en, this message translates to:
+  /// **'For books that anchor your brand, organisation or campaign.'**
+  String get bookPlanLaunchLegacyStrapline;
+
+  /// No description provided for @bookPlanLaunchLegacyBullet1.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything in Signature Book'**
+  String get bookPlanLaunchLegacyBullet1;
+
+  /// No description provided for @bookPlanLaunchLegacyBullet2.
+  ///
+  /// In en, this message translates to:
+  /// **'Launch event and media talking points pack'**
+  String get bookPlanLaunchLegacyBullet2;
+
+  /// No description provided for @bookPlanLaunchLegacyBullet3.
+  ///
+  /// In en, this message translates to:
+  /// **'Social media launch kit (posts, visuals, captions)'**
+  String get bookPlanLaunchLegacyBullet3;
+
+  /// No description provided for @bookPlanLaunchLegacyBullet4.
+  ///
+  /// In en, this message translates to:
+  /// **'Press-ready PDF and digital book formats (e.g. PDF/ePub)'**
+  String get bookPlanLaunchLegacyBullet4;
+
+  /// No description provided for @bookPlanLaunchLegacyBullet5.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional translation and bilingual editions'**
+  String get bookPlanLaunchLegacyBullet5;
+
+  /// No description provided for @appsPageDevHeroTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'From idea to App Store and Play Store'**
+  String get appsPageDevHeroTitle;
+
+  /// No description provided for @appsPageDevHeroSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn your vision into a polished mobile or web app. Stonechat guides you from concept and design through development, testing, and submission to the App Store and Google Play.'**
+  String get appsPageDevHeroSubtitle;
+
+  /// No description provided for @appsStartProjectCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Start your app project'**
+  String get appsStartProjectCta;
+
+  /// No description provided for @appsServicesOverline.
+  ///
+  /// In en, this message translates to:
+  /// **'App services'**
+  String get appsServicesOverline;
+
+  /// No description provided for @appsServicesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything you need to ship a great app'**
+  String get appsServicesTitle;
+
+  /// No description provided for @appsServicesIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Whether you need a simple MVP or a full-featured product, Stonechat delivers end-to-end app development. We work with startups, enterprises, and organisations who want to move fast without cutting corners.'**
+  String get appsServicesIntro;
+
+  /// No description provided for @appSvc1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Strategy & discovery'**
+  String get appSvc1Title;
+
+  /// No description provided for @appSvc1Body.
+  ///
+  /// In en, this message translates to:
+  /// **'We clarify your app idea, define core features, and map user flows. Together we decide what to build first so you launch faster and stay within budget.'**
+  String get appSvc1Body;
+
+  /// No description provided for @appSvc1Highlight.
+  ///
+  /// In en, this message translates to:
+  /// **'Ideal when you have a vision but need a clear roadmap to execute it.'**
+  String get appSvc1Highlight;
+
+  /// No description provided for @appSvc2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Design & development'**
+  String get appSvc2Title;
+
+  /// No description provided for @appSvc2Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Our team designs intuitive interfaces and builds native or cross-platform apps for iOS, Android, and web. We use modern stacks and follow best practices for performance and security.'**
+  String get appSvc2Body;
+
+  /// No description provided for @appSvc2Highlight.
+  ///
+  /// In en, this message translates to:
+  /// **'You get a production-ready app that feels fast and looks professional.'**
+  String get appSvc2Highlight;
+
+  /// No description provided for @appSvc3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Testing & store submission'**
+  String get appSvc3Title;
+
+  /// No description provided for @appSvc3Body.
+  ///
+  /// In en, this message translates to:
+  /// **'We test on real devices, fix bugs, and handle App Store and Google Play submission. From screenshots and descriptions to compliance checks, we get your app live.'**
+  String get appSvc3Body;
+
+  /// No description provided for @appSvc3Highlight.
+  ///
+  /// In en, this message translates to:
+  /// **'One partner from final build to published app in both stores.'**
+  String get appSvc3Highlight;
+
+  /// No description provided for @appProcessTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How your app gets built and published'**
+  String get appProcessTitle;
+
+  /// No description provided for @appProcessSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A single, guided process from first conversation to live apps on the App Store and Google Play.'**
+  String get appProcessSubtitle;
+
+  /// No description provided for @appProcessStep1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'1. Discovery & concept'**
+  String get appProcessStep1Title;
+
+  /// No description provided for @appProcessStep1Body.
+  ///
+  /// In en, this message translates to:
+  /// **'We explore your goals, users, and constraints, then define a clear scope and feature set for your first release.'**
+  String get appProcessStep1Body;
+
+  /// No description provided for @appProcessStep2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'2. Design & prototyping'**
+  String get appProcessStep2Title;
+
+  /// No description provided for @appProcessStep2Body.
+  ///
+  /// In en, this message translates to:
+  /// **'We create wireframes and high-fidelity designs, test flows with you, and finalise the look and feel before development.'**
+  String get appProcessStep2Body;
+
+  /// No description provided for @appProcessStep3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'3. Development & testing'**
+  String get appProcessStep3Title;
+
+  /// No description provided for @appProcessStep3Body.
+  ///
+  /// In en, this message translates to:
+  /// **'We build the app, run automated and manual tests, and iterate until it meets your quality bar and performance targets.'**
+  String get appProcessStep3Body;
+
+  /// No description provided for @appProcessStep4Title.
+  ///
+  /// In en, this message translates to:
+  /// **'4. Store submission & launch'**
+  String get appProcessStep4Title;
+
+  /// No description provided for @appProcessStep4Body.
+  ///
+  /// In en, this message translates to:
+  /// **'We prepare store assets, submit to App Store and Google Play, and support you through review until your app goes live.'**
+  String get appProcessStep4Body;
+
+  /// No description provided for @appsPricingHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Transparent pricing, tailored to your scope'**
+  String get appsPricingHeading;
+
+  /// No description provided for @appsPricingIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Local pricing for Cambodia. Every project starts with a scoping call — we adjust scope and deliverables to match your goals. Use USD; approximate KHR available for marketing.'**
+  String get appsPricingIntro;
+
+  /// No description provided for @appsPricingSectionApps.
+  ///
+  /// In en, this message translates to:
+  /// **'App development'**
+  String get appsPricingSectionApps;
+
+  /// No description provided for @appsPricingSectionWebsites.
+  ///
+  /// In en, this message translates to:
+  /// **'Websites & landing pages'**
+  String get appsPricingSectionWebsites;
+
+  /// No description provided for @appsPricingSectionMaintenance.
+  ///
+  /// In en, this message translates to:
+  /// **'Maintenance & support'**
+  String get appsPricingSectionMaintenance;
+
+  /// No description provided for @appPlanMiniName.
+  ///
+  /// In en, this message translates to:
+  /// **'Mini App / MVP'**
+  String get appPlanMiniName;
+
+  /// No description provided for @appPlanMiniStrapline.
+  ///
+  /// In en, this message translates to:
+  /// **'Simple apps with core features. Ideal for booking forms, catalogs, internal tools.'**
+  String get appPlanMiniStrapline;
+
+  /// No description provided for @appPlanMiniBullet1.
+  ///
+  /// In en, this message translates to:
+  /// **'3–5 screens'**
+  String get appPlanMiniBullet1;
+
+  /// No description provided for @appPlanMiniBullet2.
+  ///
+  /// In en, this message translates to:
+  /// **'No backend or simple Firebase'**
+  String get appPlanMiniBullet2;
+
+  /// No description provided for @appPlanMiniBullet3.
+  ///
+  /// In en, this message translates to:
+  /// **'Android only'**
+  String get appPlanMiniBullet3;
+
+  /// No description provided for @appPlanMiniBullet4.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivered in 2–4 weeks'**
+  String get appPlanMiniBullet4;
+
+  /// No description provided for @appPlanStandardName.
+  ///
+  /// In en, this message translates to:
+  /// **'Standard Business App'**
+  String get appPlanStandardName;
+
+  /// No description provided for @appPlanStandardStrapline.
+  ///
+  /// In en, this message translates to:
+  /// **'Our most popular for clinics, SMEs, and small POS systems.'**
+  String get appPlanStandardStrapline;
+
+  /// No description provided for @appPlanStandardBullet1.
+  ///
+  /// In en, this message translates to:
+  /// **'8–15 screens'**
+  String get appPlanStandardBullet1;
+
+  /// No description provided for @appPlanStandardBullet2.
+  ///
+  /// In en, this message translates to:
+  /// **'Firebase backend, auth, CRUD'**
+  String get appPlanStandardBullet2;
+
+  /// No description provided for @appPlanStandardBullet3.
+  ///
+  /// In en, this message translates to:
+  /// **'Simple reports'**
+  String get appPlanStandardBullet3;
+
+  /// No description provided for @appPlanStandardBullet4.
+  ///
+  /// In en, this message translates to:
+  /// **'Android (iOS + web add +30–50%)'**
+  String get appPlanStandardBullet4;
+
+  /// No description provided for @appPlanAdvancedName.
+  ///
+  /// In en, this message translates to:
+  /// **'Advanced App'**
+  String get appPlanAdvancedName;
+
+  /// No description provided for @appPlanAdvancedStrapline.
+  ///
+  /// In en, this message translates to:
+  /// **'Complex logic, multi-role, integrations, dashboards.'**
+  String get appPlanAdvancedStrapline;
+
+  /// No description provided for @appPlanAdvancedBullet1.
+  ///
+  /// In en, this message translates to:
+  /// **'Large clinic or multi-branch POS'**
+  String get appPlanAdvancedBullet1;
+
+  /// No description provided for @appPlanAdvancedBullet2.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivery or marketplace apps'**
+  String get appPlanAdvancedBullet2;
+
+  /// No description provided for @appPlanAdvancedBullet3.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom backend and admin'**
+  String get appPlanAdvancedBullet3;
+
+  /// No description provided for @appPlanAdvancedBullet4.
+  ///
+  /// In en, this message translates to:
+  /// **'Quote case-by-case'**
+  String get appPlanAdvancedBullet4;
+
+  /// No description provided for @appPlanLandingName.
+  ///
+  /// In en, this message translates to:
+  /// **'Landing Page'**
+  String get appPlanLandingName;
+
+  /// No description provided for @appPlanLandingStrapline.
+  ///
+  /// In en, this message translates to:
+  /// **'One-page site for Facebook sellers. Professional look in 3–5 days.'**
+  String get appPlanLandingStrapline;
+
+  /// No description provided for @appPlanLandingBullet1.
+  ///
+  /// In en, this message translates to:
+  /// **'Single page'**
+  String get appPlanLandingBullet1;
+
+  /// No description provided for @appPlanLandingBullet2.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact form'**
+  String get appPlanLandingBullet2;
+
+  /// No description provided for @appPlanLandingBullet3.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile-friendly'**
+  String get appPlanLandingBullet3;
+
+  /// No description provided for @appPlanStarterWebName.
+  ///
+  /// In en, this message translates to:
+  /// **'Starter Web'**
+  String get appPlanStarterWebName;
+
+  /// No description provided for @appPlanStarterWebStrapline.
+  ///
+  /// In en, this message translates to:
+  /// **'Micro businesses: salon, small shop, teacher.'**
+  String get appPlanStarterWebStrapline;
+
+  /// No description provided for @appPlanStarterWebBullet1.
+  ///
+  /// In en, this message translates to:
+  /// **'1–3 pages'**
+  String get appPlanStarterWebBullet1;
+
+  /// No description provided for @appPlanStarterWebBullet2.
+  ///
+  /// In en, this message translates to:
+  /// **'Template design'**
+  String get appPlanStarterWebBullet2;
+
+  /// No description provided for @appPlanStarterWebBullet3.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic contact form'**
+  String get appPlanStarterWebBullet3;
+
+  /// No description provided for @appPlanBasicBizName.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic Business'**
+  String get appPlanBasicBizName;
+
+  /// No description provided for @appPlanBasicBizStrapline.
+  ///
+  /// In en, this message translates to:
+  /// **'SMEs, clinics, training centers.'**
+  String get appPlanBasicBizStrapline;
+
+  /// No description provided for @appPlanBasicBizBullet1.
+  ///
+  /// In en, this message translates to:
+  /// **'5–8 pages'**
+  String get appPlanBasicBizBullet1;
+
+  /// No description provided for @appPlanBasicBizBullet2.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom layout from template'**
+  String get appPlanBasicBizBullet2;
+
+  /// No description provided for @appPlanBasicBizBullet3.
+  ///
+  /// In en, this message translates to:
+  /// **'Simple blog/news, 1 language'**
+  String get appPlanBasicBizBullet3;
+
+  /// No description provided for @appPlanProBizName.
+  ///
+  /// In en, this message translates to:
+  /// **'Pro Business'**
+  String get appPlanProBizName;
+
+  /// No description provided for @appPlanProBizStrapline.
+  ///
+  /// In en, this message translates to:
+  /// **'Schools, NGOs, larger SMEs.'**
+  String get appPlanProBizStrapline;
+
+  /// No description provided for @appPlanProBizBullet1.
+  ///
+  /// In en, this message translates to:
+  /// **'Up to ~12 pages'**
+  String get appPlanProBizBullet1;
+
+  /// No description provided for @appPlanProBizBullet2.
+  ///
+  /// In en, this message translates to:
+  /// **'Bilingual Khmer/English'**
+  String get appPlanProBizBullet2;
+
+  /// No description provided for @appPlanProBizBullet3.
+  ///
+  /// In en, this message translates to:
+  /// **'Booking form or product listing'**
+  String get appPlanProBizBullet3;
+
+  /// No description provided for @appPlanEcomName.
+  ///
+  /// In en, this message translates to:
+  /// **'Small E-commerce'**
+  String get appPlanEcomName;
+
+  /// No description provided for @appPlanEcomStrapline.
+  ///
+  /// In en, this message translates to:
+  /// **'Online shops, small brands.'**
+  String get appPlanEcomStrapline;
+
+  /// No description provided for @appPlanEcomBullet1.
+  ///
+  /// In en, this message translates to:
+  /// **'20–80 products'**
+  String get appPlanEcomBullet1;
+
+  /// No description provided for @appPlanEcomBullet2.
+  ///
+  /// In en, this message translates to:
+  /// **'Cart, checkout, payment'**
+  String get appPlanEcomBullet2;
+
+  /// No description provided for @appPlanEcomBullet3.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic admin to manage products'**
+  String get appPlanEcomBullet3;
+
+  /// No description provided for @appPlanHostingName.
+  ///
+  /// In en, this message translates to:
+  /// **'Web hosting'**
+  String get appPlanHostingName;
+
+  /// No description provided for @appPlanHostingStrapline.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep your site secure and updated.'**
+  String get appPlanHostingStrapline;
+
+  /// No description provided for @appPlanHostingBullet1.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic: 10–20 — hosting, security, 2–4 edits'**
+  String get appPlanHostingBullet1;
+
+  /// No description provided for @appPlanHostingBullet2.
+  ///
+  /// In en, this message translates to:
+  /// **'Pro: 30–50 — content updates, backups, priority support'**
+  String get appPlanHostingBullet2;
+
+  /// No description provided for @appPlanSupportName.
+  ///
+  /// In en, this message translates to:
+  /// **'App support'**
+  String get appPlanSupportName;
+
+  /// No description provided for @appPlanSupportStrapline.
+  ///
+  /// In en, this message translates to:
+  /// **'Bug fixes, tweaks, and new features.'**
+  String get appPlanSupportStrapline;
+
+  /// No description provided for @appPlanSupportBullet1.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic: 50–80 — fixes, minor UI, monitoring'**
+  String get appPlanSupportBullet1;
+
+  /// No description provided for @appPlanSupportBullet2.
+  ///
+  /// In en, this message translates to:
+  /// **'Growth: 100–150 — new features, analytics, performance'**
+  String get appPlanSupportBullet2;
 }
 
 class _AppLocalizationsDelegate

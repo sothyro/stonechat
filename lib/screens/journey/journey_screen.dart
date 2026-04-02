@@ -7,6 +7,7 @@ import '../../l10n/app_localizations.dart';
 import '../../theme/app_theme.dart';
 import '../../utils/breakpoints.dart';
 import '../../widgets/academy_card.dart';
+import '../../widgets/deferred_hover_mouse_region.dart';
 
 /// Stonechat Communications Journey page: hero, story, Period 9, and The Rise of the Phoenix.
 class JourneyScreen extends StatelessWidget {
@@ -166,26 +167,23 @@ class _StoryCard extends StatefulWidget {
 }
 
 class _StoryCardState extends State<_StoryCard> {
-  bool _hovered = false;
-
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
-      child: AnimatedContainer(
+    return DeferredHoverMouseRegion(
+      builder: (context, hovered) {
+        return AnimatedContainer(
         duration: const Duration(milliseconds: 180),
         padding: const EdgeInsets.all(24),
         decoration: BoxDecoration(
           color: AppColors.surfaceElevatedDark,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: _hovered
+            color: hovered
                 ? AppColors.borderLight.withValues(alpha: 0.4)
                 : AppColors.borderDark,
-            width: _hovered ? 1.5 : 1,
+            width: hovered ? 1.5 : 1,
           ),
-          boxShadow: _hovered ? AppShadows.cardHover : AppShadows.card,
+          boxShadow: hovered ? AppShadows.cardHover : AppShadows.card,
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -224,7 +222,8 @@ class _StoryCardState extends State<_StoryCard> {
             ),
           ],
         ),
-      ),
+      );
+      },
     );
   }
 }

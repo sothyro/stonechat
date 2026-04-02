@@ -7,6 +7,7 @@ import '../../../config/events_data.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../theme/app_theme.dart';
 import '../../../utils/breakpoints.dart';
+import '../../../utils/defer_pointer.dart';
 import '../../../widgets/section_header.dart';
 
 /// Green bullet for "Coming Up Next".
@@ -442,8 +443,18 @@ class _FeaturedEventCardState extends State<_FeaturedEventCard> {
     final imageAsset = widget.imageAsset ?? AppContent.assetEventMain;
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
+      onEnter: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = true);
+        });
+      },
+      onExit: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = false);
+        });
+      },
       child: Material(
         color: Colors.transparent,
         child: InkWell(
@@ -762,8 +773,18 @@ class _CompactEventCardState extends State<_CompactEventCard> {
     final imageAsset = widget.imageAsset ?? AppContent.assetEventCard;
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
+      onEnter: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = true);
+        });
+      },
+      onExit: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = false);
+        });
+      },
       child: Material(
         color: Colors.transparent,
         child: InkWell(

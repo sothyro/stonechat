@@ -3,6 +3,8 @@ import { getFirestore, Timestamp } from "firebase-admin/firestore";
 import { onDocumentCreated } from "firebase-functions/v2/firestore";
 import { onCall, HttpsError } from "firebase-functions/v2/https";
 import { defineSecret } from "firebase-functions/params";
+import { onSchedule } from "firebase-functions/v2/scheduler";
+import { createHash } from "crypto";
 
 initializeApp();
 const db = getFirestore();
@@ -11,7 +13,7 @@ const db = getFirestore();
 const plasgatePrivateKey = defineSecret("PLASGATE_PRIVATE_KEY");
 const plasgateSecret = defineSecret("PLASGATE_SECRET");
 const adminSmsPhone = defineSecret("ADMIN_SMS_PHONE");
-const SMS_SENDER = "stonechat";
+const SMS_SENDER = "Stonechat";
 
 const APPOINTMENTS = "appointments";
 const SESSION_DURATION_MINUTES = 120;
@@ -24,6 +26,19 @@ const MIN_PHONE_DIGITS = 9; // Cambodia local number length without country code
 const SMS_RETRY_DELAY_MS = 2000;
 /** Stonechat business line – receives SMS on every new booking. */
 const STONECHAT_SMS_PHONE = "85512222211";
+
+/**
+ * English consultation label for admin/owner SMS only (`Category (Method)` — mirrors app_en.arb).
+ * Must stay in sync when adding/changing consultation options in the app.
+ */
+const SERVICE_NAME_EN_BY_ID = {
+  bazi: "App Development (Development)",
+  fengshui: "Communications Training (Training)",
+  dateselection: "Book Creation Suite (Publishing)",
+  qimeniching: "Custom Project (Custom)",
+  maosan: "Responsive Web (Web)",
+  publications: "AI Agent (AI)",
+};
 
 /**
  * Normalize phone to E.164 (digits only, Cambodia 855).
@@ -43,6 +58,87 @@ function isValidE164Phone(normalized) {
   if (!normalized || typeof normalized !== "string") return false;
   const digits = normalized.replace(/\D/g, "");
   return digits.startsWith("855") && digits.length >= 11 && digits.length <= 15;
+}
+
+/**
+ * Appointment date from client is YYYY-MM-DD; SMS uses dd-mm-year.
+ */
+function formatDateDdMmYyyy(dateStr) {
+  if (!dateStr || typeof dateStr !== "string") return dateStr || "";
+  const m = dateStr.trim().match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (m) return `${m[3]}-${m[2]}-${m[1]}`;
+  return dateStr.trim();
+}
+
+/** English service line for admin SMS; ignores client locale. */
+function consultationTypeEnglishForAdmin(serviceId) {
+  const id = String(serviceId || "")
+    .trim()
+    .toLowerCase();
+  return SERVICE_NAME_EN_BY_ID[id] || "Consultation";
+}
+
+/**
+ * Fallback visit labels if visitTypeLabel missing (older bookings). Mirrors app l10n.
+ */
+function fallbackVisitLabel(lang, isOnline) {
+  if (lang === "en") return isOnline ? "Online" : "Visit";
+  if (lang === "zh") return isOnline ? "线上" : "到访";
+  return isOnline ? "អនឡាញ" : "មកជួបផ្ទាល់";
+}
+
+/**
+ * Session-type field caption fallback if visitFieldLabel not stored (older bookings).
+ */
+function visitFieldPrefixFallback(lang) {
+  if (lang === "zh") return "预约类型";
+  if (lang === "km") return "ប្រភេទការណាត់";
+  return "Type of visit";
+}
+
+/** One visit clause for all languages: same structure, UI field label + selected value from Firestore when present. */
+function visitClauseForLang(lang, field, visit) {
+  const f = field || visitFieldPrefixFallback(lang);
+  const sep = lang === "zh" ? "：" : "=";
+  return `(${f}${sep}${visit})`;
+}
+
+/**
+ * Customer confirmation SMS by site language (Firestore: smsLocale, visitTypeLabel, visitFieldLabel, serviceName, sessionType).
+ * visitTypeLabel / visitFieldLabel are exact UI strings from Flutter l10n.
+ */
+function buildCustomerSmsContent(
+  smsLocale,
+  serviceName,
+  sessionType,
+  dateStr,
+  timeStr,
+  bookingRef,
+  visitTypeLabelRaw,
+  visitFieldLabelRaw
+) {
+  const dateFmt = formatDateDdMmYyyy(dateStr);
+  const timeFmt = (timeStr || "").trim();
+  const ref = bookingRef || "";
+  const svc = serviceName || "Consultation";
+  const isOnline = String(sessionType || "").toUpperCase() === "ONLINE";
+  const lang = String(smsLocale || "km")
+    .toLowerCase()
+    .split(/[-_]/)[0];
+
+  const visitFromFirestore = typeof visitTypeLabelRaw === "string" ? visitTypeLabelRaw.trim() : "";
+  const visit = visitFromFirestore || fallbackVisitLabel(lang, isOnline);
+  const fieldFromFirestore = typeof visitFieldLabelRaw === "string" ? visitFieldLabelRaw.trim() : "";
+  const visitClause = visitClauseForLang(lang, fieldFromFirestore, visit);
+
+  if (lang === "en") {
+    return `Stonechat Communications: Successfully scheduled! To discuss about (${svc}). ${visitClause} on ${dateFmt} at ${timeFmt}. Thank you! Ref: ${ref}.`;
+  }
+  if (lang === "zh") {
+    // Visit type appears only in visitClause; avoid repeating 到访/线上 after date/time.
+    return `Stonechat Communications：已成功安排会议，以讨论应用程序开发（${svc}）。${visitClause} ${dateFmt} ${timeFmt}。谢谢！参考编号：${ref}。`;
+  }
+  return `Stonechat Communications៖ បានណាត់ជួបដោយជោគជ័យ  ដើម្បីពិភាក្សា (${svc}), ${visitClause} នៅថ្ងៃ ${dateFmt} ម៉ោង ${timeFmt}។ សូមអរគុណ! Ref: ${ref}.`;
 }
 
 /**
@@ -166,16 +262,21 @@ export const onAppointmentCreated = onDocumentCreated(
     const rawPhone = data.phone || "";
     const phone = normalizePhone(rawPhone);
     const serviceName = data.serviceName || "Consultation";
+    const serviceId = data.serviceId || "";
     const sessionType = data.sessionType || "VISIT";
     const date = data.date || "";
     const time = data.time || "";
     const bookingRef = data.bookingReference || docId.slice(-6).toUpperCase();
+    const smsLocale = data.smsLocale || "km";
+    const visitTypeLabel = data.visitTypeLabel;
+    const visitFieldLabel = data.visitFieldLabel;
 
     console.log(`onAppointmentCreated: Processing appointment ${docId} for phone ${phone || "(empty)"}`);
 
-    const sessionLabel = sessionType === "ONLINE" ? "Online" : "In-person visit";
-    // Admin & Stonechat: Khmer notice + Ref (New appointment, confirm with client 1h before)
-    const adminStonechatContent = `Stonechat៖ ការណាត់ថ្មី ឈ្មោះ ${name}។ ដើម្បីមើល ${serviceName} នៅថ្ងៃ ${date} ម៉ោង ${time}។ សូមបញ្ជាក់ជាមួយភ្ញៀវមុនពេលជួប ១ម៉ោងមុន! Ref: ${bookingRef}.`;
+    // Admin & business line: same Khmer text; appointment type always English (not client locale).
+    const adminDateFmt = formatDateDdMmYyyy(date);
+    const serviceNameEnAdmin = consultationTypeEnglishForAdmin(serviceId);
+    const adminStonechatContent = `Stonechat៖ ការណាត់ថ្មី ឈ្មោះ ${name}។ ដើម្បីពិភាក្សាការងារ ${serviceNameEnAdmin} នៅថ្ងៃ ${adminDateFmt} ម៉ោង ${time}។ សូមបញ្ជាក់ជាមួយភ្ញៀវមុនពេលជួប ១ម៉ោងមុន! Ref: ${bookingRef}.`;
 
     try {
       // 1. Customer SMS (only if valid phone)
@@ -188,7 +289,16 @@ export const onAppointmentCreated = onDocumentCreated(
         console.warn(`onAppointmentCreated: Skipped customer SMS for ${docId} - invalid or missing phone`);
         updateData = { smsStatus: "skipped", smsErrorReason: "invalid_phone" };
       } else {
-        const content = `ម៉ាស្ទ័រ ហុង ឆាយហេង៖ ការណាត់ជួបបានកក់ដោយជោគជ័យ  ដើម្បីមើល (${serviceName}, ${sessionLabel}) បងជួបលោកគ្រូនៅថ្ងៃ ${date} ម៉ោង ${time}។ សូមមានលាភមានជ័យ! Ref: ${bookingRef}.`;
+        const content = buildCustomerSmsContent(
+          smsLocale,
+          serviceName,
+          sessionType,
+          date,
+          time,
+          bookingRef,
+          visitTypeLabel,
+          visitFieldLabel
+        );
         console.log(`onAppointmentCreated: Sending customer SMS to ${phone}, content length: ${content.length}`);
         const result = await sendPlasGateSms(phone, content);
         console.log(`onAppointmentCreated: Customer SMS result:`, JSON.stringify(result));
@@ -551,6 +661,402 @@ const MAX_EMAIL = 200;
 const MAX_PHONE = 50;
 const MAX_MESSAGE = 5000;
 
+// ---------------------------------------------------------------------------
+// Email subscriptions (Subscribe CTA)
+// ---------------------------------------------------------------------------
+const EMAIL_SUBSCRIPTIONS = "email_subscriptions";
+const EMAIL_SUBSCRIPTION_STATUS_ACTIVE = "active";
+const NEWSLETTER_RUNS = "newsletter_runs";
+
+function normalizeEmail(email) {
+  return String(email || "").trim().toLowerCase();
+}
+
+function buildSubscriptionConfirmationHtml(subscriberEmail) {
+  return `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Stonechat subscription confirmed</title>
+</head>
+<body style="margin:0;padding:0;background-color:#F5F5F5;font-family:sans-serif;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#F5F5F5;">
+    <tr>
+      <td style="padding:32px 24px;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:560px;margin:0 auto;background:#ffffff;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.08);overflow:hidden;">
+          <tr>
+            <td style="background:linear-gradient(135deg,#1A1A1A 0%,#2a2a2a 100%);padding:24px 28px;text-align:left;">
+              <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#00A9B8;font-weight:600;">Stonechat</span>
+              <h1 style="margin:8px 0 0;font-size:22px;font-weight:700;color:#ffffff;letter-spacing:-0.02em;">Subscription confirmed</h1>
+              <p style="margin:6px 0 0;font-size:13px;color:rgba(255,255,255,0.75);">Monthly updates are on the way.</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:24px 28px;">
+              <p style="margin:0;font-size:15px;line-height:1.6;color:#333333;">
+                Thanks for subscribing! We'll email you once a month with news and updates.
+              </p>
+              <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#333333;">
+                Follow us:
+              </p>
+              <p style="margin:10px 0 0;font-size:14px;line-height:1.6;color:#333333;">
+                • <a href="https://www.facebook.com/stonechat" style="color:#00A9B8;font-weight:600;text-decoration:none;">Facebook</a><br>
+                • <a href="https://t.me/stonechat" style="color:#00A9B8;font-weight:600;text-decoration:none;">Telegram</a>
+              </p>
+              <p style="margin:18px 0 0;font-size:12px;color:#666666;">
+                Subscriber: ${escapeHtml(subscriberEmail || "")}
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+}
+
+function buildMonthlyNewsletterHtml(runId) {
+  return `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Stonechat monthly updates</title>
+</head>
+<body style="margin:0;padding:0;background-color:#F5F5F5;font-family:sans-serif;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#F5F5F5;">
+    <tr>
+      <td style="padding:32px 24px;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:560px;margin:0 auto;background:#ffffff;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.08);overflow:hidden;">
+          <tr>
+            <td style="background:linear-gradient(135deg,#1A1A1A 0%,#2a2a2a 100%);padding:24px 28px;text-align:left;">
+              <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#00A9B8;font-weight:600;">Stonechat</span>
+              <h1 style="margin:8px 0 0;font-size:22px;font-weight:700;color:#ffffff;letter-spacing:-0.02em;">Monthly updates</h1>
+              <p style="margin:6px 0 0;font-size:13px;color:rgba(255,255,255,0.75);">Run: ${escapeHtml(runId)}</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:24px 28px;">
+              <p style="margin:0;font-size:15px;line-height:1.6;color:#333333;">
+                Hello! Here are this month's updates from Stonechat.
+              </p>
+              <ul style="margin:14px 0 0;padding-left:18px;font-size:14px;line-height:1.7;color:#333333;">
+                <li>New training/events and announcements</li>
+                <li>Website/app news</li>
+                <li>Ways to connect with our community</li>
+              </ul>
+              <p style="margin:18px 0 0;font-size:14px;line-height:1.6;color:#333333;">
+                Follow us for the latest:
+              </p>
+              <p style="margin:10px 0 0;font-size:14px;line-height:1.6;color:#333333;">
+                • <a href="https://www.facebook.com/stonechat" style="color:#00A9B8;font-weight:600;text-decoration:none;">Facebook</a><br>
+                • <a href="https://t.me/stonechat" style="color:#00A9B8;font-weight:600;text-decoration:none;">Telegram</a>
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+}
+
+async function sendResendEmail(toEmail, subject, html, fromOverride) {
+  const apiKey = resendApiKey.value();
+  const from = fromOverride || "Stonechat <hello@stonechat.vip>";
+
+  if (!apiKey || !toEmail) {
+    console.log("sendResendEmail: RESEND_API_KEY or toEmail not set; skipping email.");
+    return { ok: false, reason: "config" };
+  }
+
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer " + apiKey,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      from,
+      to: [toEmail],
+      subject,
+      html,
+    }),
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    console.error("sendResendEmail: Resend error", res.status, text);
+    return { ok: false, reason: text || "resend_error" };
+  }
+
+  return { ok: true };
+}
+
+/**
+ * Callable: subscribe an email address for monthly updates.
+ * Stores subscriber in `email_subscriptions` (deduped by email).
+ * Sends an immediate confirmation email via Resend.
+ * No auth required.
+ */
+export const subscribeEmail = onCall(
+  { secrets: [resendApiKey] },
+  async (request) => {
+    const data = request.data || {};
+    const emailRaw = typeof data.email === "string" ? data.email : "";
+    const email = normalizeEmail(emailRaw);
+
+    if (!email || email.length > MAX_EMAIL) {
+      throw new HttpsError("invalid-argument", "Invalid email format.");
+    }
+    if (!EMAIL_REGEX.test(email)) {
+      throw new HttpsError("invalid-argument", "Invalid email format.");
+    }
+
+    const docId = createHash("sha256").update(email).digest("hex");
+    const ref = db.collection(EMAIL_SUBSCRIPTIONS).doc(docId);
+    const now = Timestamp.now();
+
+    const snap = await ref.get();
+    const alreadySubscribed = snap.exists;
+
+    await ref.set(
+      {
+        email,
+        status: EMAIL_SUBSCRIPTION_STATUS_ACTIVE,
+        createdAt: snap.exists ? snap.data().createdAt || now : now,
+        lastConfirmedAt: now,
+      },
+      { merge: true }
+    );
+
+    const subject = "[Stonechat] Subscription confirmed";
+    const html = buildSubscriptionConfirmationHtml(email);
+    const sendResult = await sendResendEmail(email, subject, html);
+    // Keep the CTA working even if the confirmation email fails for any reason
+    // (common causes: Resend recipient restrictions / unverified from / transient issues).
+    // We still store the subscriber and allow monthly updates once the system is correct.
+    if (!sendResult.ok) {
+      console.warn(
+        "subscribeEmail: confirmation email not sent. Subscriber saved. reason=",
+        sendResult.reason
+      );
+    }
+
+    return { success: true, alreadySubscribed, confirmationSent: sendResult.ok };
+  }
+);
+
+/**
+ * Scheduled: send monthly updates email to active subscribers.
+ * Deduped by Firestore doc `newsletter_runs/{YYYY-MM}` (skips if status is `done`).
+ */
+export const sendMonthlyUpdates = onSchedule(
+  { schedule: "0 0 1 * *", secrets: [resendApiKey] },
+  async () => {
+    const now = new Date();
+    const year = now.getUTCFullYear();
+    const month = String(now.getUTCMonth() + 1).padStart(2, "0");
+    const runId = `${year}-${month}`;
+
+    const runRef = db.collection(NEWSLETTER_RUNS).doc(runId);
+    const runSnap = await runRef.get();
+    if (runSnap.exists && runSnap.data()?.status === "done") {
+      console.log(`sendMonthlyUpdates: already processed for ${runId}`);
+      return { ok: true, alreadyProcessed: true, runId };
+    }
+
+    await runRef.set(
+      {
+        status: "processing",
+        startedAt: Timestamp.now(),
+      },
+      { merge: true }
+    );
+
+    const subscribersSnap = await db
+      .collection(EMAIL_SUBSCRIPTIONS)
+      .where("status", "==", EMAIL_SUBSCRIPTION_STATUS_ACTIVE)
+      .get();
+
+    const html = buildMonthlyNewsletterHtml(runId);
+    const subject = "[Stonechat] Monthly updates";
+
+    let sentCount = 0;
+    let failedCount = 0;
+
+    // Sequential sending keeps load low and reduces rate-limit risk.
+    for (const doc of subscribersSnap.docs) {
+      const data = doc.data() || {};
+      const to = data.email;
+      if (!to || typeof to !== "string") continue;
+
+      try {
+        const sendResult = await sendResendEmail(to, subject, html);
+        if (sendResult.ok) sentCount++;
+        else failedCount++;
+      } catch (err) {
+        failedCount++;
+        console.error(`sendMonthlyUpdates: failed for ${to}`, err);
+      }
+    }
+
+    await runRef.set(
+      {
+        status: "done",
+        finishedAt: Timestamp.now(),
+        sentCount,
+        failedCount,
+      },
+      { merge: true }
+    );
+
+    return {
+      ok: true,
+      runId,
+      subscriberCount: subscribersSnap.size,
+      sentCount,
+      failedCount,
+    };
+  }
+);
+
+/**
+ * Milliseconds for sorting subscriber docs (Timestamp or missing).
+ */
+function subscriberSortKey(data) {
+  const d = data || {};
+  const lc = d.lastConfirmedAt;
+  const cr = d.createdAt;
+  if (lc && typeof lc.toMillis === "function") return lc.toMillis();
+  if (cr && typeof cr.toMillis === "function") return cr.toMillis();
+  return 0;
+}
+
+/**
+ * Callable: list email subscribers (admin only).
+ */
+export const listEmailSubscribers = onCall(async (request) => {
+  if (!request.auth) {
+    throw new HttpsError("unauthenticated", "You must be logged in to view subscribers.");
+  }
+  const limitParam = request.data?.limit;
+  const limit = Math.min(Math.max(Number(limitParam) || 500, 1), 500);
+  let docs;
+  try {
+    const snapshot = await db
+      .collection(EMAIL_SUBSCRIPTIONS)
+      .orderBy("lastConfirmedAt", "desc")
+      .limit(limit)
+      .get();
+    docs = snapshot.docs;
+  } catch (err) {
+    console.error("listEmailSubscribers: orderBy query failed", err);
+    const msg = err?.message || String(err);
+    try {
+      const fallback = await db.collection(EMAIL_SUBSCRIPTIONS).limit(1000).get();
+      const sorted = [...fallback.docs].sort(
+        (a, b) => subscriberSortKey(b.data()) - subscriberSortKey(a.data())
+      );
+      docs = sorted.slice(0, limit);
+    } catch (err2) {
+      console.error("listEmailSubscribers: fallback failed", err2);
+      if (/index/i.test(msg)) {
+        throw new HttpsError(
+          "failed-precondition",
+          "Firestore index or query error while loading subscribers. Check Firebase console logs."
+        );
+      }
+      throw new HttpsError("internal", msg || "Failed to load subscribers.");
+    }
+  }
+
+  const subscribers = docs.map((doc) => {
+    const d = doc.data();
+    const createdAt = d.createdAt?.toDate?.();
+    const lastConfirmedAt = d.lastConfirmedAt?.toDate?.();
+    return {
+      id: doc.id,
+      email: d.email || "",
+      status: d.status || "",
+      createdAt: createdAt ? createdAt.toISOString() : null,
+      lastConfirmedAt: lastConfirmedAt ? lastConfirmedAt.toISOString() : null,
+    };
+  });
+  return { subscribers };
+});
+
+function contactSortKey(data) {
+  const cr = (data || {}).createdAt;
+  if (cr && typeof cr.toMillis === "function") return cr.toMillis();
+  return 0;
+}
+
+/**
+ * Callable: list contact form submissions (admin only).
+ */
+export const listContactSubmissions = onCall(async (request) => {
+  if (!request.auth) {
+    throw new HttpsError("unauthenticated", "You must be logged in to view contact submissions.");
+  }
+  const limitParam = request.data?.limit;
+  const limit = Math.min(Math.max(Number(limitParam) || 200, 1), 500);
+  let docs;
+  try {
+    const snapshot = await db
+      .collection(CONTACT_SUBMISSIONS)
+      .orderBy("createdAt", "desc")
+      .limit(limit)
+      .get();
+    docs = snapshot.docs;
+  } catch (err) {
+    console.error("listContactSubmissions: orderBy query failed", err);
+    const msg = err?.message || String(err);
+    try {
+      const fallback = await db.collection(CONTACT_SUBMISSIONS).limit(1000).get();
+      const sorted = [...fallback.docs].sort(
+        (a, b) => contactSortKey(b.data()) - contactSortKey(a.data())
+      );
+      docs = sorted.slice(0, limit);
+    } catch (err2) {
+      console.error("listContactSubmissions: fallback failed", err2);
+      if (/index/i.test(msg)) {
+        throw new HttpsError(
+          "failed-precondition",
+          "Firestore index or query error while loading contact submissions. Check Firebase console logs."
+        );
+      }
+      throw new HttpsError("internal", msg || "Failed to load contact submissions.");
+    }
+  }
+
+  const submissions = docs.map((doc) => {
+    const d = doc.data();
+    let createdAt = null;
+    try {
+      createdAt = d.createdAt?.toDate?.() || null;
+    } catch (e) {
+      console.warn("listContactSubmissions: bad createdAt on", doc.id, e);
+    }
+    return {
+      id: doc.id,
+      name: d.name || "",
+      email: d.email || "",
+      phone: d.phone ?? "",
+      subjectLabel: d.subjectLabel || "",
+      message: d.message || "",
+      status: d.status || "new",
+      createdAt: createdAt ? createdAt.toISOString() : null,
+    };
+  });
+  return { submissions };
+});
+
 /**
  * Callable: submit contact form. Writes to Firestore contact_submissions.
  * No auth required. Validates name, email, message, subjectIndex (0-5).
@@ -599,7 +1105,7 @@ export const submitContactForm = onCall(async (request) => {
  * Set secrets RESEND_API_KEY and CONTACT_NOTIFY_EMAIL to enable. Otherwise only logs.
  */
 // Brand colors for email (match app theme)
-const EMAIL_ACCENT = "#C9A227";
+const EMAIL_ACCENT = "#00A9B8"; // project teal
 const EMAIL_DARK = "#1A1A1A";
 const EMAIL_BG = "#F5F5F5";
 const EMAIL_TEXT = "#333333";
@@ -699,7 +1205,7 @@ async function sendContactNotificationEmail(toEmail, apiKey, submission) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: "Stonechat Contact <onboarding@resend.dev>",
+      from: "Stonechat <hello@stonechat.vip>",
       to: [toEmail],
       subject,
       html,

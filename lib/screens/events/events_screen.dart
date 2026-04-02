@@ -8,6 +8,7 @@ import '../../config/events_data.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/app_theme.dart';
 import '../../utils/breakpoints.dart';
+import '../../utils/defer_pointer.dart';
 import '../../widgets/glass_container.dart';
 import '../../widgets/section_header.dart';
 import '../home/widgets/testimonials_section.dart';
@@ -350,54 +351,48 @@ class _EventsScreenState extends State<EventsScreen> {
               children: [
                 _TrainingAudienceCard(
                   icon: LucideIcons.building2,
-                  title: 'Government & Ministry teams',
-                  description:
-                      'Support for policy, communications and technical units that need clear, practical training without heavy jargon.',
+                  title: l10n.eventsAudienceGovernmentTitle,
+                  description: l10n.eventsAudienceGovernmentDesc,
                 ),
                 const SizedBox(height: 12),
                 _TrainingAudienceCard(
                   icon: LucideIcons.briefcase,
-                  title: 'Businesses & Startups',
-                  description:
-                      'Trainings to help founders and teams present ideas, write for customers and use AI tools in daily work.',
+                  title: l10n.eventsAudienceBusinessTitle,
+                  description: l10n.eventsAudienceBusinessDesc,
                 ),
                 const SizedBox(height: 12),
                 _TrainingAudienceCard(
                   icon: LucideIcons.users,
-                  title: 'NGOs & Training Centers',
-                  description:
-                      'Programs designed for NGOs, universities and training centers that need practical skills and local examples.',
+                  title: l10n.eventsAudienceNgoTitle,
+                  description: l10n.eventsAudienceNgoDesc,
                 ),
               ],
             )
           else
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Expanded(
                   child: _TrainingAudienceCard(
                     icon: LucideIcons.building2,
-                    title: 'Government & Ministry teams',
-                    description:
-                        'Support for policy, communications and technical units that need clear, practical training without heavy jargon.',
+                    title: l10n.eventsAudienceGovernmentTitle,
+                    description: l10n.eventsAudienceGovernmentDesc,
                   ),
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 Expanded(
                   child: _TrainingAudienceCard(
                     icon: LucideIcons.briefcase,
-                    title: 'Businesses & Startups',
-                    description:
-                        'Trainings to help founders and teams present ideas, write for customers and use AI tools in daily work.',
+                    title: l10n.eventsAudienceBusinessTitle,
+                    description: l10n.eventsAudienceBusinessDesc,
                   ),
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 Expanded(
                   child: _TrainingAudienceCard(
                     icon: LucideIcons.users,
-                    title: 'NGOs & Training Centers',
-                    description:
-                        'Programs designed for NGOs, universities and training centers that need practical skills and local examples.',
+                    title: l10n.eventsAudienceNgoTitle,
+                    description: l10n.eventsAudienceNgoDesc,
                   ),
                 ),
               ],
@@ -864,8 +859,18 @@ class _EventCardState extends State<_EventCard> {
         : AppColors.borderDark;
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
+      onEnter: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = true);
+        });
+      },
+      onExit: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _hovered = false);
+        });
+      },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         curve: Curves.easeOut,
@@ -1324,8 +1329,18 @@ class _CoursesDisciplineCardState extends State<_CoursesDisciplineCard> {
     final scale = _isHovered ? 1.02 : 1.0;
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _isHovered = true),
-      onExit: (_) => setState(() => _isHovered = false),
+      onEnter: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _isHovered = true);
+        });
+      },
+      onExit: (_) {
+        deferAfterPointerFrame(() {
+          if (!mounted) return;
+          setState(() => _isHovered = false);
+        });
+      },
       child: AnimatedScale(
         scale: scale,
         duration: const Duration(milliseconds: 150),

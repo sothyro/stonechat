@@ -20,17 +20,21 @@ class _HeroSectionState extends State<HeroSection> {
   bool _videoReady = false;
   bool _videoError = false;
   void Function()? _loopListener;
+  bool _videoInitStarted = false;
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) _initVideo();
+      Future<void>.delayed(const Duration(milliseconds: 700), () {
+        if (mounted) _initVideo();
+      });
     });
   }
 
   Future<void> _initVideo() async {
-    if (!mounted) return;
+    if (!mounted || _videoInitStarted) return;
+    _videoInitStarted = true;
     try {
       // Use .asset() on all platforms; video_player_web resolves assets correctly.
       final VideoPlayerController c = VideoPlayerController.asset(

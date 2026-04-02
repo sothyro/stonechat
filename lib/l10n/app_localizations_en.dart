@@ -1108,6 +1108,83 @@ class AppLocalizationsEn extends AppLocalizations {
   String get stickyCtaText => 'Subscribe';
 
   @override
+  String get stickyLoginCta => 'Staff';
+
+  @override
+  String get stickyDashboardCta => 'Hub';
+
+  @override
+  String get adminLoginTitle => 'Staff sign in';
+
+  @override
+  String get adminLoginSubtitle =>
+      'Sign in to manage subscribers, appointments, and contact messages.';
+
+  @override
+  String get adminHubTitle => 'Operations hub';
+
+  @override
+  String get adminHubSubtitle =>
+      'Everything you need to run Stonechat day to day.';
+
+  @override
+  String get adminTabSubscribers => 'Subscribers';
+
+  @override
+  String get adminTabAppointments => 'Appointments';
+
+  @override
+  String get adminTabContacts => 'Contacts';
+
+  @override
+  String get adminSubscribersHeading => 'Newsletter subscribers';
+
+  @override
+  String get adminSubscribersSearchHint => 'Filter by email…';
+
+  @override
+  String get adminSubscribersEmpty => 'No subscribers yet.';
+
+  @override
+  String get adminContactsHeading => 'Contact form';
+
+  @override
+  String get adminContactsEmpty => 'No messages yet.';
+
+  @override
+  String get adminColEmail => 'Email';
+
+  @override
+  String get adminColStatus => 'Status';
+
+  @override
+  String get adminColSubscribed => 'Subscribed';
+
+  @override
+  String get adminColLastConfirmed => 'Last confirmed';
+
+  @override
+  String get adminColName => 'Name';
+
+  @override
+  String get adminColSubject => 'Subject';
+
+  @override
+  String get adminColDate => 'Received';
+
+  @override
+  String get adminColPhone => 'Phone';
+
+  @override
+  String get adminViewDetails => 'Open';
+
+  @override
+  String get adminMessageTitle => 'Message';
+
+  @override
+  String get adminLoadError => 'Something went wrong. Try refresh.';
+
+  @override
   String get popupTitle1 => 'Stonechat';
 
   @override
@@ -2319,4 +2396,465 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sectionTestimonialsPart4 => 'Outcomes.';
+
+  @override
+  String get priceFromLabel => 'From';
+
+  @override
+  String get pricingSuffixUsd => ' USD';
+
+  @override
+  String get pricingSuffixUsdPerMonth => ' USD/mo';
+
+  @override
+  String get projectBookCallCta => 'Book a project call';
+
+  @override
+  String get projectPricingScopingNote =>
+      'Exact investment is confirmed after a scoping call.';
+
+  @override
+  String get marketplaceMostPopularBadge => 'Most popular';
+
+  @override
+  String get bookPageHeroOverline => 'Publications & Book Services';
+
+  @override
+  String get bookPageHeroTitle => 'From first idea to finished book';
+
+  @override
+  String get bookPageHeroSubtitle =>
+      'Turn your expertise into a beautiful, professionally published book. Stonechat guides you from brainstorming and writing to design, printing, and launch.';
+
+  @override
+  String get bookStartProjectCta => 'Start your book project';
+
+  @override
+  String get bookServicesOverline => 'Book services';
+
+  @override
+  String get bookServicesTitle =>
+      'Everything you need to publish with confidence';
+
+  @override
+  String get bookServicesIntro =>
+      'Whether you are starting with a rough idea, a draft manuscript, or a finished book that needs design and printing, Stonechat offers an end-to-end publication service tailored to busy leaders and experts.';
+
+  @override
+  String get bookSvc1Title => 'Book strategy & structure';
+
+  @override
+  String get bookSvc1Body =>
+      'Clarify your core message, define who the book is for, and shape your ideas into a clear chapter outline. We help you decide what belongs in the book and what can stay out, so writing becomes faster and more focused.';
+
+  @override
+  String get bookSvc1Highlight =>
+      'Ideal for leaders and experts who know what they want to say but are not sure how to organise it.';
+
+  @override
+  String get bookSvc2Title => 'Writing, editing & translation';
+
+  @override
+  String get bookSvc2Body =>
+      'Through interviews, co-writing and careful editing, we turn your knowledge into polished, publication-ready chapters. Our editorial team writes in your voice in both English and Khmer, then refines every page for accuracy and flow.';
+
+  @override
+  String get bookSvc2Highlight =>
+      'You stay the author and decision-maker; we do the heavy lifting on the page from first draft to final proof.';
+
+  @override
+  String get bookSvc3Title => 'Design, layout & publishing';
+
+  @override
+  String get bookSvc3Body =>
+      'We create a professional cover, design clean interior pages, and prepare all print and digital files your printer needs. Our team coordinates specifications, quotations and test prints so your finished books look world-class on every shelf.';
+
+  @override
+  String get bookSvc3Highlight =>
+      'One partner from design concept to printed books in your hands, ready for launch.';
+
+  @override
+  String get bookProcessTitle => 'How your book comes to life';
+
+  @override
+  String get bookProcessSubtitle =>
+      'A single, guided process from first conversation to printed books in your hands.';
+
+  @override
+  String get bookProcessStep1Title => '1. Discovery & brainstorming';
+
+  @override
+  String get bookProcessStep1Body =>
+      'We explore your story, goals, audience, and timeline, then shape them into a clear book concept and working outline.';
+
+  @override
+  String get bookProcessStep2Title => '2. Writing & editorial';
+
+  @override
+  String get bookProcessStep2Body =>
+      'Through interviews, draft reviews, and editorial passes, we co-create chapters that sound like you and read like a pro.';
+
+  @override
+  String get bookProcessStep3Title => '3. Design & production';
+
+  @override
+  String get bookProcessStep3Body =>
+      'We design the cover, lay out the pages, prepare print and digital files, and manage printers to agreed quality standards.';
+
+  @override
+  String get bookProcessStep4Title => '4. Launch & beyond';
+
+  @override
+  String get bookProcessStep4Body =>
+      'You receive finished books and launch materials; we can also support events, media, and social content to amplify impact.';
+
+  @override
+  String get bookPricingHeading =>
+      'Transparent packages, customised to your book';
+
+  @override
+  String get bookPricingIntro =>
+      'Every project begins with a conversation. These packages give you a clear starting point — we then tailor scope, timelines and print quantities to match your goals and budget.';
+
+  @override
+  String get bookPlanAuthorStarterName => 'Author Starter';
+
+  @override
+  String get bookPlanAuthorStarterStrapline =>
+      'Ideal if you already have a draft or detailed notes.';
+
+  @override
+  String get bookPlanAuthorStarterBullet1 =>
+      'Book concept and chapter outline workshop';
+
+  @override
+  String get bookPlanAuthorStarterBullet2 =>
+      'Editorial review of manuscript (up to 40,000 words)';
+
+  @override
+  String get bookPlanAuthorStarterBullet3 => 'Line editing and proofreading';
+
+  @override
+  String get bookPlanAuthorStarterBullet4 =>
+      'Simple interior layout and print-ready files';
+
+  @override
+  String get bookPlanSignatureName => 'Signature Book';
+
+  @override
+  String get bookPlanSignatureStrapline =>
+      'Our most popular end-to-end package for leaders and experts.';
+
+  @override
+  String get bookPlanSignatureBullet1 =>
+      'Strategy, positioning and full chapter outline';
+
+  @override
+  String get bookPlanSignatureBullet2 =>
+      'Ghostwriting or co-writing based on interviews';
+
+  @override
+  String get bookPlanSignatureBullet3 =>
+      'Professional editing, proofreading and fact-checking';
+
+  @override
+  String get bookPlanSignatureBullet4 =>
+      'Custom cover design and premium interior layout';
+
+  @override
+  String get bookPlanSignatureBullet5 =>
+      'Print coordination (recommended specs and quotations)';
+
+  @override
+  String get bookPlanLaunchLegacyName => 'Launch & Legacy';
+
+  @override
+  String get bookPlanLaunchLegacyStrapline =>
+      'For books that anchor your brand, organisation or campaign.';
+
+  @override
+  String get bookPlanLaunchLegacyBullet1 => 'Everything in Signature Book';
+
+  @override
+  String get bookPlanLaunchLegacyBullet2 =>
+      'Launch event and media talking points pack';
+
+  @override
+  String get bookPlanLaunchLegacyBullet3 =>
+      'Social media launch kit (posts, visuals, captions)';
+
+  @override
+  String get bookPlanLaunchLegacyBullet4 =>
+      'Press-ready PDF and digital book formats (e.g. PDF/ePub)';
+
+  @override
+  String get bookPlanLaunchLegacyBullet5 =>
+      'Optional translation and bilingual editions';
+
+  @override
+  String get appsPageDevHeroTitle => 'From idea to App Store and Play Store';
+
+  @override
+  String get appsPageDevHeroSubtitle =>
+      'Turn your vision into a polished mobile or web app. Stonechat guides you from concept and design through development, testing, and submission to the App Store and Google Play.';
+
+  @override
+  String get appsStartProjectCta => 'Start your app project';
+
+  @override
+  String get appsServicesOverline => 'App services';
+
+  @override
+  String get appsServicesTitle => 'Everything you need to ship a great app';
+
+  @override
+  String get appsServicesIntro =>
+      'Whether you need a simple MVP or a full-featured product, Stonechat delivers end-to-end app development. We work with startups, enterprises, and organisations who want to move fast without cutting corners.';
+
+  @override
+  String get appSvc1Title => 'Strategy & discovery';
+
+  @override
+  String get appSvc1Body =>
+      'We clarify your app idea, define core features, and map user flows. Together we decide what to build first so you launch faster and stay within budget.';
+
+  @override
+  String get appSvc1Highlight =>
+      'Ideal when you have a vision but need a clear roadmap to execute it.';
+
+  @override
+  String get appSvc2Title => 'Design & development';
+
+  @override
+  String get appSvc2Body =>
+      'Our team designs intuitive interfaces and builds native or cross-platform apps for iOS, Android, and web. We use modern stacks and follow best practices for performance and security.';
+
+  @override
+  String get appSvc2Highlight =>
+      'You get a production-ready app that feels fast and looks professional.';
+
+  @override
+  String get appSvc3Title => 'Testing & store submission';
+
+  @override
+  String get appSvc3Body =>
+      'We test on real devices, fix bugs, and handle App Store and Google Play submission. From screenshots and descriptions to compliance checks, we get your app live.';
+
+  @override
+  String get appSvc3Highlight =>
+      'One partner from final build to published app in both stores.';
+
+  @override
+  String get appProcessTitle => 'How your app gets built and published';
+
+  @override
+  String get appProcessSubtitle =>
+      'A single, guided process from first conversation to live apps on the App Store and Google Play.';
+
+  @override
+  String get appProcessStep1Title => '1. Discovery & concept';
+
+  @override
+  String get appProcessStep1Body =>
+      'We explore your goals, users, and constraints, then define a clear scope and feature set for your first release.';
+
+  @override
+  String get appProcessStep2Title => '2. Design & prototyping';
+
+  @override
+  String get appProcessStep2Body =>
+      'We create wireframes and high-fidelity designs, test flows with you, and finalise the look and feel before development.';
+
+  @override
+  String get appProcessStep3Title => '3. Development & testing';
+
+  @override
+  String get appProcessStep3Body =>
+      'We build the app, run automated and manual tests, and iterate until it meets your quality bar and performance targets.';
+
+  @override
+  String get appProcessStep4Title => '4. Store submission & launch';
+
+  @override
+  String get appProcessStep4Body =>
+      'We prepare store assets, submit to App Store and Google Play, and support you through review until your app goes live.';
+
+  @override
+  String get appsPricingHeading =>
+      'Transparent pricing, tailored to your scope';
+
+  @override
+  String get appsPricingIntro =>
+      'Local pricing for Cambodia. Every project starts with a scoping call — we adjust scope and deliverables to match your goals. Use USD; approximate KHR available for marketing.';
+
+  @override
+  String get appsPricingSectionApps => 'App development';
+
+  @override
+  String get appsPricingSectionWebsites => 'Websites & landing pages';
+
+  @override
+  String get appsPricingSectionMaintenance => 'Maintenance & support';
+
+  @override
+  String get appPlanMiniName => 'Mini App / MVP';
+
+  @override
+  String get appPlanMiniStrapline =>
+      'Simple apps with core features. Ideal for booking forms, catalogs, internal tools.';
+
+  @override
+  String get appPlanMiniBullet1 => '3–5 screens';
+
+  @override
+  String get appPlanMiniBullet2 => 'No backend or simple Firebase';
+
+  @override
+  String get appPlanMiniBullet3 => 'Android only';
+
+  @override
+  String get appPlanMiniBullet4 => 'Delivered in 2–4 weeks';
+
+  @override
+  String get appPlanStandardName => 'Standard Business App';
+
+  @override
+  String get appPlanStandardStrapline =>
+      'Our most popular for clinics, SMEs, and small POS systems.';
+
+  @override
+  String get appPlanStandardBullet1 => '8–15 screens';
+
+  @override
+  String get appPlanStandardBullet2 => 'Firebase backend, auth, CRUD';
+
+  @override
+  String get appPlanStandardBullet3 => 'Simple reports';
+
+  @override
+  String get appPlanStandardBullet4 => 'Android (iOS + web add +30–50%)';
+
+  @override
+  String get appPlanAdvancedName => 'Advanced App';
+
+  @override
+  String get appPlanAdvancedStrapline =>
+      'Complex logic, multi-role, integrations, dashboards.';
+
+  @override
+  String get appPlanAdvancedBullet1 => 'Large clinic or multi-branch POS';
+
+  @override
+  String get appPlanAdvancedBullet2 => 'Delivery or marketplace apps';
+
+  @override
+  String get appPlanAdvancedBullet3 => 'Custom backend and admin';
+
+  @override
+  String get appPlanAdvancedBullet4 => 'Quote case-by-case';
+
+  @override
+  String get appPlanLandingName => 'Landing Page';
+
+  @override
+  String get appPlanLandingStrapline =>
+      'One-page site for Facebook sellers. Professional look in 3–5 days.';
+
+  @override
+  String get appPlanLandingBullet1 => 'Single page';
+
+  @override
+  String get appPlanLandingBullet2 => 'Contact form';
+
+  @override
+  String get appPlanLandingBullet3 => 'Mobile-friendly';
+
+  @override
+  String get appPlanStarterWebName => 'Starter Web';
+
+  @override
+  String get appPlanStarterWebStrapline =>
+      'Micro businesses: salon, small shop, teacher.';
+
+  @override
+  String get appPlanStarterWebBullet1 => '1–3 pages';
+
+  @override
+  String get appPlanStarterWebBullet2 => 'Template design';
+
+  @override
+  String get appPlanStarterWebBullet3 => 'Basic contact form';
+
+  @override
+  String get appPlanBasicBizName => 'Basic Business';
+
+  @override
+  String get appPlanBasicBizStrapline => 'SMEs, clinics, training centers.';
+
+  @override
+  String get appPlanBasicBizBullet1 => '5–8 pages';
+
+  @override
+  String get appPlanBasicBizBullet2 => 'Custom layout from template';
+
+  @override
+  String get appPlanBasicBizBullet3 => 'Simple blog/news, 1 language';
+
+  @override
+  String get appPlanProBizName => 'Pro Business';
+
+  @override
+  String get appPlanProBizStrapline => 'Schools, NGOs, larger SMEs.';
+
+  @override
+  String get appPlanProBizBullet1 => 'Up to ~12 pages';
+
+  @override
+  String get appPlanProBizBullet2 => 'Bilingual Khmer/English';
+
+  @override
+  String get appPlanProBizBullet3 => 'Booking form or product listing';
+
+  @override
+  String get appPlanEcomName => 'Small E-commerce';
+
+  @override
+  String get appPlanEcomStrapline => 'Online shops, small brands.';
+
+  @override
+  String get appPlanEcomBullet1 => '20–80 products';
+
+  @override
+  String get appPlanEcomBullet2 => 'Cart, checkout, payment';
+
+  @override
+  String get appPlanEcomBullet3 => 'Basic admin to manage products';
+
+  @override
+  String get appPlanHostingName => 'Web hosting';
+
+  @override
+  String get appPlanHostingStrapline => 'Keep your site secure and updated.';
+
+  @override
+  String get appPlanHostingBullet1 =>
+      'Basic: 10–20 — hosting, security, 2–4 edits';
+
+  @override
+  String get appPlanHostingBullet2 =>
+      'Pro: 30–50 — content updates, backups, priority support';
+
+  @override
+  String get appPlanSupportName => 'App support';
+
+  @override
+  String get appPlanSupportStrapline => 'Bug fixes, tweaks, and new features.';
+
+  @override
+  String get appPlanSupportBullet1 =>
+      'Basic: 50–80 — fixes, minor UI, monitoring';
+
+  @override
+  String get appPlanSupportBullet2 =>
+      'Growth: 100–150 — new features, analytics, performance';
 }

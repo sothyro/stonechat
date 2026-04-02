@@ -6,8 +6,6 @@
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
-
 import '../theme/app_theme.dart';
 import '../utils/breakpoints.dart';
 import '../widgets/app_shell.dart';
@@ -16,10 +14,10 @@ import '../screens/events/events_screen.dart';
 import '../screens/contact/contact_screen.dart';
 import '../screens/consultations/consultations_screen.dart';
 import '../screens/consultations/consultations_dashboard_screen.dart';
+import '../screens/admin/admin_dashboard_screen.dart';
 import '../screens/journey/journey_screen.dart';
 import '../screens/apps/apps_screen.dart';
 import '../screens/book/book_screen.dart';
-import '../providers/auth_provider.dart';
 import '../l10n/app_localizations.dart';
 
 final GlobalKey<NavigatorState> _rootNavKey = GlobalKey<NavigatorState>();
@@ -33,6 +31,7 @@ const Set<String> _knownPaths = {
   '/contact',
   '/consultations',
   '/consultations/dashboard',
+  '/admin',
   '/not-found',
 };
 
@@ -52,6 +51,17 @@ String getInitialRouterLocation() {
     final query = uri.hasQuery ? '?${uri.query}' : '';
     final fragment = uri.fragment.isNotEmpty ? '#${uri.fragment}' : '';
     return path + query + fragment;
+  }
+  // Mobile/desktop: honor engine initial route (e.g. `flutter run --route=/admin`).
+  final platformName = WidgetsBinding.instance.platformDispatcher.defaultRouteName;
+  if (platformName.startsWith('/')) {
+    final qIdx = platformName.indexOf('?');
+    final pathPart = qIdx >= 0 ? platformName.substring(0, qIdx) : platformName;
+    final queryPart = qIdx >= 0 ? platformName.substring(qIdx) : '';
+    final norm = normalizePath(pathPart);
+    if (norm != '/' || queryPart.isNotEmpty) {
+      return norm + queryPart;
+    }
   }
   return '/';
 }
@@ -80,15 +90,19 @@ GoRouter createAppRouter({
       }
 
       if (normalized.isEmpty || _knownPaths.contains(normalized)) {
-        if (normalized == '/consultations/dashboard') {
-          final auth = context.read<AuthProvider>();
-          if (!auth.isLoggedIn) return '/consultations';
-        }
         return null;
       }
       return '/not-found';
     },
     routes: [
+      // Admin hub is outside [AppShell]: it must not sit inside the marketing site's
+      // [SingleChildScrollView] (unbounded height + Expanded + resize caused layout/hit-test failures).
+      GoRoute(
+        path: '/admin',
+        builder: (_, state) => AdminDashboardScreen(
+          initialSection: adminHubSectionFromQuery(state.uri.queryParameters['tab']),
+        ),
+      ),
       ShellRoute(
         builder: (_, __, child) => AppShell(child: child),
         routes: [
@@ -104,7 +118,7 @@ GoRouter createAppRouter({
               initialServiceId: state.uri.queryParameters['service'],
             ),
           ),
-          GoRoute(path: '/consultations/dashboard', builder: (_, __) => const AppointmentsDashboardScreen()),
+          GoRoute(path: '/consultations/dashboard', builder: (_, __) => const ConsultationsDashboardRedirectScreen()),
           GoRoute(path: '/not-found', builder: (_, __) => const _NotFoundScreen()),
         ],
       ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:go_router/go_router.dart';
 
 import '../l10n/app_localizations.dart';
 import '../theme/app_theme.dart';
@@ -8,11 +8,6 @@ import 'app_header.dart';
 import 'app_footer.dart';
 import 'app_drawer.dart';
 import 'sticky_cta_bar.dart';
-
-/// Maximum height (from top of overlay) that participates in hit testing on mobile.
-/// Covers the menu bar (72px) and logo (~118px). Taps below this pass through to
-/// the hero buttons so they remain tappable when the header overlaps them.
-const double _kMobileHeaderHitTestHeight = 140.0;
 
 /// Wraps each route with persistent header and footer.
 class AppShell extends StatefulWidget {
@@ -24,26 +19,80 @@ class AppShell extends StatefulWidget {
   State<AppShell> createState() => _AppShellState();
 }
 
-/// Scroll offset past which the hero area is considered "scrolled past" (menu hides).
-const double _heroThreshold = 400;
+/// Scroll offsets for header visibility (hysteresis avoids oscillation when resize
+/// changes scroll extent / maxScroll and the offset sits near a single threshold).
+const double _menuShowScrollBelow = 360;
+const double _menuHideScrollAbove = 440;
 
-class _AppShellState extends State<AppShell> {
+class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
   final ScrollController _scrollController = ScrollController();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool _showBackToTop = false;
   bool _menuVisible = true;
+  bool _scrollStateUpdateScheduled = false;
+  /// Hysteresis so sticky CTA is not inserted/removed every frame when width jitters at 768.
+  bool? _wideChromeSticky;
+  /// After window metrics change (web resize), skip hit-testing overlays for a few frames so
+  /// pointer routing does not walk header/CTA subtrees while layout is still settling.
+  bool _overlayPointersSafe = true;
+  int _overlayPointerResumeGeneration = 0;
+  double? _lastViewWidth;
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _scrollController.addListener(_onScroll);
   }
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _scrollController.removeListener(_onScroll);
     _scrollController.dispose();
     super.dispose();
+  }
+
+  @override
+  void didChangeMetrics() {
+    _suspendOverlayPointers();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final w = MediaQuery.sizeOf(context).width;
+    if (_lastViewWidth != null && (_lastViewWidth! - w).abs() > 0.5) {
+      _suspendOverlayPointers();
+    }
+    _lastViewWidth = w;
+  }
+
+  void _suspendOverlayPointers() {
+    _overlayPointerResumeGeneration++;
+    final gen = _overlayPointerResumeGeneration;
+    if (_overlayPointersSafe) {
+      setState(() => _overlayPointersSafe = false);
+    }
+    void resume() {
+      if (!mounted || gen != _overlayPointerResumeGeneration) return;
+      setState(() => _overlayPointersSafe = true);
+    }
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        WidgetsBinding.instance.addPostFrameCallback((_) => resume());
+      });
+    });
+  }
+
+  /// Wide layout (desktop chrome + sticky CTA): same hysteresis as admin hub.
+  bool _wideChromeForWidth(double width) {
+    const low = Breakpoints.mobile - 16;
+    const high = Breakpoints.mobile + 16;
+    if (width < low) return false;
+    if (width >= high) return true;
+    return _wideChromeSticky ?? !Breakpoints.isMobile(width);
   }
 
   @override
@@ -65,14 +114,33 @@ class _AppShellState extends State<AppShell> {
   void _onScroll() {
     if (!_scrollController.hasClients) return;
     final offset = _scrollController.offset;
-    final showBackToTop = offset > _heroThreshold;
-    final menuVisible = offset <= _heroThreshold;
-    if (showBackToTop != _showBackToTop || menuVisible != _menuVisible) {
+    bool menuVisible;
+    bool showBackToTop;
+    if (offset <= _menuShowScrollBelow) {
+      menuVisible = true;
+      showBackToTop = false;
+    } else if (offset >= _menuHideScrollAbove) {
+      menuVisible = false;
+      showBackToTop = true;
+    } else {
+      menuVisible = _menuVisible;
+      showBackToTop = _showBackToTop;
+    }
+    if (showBackToTop == _showBackToTop && menuVisible == _menuVisible) return;
+
+    // Scroll notifications can be delivered during pointer/mouse device updates on desktop/web.
+    // Deferring avoids re-entrant rebuilds that trip mouse tracker assertions in debug mode.
+    if (_scrollStateUpdateScheduled) return;
+    _scrollStateUpdateScheduled = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _scrollStateUpdateScheduled = false;
+      if (!mounted) return;
+      if (showBackToTop == _showBackToTop && menuVisible == _menuVisible) return;
       setState(() {
         _showBackToTop = showBackToTop;
         _menuVisible = menuVisible;
       });
-    }
+    });
   }
 
   void _scrollToContent() {
@@ -89,9 +157,14 @@ class _AppShellState extends State<AppShell> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final width = MediaQuery.sizeOf(context).width;
-    final isMobile = Breakpoints.isMobile(width);
+    final useWideChrome = _wideChromeForWidth(width);
+    _wideChromeSticky = useWideChrome;
     final bottomSafe = MediaQuery.paddingOf(context).bottom;
-    final fabBottomPadding = (isMobile ? 24.0 : 60.0) + bottomSafe;
+    final fabBottomPadding = (useWideChrome ? 60.0 : 24.0) + bottomSafe;
+    // New key per route so dismiss on one screen does not hide Hub/Subscribe elsewhere.
+    final stickyCtaKey = ValueKey<String>(
+      'sticky_cta_${GoRouterState.of(context).matchedLocation}',
+    );
 
     return Scaffold(
       key: _scaffoldKey,
@@ -144,7 +217,7 @@ class _AppShellState extends State<AppShell> {
             right: 0,
             top: 0,
             child: IgnorePointer(
-              ignoring: !_menuVisible,
+              ignoring: !_overlayPointersSafe || !_menuVisible,
               child: AnimatedSlide(
                 offset: _menuVisible ? Offset.zero : const Offset(0, -1),
                 duration: const Duration(milliseconds: 300),
@@ -157,16 +230,9 @@ class _AppShellState extends State<AppShell> {
                     bottom: false,
                     child: Padding(
                       padding: const EdgeInsets.only(top: 12),
-                      child: isMobile
-                          ? _HeaderHitTestLimit(
-                              maxHitTestHeight: _kMobileHeaderHitTestHeight,
-                              child: AppHeader(
-                                onOpenDrawer: () => _scaffoldKey.currentState?.openDrawer(),
-                              ),
-                            )
-                          : AppHeader(
-                              onOpenDrawer: () => _scaffoldKey.currentState?.openDrawer(),
-                            ),
+                      child: AppHeader(
+                        onOpenDrawer: () => _scaffoldKey.currentState?.openDrawer(),
+                      ),
                     ),
                   ),
                 ),
@@ -174,18 +240,21 @@ class _AppShellState extends State<AppShell> {
             ),
           ),
           // Sticky CTA bar: hidden on mobile to avoid overlapping content and improve UX
-          if (!isMobile)
+          if (useWideChrome)
             Positioned(
               right: 0,
               top: 160,
               bottom: 100,
-              child: SafeArea(
-                left: false,
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 0),
-                    child: StickyCtaBar(),
+              child: IgnorePointer(
+                ignoring: !_overlayPointersSafe,
+                child: SafeArea(
+                  left: false,
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 0),
+                      child: StickyCtaBar(key: stickyCtaKey),
+                    ),
                   ),
                 ),
               ),
@@ -193,47 +262,5 @@ class _AppShellState extends State<AppShell> {
         ],
       ),
     );
-  }
-}
-
-/// Limits the header overlay's hit test area so taps below [maxHitTestHeight] pass
-/// through to the content underneath (e.g. hero buttons). Fixes mobile tap-through
-/// when the header overlaps the hero section.
-class _HeaderHitTestLimit extends SingleChildRenderObjectWidget {
-  const _HeaderHitTestLimit({
-    required this.maxHitTestHeight,
-    required super.child,
-  });
-
-  final double maxHitTestHeight;
-
-  @override
-  RenderObject createRenderObject(BuildContext context) {
-    return _RenderHeaderHitTestLimit(maxHitTestHeight: maxHitTestHeight);
-  }
-
-  @override
-  void updateRenderObject(BuildContext context, covariant RenderObject renderObject) {
-    (renderObject as _RenderHeaderHitTestLimit).maxHitTestHeight = maxHitTestHeight;
-  }
-}
-
-class _RenderHeaderHitTestLimit extends RenderProxyBox {
-  _RenderHeaderHitTestLimit({required double maxHitTestHeight})
-      : _maxHitTestHeight = maxHitTestHeight;
-
-  double _maxHitTestHeight;
-
-  double get maxHitTestHeight => _maxHitTestHeight;
-
-  set maxHitTestHeight(double value) {
-    if (_maxHitTestHeight == value) return;
-    _maxHitTestHeight = value;
-  }
-
-  @override
-  bool hitTest(BoxHitTestResult result, {required Offset position}) {
-    if (position.dy > _maxHitTestHeight) return false;
-    return super.hitTest(result, position: position);
   }
 }
