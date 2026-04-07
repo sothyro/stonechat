@@ -1049,6 +1049,81 @@ class AppLocalizationsZh extends AppLocalizations {
   String get adminTabContacts => '联系';
 
   @override
+  String get adminTabAnnouncement => '公告';
+
+  @override
+  String get siteAnnouncementDialogLabel => '公告';
+
+  @override
+  String get siteAnnouncementGotIt => '知道了';
+
+  @override
+  String get adminAnnouncementTitle => '网站公告';
+
+  @override
+  String get adminAnnouncementSubtitle =>
+      '启用并在时间范围内时，访客打开站点会看到弹窗。标题和正文都为空则对外不显示。';
+
+  @override
+  String get adminAnnouncementEnabled => '启用';
+
+  @override
+  String get adminAnnouncementFieldTitle => '标题';
+
+  @override
+  String get adminAnnouncementFieldBody => '正文';
+
+  @override
+  String get adminAnnouncementFieldBodyHint => '空行分段。';
+
+  @override
+  String get adminAnnouncementCtaLabel => '链接文字（可选）';
+
+  @override
+  String get adminAnnouncementCtaUrl => '链接地址';
+
+  @override
+  String get adminAnnouncementStartsAt => '开始';
+
+  @override
+  String get adminAnnouncementEndsAt => '结束';
+
+  @override
+  String get adminAnnouncementNotScheduled => '未设置开始 — 启用后即生效';
+
+  @override
+  String get adminAnnouncementNoEnd => '未设置结束 — 直到关闭';
+
+  @override
+  String get adminAnnouncementPickDate => '设置';
+
+  @override
+  String get adminAnnouncementClearSchedule => '清除';
+
+  @override
+  String get adminAnnouncementSave => '保存';
+
+  @override
+  String get adminAnnouncementPreview => '预览';
+
+  @override
+  String get adminAnnouncementSaveSuccess => '已保存。';
+
+  @override
+  String get adminAnnouncementCtaPairHint => '链接文字与 https 地址需同时填写，或同时留空。';
+
+  @override
+  String get adminAnnouncementInvalidSchedule => '开始时间必须早于结束时间。';
+
+  @override
+  String get adminAnnouncementPreviewNeedContent => '请填写标题或正文后再预览。';
+
+  @override
+  String adminAnnouncementRevision(int revision) {
+    return '版本 $revision';
+  }
+
+  @override
   String get adminSubscribersHeading => '邮件订阅';
 
   @override

@@ -1,3 +1,5 @@
+import 'dart:async' show unawaited;
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -8,6 +10,7 @@ import 'app_header.dart';
 import 'app_footer.dart';
 import 'app_drawer.dart';
 import 'sticky_cta_bar.dart';
+import 'site_announcement_dialog.dart';
 
 /// Wraps each route with persistent header and footer.
 class AppShell extends StatefulWidget {
@@ -27,6 +30,7 @@ const double _menuHideScrollAbove = 440;
 class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
   final ScrollController _scrollController = ScrollController();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  bool _siteAnnouncementCheckScheduled = false;
   bool _showBackToTop = false;
   bool _menuVisible = true;
   bool _scrollStateUpdateScheduled = false;
@@ -43,6 +47,11 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     _scrollController.addListener(_onScroll);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || _siteAnnouncementCheckScheduled) return;
+      _siteAnnouncementCheckScheduled = true;
+      unawaited(fetchAndMaybeShowSiteAnnouncement(context));
+    });
   }
 
   @override

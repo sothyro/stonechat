@@ -345,6 +345,37 @@
   "adminTabSubscribers": "订阅者",
   "adminTabAppointments": "预约",
   "adminTabContacts": "联系",
+  "adminTabAnnouncement": "公告",
+  "siteAnnouncementDialogLabel": "公告",
+  "siteAnnouncementGotIt": "知道了",
+  "adminAnnouncementTitle": "网站公告",
+  "adminAnnouncementSubtitle": "启用并在时间范围内时，访客打开站点会看到弹窗。标题和正文都为空则对外不显示。",
+  "adminAnnouncementEnabled": "启用",
+  "adminAnnouncementFieldTitle": "标题",
+  "adminAnnouncementFieldBody": "正文",
+  "adminAnnouncementFieldBodyHint": "空行分段。",
+  "adminAnnouncementCtaLabel": "链接文字（可选）",
+  "adminAnnouncementCtaUrl": "链接地址",
+  "adminAnnouncementStartsAt": "开始",
+  "adminAnnouncementEndsAt": "结束",
+  "adminAnnouncementNotScheduled": "未设置开始 — 启用后即生效",
+  "adminAnnouncementNoEnd": "未设置结束 — 直到关闭",
+  "adminAnnouncementPickDate": "设置",
+  "adminAnnouncementClearSchedule": "清除",
+  "adminAnnouncementSave": "保存",
+  "adminAnnouncementPreview": "预览",
+  "adminAnnouncementSaveSuccess": "已保存。",
+  "adminAnnouncementCtaPairHint": "链接文字与 https 地址需同时填写，或同时留空。",
+  "adminAnnouncementInvalidSchedule": "开始时间必须早于结束时间。",
+  "adminAnnouncementPreviewNeedContent": "请填写标题或正文后再预览。",
+  "adminAnnouncementRevision": "版本 {revision}",
+  "@adminAnnouncementRevision": {
+    "placeholders": {
+      "revision": {
+        "type": "int"
+      }
+    }
+  },
   "adminSubscribersHeading": "邮件订阅",
   "adminSubscribersSearchHint": "按邮箱筛选…",
   "adminSubscribersEmpty": "暂无订阅者。",

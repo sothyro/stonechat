@@ -81,7 +81,8 @@ void _traceStartup(Stopwatch watch, String stage) {
   }
 }
 
-/// Shows a loading screen with 0–100% progress until assets (video, images, fonts) are ready, then the full app.
+/// Shows a loading screen with 0–100% progress until critical startup assets (images + primary fonts) are ready.
+/// Hero video loads later in the hero section.
 class HeroVideoBootstrap extends StatefulWidget {
   const HeroVideoBootstrap({super.key, required this.initialLocation});
 
@@ -98,18 +99,19 @@ class _HeroVideoBootstrapState extends State<HeroVideoBootstrap> {
   bool _revealed = false;
   Timer? _revealTimer;
 
+  static const Duration _preloadRevealTimeout = Duration(seconds: 25);
+
   @override
   void initState() {
     super.initState();
-    _revealTimer = Timer(const Duration(milliseconds: 350), _revealIfNeeded);
+    _revealTimer = Timer(_preloadRevealTimeout, _revealIfNeeded);
     AppAssetPreloader.preloadAll((progress) {
       if (!mounted) return;
       setState(() => _progress = progress);
       if ((kDebugMode || kProfileMode) && progress >= 1.0) {
         debugPrint('STARTUP[preload_complete]');
       }
-      // Reveal as soon as critical assets reach halfway, with a short max wait fallback.
-      if (progress >= 0.5) {
+      if (progress >= 1.0) {
         _revealIfNeeded();
       }
     }).catchError((_) {

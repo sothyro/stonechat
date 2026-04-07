@@ -665,6 +665,12 @@ const MAX_MESSAGE = 5000;
 // Email subscriptions (Subscribe CTA)
 // ---------------------------------------------------------------------------
 const EMAIL_SUBSCRIPTIONS = "email_subscriptions";
+/** Single-doc site config; announcement settings live at [SITE_SETTINGS]/[SITE_ANNOUNCEMENT_DOC]. */
+const SITE_SETTINGS = "site_settings";
+const SITE_ANNOUNCEMENT_DOC = "announcement";
+const ANNOUNCE_TITLE_MAX = 200;
+const ANNOUNCE_BODY_MAX = 5000;
+const ANNOUNCE_CTA_LABEL_MAX = 80;
 const EMAIL_SUBSCRIPTION_STATUS_ACTIVE = "active";
 const NEWSLETTER_RUNS = "newsletter_runs";
 
@@ -1055,6 +1061,232 @@ export const listContactSubmissions = onCall(async (request) => {
     };
   });
   return { submissions };
+});
+
+/**
+ * Whether [s] is empty or a valid http(s) URL (callable client strings).
+ */
+function isValidOptionalHttpUrl(s) {
+  if (!s || typeof s !== "string") return true;
+  const t = s.trim();
+  if (!t) return true;
+  try {
+    const u = new URL(t);
+    return u.protocol === "http:" || u.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
+function timestampToIsoMaybe(ts) {
+  if (!ts || typeof ts.toDate !== "function") return null;
+  try {
+    return ts.toDate().toISOString();
+  } catch {
+    return null;
+  }
+}
+
+/** Safe Firestore int / number for JSON + client int. */
+function safeAnnouncementRevision(v) {
+  if (typeof v === "number" && Number.isFinite(v)) return Math.trunc(v);
+  if (typeof v === "string" && /^\d+$/.test(v.trim())) return parseInt(v.trim(), 10);
+  return 0;
+}
+
+/**
+ * Public payload only when enabled and within schedule and has content.
+ * @param {FirebaseFirestore.DocumentData} d
+ * @param {number} nowMs
+ */
+function announcementActivePayload(d, nowMs) {
+  if (!d || !d.enabled) return null;
+  const startsAt = d.startsAt;
+  const endsAt = d.endsAt;
+  if (startsAt && typeof startsAt.toMillis === "function" && nowMs < startsAt.toMillis()) return null;
+  if (endsAt && typeof endsAt.toMillis === "function" && nowMs > endsAt.toMillis()) return null;
+  const title = typeof d.title === "string" ? d.title.trim() : "";
+  const body = typeof d.body === "string" ? d.body.trim() : "";
+  if (!title && !body) return null;
+  const revision = safeAnnouncementRevision(d.revision);
+  const ctaLabel = typeof d.ctaLabel === "string" ? d.ctaLabel.trim() : "";
+  const ctaUrl = typeof d.ctaUrl === "string" ? d.ctaUrl.trim() : "";
+  return {
+    title,
+    body,
+    ctaLabel: ctaLabel || null,
+    ctaUrl: ctaUrl || null,
+    revision,
+  };
+}
+
+/**
+ * Build a plain JSON-serializable settings object from Firestore (or empty).
+ * Avoids undefined values and odd types that break callable response encoding.
+ */
+function announcementSettingsFromDoc(d) {
+  const raw = d && typeof d === "object" ? d : {};
+  return {
+    enabled: raw.enabled === true,
+    title: typeof raw.title === "string" ? raw.title : "",
+    body: typeof raw.body === "string" ? raw.body : "",
+    ctaLabel: typeof raw.ctaLabel === "string" ? raw.ctaLabel : "",
+    ctaUrl: typeof raw.ctaUrl === "string" ? raw.ctaUrl : "",
+    startsAt: timestampToIsoMaybe(raw.startsAt),
+    endsAt: timestampToIsoMaybe(raw.endsAt),
+    revision: safeAnnouncementRevision(raw.revision),
+    updatedAt: timestampToIsoMaybe(raw.updatedAt),
+  };
+}
+
+const EMPTY_ANNOUNCEMENT_SETTINGS = Object.freeze({
+  enabled: false,
+  title: "",
+  body: "",
+  ctaLabel: "",
+  ctaUrl: "",
+  startsAt: null,
+  endsAt: null,
+  revision: 0,
+  updatedAt: null,
+});
+
+/** Never throw from Firestore shape issues — admin UI can still load defaults. */
+function safeAnnouncementSettingsFromDoc(data) {
+  try {
+    return announcementSettingsFromDoc(data && typeof data === "object" ? data : {});
+  } catch (err) {
+    console.error("safeAnnouncementSettingsFromDoc:", err);
+    return { ...EMPTY_ANNOUNCEMENT_SETTINGS };
+  }
+}
+
+/**
+ * Callable: active site announcement for visitors. No auth.
+ * Schedule and visibility are enforced server-side from Firestore.
+ */
+export const getSiteAnnouncement = onCall(async (_request) => {
+  try {
+    const ref = db.collection(SITE_SETTINGS).doc(SITE_ANNOUNCEMENT_DOC);
+    const snap = await ref.get();
+    const nowMs = Date.now();
+    if (!snap.exists) {
+      return { announcement: null };
+    }
+    const payload = announcementActivePayload(snap.data(), nowMs);
+    return { announcement: payload };
+  } catch (err) {
+    console.error("getSiteAnnouncement:", err);
+    throw new HttpsError(
+      "internal",
+      err?.message || String(err) || "Failed to load announcement."
+    );
+  }
+});
+
+/**
+ * Callable: full announcement settings for Operations Hub. Auth required.
+ * Same security model as [listEmailSubscribers]: any signed-in Firebase user (see project auth policy).
+ */
+export const getSiteAnnouncementAdmin = onCall(async (request) => {
+  if (!request.auth) {
+    throw new HttpsError("unauthenticated", "You must be signed in to load announcement settings.");
+  }
+  try {
+    const ref = db.collection(SITE_SETTINGS).doc(SITE_ANNOUNCEMENT_DOC);
+    const snap = await ref.get();
+    const settings = !snap.exists
+      ? { ...EMPTY_ANNOUNCEMENT_SETTINGS }
+      : safeAnnouncementSettingsFromDoc(snap.data());
+    // Callable responses must be JSON-serializable; extra types break the HTTPS layer (client sees INTERNAL).
+    return { settings: JSON.parse(JSON.stringify(settings)) };
+  } catch (err) {
+    console.error("getSiteAnnouncementAdmin:", err);
+    const hint = err?.message || String(err);
+    throw new HttpsError(
+      "internal",
+      hint || "Failed to load announcement settings. Check Functions logs and Firestore."
+    );
+  }
+});
+
+/**
+ * Callable: save announcement settings. Auth required (same model as other hub write operations).
+ */
+export const setSiteAnnouncement = onCall(async (request) => {
+  if (!request.auth) {
+    throw new HttpsError("unauthenticated", "You must be signed in to update the announcement.");
+  }
+  const data = request.data || {};
+  const enabled = !!data.enabled;
+  const title = typeof data.title === "string" ? data.title.trim() : "";
+  const body = typeof data.body === "string" ? data.body.trim() : "";
+  const ctaLabel = typeof data.ctaLabel === "string" ? data.ctaLabel.trim() : "";
+  const ctaUrl = typeof data.ctaUrl === "string" ? data.ctaUrl.trim() : "";
+
+  if (title.length > ANNOUNCE_TITLE_MAX) {
+    throw new HttpsError("invalid-argument", `Title must be at most ${ANNOUNCE_TITLE_MAX} characters.`);
+  }
+  if (body.length > ANNOUNCE_BODY_MAX) {
+    throw new HttpsError("invalid-argument", `Body must be at most ${ANNOUNCE_BODY_MAX} characters.`);
+  }
+  if (ctaLabel.length > ANNOUNCE_CTA_LABEL_MAX) {
+    throw new HttpsError("invalid-argument", `CTA label must be at most ${ANNOUNCE_CTA_LABEL_MAX} characters.`);
+  }
+  if (!isValidOptionalHttpUrl(ctaUrl)) {
+    throw new HttpsError("invalid-argument", "CTA URL must be a valid http or https URL.");
+  }
+  if (ctaLabel && !ctaUrl) {
+    throw new HttpsError("invalid-argument", "CTA URL is required when CTA label is set.");
+  }
+  if (ctaUrl && !ctaLabel) {
+    throw new HttpsError("invalid-argument", "CTA label is required when CTA URL is set.");
+  }
+
+  let startsAt = null;
+  let endsAt = null;
+  if (data.startsAt != null && typeof data.startsAt === "string") {
+    const t = Date.parse(data.startsAt);
+    if (!Number.isNaN(t)) startsAt = Timestamp.fromMillis(t);
+  }
+  if (data.endsAt != null && typeof data.endsAt === "string") {
+    const t = Date.parse(data.endsAt);
+    if (!Number.isNaN(t)) endsAt = Timestamp.fromMillis(t);
+  }
+  if (startsAt && endsAt && startsAt.toMillis() > endsAt.toMillis()) {
+    throw new HttpsError("invalid-argument", "Start time must be before end time.");
+  }
+
+  const ref = db.collection(SITE_SETTINGS).doc(SITE_ANNOUNCEMENT_DOC);
+  const snap = await ref.get();
+  let nextRevision = 1;
+  if (snap.exists) {
+    const r = snap.data()?.revision;
+    if (typeof r === "number" && Number.isFinite(r)) nextRevision = r + 1;
+  }
+
+  const write = {
+    enabled,
+    title,
+    body,
+    ctaLabel: ctaLabel || null,
+    ctaUrl: ctaUrl || null,
+    startsAt,
+    endsAt,
+    revision: nextRevision,
+    updatedAt: Timestamp.now(),
+  };
+
+  try {
+    await ref.set(write);
+    return { success: true, revision: nextRevision };
+  } catch (err) {
+    console.error("setSiteAnnouncement:", err);
+    throw new HttpsError(
+      "internal",
+      err?.message || String(err) || "Failed to save announcement."
+    );
+  }
 });
 
 /**

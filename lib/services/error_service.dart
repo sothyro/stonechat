@@ -187,19 +187,36 @@ class AppError {
           );
           break;
         case 'invalid-argument':
+          final argDetail = error.message?.trim();
           appError = AppError(
             category: ErrorCategory.validation,
-            userMessage: l10n?.errorInvalidInput ?? 'Invalid input. Please check your information.',
+            userMessage: (argDetail != null && argDetail.isNotEmpty)
+                ? argDetail
+                : (l10n?.errorInvalidInput ?? 'Invalid input. Please check your information.'),
+            technicalMessage: error.details?.toString() ?? error.message,
+            retryable: false,
+            originalError: error,
+          );
+          break;
+        case 'unauthenticated':
+          appError = AppError(
+            category: ErrorCategory.authentication,
+            userMessage: l10n?.errorAuthFailed ?? 'Authentication failed. Please try again.',
             technicalMessage: error.message ?? error.details?.toString(),
             retryable: false,
             originalError: error,
           );
           break;
         default:
+          final serverDetail = error.message?.trim();
           appError = AppError(
             category: ErrorCategory.server,
-            userMessage: l10n?.errorServerError ?? 'Server error occurred. Please try again later.',
-            technicalMessage: error.message ?? error.details?.toString(),
+            userMessage: (serverDetail != null && serverDetail.isNotEmpty)
+                ? serverDetail
+                : (l10n?.errorServerError ?? 'Server error occurred. Please try again later.'),
+            technicalMessage: serverDetail != null && serverDetail.isNotEmpty
+                ? error.details?.toString()
+                : (error.details?.toString() ?? error.code),
             retryable: true,
             originalError: error,
           );

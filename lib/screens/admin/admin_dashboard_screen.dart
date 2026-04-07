@@ -13,9 +13,13 @@ import '../../services/appointment_booking_service.dart' show isFirebaseEnabled;
 import '../../theme/app_theme.dart';
 import '../../utils/breakpoints.dart';
 import '../../widgets/glass_container.dart';
+import 'announcement_admin_tab.dart';
 import 'appointments_admin_tab.dart';
 
-enum AdminHubSection { subscribers, appointments, contacts }
+/// Max content width for Subscribers / Contacts on wide layouts (matches [AnnouncementAdminTab]).
+const double _kAdminHubListSectionMaxWidth = 640;
+
+enum AdminHubSection { subscribers, appointments, contacts, announcement }
 
 AdminHubSection adminHubSectionFromQuery(String? tab) {
   switch (tab) {
@@ -23,6 +27,8 @@ AdminHubSection adminHubSectionFromQuery(String? tab) {
       return AdminHubSection.subscribers;
     case 'contacts':
       return AdminHubSection.contacts;
+    case 'announcement':
+      return AdminHubSection.announcement;
     case 'appointments':
     default:
       return AdminHubSection.appointments;
@@ -326,6 +332,10 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                     icon: const Icon(LucideIcons.inbox),
                     label: Text(l10n.adminTabContacts),
                   ),
+                  NavigationRailDestination(
+                    icon: const Icon(LucideIcons.megaphone),
+                    label: Text(l10n.adminTabAnnouncement),
+                  ),
                 ],
               ),
               const VerticalDivider(width: 1, thickness: 1, color: AppColors.borderDark),
@@ -411,6 +421,10 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                   icon: const Icon(LucideIcons.inbox),
                   label: l10n.adminTabContacts,
                 ),
+                NavigationDestination(
+                  icon: const Icon(LucideIcons.megaphone),
+                  label: l10n.adminTabAnnouncement,
+                ),
               ],
             ),
           ],
@@ -463,6 +477,11 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
         );
       case AdminHubSection.contacts:
         return _buildContacts(l10n);
+      case AdminHubSection.announcement:
+        return const Padding(
+          padding: EdgeInsets.fromLTRB(20, 0, 20, 16),
+          child: AnnouncementAdminTab(),
+        );
     }
   }
 
@@ -471,44 +490,57 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
     final filtered = q.isEmpty
         ? _subscribers
         : _subscribers.where((s) => s.email.toLowerCase().contains(q)).toList();
-    return ListView(
-      padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
-      children: [
-        _sectionTopBar(
-          title: l10n.adminSubscribersHeading,
-          count: filtered.length,
-          totalCount: _subscribers.length,
-          onRefresh: _loadLists,
-        ),
-        const SizedBox(height: 12),
-        _searchField(
-          hint: l10n.adminSubscribersSearchHint,
-          onChanged: (v) => setState(() => _subscriberQuery = v),
-        ),
-        if (_subscribersError != null) ...[
-          const SizedBox(height: 12),
-          _errorBanner(_friendlyError(_subscribersError)),
-        ],
-        if (_loadingSubscribers)
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 32),
-            child: Center(child: CircularProgressIndicator(color: AppColors.accent)),
-          )
-        else if (filtered.isEmpty)
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 32),
-            child: Center(
-              child: Text(
-                l10n.adminSubscribersEmpty,
-                style: const TextStyle(color: AppColors.onSurfaceVariantDark),
-              ),
+    return SingleChildScrollView(
+      padding: const EdgeInsets.only(bottom: 24),
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: _kAdminHubListSectionMaxWidth),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                _sectionTopBar(
+                  title: l10n.adminSubscribersHeading,
+                  count: filtered.length,
+                  totalCount: _subscribers.length,
+                  onRefresh: _loadLists,
+                ),
+                const SizedBox(height: 12),
+                _searchField(
+                  hint: l10n.adminSubscribersSearchHint,
+                  onChanged: (v) => setState(() => _subscriberQuery = v),
+                ),
+                if (_subscribersError != null) ...[
+                  const SizedBox(height: 12),
+                  _errorBanner(_friendlyError(_subscribersError)),
+                ],
+                if (_loadingSubscribers)
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 32),
+                    child: Center(child: CircularProgressIndicator(color: AppColors.accent)),
+                  )
+                else if (filtered.isEmpty)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 32),
+                    child: Center(
+                      child: Text(
+                        l10n.adminSubscribersEmpty,
+                        style: const TextStyle(color: AppColors.onSurfaceVariantDark),
+                      ),
+                    ),
+                  )
+                else ...[
+                  const SizedBox(height: 16),
+                  ...filtered.map((s) => _subscriberCard(l10n, s)),
+                ],
+              ],
             ),
-          )
-        else ...[
-          const SizedBox(height: 16),
-          ...filtered.map((s) => _subscriberCard(l10n, s)),
-        ],
-      ],
+          ),
+        ),
+      ),
     );
   }
 
@@ -521,44 +553,57 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                 .toLowerCase();
             return hay.contains(q);
           }).toList();
-    return ListView(
-      padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
-      children: [
-        _sectionTopBar(
-          title: l10n.adminContactsHeading,
-          count: filtered.length,
-          totalCount: _contacts.length,
-          onRefresh: _loadLists,
-        ),
-        const SizedBox(height: 12),
-        _searchField(
-          hint: 'Search contacts',
-          onChanged: (v) => setState(() => _contactQuery = v),
-        ),
-        if (_contactsError != null) ...[
-          const SizedBox(height: 12),
-          _errorBanner(_friendlyError(_contactsError)),
-        ],
-        if (_loadingContacts)
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 32),
-            child: Center(child: CircularProgressIndicator(color: AppColors.accent)),
-          )
-        else if (filtered.isEmpty)
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 32),
-            child: Center(
-              child: Text(
-                l10n.adminContactsEmpty,
-                style: const TextStyle(color: AppColors.onSurfaceVariantDark),
-              ),
+    return SingleChildScrollView(
+      padding: const EdgeInsets.only(bottom: 24),
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: _kAdminHubListSectionMaxWidth),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                _sectionTopBar(
+                  title: l10n.adminContactsHeading,
+                  count: filtered.length,
+                  totalCount: _contacts.length,
+                  onRefresh: _loadLists,
+                ),
+                const SizedBox(height: 12),
+                _searchField(
+                  hint: 'Search contacts',
+                  onChanged: (v) => setState(() => _contactQuery = v),
+                ),
+                if (_contactsError != null) ...[
+                  const SizedBox(height: 12),
+                  _errorBanner(_friendlyError(_contactsError)),
+                ],
+                if (_loadingContacts)
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 32),
+                    child: Center(child: CircularProgressIndicator(color: AppColors.accent)),
+                  )
+                else if (filtered.isEmpty)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 32),
+                    child: Center(
+                      child: Text(
+                        l10n.adminContactsEmpty,
+                        style: const TextStyle(color: AppColors.onSurfaceVariantDark),
+                      ),
+                    ),
+                  )
+                else ...[
+                  const SizedBox(height: 16),
+                  ...filtered.map((c) => _contactCard(l10n, c)),
+                ],
+              ],
             ),
-          )
-        else ...[
-          const SizedBox(height: 16),
-          ...filtered.map((c) => _contactCard(l10n, c)),
-        ],
-      ],
+          ),
+        ),
+      ),
     );
   }
 

@@ -345,6 +345,37 @@
   "adminTabSubscribers": "Subscribers",
   "adminTabAppointments": "Appointments",
   "adminTabContacts": "Contacts",
+  "adminTabAnnouncement": "Announcement",
+  "siteAnnouncementDialogLabel": "Announcement",
+  "siteAnnouncementGotIt": "Got it",
+  "adminAnnouncementTitle": "Site announcement",
+  "adminAnnouncementSubtitle": "Visitors see a dialog when this is enabled and within the schedule. Empty title and body never shows publicly.",
+  "adminAnnouncementEnabled": "Enabled",
+  "adminAnnouncementFieldTitle": "Title",
+  "adminAnnouncementFieldBody": "Body",
+  "adminAnnouncementFieldBodyHint": "Blank lines create new paragraphs.",
+  "adminAnnouncementCtaLabel": "Link label (optional)",
+  "adminAnnouncementCtaUrl": "Link URL",
+  "adminAnnouncementStartsAt": "Starts",
+  "adminAnnouncementEndsAt": "Ends",
+  "adminAnnouncementNotScheduled": "No start — live as soon as enabled",
+  "adminAnnouncementNoEnd": "No end — runs until turned off",
+  "adminAnnouncementPickDate": "Set",
+  "adminAnnouncementClearSchedule": "Clear",
+  "adminAnnouncementSave": "Save",
+  "adminAnnouncementPreview": "Preview",
+  "adminAnnouncementSaveSuccess": "Announcement saved.",
+  "adminAnnouncementCtaPairHint": "Use both a label and an https URL, or leave both empty.",
+  "adminAnnouncementInvalidSchedule": "Start must be before end.",
+  "adminAnnouncementPreviewNeedContent": "Add a title or body to preview.",
+  "adminAnnouncementRevision": "Revision {revision}",
+  "@adminAnnouncementRevision": {
+    "placeholders": {
+      "revision": {
+        "type": "int"
+      }
+    }
+  },
   "adminSubscribersHeading": "Newsletter subscribers",
   "adminSubscribersSearchHint": "Filter by email…",
   "adminSubscribersEmpty": "No subscribers yet.",

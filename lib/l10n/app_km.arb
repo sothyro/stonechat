@@ -349,6 +349,37 @@
   "adminTabSubscribers": "អ្នកចុះឈ្មោះ",
   "adminTabAppointments": "ការណាត់ជួប",
   "adminTabContacts": "ទំនាក់ទំនង",
+  "adminTabAnnouncement": "សេចក្តីជូនដំណឹង",
+  "siteAnnouncementDialogLabel": "សេចក្តីជូនដំណឹង",
+  "siteAnnouncementGotIt": "យល់ហើយ",
+  "adminAnnouncementTitle": "សេចក្តីជូនដំណឹងគេហទំព័រ",
+  "adminAnnouncementSubtitle": "នៅពេលបើក និងនៅក្នុងពេលវេលា អ្នកទស្សនាឃើញបង្អួចលេចឡើង។ ចំណងជើង និងមាតិកាទទេ មិនបង្ហាញទេ។",
+  "adminAnnouncementEnabled": "បើក",
+  "adminAnnouncementFieldTitle": "ចំណងជើង",
+  "adminAnnouncementFieldBody": "មាតិកា",
+  "adminAnnouncementFieldBodyHint": "ទំនាបដើម្បីបំបែកកថាខណ្ឌ។",
+  "adminAnnouncementCtaLabel": "អត្ថបទតំណ (ជាជម្រើស)",
+  "adminAnnouncementCtaUrl": "URL តំណ",
+  "adminAnnouncementStartsAt": "ចាប់ផ្តើម",
+  "adminAnnouncementEndsAt": "បញ្ចប់",
+  "adminAnnouncementNotScheduled": "គ្មានពេលចាប់ផ្តើម — ដំណើរការភ្លាមៗ",
+  "adminAnnouncementNoEnd": "គ្មានពេលបញ្ចប់ — រហូតដល់បិទ",
+  "adminAnnouncementPickDate": "កំណត់",
+  "adminAnnouncementClearSchedule": "លុប",
+  "adminAnnouncementSave": "រក្សាទុក",
+  "adminAnnouncementPreview": "មើលជាមុន",
+  "adminAnnouncementSaveSuccess": "បានរក្សាទុក។",
+  "adminAnnouncementCtaPairHint": "ត្រូវបំពេញអត្ថបទ និង URL https ទាំងពីរ ឬទុកទទេទាំងពីរ។",
+  "adminAnnouncementInvalidSchedule": "ពេលចាប់ផ្តើមត្រូវមុនពេលបញ្ចប់។",
+  "adminAnnouncementPreviewNeedContent": "បំពេញចំណងជើង ឬមាតិកាមុនមើលជាមុន។",
+  "adminAnnouncementRevision": "ការកែ {revision}",
+  "@adminAnnouncementRevision": {
+    "placeholders": {
+      "revision": {
+        "type": "int"
+      }
+    }
+  },
   "adminSubscribersHeading": "អ្នកចុះឈ្មោះទទួលព័ត៌មាន",
   "adminSubscribersSearchHint": "ស្វែងរកតាមអ៊ីមែល…",
   "adminSubscribersEmpty": "មិនទាន់មានអ្នកចុះឈ្មោះ។",

@@ -47,22 +47,32 @@ List<String> get _restImageAssets => [
 class AppAssetPreloader {
   AppAssetPreloader._();
 
-  /// Critical path: logo + hero image. Hero video loads in the hero section.
+  /// Critical path: logo + hero image + primary UI fonts. Hero video loads in the hero section.
   static Future<void> preloadAll(void Function(double progress) onProgress) async {
     onProgress(0.0);
 
-    await _loadImageList(_criticalImageAssets, (completed, total) {
-      onProgress(total > 0 ? completed / total : 1.0);
+    final critical = _criticalImageAssets;
+    final fontSlots = 1;
+    final totalSlots = critical.length + fontSlots;
+    if (totalSlots == 0) {
+      onProgress(1.0);
+      unawaited(_backgroundPreload());
+      return;
+    }
+
+    await _loadImageList(critical, (completed, total) {
+      if (total <= 0) return;
+      onProgress(completed / totalSlots);
     });
+    await _loadMainFonts();
     onProgress(1.0);
 
-    // Background: fonts and rest images (no blocking)
+    // Background: rest images and extended font resolution (no blocking)
     unawaited(_backgroundPreload());
   }
 
   static Future<void> _backgroundPreload() async {
     _triggerOtherLocaleFontsInBackground();
-    await _loadMainFonts();
     await _loadImageList(_restImageAssets, (_, __) {});
     await GoogleFonts.pendingFonts().timeout(
       const Duration(seconds: 30),

@@ -316,6 +316,15 @@ class AppTheme {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         color: AppColors.surfaceElevatedDark,
       ),
+      // M3 date/time dialogs use theme primary for action labels; AppColors.primary is near-black on dark surfaces.
+      datePickerTheme: DatePickerThemeData(
+        confirmButtonStyle: TextButton.styleFrom(foregroundColor: AppColors.accent),
+        cancelButtonStyle: TextButton.styleFrom(foregroundColor: AppColors.onPrimary),
+      ),
+      timePickerTheme: TimePickerThemeData(
+        confirmButtonStyle: TextButton.styleFrom(foregroundColor: AppColors.accent),
+        cancelButtonStyle: TextButton.styleFrom(foregroundColor: AppColors.onPrimary),
+      ),
     );
   }
 }

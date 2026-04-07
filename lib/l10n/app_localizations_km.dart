@@ -1133,6 +1133,85 @@ class AppLocalizationsKm extends AppLocalizations {
   String get adminTabContacts => 'ទំនាក់ទំនង';
 
   @override
+  String get adminTabAnnouncement => 'សេចក្តីជូនដំណឹង';
+
+  @override
+  String get siteAnnouncementDialogLabel => 'សេចក្តីជូនដំណឹង';
+
+  @override
+  String get siteAnnouncementGotIt => 'យល់ហើយ';
+
+  @override
+  String get adminAnnouncementTitle => 'សេចក្តីជូនដំណឹងគេហទំព័រ';
+
+  @override
+  String get adminAnnouncementSubtitle =>
+      'នៅពេលបើក និងនៅក្នុងពេលវេលា អ្នកទស្សនាឃើញបង្អួចលេចឡើង។ ចំណងជើង និងមាតិកាទទេ មិនបង្ហាញទេ។';
+
+  @override
+  String get adminAnnouncementEnabled => 'បើក';
+
+  @override
+  String get adminAnnouncementFieldTitle => 'ចំណងជើង';
+
+  @override
+  String get adminAnnouncementFieldBody => 'មាតិកា';
+
+  @override
+  String get adminAnnouncementFieldBodyHint => 'ទំនាបដើម្បីបំបែកកថាខណ្ឌ។';
+
+  @override
+  String get adminAnnouncementCtaLabel => 'អត្ថបទតំណ (ជាជម្រើស)';
+
+  @override
+  String get adminAnnouncementCtaUrl => 'URL តំណ';
+
+  @override
+  String get adminAnnouncementStartsAt => 'ចាប់ផ្តើម';
+
+  @override
+  String get adminAnnouncementEndsAt => 'បញ្ចប់';
+
+  @override
+  String get adminAnnouncementNotScheduled =>
+      'គ្មានពេលចាប់ផ្តើម — ដំណើរការភ្លាមៗ';
+
+  @override
+  String get adminAnnouncementNoEnd => 'គ្មានពេលបញ្ចប់ — រហូតដល់បិទ';
+
+  @override
+  String get adminAnnouncementPickDate => 'កំណត់';
+
+  @override
+  String get adminAnnouncementClearSchedule => 'លុប';
+
+  @override
+  String get adminAnnouncementSave => 'រក្សាទុក';
+
+  @override
+  String get adminAnnouncementPreview => 'មើលជាមុន';
+
+  @override
+  String get adminAnnouncementSaveSuccess => 'បានរក្សាទុក។';
+
+  @override
+  String get adminAnnouncementCtaPairHint =>
+      'ត្រូវបំពេញអត្ថបទ និង URL https ទាំងពីរ ឬទុកទទេទាំងពីរ។';
+
+  @override
+  String get adminAnnouncementInvalidSchedule =>
+      'ពេលចាប់ផ្តើមត្រូវមុនពេលបញ្ចប់។';
+
+  @override
+  String get adminAnnouncementPreviewNeedContent =>
+      'បំពេញចំណងជើង ឬមាតិកាមុនមើលជាមុន។';
+
+  @override
+  String adminAnnouncementRevision(int revision) {
+    return 'ការកែ $revision';
+  }
+
+  @override
   String get adminSubscribersHeading => 'អ្នកចុះឈ្មោះទទួលព័ត៌មាន';
 
   @override

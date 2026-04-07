@@ -49,6 +49,22 @@ cd functions && npm ci && cd ..
 firebase deploy --only functions
 ```
 
+### Deploying only some functions (codebase prefix)
+
+This project sets `"codebase": "default"` in [firebase.json](../firebase.json). The Firebase CLI treats `--only functions:NAME` as a **codebase** named `NAME` first, so **single-function deploys must use three segments**: `functions:<codebase>:<exportName>`.
+
+Example — site announcement callables only:
+
+**Windows PowerShell** must quote comma-separated `--only` values (otherwise commas split the command into multiple arguments and deploy fails with “No function matches the filter”):
+
+```powershell
+firebase deploy --only "functions:default:getSiteAnnouncement,functions:default:getSiteAnnouncementAdmin,functions:default:setSiteAnnouncement"
+```
+
+Command Prompt, bash, or zsh can use the same quoted form; unquoted commas are fine on most Unix shells.
+
+If you omit the codebase (`functions:getSiteAnnouncement`), you may see: `No function matches given --only filters`.
+
 ### Testing SMS
 
 - **From the app**: Book a consultation and confirm; an SMS is sent to the phone number you enter.
@@ -93,3 +109,11 @@ The Subscribe CTA uses a callable Function to store subscriber emails and send a
 
 - `listEmailSubscribers` — requires Firebase Auth. Optional `{ "limit": 500 }`. Returns `{ subscribers: [{ id, email, status, createdAt, lastConfirmedAt }] }` (ISO date strings), ordered by `lastConfirmedAt` desc.
 - `listContactSubmissions` — requires Firebase Auth. Optional `{ "limit": 200 }`. Returns `{ submissions: [...] }` from `contact_submissions`, ordered by `createdAt` desc.
+
+### Site announcement (public + admin)
+
+- `getSiteAnnouncement` — no auth. Returns `{ announcement: null }` or `{ announcement: { title, body, ctaLabel, ctaUrl, revision } }` when enabled and within schedule (Firestore: `site_settings/announcement`).
+- `getSiteAnnouncementAdmin` — requires Firebase Auth (same model as subscriber list).
+- `setSiteAnnouncement` — requires Firebase Auth; saves settings and bumps `revision`.
+
+If the Operations Hub shows an error when opening the Announcement tab, open **Google Cloud → Cloud Run → Logs** (or **Firebase → Functions → Logs**) for `getSiteAnnouncementAdmin`. After deploying the latest `index.js`, failures return a more specific message in logs and in the client. Typical causes: function not deployed yet, Firestore API disabled for the project, or **App Check** blocking callables (temporarily turn off enforcement for debugging).

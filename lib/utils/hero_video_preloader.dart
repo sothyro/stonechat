@@ -144,9 +144,7 @@ class _LoadingContent extends StatelessWidget {
                         width: 52,
                         height: 52,
                         child: CircularProgressIndicator(
-                          value: displayProgress > 0 && displayProgress <= 1
-                              ? displayProgress
-                              : null,
+                          value: displayProgress.clamp(0.0, 1.0),
                           strokeWidth: 2.5,
                           valueColor: const AlwaysStoppedAnimation<Color>(AppColors.accent),
                           backgroundColor: AppColors.accent.withValues(alpha: 0.2),

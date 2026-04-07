@@ -1137,6 +1137,85 @@ class AppLocalizationsEn extends AppLocalizations {
   String get adminTabContacts => 'Contacts';
 
   @override
+  String get adminTabAnnouncement => 'Announcement';
+
+  @override
+  String get siteAnnouncementDialogLabel => 'Announcement';
+
+  @override
+  String get siteAnnouncementGotIt => 'Got it';
+
+  @override
+  String get adminAnnouncementTitle => 'Site announcement';
+
+  @override
+  String get adminAnnouncementSubtitle =>
+      'Visitors see a dialog when this is enabled and within the schedule. Empty title and body never shows publicly.';
+
+  @override
+  String get adminAnnouncementEnabled => 'Enabled';
+
+  @override
+  String get adminAnnouncementFieldTitle => 'Title';
+
+  @override
+  String get adminAnnouncementFieldBody => 'Body';
+
+  @override
+  String get adminAnnouncementFieldBodyHint =>
+      'Blank lines create new paragraphs.';
+
+  @override
+  String get adminAnnouncementCtaLabel => 'Link label (optional)';
+
+  @override
+  String get adminAnnouncementCtaUrl => 'Link URL';
+
+  @override
+  String get adminAnnouncementStartsAt => 'Starts';
+
+  @override
+  String get adminAnnouncementEndsAt => 'Ends';
+
+  @override
+  String get adminAnnouncementNotScheduled =>
+      'No start — live as soon as enabled';
+
+  @override
+  String get adminAnnouncementNoEnd => 'No end — runs until turned off';
+
+  @override
+  String get adminAnnouncementPickDate => 'Set';
+
+  @override
+  String get adminAnnouncementClearSchedule => 'Clear';
+
+  @override
+  String get adminAnnouncementSave => 'Save';
+
+  @override
+  String get adminAnnouncementPreview => 'Preview';
+
+  @override
+  String get adminAnnouncementSaveSuccess => 'Announcement saved.';
+
+  @override
+  String get adminAnnouncementCtaPairHint =>
+      'Use both a label and an https URL, or leave both empty.';
+
+  @override
+  String get adminAnnouncementInvalidSchedule => 'Start must be before end.';
+
+  @override
+  String get adminAnnouncementPreviewNeedContent =>
+      'Add a title or body to preview.';
+
+  @override
+  String adminAnnouncementRevision(int revision) {
+    return 'Revision $revision';
+  }
+
+  @override
   String get adminSubscribersHeading => 'Newsletter subscribers';
 
   @override

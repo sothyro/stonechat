@@ -2134,6 +2134,150 @@ abstract class AppLocalizations {
   /// **'Contacts'**
   String get adminTabContacts;
 
+  /// No description provided for @adminTabAnnouncement.
+  ///
+  /// In en, this message translates to:
+  /// **'Announcement'**
+  String get adminTabAnnouncement;
+
+  /// No description provided for @siteAnnouncementDialogLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Announcement'**
+  String get siteAnnouncementDialogLabel;
+
+  /// No description provided for @siteAnnouncementGotIt.
+  ///
+  /// In en, this message translates to:
+  /// **'Got it'**
+  String get siteAnnouncementGotIt;
+
+  /// No description provided for @adminAnnouncementTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Site announcement'**
+  String get adminAnnouncementTitle;
+
+  /// No description provided for @adminAnnouncementSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Visitors see a dialog when this is enabled and within the schedule. Empty title and body never shows publicly.'**
+  String get adminAnnouncementSubtitle;
+
+  /// No description provided for @adminAnnouncementEnabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Enabled'**
+  String get adminAnnouncementEnabled;
+
+  /// No description provided for @adminAnnouncementFieldTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get adminAnnouncementFieldTitle;
+
+  /// No description provided for @adminAnnouncementFieldBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Body'**
+  String get adminAnnouncementFieldBody;
+
+  /// No description provided for @adminAnnouncementFieldBodyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Blank lines create new paragraphs.'**
+  String get adminAnnouncementFieldBodyHint;
+
+  /// No description provided for @adminAnnouncementCtaLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Link label (optional)'**
+  String get adminAnnouncementCtaLabel;
+
+  /// No description provided for @adminAnnouncementCtaUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Link URL'**
+  String get adminAnnouncementCtaUrl;
+
+  /// No description provided for @adminAnnouncementStartsAt.
+  ///
+  /// In en, this message translates to:
+  /// **'Starts'**
+  String get adminAnnouncementStartsAt;
+
+  /// No description provided for @adminAnnouncementEndsAt.
+  ///
+  /// In en, this message translates to:
+  /// **'Ends'**
+  String get adminAnnouncementEndsAt;
+
+  /// No description provided for @adminAnnouncementNotScheduled.
+  ///
+  /// In en, this message translates to:
+  /// **'No start — live as soon as enabled'**
+  String get adminAnnouncementNotScheduled;
+
+  /// No description provided for @adminAnnouncementNoEnd.
+  ///
+  /// In en, this message translates to:
+  /// **'No end — runs until turned off'**
+  String get adminAnnouncementNoEnd;
+
+  /// No description provided for @adminAnnouncementPickDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Set'**
+  String get adminAnnouncementPickDate;
+
+  /// No description provided for @adminAnnouncementClearSchedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get adminAnnouncementClearSchedule;
+
+  /// No description provided for @adminAnnouncementSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get adminAnnouncementSave;
+
+  /// No description provided for @adminAnnouncementPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview'**
+  String get adminAnnouncementPreview;
+
+  /// No description provided for @adminAnnouncementSaveSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Announcement saved.'**
+  String get adminAnnouncementSaveSuccess;
+
+  /// No description provided for @adminAnnouncementCtaPairHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Use both a label and an https URL, or leave both empty.'**
+  String get adminAnnouncementCtaPairHint;
+
+  /// No description provided for @adminAnnouncementInvalidSchedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Start must be before end.'**
+  String get adminAnnouncementInvalidSchedule;
+
+  /// No description provided for @adminAnnouncementPreviewNeedContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a title or body to preview.'**
+  String get adminAnnouncementPreviewNeedContent;
+
+  /// No description provided for @adminAnnouncementRevision.
+  ///
+  /// In en, this message translates to:
+  /// **'Revision {revision}'**
+  String adminAnnouncementRevision(int revision);
+
   /// No description provided for @adminSubscribersHeading.
   ///
   /// In en, this message translates to:
